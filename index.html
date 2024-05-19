@@ -32,6 +32,9 @@
         font-weight: 400;
         line-height: 1.618;
         margin: 0;
+      }
+
+      main {
         padding: 1rem;
       }
 
@@ -74,6 +77,14 @@
           width: 80%;
         }
       }
+      #badge {
+        position: relative;
+      }
+      #badge div {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
     </style>
     <script type="application/ld+json">
       {
@@ -93,76 +104,141 @@
   </head>
 
   <body>
-    <section class="section" role="main">
-      <div class="section__inner">
-        <h1 class="section__header">Ciao 👋, I'm Gianfranco.</h1>
+    <style>
+      #forkongithub a {
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        font-family: arial, sans-serif;
+        text-align: center;
+        font-weight: bold;
+        padding: 5px 20px;
+        font-size: 0.5rem;
+        line-height: 1rem;
+        position: absolute;
+        transition: 0.5s;
+        top: 20px;
+        right: -45px;
+        width: 150px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+      }
+      #forkongithub a:hover {
+        background: #fff;
+        color: #fff;
+      }
+      #forkongithub a::before,
+      #forkongithub a::after {
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        height: 1px;
+        background: #fff;
+      }
+      #forkongithub a::after {
+        bottom: 1px;
+        top: auto;
+      }
+      @media screen and (min-width: 800px) {
+        #forkongithub {
+          position: fixed;
+          display: block;
+          top: 0;
+          right: 0;
+          width: 200px;
+          overflow: hidden;
+          height: 200px;
+          z-index: 9999;
+        }
+        #forkongithub a {
+          width: 200px;
+          top: 20px;
+          right: -60px;
+        }
+      }
+    </style>
+    <span id="forkongithub">
+      <a href="/dj-mixes.html">DJ Mixes</a>
+    </span>
+    <main>
+      <section class="section">
+        <div class="section__inner">
+          <h1 class="section__header">Ciao 👋, I'm Gianfranco.</h1>
 
-        <!--         <div>Starting a coding school - <a href="https://escuela.dev">Escuela.dev</a> -->
-        <div>
-          I'm a Sofware Developer contractor at
-          <a
-            href="https://cartrawler.com"
-            title="CarTrawler - a B2B Car Rental & Mobility Marketplace"
-            target="_blank"
-            rel="noopener noreferrer"
-            >CarTrawler</a
-          >
-          - a B2B Car Rental & Taxi Marketplace.
-          <p>Living in sunny Magala, Spain 🌞</p>
-        </div>
+          <!--         <div>Starting a coding school - <a href="https://escuela.dev">Escuela.dev</a> -->
+          <div>
+            I'm a Sofware Developer contractor at
+            <a
+              href="https://cartrawler.com"
+              title="CarTrawler - a B2B Car Rental & Mobility Marketplace"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CarTrawler</a
+            >
+            - a B2B Car Rental & Taxi Marketplace.
+            <p>Living in sunny Magala, Spain 🌞</p>
+          </div>
 
-        <p>My <i>core</i> skills:</p>
-        <ul>
-          <li>React</li>
-          <li>Next.js</li>
-          <li>Redux</li>
-          <li>TypeScript</li>
-          <li>Python</li>
-          <li>AWS</li>
-        </ul>
-        <p>And I'm learning about AI/ML and robotics 🤖</p>
-      </div>
-    </section>
+          <p>My <i>core</i> skills:</p>
+          <ul>
+            <li>React</li>
+            <li>Next.js</li>
+            <li>TypeScript</li>
+            <li>MongoDB</li>
+            <li>Python</li>
+            <li>AWS</li>
+          </ul>
+          <p>And I'm learning about AI/ML and robotics 🤖</p>
+        </div>
+      </section>
 
-    <section class="section">
-      <div class="section__inner">
-        <header class="section__header">Profiles</header>
-        <div>
-          <a rel="noopener noreferrer" href="https://www.goodreads.com/user/show/10470860-gianfranco" target="_blank">
-            Goodreads
-          </a>
+      <section class="section">
+        <div class="section__inner">
+          <header class="section__header">Profiles</header>
+          <div>
+            <a rel="noopener noreferrer" href="https://www.goodreads.com/user/show/10470860-gianfranco" target="_blank">
+              Goodreads
+            </a>
+          </div>
+          <div>
+            <a rel="noopener noreferrer" href="https://www.threads.net/@gianpaj" target="_blank">Threads</a>
+          </div>
+          <div>
+            <a rel="noopener noreferrer" href="https://twitter.com/gianpaj" target="_blank">Twitter</a>
+          </div>
+          <div>
+            <a rel="noopener noreferrer" href="https://www.instagram.com/gianpaj" target="_blank">Instagram</a>
+          </div>
+          <div>
+            <a rel="noopener noreferrer" href="https://github.com/gianpaj" target="_blank">GitHub</a>
+          </div>
+          <div>
+            <a rel="noopener noreferrer" href="https://www.linkedin.com/in/gianpaj" target="_blank">LinkedIn</a>
+          </div>
         </div>
-        <div>
-          <a rel="noopener noreferrer" href="https://www.threads.net/@gianpaj" target="_blank">Threads</a>
-        </div>
-        <div>
-          <a rel="noopener noreferrer" href="https://twitter.com/gianpaj" target="_blank">Twitter</a>
-        </div>
-        <div>
-          <a rel="noopener noreferrer" href="https://www.instagram.com/gianpaj" target="_blank">Instagram</a>
-        </div>
-        <div>
-          <a rel="noopener noreferrer" href="https://github.com/gianpaj" target="_blank">GitHub</a>
-        </div>
-        <div>
-          <a rel="noopener noreferrer" href="https://www.linkedin.com/in/gianpaj" target="_blank">LinkedIn</a>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="section__inner">
-        <h2>My CV</h2>
+      </section>
+      <section class="section">
+        <div class="section__inner">
+          <h2>My CV</h2>
 
-        <a href="./Gianfranco_Palumbo_CV.html" title="HTML Gianfranco Palumbo CV">Gianfranco_Palumbo_CV.html</a>
-      </div>
-    </section>
-    <section class="section">
-      <div class="section__inner">
-        <p>Thanks for stopping by! 🚀🌐</p>
-        <!-- <a href="mailto:hi@gian.cool" title="Email me at hi@gian.cool">hi@gian.cool</a> -->
-        <img src="./bye-okay.gif" class="gif" />
-      </div>
-    </section>
+          <a href="./Gianfranco_Palumbo_CV.html" title="HTML Gianfranco Palumbo CV">Gianfranco_Palumbo_CV.html</a>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section__inner">
+          <p>Thanks for stopping by! 🚀🌐</p>
+          <!-- <a href="mailto:hi@gian.cool" title="Email me at hi@gian.cool">hi@gian.cool</a> -->
+          <img src="./bye-okay.gif" class="gif" />
+        </div>
+      </section>
+    </main>
   </body>
   <!-- Cloudflare Web Analytics -->
   <script
