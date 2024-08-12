@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -23,8 +23,6 @@
       }
 
       body {
-        background: #f4f4f4;
-        color: #3a3a3a;
         font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, Arial,
           sans-serif;
         font-size: 1rem;
@@ -32,6 +30,19 @@
         font-weight: 400;
         line-height: 1.618;
         margin: 0;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: black;
+          color: #f4f4f4;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        body {
+          background: #f4f4f4;
+          color: #3a3a3a;
+        }
       }
 
       main {
@@ -116,6 +127,25 @@
       #djmixes a::after {
         bottom: 1px;
         top: auto;
+      }
+      @media (prefers-color-scheme: dark) {
+        #djmixes a {
+          background: #fff;
+          color: #000;
+        }
+        #djmixes a:hover {
+          background: #aaa;
+          color: #333;
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        #djmixes a {
+          background: #000;
+          color: #fff;
+        }
+        #djmixes a:hover {
+          color: #333;
+        }
       }
       @media screen and (min-width: 800px) {
         #djmixes {
