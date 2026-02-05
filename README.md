@@ -1,43 +1,55 @@
-# Astro Starter Kit: Minimal
+# Gianfranco Palumbo ― Personal Website
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+This is my personal website, built with **Astro** and **TypeScript**. It serves as my digital home and will eventually include a microblog.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## About Me
 
-## 🚀 Project Structure
+I'm a Software Engineer living in sunny Málaga, Spain 🌞. I specialize in:
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Frontend:** React, React Native, Next.js
+- **Languages:** TypeScript, Python
+- **Backend/Infrastructure:** MongoDB, AWS, Vercel
+- **Current Focus:** Learning about Generative AI (text and audio) 🤖
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### Current Projects
+- 🎙️ [SexyVoice.ai](https://sexyvoice.ai) - Free Realistic Text to Speech & AI Voice Generator
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Tech Stack (Updated)
 
-Any static assets, like images, can be placed in the `public/` directory.
+Previously a "No JavaScript" vanilla HTML/CSS site, now transitioning to:
+- **Framework:** [Astro](https://astro.build/)
+- **Language:** TypeScript
+- **Package Manager:** pnpm
 
-## 🧞 Commands
+## Getting Started
 
-All commands are run from the root of the project, from a terminal:
+Inside your project, you can use the following commands:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+| `pnpm install`            | Installs dependencies                            |
+| `pnpm dev`                | Starts local dev server at `localhost:4321`      |
+| `pnpm build`              | Build your production site to `./dist/`          |
+| `pnpm preview`            | Preview your build locally, before deploying     |
+| `pnpm astro ...`          | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro --help`       | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Legacy Preview (Vanilla)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+If you are looking for the original vanilla version:
+```bash
+npm install -g browser-sync
+browser-sync start -ws .
+```
+
+---
+
+## Profiles
+- [Goodreads](https://www.goodreads.com/user/show/10470860-gianfranco)
+- [Twitter/X](https://x.com/gianpaj)
+- [GitHub](https://github.com/gianpaj)
+- [LinkedIn](https://www.linkedin.com/in/gianpaj)
+
+Thanks for stopping by! 🚀🌐
