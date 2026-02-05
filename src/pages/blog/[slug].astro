@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{post.data.title}</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        max-width: 65ch;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        line-height: 1.6;
+        color: #222;
+      }
+      a { color: #0066cc; }
+      .back { margin-bottom: 2rem; display: inline-block; }
+      h1 { margin-bottom: 0.25rem; }
+      time { color: #666; font-size: 0.9rem; }
+      hr { margin: 1.5rem 0; border: none; border-top: 1px solid #ddd; }
+    </style>
+  </head>
+  <body>
+    <a class="back" href="/">&larr; Back</a>
+    <article>
+      <h1>{post.data.title}</h1>
+      <time datetime={post.data.pubDate.toISOString()}>
+        {post.data.pubDate.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+      <hr />
+      <Content />
+    </article>
+  </body>
+</html>
