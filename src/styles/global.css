@@ -22,3 +22,17 @@
   --color-dark-border: #2e2e2e;
   --color-dark-terracotta: #d4785e;
 }
+
+/* Table background colors */
+.prose table {
+  margin: 2rem 0;
+  background-color: var(--color-cream);
+}
+.prose table th,
+.prose table td {
+  padding: 1rem 1rem;
+}
+
+.dark .prose table {
+  background-color: var(--color-dark-surface);
+}

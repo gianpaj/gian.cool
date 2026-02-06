@@ -1,0 +1,31 @@
+---
+title: "Opus 4.6 vs ChatGPT Codex 5.3"
+description: "A comparison of benchmark performance metrics between Opus 4.6 and Codex 5.3 models"
+slug: opus-4-6-vs-codex-5-3
+pubDate: 2026-02-06
+---
+
+import TerminalBenchChart from "../../components/TerminalBenchChart.tsx";
+import More from "../../components/More.astro";
+
+A comparison of benchmark metrics between Opus 4.6 and Codex 5.3 models.
+
+Anthropic and OpenAI both published Terminal-Bench 2.0 results recently — but in separate charts and, in table. I wanted the full picture, so I combined them.
+
+<TerminalBenchChart client:load />
+
+<More />
+
+| Model | Accuracy | Source |
+|-------|----------|--------|
+| GPT-5.3-Codex (xhigh) | 77.3% | OpenAI |
+| Opus 4.6 | 65.4% | Anthropic |
+| GPT-5.2-Codex (xhigh) | 64.0–64.7% | Both |
+| GPT-5.2 (xhigh) | 62.2% | OpenAI |
+| Opus 4.5 | 59.8% | Anthropic |
+| Gemini 3 Pro | 56.2% | Anthropic |
+| Sonnet 4.5 | 51.0% | Anthropic |
+
+GPT-5.3-Codex (xhigh) leads by a wide margin. The middle is tightly packed between 59–65%
+
+When companies benchmark in isolation, you only see their angle. Putting the numbers side by side tells a different story.
