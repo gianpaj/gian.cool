@@ -9,7 +9,7 @@ interface Props {
 const { title, description = 'Gian.cool Blog' } = Astro.props;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -61,9 +61,8 @@ const { title, description = 'Gian.cool Blog' } = Astro.props;
     <script is:inline>
       (function () {
         const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (stored === 'dark' || (!stored && prefersDark)) {
-          document.documentElement.classList.add('dark');
+        if (stored === 'light') {
+          document.documentElement.classList.remove('dark');
         }
       })();
     </script>
