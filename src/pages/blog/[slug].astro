@@ -1,4 +1,5 @@
 ---
+import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -13,39 +14,46 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{post.data.title}</title>
-    <style>
-      body {
-        font-family: system-ui, -apple-system, sans-serif;
-        max-width: 65ch;
-        margin: 2rem auto;
-        padding: 0 1rem;
-        line-height: 1.6;
-        color: #222;
-      }
-      a { color: #0066cc; }
-      .back { margin-bottom: 2rem; display: inline-block; }
-      h1 { margin-bottom: 0.25rem; }
-      time { color: #666; font-size: 0.9rem; }
-      hr { margin: 1.5rem 0; border: none; border-top: 1px solid #ddd; }
-    </style>
-  </head>
-  <body>
-    <a class="back" href="/">&larr; Back</a>
-    <article>
-      <h1>{post.data.title}</h1>
-      <time datetime={post.data.pubDate.toISOString()}>
-        {post.data.pubDate.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+<Layout title={`${post.data.title} — Gian.cool Blog`} description={post.data.description}>
+  <a
+    href="/"
+    class="inline-flex items-center gap-1.5 text-sm text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors mb-10 group"
+  >
+    <span class="inline-block transition-transform group-hover:-translate-x-0.5">&larr;</span>
+    Back
+  </a>
+
+  <article>
+    <header class="mb-10">
+      <time
+        datetime={post.data.pubDate.toISOString()}
+        class="text-xs font-mono uppercase tracking-widest text-muted dark:text-dark-muted"
+      >
+        {post.data.pubDate.toLocaleDateString('en-GB', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
       </time>
-      <hr />
+      <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1] mt-2">
+        {post.data.title}
+      </h1>
+    </header>
+
+    <div class="prose prose-lg max-w-none
+      prose-headings:font-serif prose-headings:tracking-tight prose-headings:font-normal
+      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+      prose-p:leading-relaxed prose-p:text-ink/80 dark:prose-p:text-dark-text/80
+      prose-a:text-terracotta dark:prose-a:text-dark-terracotta prose-a:underline-offset-2 prose-a:decoration-terracotta/30 hover:prose-a:decoration-terracotta
+      prose-strong:font-semibold prose-strong:text-ink dark:prose-strong:text-dark-text
+      prose-code:text-sm prose-code:font-mono prose-code:bg-ink/5 dark:prose-code:bg-dark-text/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+      prose-pre:bg-ink/5 dark:prose-pre:bg-dark-text/5 prose-pre:border prose-pre:border-border dark:prose-pre:border-dark-border
+      prose-li:text-ink/80 dark:prose-li:text-dark-text/80
+      prose-ul:list-disc prose-ul:pl-4
+      prose-hr:border-border dark:prose-hr:border-dark-border
+    ">
       <Content />
-    </article>
-  </body>
-</html>
+    </div>
+  </article>
+</Layout>

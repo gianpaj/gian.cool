@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Instrument Serif", "Georgia", serif;
+  --font-sans: "Satoshi", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-cream: #fafaf8;
+  --color-ink: #1a1a1a;
+  --color-muted: #71717a;
+  --color-border: #e4e4e7;
+  --color-terracotta: #c4614e;
+  --color-terracotta-hover: #a8503f;
+
+  --color-dark-bg: #141414;
+  --color-dark-surface: #1e1e1e;
+  --color-dark-text: #e8e4de;
+  --color-dark-muted: #9ca3af;
+  --color-dark-border: #2e2e2e;
+  --color-dark-terracotta: #d4785e;
+}
