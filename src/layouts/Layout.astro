@@ -1,32 +1,24 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Gian.cool Blog' } = Astro.props;
+const { title, description = "Gian.cool Blog" } = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body
@@ -38,38 +30,72 @@ const { title, description = 'Gian.cool Blog' } = Astro.props;
       </main>
 
       <footer class="w-full max-w-2xl mx-auto px-6 pb-10">
-        <div class="flex items-center justify-between border-t border-border dark:border-dark-border pt-6">
-          <p class="text-sm text-muted dark:text-dark-muted tracking-wide">
-            &copy; {new Date().getFullYear()} Gian.cool
-          </p>
-          <button
-            id="theme-toggle"
-            type="button"
-            aria-label="Toggle dark mode"
-            class="group relative flex items-center gap-2 text-sm text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors cursor-pointer"
-          >
-            <span class="hidden dark:inline">Light</span>
-            <span class="inline dark:hidden">Dark</span>
-            <div class="relative w-10 h-[22px] rounded-full bg-ink/10 dark:bg-dark-text/10 transition-colors">
-              <div class="absolute top-[3px] left-[3px] dark:left-[19px] w-4 h-4 rounded-full bg-ink dark:bg-dark-text transition-all duration-300"></div>
-            </div>
-          </button>
+        <div class="border-t border-border dark:border-dark-border pt-6 space-y-4">
+          <nav class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+            <a
+              href="https://github.com/gianpaj"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
+              >GitHub</a
+            >
+            <a
+              href="https://x.com/gianpaj"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors">X</a
+            >
+            <a
+              href="https://www.linkedin.com/in/gianpaj"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
+              >LinkedIn</a
+            >
+            <a
+              href="https://www.goodreads.com/user/show/10470860-gianfranco"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
+              >Goodreads</a
+            >
+          </nav>
+          <div class="flex items-center justify-between">
+            <p class="text-sm text-muted dark:text-dark-muted tracking-wide">
+              &copy; {new Date().getFullYear()} Gian.cool
+            </p>
+            <button
+              id="theme-toggle"
+              type="button"
+              aria-label="Toggle dark mode"
+              class="group relative flex items-center gap-2 text-sm text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors cursor-pointer"
+            >
+              <span class="hidden dark:inline">Light</span>
+              <span class="inline dark:hidden">Dark</span>
+              <div class="relative w-10 h-[22px] rounded-full bg-ink/10 dark:bg-dark-text/10 transition-colors">
+                <div
+                  class="absolute top-[3px] left-[3px] dark:left-[19px] w-4 h-4 rounded-full bg-ink dark:bg-dark-text transition-all duration-300"
+                >
+                </div>
+              </div>
+            </button>
+          </div>
         </div>
       </footer>
     </div>
 
     <script is:inline>
       (function () {
-        const stored = localStorage.getItem('theme');
-        if (stored === 'light') {
-          document.documentElement.classList.remove('dark');
+        const stored = localStorage.getItem("theme");
+        if (stored === "light") {
+          document.documentElement.classList.remove("dark");
         }
       })();
     </script>
     <script is:inline>
-      document.getElementById('theme-toggle').addEventListener('click', function () {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.getElementById("theme-toggle").addEventListener("click", function () {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
       });
     </script>
   </body>
