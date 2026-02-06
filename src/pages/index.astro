@@ -1,51 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-import MarkdownIt from "markdown-it";
+import { getCollection, render } from "astro:content";
 import { postPath } from "../utils/post-path";
-
-const parser = new MarkdownIt();
+import ExcerptOnly from "../components/ExcerptOnly.astro";
 
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
-function truncateMarkdown(body: string | undefined, maxLen = 500): string {
-  if (!body) return "";
-  // Walk through the raw markdown counting characters, skipping only newlines.
-  // This gives an approximate limit based on raw source length (including markdown
-  // syntax like **, backticks, [] etc.) rather than rendered visible text length.
-  let textCount = 0;
-  let cutIndex = body.length;
-
-  for (let i = 0; i < body.length; i++) {
-    const ch = body[i];
-    // We count all characters including markdown syntax (**, `, [], etc.)
-    // so the limit is based on raw markdown length, not rendered text length.
-    if (ch === "\n" || ch === "\r") {
-      // Newlines don't count toward the limit.
-      continue;
-    }
-    textCount++;
-    if (textCount >= maxLen) {
-      cutIndex = i + 1;
-      break;
-    }
-  }
-
-  if (cutIndex >= body.length) return parser.render(body);
-
-  // Trim to last space for a clean word boundary
-  let trimmed = body.slice(0, cutIndex);
-  const lastSpace = trimmed.lastIndexOf(" ");
-  if (lastSpace > 0) {
-    trimmed = trimmed.slice(0, lastSpace);
-  }
-
-  const html = parser.render(trimmed);
-  // Append ellipsis inside the last closing tag
-  return html.replace(/<\/([^>]+)>\s*$/, "\u2026</$1>");
-}
+// Render posts to get the Content component
+const postsWithContent = await Promise.all(
+  posts.map(async (post) => {
+    const { Content } = await render(post);
+    return {
+      post,
+      Content,
+    };
+  }),
+);
 ---
 
 <Layout title="Gian.cool Blog">
@@ -59,7 +31,7 @@ function truncateMarkdown(body: string | undefined, maxLen = 500): string {
   <section>
     <ul class="space-y-12">
       {
-        posts.map((post) => (
+        postsWithContent.map(({ post, Content }) => (
           <li class="group">
             <a href={postPath(post.data.pubDate, post.data.slug)} class="block">
               <time
@@ -86,8 +58,17 @@ function truncateMarkdown(body: string | undefined, maxLen = 500): string {
               prose-li:text-muted dark:prose-li:text-dark-muted
               prose-code:text-xs prose-code:font-mono prose-code:bg-ink/5 dark:prose-code:bg-dark-text/5 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
             "
-              set:html={truncateMarkdown(post.body)}
-            />
+            >
+              <ExcerptOnly>
+                <Content />
+              </ExcerptOnly>
+            </div>
+            <a
+              href={postPath(post.data.pubDate, post.data.slug)}
+              class="inline-block mt-2 text-sm text-terracotta dark:text-dark-terracotta hover:underline underline-offset-2"
+            >
+              Read more →
+            </a>
           </li>
         ))
       }
