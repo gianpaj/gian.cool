@@ -1,0 +1,26 @@
+---
+/**
+ * More component - marks the end of the excerpt content.
+ *
+ * Usage in MDX files:
+ *   import More from '../../components/More.astro';
+ *
+ *   Content before this will appear in excerpts.
+ *
+ *   <More />
+ *
+ *   Content after this will only appear on the full post page.
+ */
+---
+
+<hr data-excerpt-separator="true" class="excerpt-separator" aria-hidden="true" />
+
+<style>
+  .excerpt-separator {
+    display: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    height: 0;
+  }
+</style>

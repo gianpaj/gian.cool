@@ -1,0 +1,36 @@
+---
+title: "Hello World"
+description: "My first blog post — a quick intro to who I am and what this blog will be about."
+slug: opus-4-6-vs-codex-5-3
+pubDate: 2026-02-06
+---
+
+import TerminalBenchChart from "../../components/TerminalBenchChart.tsx";
+import More from "../../components/More.astro";
+
+Hi gang
+
+<TerminalBenchChart client:load />
+
+<More />
+
+## Why Astro?
+
+Astro ships zero JavaScript by default. That means your pages load incredibly fast, and you only add interactivity where you need it — the "islands architecture" approach.
+
+Some things I love about Astro:
+
+- **Content Collections** — define schemas for your content and get type safety out of the box
+- **MDX Support** — write in Markdown with embedded components when you need them
+- **Framework Agnostic** — use React, Vue, Svelte, or nothing at all
+- **Fast by Default** — no client-side JS unless you opt in
+
+## Setting Up Content Collections
+
+The content layer API in Astro 5 uses a `src/content.config.ts` file where you define your collections with a loader and a Zod schema. The `glob` loader picks up Markdown and MDX files from a directory, and the schema validates your frontmatter.
+
+This gives you full type safety when querying posts in your Astro pages — no more guessing what fields are available.
+
+## What's Next
+
+In future posts I'll cover adding styling, deploying to GitHub Pages, and building interactive components with Astro islands. Stay tuned!

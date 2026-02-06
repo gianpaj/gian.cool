@@ -1,0 +1,37 @@
+---
+/**
+ * ExcerptOnly - Renders only the content before the <More /> separator.
+ *
+ * This component renders its slot content, finds the excerpt separator marker,
+ * and outputs only the HTML before it. This happens at build time, so no extra
+ * HTML is sent to the client.
+ *
+ * Usage:
+ *   <ExcerptOnly>
+ *     <Content />
+ *   </ExcerptOnly>
+ */
+
+// Render the slot content to HTML string
+const html = await Astro.slots.render("default");
+
+// Find the excerpt separator marker (from <More /> component)
+// The More component renders: <hr data-excerpt-separator="true" ...>
+const markerPattern = /<hr[^>]*data-excerpt-separator[^>]*>/i;
+const match = html.match(markerPattern);
+
+let excerptHtml = html;
+
+if (match && match.index !== undefined) {
+  // Find the position of the marker
+  const markerIndex = match.index;
+
+  // Get everything before the marker
+  excerptHtml = html.substring(0, markerIndex);
+
+  // Clean up any trailing whitespace or empty elements
+  excerptHtml = excerptHtml.trim();
+}
+---
+
+<Fragment set:html={excerptHtml} />

@@ -1,0 +1,30 @@
+---
+title: "Getting Started with Astro"
+description: "A walkthrough of setting up an Astro project from scratch, including content collections and MDX support."
+slug: getting-started-with-astro
+pubDate: 2025-02-06
+draft: true
+---
+
+Astro has quickly become one of my favourite frameworks for building content-driven websites. In this post, I'll walk through how I set up this very site.
+
+## Why Astro?
+
+Astro ships zero JavaScript by default. That means your pages load incredibly fast, and you only add interactivity where you need it — the "islands architecture" approach.
+
+Some things I love about Astro:
+
+- **Content Collections** — define schemas for your content and get type safety out of the box
+- **MDX Support** — write in Markdown with embedded components when you need them
+- **Framework Agnostic** — use React, Vue, Svelte, or nothing at all
+- **Fast by Default** — no client-side JS unless you opt in
+
+## Setting Up Content Collections
+
+The content layer API in Astro 5 uses a `src/content.config.ts` file where you define your collections with a loader and a Zod schema. The `glob` loader picks up Markdown and MDX files from a directory, and the schema validates your frontmatter.
+
+This gives you full type safety when querying posts in your Astro pages — no more guessing what fields are available.
+
+## What's Next
+
+In future posts I'll cover adding styling, deploying to GitHub Pages, and building interactive components with Astro islands. Stay tuned!
