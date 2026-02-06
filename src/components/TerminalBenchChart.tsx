@@ -49,54 +49,18 @@ const providerLabels: Record<string, string> = {
 };
 
 interface ThemeColors {
-  bg: string;
-  cardBg: string;
-  cardBorder: string;
-  cardShadow: string;
-  text: string;
-  textMuted: string;
-  textLabel: string;
   gridStroke: string;
   axisStroke: string;
-  noteBg: string;
-  noteBorder: string;
-  tooltipBg: string;
-  tooltipBorder: string;
-  tooltipText: string;
 }
 
 const lightTheme: ThemeColors = {
-  bg: "transparent",
-  cardBg: "#ffffff",
-  cardBorder: "#e2e2e2",
-  cardShadow: "0 4px 24px rgba(0,0,0,0.06)",
-  text: "#1a1a1a",
-  textMuted: "#999",
-  textLabel: "#555",
   gridStroke: "#eee",
   axisStroke: "#ddd",
-  noteBg: "#fafaf8",
-  noteBorder: "#eee",
-  tooltipBg: "#fff",
-  tooltipBorder: "#e0e0e0",
-  tooltipText: "#222",
 };
 
 const darkTheme: ThemeColors = {
-  bg: "#141414",
-  cardBg: "#1e1e1e",
-  cardBorder: "#2e2e2e",
-  cardShadow: "0 4px 24px rgba(0,0,0,0.4)",
-  text: "#e8e4de",
-  textMuted: "#9ca3af",
-  textLabel: "#d1d5db",
   gridStroke: "#333",
   axisStroke: "#444",
-  noteBg: "#252525",
-  noteBorder: "#333",
-  tooltipBg: "#1a1a1a",
-  tooltipBorder: "#444",
-  tooltipText: "#e8e4de",
 };
 
 interface TooltipPayload {
@@ -114,40 +78,27 @@ interface CustomTooltipProps {
 }
 
 interface CustomTooltipWithThemeProps extends CustomTooltipProps {
-  theme: ThemeColors;
+  isDark: boolean;
   barColors: Record<string, string>;
 }
 
-const CustomTooltip = ({ active, payload, theme, barColors }: CustomTooltipWithThemeProps) => {
+const CustomTooltip = ({ active, payload, isDark, barColors }: CustomTooltipWithThemeProps) => {
   if (active && payload && payload.length) {
     const d = payload[0].payload;
     const prov = d.provider === "anthropic_ref" ? "anthropic" : d.provider;
     return (
       <div
-        style={{
-          background: theme.tooltipBg,
-          border: `1px solid ${theme.tooltipBorder}`,
-          borderRadius: 8,
-          padding: "10px 14px",
-          color: theme.tooltipText,
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: 13,
-          boxShadow: "0 4px 16px rgba(0,0,0,0.16)",
-          maxWidth: 200,
-        }}
+        className={`rounded-lg p-3 font-sans text-[13px] shadow-lg max-w-50 border ${
+          isDark ? "bg-dark-bg border-dark-border text-dark-text" : "bg-white border-border text-ink"
+        }`}
       >
-        <div style={{ fontWeight: 700, marginBottom: 4 }}>{d.name}</div>
-        <div style={{ color: barColors[d.provider], fontWeight: 600 }}>{d.accuracy}%</div>
-        <div style={{ color: theme.textMuted, fontSize: 11, marginTop: 2 }}>{providerLabels[prov]}</div>
+        <div className="font-bold mb-1">{d.name}</div>
+        <div className="font-semibold" style={{ color: barColors[d.provider] }}>
+          {d.accuracy}%
+        </div>
+        <div className={`text-[11px] mt-0.5 ${isDark ? "text-dark-muted" : "text-muted"}`}>{providerLabels[prov]}</div>
         {d.provider === "anthropic_ref" && (
-          <div
-            style={{
-              color: theme.textMuted,
-              fontSize: 10,
-              marginTop: 4,
-              fontStyle: "italic",
-            }}
-          >
+          <div className={`text-[10px] mt-1 italic ${isDark ? "text-dark-muted" : "text-muted"}`}>
             Score as reported by Anthropic
           </div>
         )}
@@ -188,94 +139,58 @@ export default function TerminalBenchChart() {
   const chartMargin = isMobile ? { top: 0, right: 8, left: 0, bottom: 40 } : { top: 0, right: 20, left: 0, bottom: 70 };
 
   return (
-    <div
-      style={{
-        background: theme.bg,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontFamily: "'DM Sans', sans-serif",
-        padding: isMobile ? 0 : 24,
-      }}
-    >
+    <div className={`flex items-center justify-center font-sans ${isMobile ? "p-0" : "p-6"}`}>
       <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
         rel="stylesheet"
       />
 
       <div
-        style={{
-          width: "100%",
-          maxWidth: 920,
-          background: theme.cardBg,
-          borderRadius: isMobile ? 12 : 16,
-          border: `1px solid ${theme.cardBorder}`,
-          padding: isMobile ? "20px 10px 16px" : "36px 32px 28px",
-          boxShadow: theme.cardShadow,
-        }}
+        className={`w-full max-w-230 border shadow-md ${
+          isMobile ? "rounded-xl px-2.5 py-5 pb-4" : "rounded-2xl px-8 py-9 pb-7"
+        } ${isDark ? "bg-dark-surface border-dark-border" : "bg-white border-border"}`}
       >
         {/* Header */}
-        <div style={{ marginBottom: isMobile ? 16 : 28, textAlign: "center" }}>
+        <div className={`text-center ${isMobile ? "mb-4" : "mb-7"}`}>
           <div
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: isMobile ? 9 : 11,
-              color: theme.textMuted,
-              letterSpacing: isMobile ? 2 : 3,
-              textTransform: "uppercase",
-              marginBottom: isMobile ? 4 : 8,
-            }}
+            className={`font-mono uppercase tracking-widest ${
+              isMobile ? "text-[9px] tracking-[2px] mb-1" : "text-[11px] tracking-[3px] mb-2"
+            } ${isDark ? "text-dark-muted" : "text-muted"}`}
           >
             Benchmark Comparison
           </div>
           <h1
-            style={{
-              color: theme.text,
-              fontSize: isMobile ? 20 : 28,
-              fontWeight: 700,
-              margin: 0,
-              letterSpacing: -0.5,
-            }}
+            className={`font-bold tracking-tight m-0 ${
+              isMobile ? "text-xl" : "text-[28px]"
+            } ${isDark ? "text-dark-text" : "text-ink"}`}
           >
             Agentic Coding
           </h1>
           <div
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: isMobile ? 11 : 13,
-              color: theme.textMuted,
-              marginTop: isMobile ? 4 : 6,
-            }}
+            className={`font-mono ${isMobile ? "text-[11px] mt-1" : "text-[13px] mt-1.5"} ${
+              isDark ? "text-dark-muted" : "text-muted"
+            }`}
           >
             Terminal-Bench 2.0
           </div>
         </div>
 
         {/* Legend */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: isMobile ? 12 : 24,
-            marginBottom: isMobile ? 12 : 24,
-            flexWrap: "wrap",
-          }}
-        >
+        <div className={`flex justify-center flex-wrap ${isMobile ? "gap-3 mb-3" : "gap-6 mb-6"}`}>
           {[
             { label: "Anthropic", color: barColors.anthropic },
             { label: "OpenAI", color: barColors.openai },
             { label: "Google", color: barColors.google },
           ].map(({ label, color }) => (
-            <div key={label} style={{ display: "flex", alignItems: "center", gap: isMobile ? 4 : 8 }}>
-              <div
-                style={{
-                  width: isMobile ? 10 : 12,
-                  height: isMobile ? 10 : 12,
-                  borderRadius: 3,
-                  background: color,
-                }}
-              />
-              <span style={{ color: theme.textLabel, fontSize: isMobile ? 10 : 12, fontWeight: 500 }}>{label}</span>
+            <div key={label} className={`flex items-center ${isMobile ? "gap-1" : "gap-2"}`}>
+              <div className={`rounded-sm ${isMobile ? "w-2.5 h-2.5" : "w-3 h-3"}`} style={{ background: color }} />
+              <span
+                className={`font-medium ${isMobile ? "text-[10px]" : "text-xs"} ${
+                  isDark ? "text-dark-text" : "text-ink/80"
+                }`}
+              >
+                {label}
+              </span>
             </div>
           ))}
         </div>
@@ -297,7 +212,7 @@ export default function TerminalBenchChart() {
             <XAxis
               dataKey={isMobile ? "shortName" : "name"}
               tick={{
-                fill: theme.textLabel,
+                fill: isDark ? "#d1d5db" : "#555",
                 fontSize: isMobile ? 9 : 11,
                 fontFamily: "'DM Sans', sans-serif",
                 textAnchor: "end",
@@ -310,7 +225,7 @@ export default function TerminalBenchChart() {
             />
             <YAxis
               tick={{
-                fill: theme.textMuted,
+                fill: isDark ? "#9ca3af" : "#999",
                 fontSize: isMobile ? 9 : 11,
                 fontFamily: "'JetBrains Mono', monospace",
               }}
@@ -320,7 +235,7 @@ export default function TerminalBenchChart() {
               tickFormatter={(v) => `${v}%`}
               width={isMobile ? 28 : 48}
             />
-            <Tooltip content={<CustomTooltip theme={theme} barColors={barColors} />} cursor={false} />
+            <Tooltip content={<CustomTooltip isDark={isDark} barColors={barColors} />} cursor={false} />
             <ReferenceLine y={65.4} stroke="#d4714e" strokeDasharray="4 4" strokeOpacity={0.25} />
             <Bar dataKey="accuracy" radius={[3, 3, 0, 0]} maxBarSize={isMobile ? 32 : 64}>
               <LabelList
@@ -328,7 +243,7 @@ export default function TerminalBenchChart() {
                 position="top"
                 formatter={(v) => `${v}%`}
                 style={{
-                  fill: theme.text,
+                  fill: isDark ? "#e8e4de" : "#1a1a1a",
                   fontSize: isMobile ? 7 : 12,
                   fontWeight: 600,
                   fontFamily: "'JetBrains Mono', monospace",
@@ -348,27 +263,21 @@ export default function TerminalBenchChart() {
 
         {/* Footer note */}
         <div
-          style={{
-            marginTop: isMobile ? 12 : 16,
-            padding: isMobile ? "10px 12px" : "12px 16px",
-            background: theme.noteBg,
-            borderRadius: 8,
-            border: `1px solid ${theme.noteBorder}`,
-          }}
+          className={`rounded-lg border ${isMobile ? "mt-3 p-2.5" : "mt-4 p-4"} ${
+            isDark ? "bg-dark-bg border-dark-border" : "bg-cream border-border"
+          }`}
         >
           <p
-            style={{
-              color: theme.textMuted,
-              fontSize: isMobile ? 9 : 11,
-              margin: 0,
-              lineHeight: 1.6,
-              fontFamily: "'JetBrains Mono', monospace",
-            }}
+            className={`font-mono leading-relaxed m-0 ${
+              isMobile ? "text-[9px]" : "text-[11px]"
+            } ${isDark ? "text-dark-muted" : "text-muted"}`}
           >
-            <span style={{ color: theme.text, fontWeight: 600 }}>Note:</span> All OpenAI models shown at
-            <span style={{ color: theme.textLabel }}> xhigh</span> compute setting. GPT-5.2-Codex appears twice —
-            <span style={{ color: theme.textLabel }}> 64.7%</span> as reported by Anthropic,
-            <span style={{ color: theme.textLabel }}> 64.0%</span> as reported by OpenAI.
+            <span className={`font-semibold ${isDark ? "text-dark-text" : "text-ink"}`}>Note:</span> All OpenAI models
+            shown at
+            <span className={isDark ? "text-dark-text" : "text-ink/80"}> xhigh</span> compute setting. GPT-5.2-Codex
+            appears twice —<span className={isDark ? "text-dark-text" : "text-ink/80"}> 64.7%</span> as reported by
+            Anthropic,
+            <span className={isDark ? "text-dark-text" : "text-ink/80"}> 64.0%</span> as reported by OpenAI.
           </p>
         </div>
       </div>
