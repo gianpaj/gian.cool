@@ -61,7 +61,7 @@ function truncateMarkdown(body: string | undefined, maxLen = 500): string {
       {
         posts.map((post) => (
           <li class="group">
-            <a href={`${postPath(post.data.pubDate, post.data.slug)}/`} class="block">
+            <a href={postPath(post.data.pubDate, post.data.slug)} class="block">
               <time
                 datetime={post.data.pubDate.toISOString()}
                 class="text-xs font-mono uppercase tracking-widest text-muted dark:text-dark-muted"
