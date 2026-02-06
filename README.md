@@ -1,4 +1,4 @@
-# Gianfranco Palumbo ― Personal Website
+# Gianfranco Palumbo ― Personal Website and Blog
 
 This is my personal website, built with **Astro** and **TypeScript**. It serves as my digital home and will eventually include a microblog.
 
@@ -12,6 +12,7 @@ I'm a Software Engineer living in sunny Málaga, Spain 🌞. I specialize in:
 - **Current Focus:** Learning about Generative AI (text and audio) 🤖
 
 ### Current Projects
+
 - 🎙️ [SexyVoice.ai](https://sexyvoice.ai) - Free Realistic Text to Speech & AI Voice Generator
 
 ---
@@ -36,17 +37,10 @@ Inside your project, you can use the following commands:
 | `pnpm astro ...`          | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro --help`       | Get help using the Astro CLI                     |
 
-## Legacy Preview (Vanilla)
-
-If you are looking for the original vanilla version:
-```bash
-npm install -g browser-sync
-browser-sync start -ws .
-```
-
 ---
 
 ## Profiles
+
 - [Goodreads](https://www.goodreads.com/user/show/10470860-gianfranco)
 - [Twitter/X](https://x.com/gianpaj)
 - [GitHub](https://github.com/gianpaj)
