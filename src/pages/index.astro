@@ -12,18 +12,18 @@ const posts = (await getCollection("blog"))
 
 function truncateMarkdown(body: string | undefined, maxLen = 500): string {
   if (!body) return "";
-  // Walk through the raw markdown counting only visible text characters.
-  // When we hit maxLen, trim to the last word boundary and stop.
+  // Walk through the raw markdown counting characters, skipping only newlines.
+  // This gives an approximate limit based on raw source length (including markdown
+  // syntax like **, backticks, [] etc.) rather than rendered visible text length.
   let textCount = 0;
   let cutIndex = body.length;
 
   for (let i = 0; i < body.length; i++) {
     const ch = body[i];
-    // Skip markdown syntax that doesn't produce visible text
-    // but keep it in the output so markdown-it renders it correctly.
-    // We only count characters that will appear as text.
+    // We count all characters including markdown syntax (**, `, [], etc.)
+    // so the limit is based on raw markdown length, not rendered text length.
     if (ch === "\n" || ch === "\r") {
-      // newlines don't count as visible text
+      // Newlines don't count toward the limit.
       continue;
     }
     textCount++;

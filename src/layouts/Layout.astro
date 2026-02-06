@@ -20,6 +20,14 @@ const { title, description = "Gian.cool Blog" } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light") {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
   </head>
   <body
     class="bg-cream text-ink dark:bg-dark-bg dark:text-dark-text font-sans antialiased transition-colors duration-300"
@@ -84,14 +92,6 @@ const { title, description = "Gian.cool Blog" } = Astro.props;
       </footer>
     </div>
 
-    <script is:inline>
-      (function () {
-        const stored = localStorage.getItem("theme");
-        if (stored === "light") {
-          document.documentElement.classList.remove("dark");
-        }
-      })();
-    </script>
     <script is:inline>
       document.getElementById("theme-toggle").addEventListener("click", function () {
         const isDark = document.documentElement.classList.toggle("dark");
