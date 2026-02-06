@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const mixes = [
+  {
+    title: "Transitions - Malaga 4 - 2025",
+    url: "https://audio.com/gianpaj/audio/transitions-4-2025",
+    date: "Dec 6th, 2025",
+    tracklist: false,
+    embedUrl: "https://audio.com/embed/audio/1850762361400999?theme=image",
+  },
+  {
+    title: "Pure Movements - Malaga 3 - 2025",
+    url: "https://audio.com/gianpaj/audio/pure-movements-malaga-3-2025",
+    date: "Nov 1st, 2025",
+    tracklist: true,
+    embedUrl: "https://audio.com/embed/audio/1847611611695925?theme=image",
+  },
+  {
+    title: "Trance - Malaga 3 - 2024",
+    url: "https://audio.com/gianpaj/audio/trance-malaga-3-2024",
+    date: "July 20th, 2024",
+    location: "Malaga, Spain",
+    embedUrl: "https://audio.com/embed/audio/1805046545236556?theme=image",
+  },
+  {
+    title: "TechHouse - Malaga 2 - 2024",
+    url: "https://audio.com/gianpaj/audio/techhouse-malaga-2-2024",
+    date: "May 18th, 2024",
+    location: "Malaga, Spain 🌞 at the Malaga Beach Club - aka my office 🛌",
+    embedUrl: "https://audio.com/embed/audio/1799464243929288?theme=image",
+  },
+];
+---
+
+<Layout title="DJ Mixes - Gianfranco Palumbo" description="DJ Mixes by Gianfranco Palumbo">
+  <header class="mb-12 md:mb-16">
+    <a
+      href="/"
+      class="text-sm text-muted dark:text-dark-muted hover:text-terracotta dark:hover:text-dark-terracotta transition-colors mb-4 inline-block"
+    >
+      ← Back to blog
+    </a>
+    <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1]">DJ Mixes</h1>
+  </header>
+
+  <div class="grid grid-cols-1 gap-8">
+    {
+      mixes.map((mix) => (
+        <div class="bg-ink/5 dark:bg-dark-text/5 rounded-xl p-5">
+          <h2 class="font-serif text-2xl md:text-3xl tracking-tight mb-3">
+            <a
+              href={mix.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-terracotta dark:hover:text-dark-terracotta transition-colors"
+            >
+              {mix.title}
+            </a>
+          </h2>
+          <p class="text-base md:text-lg text-muted dark:text-dark-muted mb-4">
+            Recorded on {mix.date}
+            {mix.location && (
+              <span>
+                <br />
+                {mix.location}
+              </span>
+            )}
+            {mix.tracklist === true && (
+              <span>
+                <br />
+                <em>Tracklist available</em>
+              </span>
+            )}
+            {mix.tracklist === false && (
+              <span>
+                <br />
+                <s>Tracklist available</s>
+              </span>
+            )}
+          </p>
+          <iframe
+            src={mix.embedUrl}
+            class="block w-full rounded-lg border-none"
+            style="height: 204px;"
+            loading="lazy"
+          />
+        </div>
+      ))
+    }
+  </div>
+</Layout>
