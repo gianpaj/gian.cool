@@ -6,7 +6,8 @@ import ExcerptOnly from "../components/ExcerptOnly.astro";
 
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => a.data.pubDate.getTime() - b.data.pubDate.getTime());
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 10);
 
 // Render posts to get the Content component
 const postsWithContent = await Promise.all(
