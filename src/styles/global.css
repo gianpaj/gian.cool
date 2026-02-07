@@ -36,3 +36,28 @@
 .dark .prose table {
   background-color: var(--color-dark-surface);
 }
+
+@layer components {
+  .prose-custom {
+    @apply prose max-w-none
+      prose-headings:font-serif prose-headings:tracking-tight prose-headings:font-normal
+      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+      prose-p:leading-relaxed prose-p:text-ink/80 dark:prose-p:text-dark-text/80
+      prose-a:text-terracotta dark:prose-a:text-dark-terracotta prose-a:underline-offset-2 prose-a:decoration-terracotta/30 hover:prose-a:decoration-terracotta
+      prose-strong:font-semibold prose-strong:text-ink dark:prose-strong:text-dark-text
+      prose-code:font-mono prose-code:bg-ink/5 dark:prose-code:bg-dark-text/10 dark:prose-code:text-dark-text prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+      prose-pre:bg-ink/5 dark:prose-pre:bg-dark-text/5 prose-pre:border prose-pre:border-border dark:prose-pre:border-dark-border
+      prose-li:text-ink/80 dark:prose-li:text-dark-text/80
+      prose-ul:list-disc prose-ul:pl-4
+      prose-hr:border-border dark:prose-hr:border-dark-border;
+  }
+
+  .prose-custom-sm {
+    @apply prose-custom prose-sm
+      prose-h2:text-xl prose-h2:mt-4 prose-h2:mb-2
+      prose-p:text-muted dark:prose-p:text-dark-muted
+      prose-a:pointer-events-none
+      prose-code:text-xs;
+  }
+}
