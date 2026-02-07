@@ -7,6 +7,7 @@ import { remarkExcerpt } from "./remark-excerpt.mjs";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://gian.cool",
   integrations: [
     mdx({
       remarkPlugins: [remarkExcerpt],

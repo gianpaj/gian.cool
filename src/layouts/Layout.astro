@@ -19,6 +19,7 @@ const { title, description = "Gianfranco's Blog - gian.cool" } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+    <link rel="alternate" type="application/rss+xml" title="Gian.cool" href="/rss.xml" />
     <title>{title}</title>
     <script is:inline>
       (function () {
@@ -71,6 +72,11 @@ const { title, description = "Gianfranco's Blog - gian.cool" } = Astro.props;
               rel="noopener noreferrer"
               class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
               >Goodreads</a
+            >
+            <a
+              href="/rss.xml"
+              class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
+              >RSS</a
             >
           </nav>
           <div class="flex items-center justify-between">
