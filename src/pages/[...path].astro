@@ -15,7 +15,11 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={`${post.data.title} — Gianfranco's Blog - gian.cool`} description={post.data.description}>
+<Layout
+  title={`${post.data.title} — Gianfranco's Blog - gian.cool`}
+  description={post.data.description}
+  ogImage={`${Astro.site}og/${post.data.slug}.png`}
+>
   <a
     href="/"
     class="inline-flex items-center gap-1.5 text-sm text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors mb-10 group"
