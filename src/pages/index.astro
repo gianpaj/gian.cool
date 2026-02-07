@@ -49,11 +49,11 @@ const postsWithContent = await Promise.all(
                 {post.data.title}
               </h2>
             </a>
-    <div class="mt-3 prose-custom-sm">
-      <ExcerptOnly>
-        <Content />
-      </ExcerptOnly>
-    </div>
+            <div class="mt-3 prose-custom-sm">
+              <ExcerptOnly>
+                <Content />
+              </ExcerptOnly>
+            </div>
             <a
               href={postPath(post.data.pubDate, post.data.slug)}
               class="inline-block mt-2 text-sm text-terracotta dark:text-dark-terracotta hover:underline underline-offset-2"
