@@ -1,0 +1,35 @@
+---
+title: "Monitoring GitHub Actions with Claude Code"
+description: "How I use AI terminal agents to keep an eye on my CI/CD pipelines without leaving the shell."
+slug: github-actions-terminal-monitoring
+pubDate: 2026-02-08
+---
+
+When you're deep in the terminal, switching to a browser just to check if a build passed is a context-switching killer. 
+
+One of the coolest "hidden" superpowers of terminal-based AI agents like **Claude Code** (or even custom OpenClaw scripts) is their ability to interact with your environment beyond just writing code. 
+
+I recently started asking my terminal agent to monitor my **GitHub Action statuses** directly.
+
+## The Workflow
+
+Instead of refreshing a browser tab, I can just type:
+> "Check the status of the last few GitHub Action runs and tell me why they failed if they did."
+
+The agent uses the GitHub CLI (`gh`) under the hood to fetch the data, parses the logs, and gives me a concise summary of exactly which step broke and why.
+
+## Why This Matters
+
+- **Zero Context Switching:** I stay in my IDE/Terminal.
+- **Instant Analysis:** It doesn't just show a red "X"; it reads the logs and tells me "The linting failed because of a missing semicolon on line 42."
+- **Proactive Fixes:** Often, the agent will immediately follow up with: "Would you like me to fix that linting error for you?"
+
+## Setting it up
+
+If you have the GitHub CLI installed and authenticated, agents like Claude Code can just use it. You can even create a simple shell alias or a custom tool in your assistant's config to trigger this:
+
+```bash
+gh run list --limit 5
+```
+
+Terminal agents are evolving from just "code writers" to full-blown "environment operators." Checking CI status is just the beginning.
