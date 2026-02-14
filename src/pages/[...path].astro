@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const titleHtml = post.data.title.replace(/`([^`]+)`/g, "<code>$1</code>");
 ---
 
 <Layout
@@ -42,9 +43,7 @@ const { Content } = await render(post);
           })
         }
       </time>
-      <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1] mt-2">
-        {post.data.title}
-      </h1>
+      <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1] mt-2" set:html={titleHtml} />
     </header>
 
     <div class="prose-custom prose-lg dark:prose-invert">
