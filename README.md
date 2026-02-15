@@ -6,10 +6,10 @@ This is my personal website, built with **Astro** and **TypeScript**. It serves 
 
 I'm a Software Engineer living in sunny Málaga, Spain 🌞. I specialize in:
 
-- **Frontend:** React, React Native, Next.js
+- **Frontend:** React, Next.js
 - **Languages:** TypeScript, Python
 - **Backend/Infrastructure:** MongoDB, AWS, Vercel
-- **Current Focus:** Learning about Generative AI (text and audio) 🤖
+- **Current Focus:** Generative AI and Agentic workflows (text and audio) 🤖
 
 ### Current Projects
 
