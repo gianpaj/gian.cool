@@ -8,14 +8,12 @@ Software developer obsessed with AI—LLMs, TTS, agents, bots, and the intersect
 ## Navigation
 
 - [Blog](/blog)
-- [Projects](/projects)
-- [About](/about)
+// - [About](/about)
 
 ## Links
 
 - GitHub: [@gianpaj](https://github.com/gianpaj)
 - Twitter: [@gianpaj](https://twitter.com/gianpaj)
-- Email: gianpa.spain@gmail.com
 
 ---
 
