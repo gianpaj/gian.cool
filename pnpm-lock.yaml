@@ -69,12 +69,18 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.13)
+      rehype-stringify:
+        specifier: ^10.0.1
+        version: 10.0.1
       remark-mdx:
         specifier: ^3.1.1
         version: 3.1.1
       remark-parse:
         specifier: ^11.0.0
         version: 11.0.0
+      remark-rehype:
+        specifier: ^11.1.2
+        version: 11.1.2
       remark-stringify:
         specifier: ^11.0.0
         version: 11.0.0

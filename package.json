@@ -33,8 +33,10 @@
     "@types/node": "^25.2.1",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
+    "rehype-stringify": "^10.0.1",
     "remark-mdx": "^3.1.1",
     "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
     "remark-stringify": "^11.0.0",
     "unified": "^11.0.5",
     "vitest": "^4.0.18"

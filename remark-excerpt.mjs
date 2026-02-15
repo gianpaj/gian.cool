@@ -21,6 +21,8 @@ export function remarkExcerpt(options = {}) {
     let separatorIndex = -1;
     const excerptNodes = [];
 
+    const hrHTML = '<hr data-excerpt-separator="true" aria-hidden="true" style="display:none">';
+
     // Find the separator: <!-- more --> (Markdown) or {/* more */} (MDX)
     for (let i = 0; i < tree.children.length; i++) {
       const node = tree.children[i];
@@ -28,18 +30,34 @@ export function remarkExcerpt(options = {}) {
       // Check for HTML comment <!-- more --> (Markdown)
       if (node.type === "html" && /<!--\s*more\s*-->/.test(node.value)) {
         separatorIndex = i;
+        // Replace the comment with an hr marker for ExcerptOnly component
+        tree.children[i] = {
+          type: "html",
+          value: hrHTML,
+        };
         break;
       }
 
       // Check for raw HTML or comment nodes
       if (node.type === "raw" && /<!--\s*more\s*-->/.test(node.value)) {
         separatorIndex = i;
+        // Replace the comment with an hr marker for ExcerptOnly component
+        tree.children[i] = {
+          type: "raw",
+          value: hrHTML,
+        };
         break;
       }
 
       // Check for MDX expression comment {/* more */}
       if (node.type === "mdxFlowExpression" && /^\s*\/\*\s*more\s*\*\/\s*$/.test(node.value)) {
         separatorIndex = i;
+        // Replace the MDX comment with an hr marker for ExcerptOnly component
+        // Use raw HTML node which works in both test and Astro MDX contexts
+        tree.children[i] = {
+          type: "html",
+          value: hrHTML,
+        };
         break;
       }
     }

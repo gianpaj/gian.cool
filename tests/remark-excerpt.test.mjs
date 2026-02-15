@@ -4,6 +4,8 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkMdx from "remark-mdx";
 import remarkStringify from "remark-stringify";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
 
 /**
  * Helper function to process plain Markdown content (supports <!-- more --> comments)
@@ -31,6 +33,73 @@ async function processMdx(content, options = {}) {
   return {
     excerptHtml: file.data.astro?.frontmatter?.excerptHtml || "",
     hasMoreSeparator: file.data.astro?.frontmatter?.hasMoreSeparator || false,
+  };
+}
+
+/**
+ * Helper function to process Markdown and return the final HTML output
+ * This tests that the tree is modified with the <hr> marker
+ */
+async function processMarkdownToHtml(content, options = {}) {
+  const file = await unified()
+    .use(remarkParse)
+    .use(remarkExcerpt, options)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(content);
+
+  return String(file);
+}
+
+/**
+ * Helper function to process MDX and return the final HTML output
+ * This tests that the tree is modified with the <hr> marker
+ */
+async function processMdxToHtml(content, options = {}) {
+  const file = await unified()
+    .use(remarkParse)
+    .use(remarkMdx)
+    .use(remarkExcerpt, options)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(content);
+
+  return String(file);
+}
+
+/**
+ * Helper function to test raw node type handling
+ * Manually constructs a tree with raw nodes to simulate certain processor behavior
+ */
+function processTreeWithRawNode(options = {}) {
+  // Manually construct a tree with a raw node containing <!-- more -->
+  const tree = {
+    type: "root",
+    children: [
+      {
+        type: "paragraph",
+        children: [{ type: "text", value: "Excerpt content here." }],
+      },
+      {
+        type: "raw",
+        value: "<!-- more -->",
+      },
+      {
+        type: "paragraph",
+        children: [{ type: "text", value: "After separator." }],
+      },
+    ],
+  };
+
+  const file = { data: { astro: { frontmatter: {} } } };
+
+  // Run the excerpt plugin
+  const excerptPlugin = remarkExcerpt(options);
+  excerptPlugin(tree, file);
+
+  return {
+    tree,
+    hasMoreSeparator: file.data.astro.frontmatter.hasMoreSeparator,
   };
 }
 
@@ -446,6 +515,114 @@ Details about each step.
       expect(result.excerptHtml).toContain("<li>Second step</li>");
       expect(result.excerptHtml).toContain("<li>Third step</li>");
       expect(result.excerptHtml).not.toContain("Details about each step");
+    });
+  });
+
+  describe("tree modification (hr marker injection)", () => {
+    it("should inject <hr data-excerpt-separator> for <!-- more --> in Markdown", async () => {
+      const content = `
+Excerpt content here.
+
+<!-- more -->
+
+After separator.
+`;
+
+      const html = await processMarkdownToHtml(content);
+
+      expect(html).toContain('data-excerpt-separator="true"');
+      expect(html).toContain("<hr");
+      expect(html).toContain("Excerpt content here");
+      expect(html).toContain("After separator");
+    });
+
+    it("should inject <hr data-excerpt-separator> for {/* more */} in MDX", async () => {
+      const content = `
+Excerpt content here.
+
+{/* more */}
+
+After separator.
+`;
+
+      const html = await processMdxToHtml(content);
+
+      expect(html).toContain('data-excerpt-separator="true"');
+      expect(html).toContain("<hr");
+      expect(html).toContain("Excerpt content here");
+      expect(html).toContain("After separator");
+    });
+
+    it("should inject hidden hr marker with correct attributes in Markdown", async () => {
+      const content = `
+Before.
+
+<!-- more -->
+
+After.
+`;
+
+      const html = await processMarkdownToHtml(content);
+
+      expect(html).toContain('aria-hidden="true"');
+      expect(html).toContain('style="display:none"');
+    });
+
+    it("should inject hidden hr marker with correct attributes in MDX", async () => {
+      const content = `
+Before.
+
+{/* more */}
+
+After.
+`;
+
+      const html = await processMdxToHtml(content);
+
+      expect(html).toContain('aria-hidden="true"');
+      expect(html).toContain('style="display:none"');
+    });
+
+    it("should not inject hr marker when no separator is present", async () => {
+      const content = `
+Just some content without a separator.
+
+Another paragraph.
+`;
+
+      const html = await processMarkdownToHtml(content);
+
+      expect(html).not.toContain("data-excerpt-separator");
+      expect(html).not.toContain("<hr");
+    });
+
+    it("should preserve content before and after the injected marker", async () => {
+      const content = `
+First paragraph with **bold**.
+
+<!-- more -->
+
+Second paragraph with *italic*.
+`;
+
+      const html = await processMarkdownToHtml(content);
+
+      expect(html).toContain("<strong>bold</strong>");
+      expect(html).toContain("<em>italic</em>");
+      expect(html).toContain('data-excerpt-separator="true"');
+    });
+
+    it("should inject <hr data-excerpt-separator> for raw node type with <!-- more -->", () => {
+      const result = processTreeWithRawNode();
+
+      expect(result.hasMoreSeparator).toBe(true);
+
+      // Verify the tree was modified - the raw node should now contain the hr marker
+      const rawNode = result.tree.children.find((n) => n.type === "raw" && n.value.includes("data-excerpt-separator"));
+      expect(rawNode).toBeDefined();
+      expect(rawNode.value).toContain('data-excerpt-separator="true"');
+      expect(rawNode.value).toContain('aria-hidden="true"');
+      expect(rawNode.value).toContain('style="display:none"');
     });
   });
 });

@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const titleHtml = post.data.title.replace(/`([^`]+)`/g, "<code>$1</code>");
 ---
 
 <Layout
@@ -42,9 +43,7 @@ const { Content } = await render(post);
           })
         }
       </time>
-      <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1] mt-2">
-        {post.data.title}
-      </h1>
+      <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1] mt-2" set:html={titleHtml} />
     </header>
 
     <div class="prose-custom prose-lg dark:prose-invert">
@@ -52,3 +51,38 @@ const { Content } = await render(post);
     </div>
   </article>
 </Layout>
+
+<script is:inline data-astro-rerun>
+  /** Create a progress indicator at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className = "progress-container fixed top-0 left-0 z-50 h-1 w-full";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "h-1 w-0 bg-terracotta transition-[width] duration-75";
+    progressBar.id = "reading-progress-bar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const progressBar = document.getElementById("reading-progress-bar");
+      if (progressBar) {
+        progressBar.style.width = scrolled + "%";
+      }
+    });
+  }
+  updateScrollProgress();
+</script>

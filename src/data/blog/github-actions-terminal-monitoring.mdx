@@ -1,0 +1,78 @@
+---
+title: "Using GitHub command `gh` and Claude Code"
+description: "How to check builds and fix code review comments without opening a browser."
+slug: github-gh-command-claude-code
+pubDate: 2026-02-14
+draft: true
+---
+
+When you're deep in the terminal or your IDE, switching to a browser just to check if a build passed is a context-switching killer.
+
+One of the coolest "hidden" superpowers of terminal-based AI agents or harnesses like **Claude Code** is their ability to interact with your environment beyond just writing code. I recently started asking my terminal agent to **apply AI code review fixes** — all without leaving the shell.
+
+{/* more */}
+
+## Checking `CI` Status with [`gh`](https://cli.github.com/)
+
+Instead of refreshing a browser tab, I just ask Claude Code to check my runs. Under the hood, it uses the GitHub CLI. Here are the key commands:
+
+### List recent runs
+
+```bash
+gh run list --limit 10
+```
+
+Shows the last 10 workflow runs across all branches. You get a table with status (`✓`, `✗`, `-` for in-progress), title, workflow name, branch, event trigger, run ID, elapsed time, and age. It's the quickest way to get a pulse on your CI.
+
+### Filter by branch
+
+```bash
+gh run list --branch test/playwright-e2e-setup --limit 5
+```
+
+Narrows the results to a specific branch — useful when you're iterating on a feature branch and only care about those runs.
+
+### Get structured JSON output
+
+```bash
+gh run list --branch test/playwright-e2e-setup --json status,conclusion,name,workflowName,databaseId,headBranch,event --limit 5
+```
+
+The `--json` flag lets you pick exactly which fields you want as structured data. This is what makes it powerful for AI agents — they can parse the JSON reliably and reason about the results without guessing from truncated table columns.
+
+{/* TODO: add screenshot of gh run list output */}
+
+## Applying AI Code Review Fixes from the Terminal
+
+I've been using another pattern: asking Claude Code to look at comments left by AI code review bots (like CodeRabbit) on my PRs and apply the valid suggestions automatically.
+
+I set up an [Alfred](https://www.alfredapp.com/) snippet with the keyword `/revgh` that expands to:
+
+```text
+/look at the comments from ai code review agents in `{cursor}` using gh and apply those fixes ONLY if valid
+```
+
+Where `{cursor}` is where Alfred places my cursor so I can type the PR number or branch name. The agent then:
+
+1. Fetches the PR review comments via `gh pr view` and `gh api`
+2. Reads through the AI reviewer suggestions
+3. Applies only the ones that are actually valid fixes (not just style nitpicks or false positives)
+
+{/* TODO: add screenshot of Alfred snippet / review fix workflow */}
+
+## Why This Matters
+
+- **Zero context switching** — I stay in my IDE/terminal the entire time.
+- **Instant analysis** — The agent doesn't just show a red ✗. It reads the logs and tells me *"The Playwright test failed because the auth state file wasn't found at the expected path."*
+- **Proactive fixes** — It often follows up with: *"Want me to fix that?"*
+- **Composable workflows** — Combining `gh` commands with AI agents turns simple CLI tools into powerful automation.
+
+## Getting Started
+
+All you need is the [GitHub CLI](https://cli.github.com/) installed and authenticated:
+
+```bash
+gh auth login
+```
+
+From there, any terminal-based AI agent (Claude Code, Cursor, Windsurf, etc.) can use `gh` as a tool. Terminal agents are evolving from "code writers" to full-blown "environment operators" — and checking CI status is just the beginning.
