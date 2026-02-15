@@ -1,4 +1,3 @@
-t
 # Gianfranco Palumbo ― Personal Website and Blog
 
 This is my personal website, built with **Astro** and **TypeScript**. It serves as my digital home and will eventually include a microblog.
