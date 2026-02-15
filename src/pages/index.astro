@@ -50,7 +50,7 @@ const postsWithContent = await Promise.all(
                 set:html={post.data.title.replace(/`([^`]+)`/g, "<code>$1</code>")}
               />
             </a>
-            <div class="mt-3 prose-custom-sm">
+            <div class="mt-3 prose-custom prose-lg dark:prose-invert">
               <ExcerptOnly>
                 <Content />
               </ExcerptOnly>
