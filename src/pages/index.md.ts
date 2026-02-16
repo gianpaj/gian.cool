@@ -8,7 +8,6 @@ Software developer obsessed with AI—LLMs, TTS, agents, bots, and the intersect
 ## Navigation
 
 - [Blog](/blog)
-// - [About](/about)
 
 ## Links
 
