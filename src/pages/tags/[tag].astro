@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { TAG_METADATA, VALID_TAGS, type Tag } from "../../data/tags";
+import { postPath } from "../../utils/post-path";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
+  const tags = new Set<Tag>();
+
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      tags.add(tag);
+    }
+  }
+
+  return Array.from(tags).map((tag) => ({ params: { tag } }));
+}
+
+const paramTag = Astro.params.tag;
+if (!paramTag || !VALID_TAGS.includes(paramTag as Tag)) {
+  throw new Error(`Invalid tag route: ${paramTag}`);
+}
+
+const tag = paramTag as Tag;
+const metadata = TAG_METADATA[tag];
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft && post.data.tags.includes(tag))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<Layout title={`${metadata.label} Posts — Gianfranco's Blog - gian.cool`} description={metadata.description}>
+  <a
+    href="/tags"
+    class="inline-flex items-center gap-1.5 text-sm text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors mb-8 group"
+  >
+    <span class="inline-block transition-transform group-hover:-translate-x-0.5">&larr;</span>
+    All tags
+  </a>
+
+  <header>
+    <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1]">{metadata.label}</h1>
+    <p class="mt-2 text-muted dark:text-dark-muted">{metadata.description}</p>
+    <p class="mt-2 font-mono text-xs uppercase tracking-wider text-muted dark:text-dark-muted">
+      {posts.length} {posts.length === 1 ? "post" : "posts"}
+    </p>
+  </header>
+
+  {posts.length > 0 ? (
+    <ul class="mt-10 space-y-10">
+      {posts.map((post) => (
+        <li class="group">
+          <a href={postPath(post.data.pubDate, post.data.slug)} class="block">
+            <time
+              datetime={post.data.pubDate.toISOString()}
+              class="text-xs font-mono uppercase tracking-widest text-muted dark:text-dark-muted"
+            >
+              {post.data.pubDate.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </time>
+            <h2
+              class="font-serif text-2xl md:text-3xl mt-1.5 group-hover:text-terracotta transition-colors duration-200"
+              set:html={post.data.title.replace(/`([^`]+)`/g, "<code>$1</code>")}
+            />
+            <p class="mt-2 text-muted dark:text-dark-muted">{post.data.description}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="mt-10 text-muted dark:text-dark-muted">No published posts yet for this tag.</p>
+  )}
+</Layout>
