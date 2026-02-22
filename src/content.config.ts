@@ -1,5 +1,6 @@
-import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+
+import { defineCollection, z } from "astro:content";
 import { VALID_TAGS } from "./data/tags";
 
 const blog = defineCollection({

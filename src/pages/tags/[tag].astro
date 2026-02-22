@@ -1,32 +1,38 @@
 ---
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { TAG_METADATA, VALID_TAGS, type Tag } from "../../data/tags";
 import { postPath } from "../../utils/post-path";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
-  const tags = new Set<Tag>();
+  const postsByTag = new Map<Tag, CollectionEntry<"blog">[]>();
 
   for (const post of posts) {
     for (const tag of post.data.tags) {
-      tags.add(tag);
+      const existing = postsByTag.get(tag) ?? [];
+      existing.push(post);
+      postsByTag.set(tag, existing);
     }
   }
 
-  return Array.from(tags).map((tag) => ({ params: { tag } }));
+  return Array.from(postsByTag.entries()).map(([tag, tagPosts]) => ({
+    params: { tag },
+    props: {
+      posts: tagPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()),
+    },
+  }));
 }
 
 const paramTag = Astro.params.tag;
-if (!paramTag || !VALID_TAGS.includes(paramTag as Tag)) {
+if (!(paramTag && VALID_TAGS.includes(paramTag as Tag))) {
   throw new Error(`Invalid tag route: ${paramTag}`);
 }
 
 const tag = paramTag as Tag;
 const metadata = TAG_METADATA[tag];
-const posts = (await getCollection("blog"))
-  .filter((post) => !post.data.draft && post.data.tags.includes(tag))
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const { posts } = Astro.props as { posts: CollectionEntry<"blog">[] };
 ---
 
 <Layout title={`${metadata.label} Posts — Gianfranco's Blog - gian.cool`} description={metadata.description}>

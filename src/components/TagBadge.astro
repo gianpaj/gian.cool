@@ -3,8 +3,8 @@ import type { Tag } from "../data/tags";
 import { TAG_METADATA } from "../data/tags";
 
 interface Props {
-  tag: Tag;
   href?: string;
+  tag: Tag;
 }
 
 const { tag, href = `/tags/${tag}` } = Astro.props;

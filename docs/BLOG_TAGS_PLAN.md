@@ -3,6 +3,7 @@
 ## 1. Goals and Constraints
 
 ### Goals
+
 - Add tags to blog posts with strict validation.
 - Keep existing post URLs unchanged (`/YYYY/mon/DD/slug`).
 - Add tag archive pages and a tags index.
@@ -43,7 +44,10 @@ Create one canonical tag module and import it everywhere.
 ```ts
 export const VALID_TAGS = [
   "ai",
+  "audio",
+  "llm",
   "coding",
+  "coding_agent",
   "terminal",
   "github",
   "workflow",
@@ -62,7 +66,10 @@ export type Tag = (typeof VALID_TAGS)[number];
 
 export const TAG_METADATA: Record<Tag, { label: string; description: string }> = {
   ai: { label: "AI", description: "LLMs, agents, and AI workflows" },
+  audio: { label: "Audio", description: "Audio processing and tools" },
+  llm: { label: "LLM", description: "Large Language Models" },
   coding: { label: "Coding", description: "Software development and programming" },
+  coding_agent: { label: "Coding Agent", description: "AI agents for coding" },
   terminal: { label: "Terminal", description: "CLI tools and shell workflows" },
   github: { label: "GitHub", description: "GitHub tooling and workflows" },
   workflow: { label: "Workflow", description: "Productivity and process" },
@@ -79,7 +86,7 @@ export const TAG_METADATA: Record<Tag, { label: string; description: string }> =
 ```
 
 Notes:
-- `models` is included to match current suggested post tags.
+- `audio`, `llm`, and `coding_agent` are included to match implemented post tags.
 - Do not duplicate `VALID_TAGS` in other files.
 
 ---
@@ -187,9 +194,9 @@ Rule: always filter with `!post.data.draft` before reading tags.
 Update existing posts to include `tags` arrays.
 
 Suggested mapping:
-- `audioslim.mdx`: `ai`, `coding`, `projects`, `tools`, `macos`
-- `github-actions-terminal-monitoring.mdx` (draft): `ai`, `coding`, `terminal`, `github`, `workflow`
-- `opus-4-6-vs-codex-5-3.mdx`: `ai`, `models`, `benchmark`, `comparison`
+- `audioslim.mdx`: `coding`, `projects`, `audio`, `tools`, `macos`
+- `github-actions-terminal-monitoring.mdx` (draft): `ai`, `coding_agent`, `terminal`, `github`, `workflow`
+- `opus-4-6-vs-codex-5-3.mdx`: `llm`, `benchmark`, `comparison`
 
 Because drafts are excluded from public aggregation, draft tags are safe to keep for future publish.
 
