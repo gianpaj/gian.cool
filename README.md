@@ -1,11 +1,12 @@
 # Gianfranco Palumbo ― Personal Website and Blog
 
-This is my personal website, built with **Astro** and **TypeScript**. It serves as my digital home and will eventually include a microblog.
+This is my personal website, built with **Astro** and **TypeScript**. It serves as my digital home and includes a microblog.
 
 ## About Me
 
 I'm a Software Engineer living in sunny Málaga, Spain 🌞. I specialize in:
 
+- **AI Engineering:** Fast development of POC and MVPs using Claude Code, etc.
 - **Frontend:** React, Next.js
 - **Languages:** TypeScript, Python
 - **Backend/Infrastructure:** MongoDB, AWS, Vercel
@@ -17,9 +18,8 @@ I'm a Software Engineer living in sunny Málaga, Spain 🌞. I specialize in:
 
 ---
 
-## Tech Stack (Updated)
+## Tech Stack
 
-Previously a "No JavaScript" vanilla HTML/CSS site, now transitioning to:
 - **Framework:** [Astro](https://astro.build/)
 - **Language:** TypeScript
 - **Package Manager:** pnpm
