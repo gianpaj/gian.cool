@@ -1,0 +1,41 @@
+export const VALID_TAGS = [
+  "ai",
+  "audio",
+  "llm",
+  "coding",
+  "coding_agent",
+  "terminal",
+  "github",
+  "workflow",
+  "tools",
+  "macos",
+  "web",
+  "projects",
+  "benchmark",
+  "comparison",
+  "guide",
+  "review",
+  "models",
+] as const;
+
+export type Tag = (typeof VALID_TAGS)[number];
+
+export const TAG_METADATA: Record<Tag, { label: string; description: string }> = {
+  ai: { label: "AI", description: "LLMs, agents, and AI workflows" },
+  audio: { label: "Audio", description: "Audio processing and tools" },
+  llm: { label: "LLM", description: "Large Language Models" },
+  coding: { label: "Coding", description: "Software development and programming" },
+  coding_agent: { label: "Coding Agent", description: "AI agents for coding" },
+  terminal: { label: "Terminal", description: "CLI tools and shell workflows" },
+  github: { label: "GitHub", description: "GitHub tooling and workflows" },
+  workflow: { label: "Workflow", description: "Productivity and process" },
+  tools: { label: "Tools", description: "Software and utilities" },
+  macos: { label: "macOS", description: "Apple desktop platform" },
+  web: { label: "Web", description: "Web development topics" },
+  projects: { label: "Projects", description: "Build logs and project write-ups" },
+  benchmark: { label: "Benchmark", description: "Performance and measurements" },
+  comparison: { label: "Comparison", description: "A vs B analysis" },
+  guide: { label: "Guide", description: "How-to content" },
+  review: { label: "Review", description: "Opinionated evaluations" },
+  models: { label: "Models", description: "Model-level analysis and results" },
+};

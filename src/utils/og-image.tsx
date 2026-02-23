@@ -1,7 +1,7 @@
-import satori from "satori";
 import { initWasm, Resvg } from "@resvg/resvg-wasm";
-import type { SatoriOptions } from "satori";
 import type { ReactNode } from "react";
+import type { SatoriOptions } from "satori";
+import satori from "satori";
 
 let wasmInitialized = false;
 

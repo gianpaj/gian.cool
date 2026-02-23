@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { postPath } from "../utils/post-path";
+import TagBadge from "../components/TagBadge.astro";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
@@ -44,6 +45,15 @@ const titleHtml = post.data.title.replace(/`([^`]+)`/g, "<code>$1</code>");
         }
       </time>
       <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1] mt-2" set:html={titleHtml} />
+      {
+        post.data.tags.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-2">
+            {post.data.tags.map((tag) => (
+              <TagBadge tag={tag} />
+            ))}
+          </div>
+        )
+      }
     </header>
 
     <div class="prose-custom prose-lg dark:prose-invert">

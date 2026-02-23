@@ -16,7 +16,8 @@ export const GET: APIRoute = async ({ props }) => {
     description: string;
   };
   const png = await generateOgImage(title, description);
-  return new Response(png, {
+  const body = Uint8Array.from(png);
+  return new Response(body, {
     headers: { "Content-Type": "image/png" },
   });
 };

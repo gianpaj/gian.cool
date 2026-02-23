@@ -1,0 +1,20 @@
+---
+import type { Tag } from "../data/tags";
+import { TAG_METADATA } from "../data/tags";
+
+interface Props {
+  href?: string;
+  tag: Tag;
+}
+
+const { tag, href = `/tags/${tag}` } = Astro.props;
+const metadata = TAG_METADATA[tag];
+---
+
+<a
+  href={href}
+  class="inline-flex items-center rounded-full border border-border px-2.5 py-1 text-xs font-mono uppercase tracking-wider text-muted transition-colors hover:border-terracotta/40 hover:text-terracotta dark:border-dark-border dark:text-dark-muted dark:hover:border-dark-terracotta/40 dark:hover:text-dark-terracotta"
+  title={metadata.description}
+>
+  {metadata.label}
+</a>

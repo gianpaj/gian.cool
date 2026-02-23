@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { postPath } from "../utils/post-path";
 import ExcerptOnly from "../components/ExcerptOnly.astro";
+import TagBadge from "../components/TagBadge.astro";
 
 const posts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -55,6 +56,13 @@ const postsWithContent = await Promise.all(
                 <Content />
               </ExcerptOnly>
             </div>
+            {post.data.tags.length > 0 && (
+              <div class="mt-4 flex flex-wrap gap-2">
+                {post.data.tags.map((tag) => (
+                  <TagBadge tag={tag} />
+                ))}
+              </div>
+            )}
             <a
               href={postPath(post.data.pubDate, post.data.slug)}
               class="inline-block mt-2 text-sm text-terracotta hover:underline underline-offset-2"

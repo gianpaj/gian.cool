@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { TAG_METADATA, type Tag } from "../data/tags";
+
+const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
+const tagCounts = new Map<Tag, number>();
+
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+
+const sortedTags = Array.from(tagCounts.entries()).sort(([tagA, countA], [tagB, countB]) => {
+  if (countA !== countB) return countB - countA;
+  return tagA.localeCompare(tagB);
+});
+---
+
+<Layout title="Tags — Gianfranco's Blog - gian.cool" description="Browse posts by tag.">
+  <a
+    href="/"
+    class="inline-flex items-center gap-1.5 text-sm text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors mb-8 group"
+  >
+    <span class="inline-block transition-transform group-hover:-translate-x-0.5">&larr;</span>
+    Home
+  </a>
+
+  <header>
+    <h1 class="font-serif text-4xl md:text-5xl tracking-tight leading-[1.1]">Tags</h1>
+    <p class="mt-2 text-muted dark:text-dark-muted">Browse posts by topic.</p>
+  </header>
+
+  {
+    sortedTags.length > 0 ? (
+      <ul class="mt-10 space-y-4">
+        {sortedTags.map(([tag, count]) => (
+          <li>
+            <a
+              href={`/tags/${tag}`}
+              class="group flex items-start justify-between gap-4 rounded-lg border border-border px-4 py-3 transition-colors hover:border-terracotta/30 dark:border-dark-border dark:hover:border-dark-terracotta/30"
+            >
+              <span>
+                <span class="block font-mono text-xs uppercase tracking-wider text-muted dark:text-dark-muted">
+                  {TAG_METADATA[tag].label}
+                </span>
+                <span class="mt-1 block text-sm text-muted dark:text-dark-muted">{TAG_METADATA[tag].description}</span>
+              </span>
+              <span class="font-mono text-xs uppercase tracking-wider text-muted transition-colors group-hover:text-terracotta dark:text-dark-muted dark:group-hover:text-dark-terracotta">
+                {count} {count === 1 ? "post" : "posts"}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="mt-10 text-muted dark:text-dark-muted">No tags available yet.</p>
+    )
+  }
+</Layout>
