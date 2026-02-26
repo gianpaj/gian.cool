@@ -1,15 +1,15 @@
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
-  BarChart,
   Bar,
+  BarChart,
+  CartesianGrid,
+  LabelList,
+  Rectangle,
+  ReferenceLine,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  Rectangle,
-  ResponsiveContainer,
-  ReferenceLine,
-  LabelList,
 } from "recharts";
 
 const data = [
@@ -84,8 +84,8 @@ const providerLabels: Record<string, string> = {
 };
 
 interface ThemeColors {
-  gridStroke: string;
   axisStroke: string;
+  gridStroke: string;
 }
 
 const lightTheme: ThemeColors = {
@@ -113,8 +113,8 @@ interface CustomTooltipProps {
 }
 
 interface CustomTooltipWithThemeProps extends CustomTooltipProps {
-  isDark: boolean;
   barColors: Record<string, string>;
+  isDark: boolean;
 }
 
 const CustomTooltip = ({
@@ -271,14 +271,14 @@ export default function TerminalBenchChart() {
             const isHidden = hiddenProviders.has(key);
             return (
               <button
-                key={key}
-                type="button"
-                onClick={() => toggleProvider(key)}
                 className={`flex cursor-pointer select-none items-center border-none bg-transparent p-0 ${isMobile ? "gap-1" : "gap-2"}`}
+                key={key}
+                onClick={() => toggleProvider(key)}
                 style={{
                   opacity: isHidden ? 0.4 : 1,
                   transition: "opacity 0.2s ease",
                 }}
+                type="button"
               >
                 <div
                   className={`rounded-sm ${isMobile ? "h-2.5 w-2.5" : "h-3 w-3"}`}
@@ -301,11 +301,12 @@ export default function TerminalBenchChart() {
         </div>
 
         {/* Chart */}
-        <ResponsiveContainer width="100%" height={chartHeight}>
+        <ResponsiveContainer height={chartHeight} width="100%">
           <BarChart
+            barCategoryGap={isMobile ? "12%" : "18%"}
             data={visibleData}
             margin={chartMargin}
-            barCategoryGap={isMobile ? "12%" : "18%"}
+            onMouseLeave={() => setHoveredIdx(null)}
             onMouseMove={(state) => {
               if (
                 state?.activeTooltipIndex !== undefined &&
@@ -314,53 +315,52 @@ export default function TerminalBenchChart() {
                 setHoveredIdx(state.activeTooltipIndex);
               }
             }}
-            onMouseLeave={() => setHoveredIdx(null)}
           >
             <CartesianGrid
-              strokeDasharray="3 3"
               stroke={theme.gridStroke}
+              strokeDasharray="3 3"
               vertical={false}
             />
             <XAxis
+              angle={isMobile ? -50 : -35}
+              axisLine={{ stroke: theme.axisStroke }}
               dataKey={isMobile ? "shortName" : "name"}
+              interval={0}
+              textAnchor="end"
               tick={{
                 fill: isDark ? "#d1d5db" : "#555",
                 fontSize: isMobile ? 9 : 11,
                 fontFamily: "'DM Sans', sans-serif",
                 textAnchor: "end",
               }}
-              angle={isMobile ? -50 : -35}
-              textAnchor="end"
-              axisLine={{ stroke: theme.axisStroke }}
               tickLine={false}
-              interval={0}
             />
             <YAxis
+              axisLine={false}
+              domain={[0, 100]}
               tick={{
                 fill: isDark ? "#9ca3af" : "#999",
                 fontSize: isMobile ? 9 : 11,
                 fontFamily: "'JetBrains Mono', monospace",
               }}
-              axisLine={false}
-              tickLine={false}
-              domain={[0, 100]}
               tickFormatter={(v) => `${v}%`}
+              tickLine={false}
               width={isMobile ? 28 : 48}
             />
             <Tooltip
-              content={<CustomTooltip isDark={isDark} barColors={barColors} />}
+              content={<CustomTooltip barColors={barColors} isDark={isDark} />}
               cursor={false}
             />
             <ReferenceLine
-              y={65.4}
               stroke="#d4714e"
               strokeDasharray="4 4"
               strokeOpacity={0.25}
+              y={65.4}
             />
             <Bar
               dataKey="accuracy"
-              radius={[3, 3, 0, 0]}
               maxBarSize={isMobile ? 32 : 64}
+              radius={[3, 3, 0, 0]}
               shape={(props: any) => {
                 const index = Number(props.index);
                 const provider = props.payload?.provider;
@@ -378,8 +378,8 @@ export default function TerminalBenchChart() {
             >
               <LabelList
                 dataKey="accuracy"
-                position="top"
                 formatter={(v) => `${v}%`}
+                position="top"
                 style={{
                   fill: isDark ? "#e8e4de" : "#1a1a1a",
                   fontSize: isMobile ? 7 : 12,

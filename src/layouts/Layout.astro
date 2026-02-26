@@ -2,9 +2,9 @@
 import "../styles/global.css";
 
 interface Props {
-  title: string;
   description?: string;
   ogImage?: string;
+  title: string;
 }
 
 const { title, description = "Gianfranco's Blog - gian.cool", ogImage } = Astro.props;
@@ -102,9 +102,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             >
               <span class="hidden dark:inline">Light</span>
               <span class="inline dark:hidden">Dark</span>
-              <div class="relative w-10 h-[22px] rounded-full bg-ink/10 dark:bg-dark-text/10 transition-colors">
+              <div class="relative w-10 h-5.5 rounded-full bg-ink/10 dark:bg-dark-text/10 transition-colors">
                 <div
-                  class="absolute top-[3px] left-[3px] dark:left-[19px] w-4 h-4 rounded-full bg-ink dark:bg-dark-text transition-all duration-300"
+                  class="absolute top-0.75 left-0.75 dark:left-4.75 w-4 h-4 rounded-full bg-ink dark:bg-dark-text transition-all duration-300"
                 >
                 </div>
               </div>

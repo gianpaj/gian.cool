@@ -1,11 +1,12 @@
-import { describe, it, expect } from "vitest";
-import { remarkExcerpt } from "../remark-excerpt.mjs";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkMdx from "remark-mdx";
-import remarkStringify from "remark-stringify";
-import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
+import remarkMdx from "remark-mdx";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import remarkStringify from "remark-stringify";
+import { unified } from "unified";
+import { describe, expect, it } from "vitest";
+
+import { remarkExcerpt } from "../remark-excerpt.mjs";
 
 /**
  * Helper function to process plain Markdown content (supports <!-- more --> comments)
@@ -447,7 +448,7 @@ More details here.
     });
 
     it("should handle content with only separator", async () => {
-      const content = `<!-- more -->`;
+      const content = '<!-- more -->';
 
       const result = await processMarkdown(content);
 
