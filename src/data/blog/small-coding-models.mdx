@@ -1,0 +1,40 @@
+---
+title: "Small coding models on Terminal-Bench 2"
+description: "How open-weight and smaller models compare on Terminal-Bench 2.0 — Qwen3.5, K2.5, GPT-5-mini, and more"
+slug: small-coding-models
+pubDate: 2026-02-26
+tags:
+  - llm
+  - benchmark
+  - comparison
+---
+
+import TerminalBenchSmallChart from "../../components/TerminalBenchSmallChart.tsx";
+import More from "../../components/More.astro";
+
+Frontier models get most of the headlines, but the more interesting race is happening one tier down. Here's how open-weight and smaller models stack up on Terminal-Bench 2.0, via Alibaba's public leaderboard.
+
+<TerminalBenchSmallChart client:load />
+
+<More />
+
+The Qwen3.5 family dominates the top of this chart. **Qwen3.5-397B-A17B** leads at 52.5%, followed by **K2.5-1T-A32B** (Moonshot, 50.8%) and **Qwen3.5-122B-A10B** (49.4%). All three are sparse MoE models — their active parameter counts are far smaller than the headline numbers suggest, which makes the performance particularly impressive.
+
+Drop down to the 27B–35B range and scores fall to the low 40s. **Qwen3.5-27B** (41.6%) and **Qwen3.5-35B-A3B** (40.5%) are competitive for their size, but the gap to the 100B+ tier is real.
+
+The two OpenAI entries tell different stories. **GPT-5-mini** scores 31.9% — decent for a "mini" model, though well behind the Qwen3.5 MoEs. **GPT-OSS-120B** at 18.7% is a surprise outlier; at 120B parameters it underperforms models a fraction of its size, suggesting architecture and training focus matter far more than scale alone.
+
+**Qwen3-Max-Thinking** (22.5%) is the other anomaly. Chain-of-thought reasoning doesn't appear to help on terminal tasks, at least not at this evaluation setting.
+
+| Model | Score | Provider |
+|-------|-------|----------|
+| Qwen3.5-397B-A17B | 52.5% | Alibaba |
+| K2.5-1T-A32B | 50.8% | Moonshot |
+| Qwen3.5-122B-A10B | 49.4% | Alibaba |
+| Qwen3.5-27B | 41.6% | Alibaba |
+| Qwen3.5-35B-A3B | 40.5% | Alibaba |
+| GPT-5-mini (2025-08-07) | 31.9% | OpenAI |
+| Qwen3-Max-Thinking | 22.5% | Alibaba |
+| GPT-OSS-120B | 18.7% | OpenAI |
+
+The ceiling here is ~52% — well below frontier models like Opus 4.6 (65.4%) or GPT-5.3-Codex (77.3%). But the Qwen3.5 MoEs are within striking distance of Sonnet 4.5 (51.0%), which is a closed frontier model from a major lab. That gap is closing fast.

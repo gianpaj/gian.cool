@@ -14,73 +14,71 @@ import {
 
 const data = [
   {
-    name: "GPT-5.3-Codex (xhigh)",
-    shortName: "GPT-5.3 (xh)",
-    accuracy: 77.3,
+    name: "Qwen3.5-397B-A17B",
+    shortName: "Qwen3.5-397B",
+    accuracy: 52.5,
+    provider: "alibaba",
+  },
+  {
+    name: "K2.5-1T-A32B",
+    shortName: "K2.5-1T",
+    accuracy: 50.8,
+    provider: "moonshot",
+  },
+  {
+    name: "Qwen3.5-122B-A10B",
+    shortName: "Qwen3.5-122B",
+    accuracy: 49.4,
+    provider: "alibaba",
+  },
+  {
+    name: "Qwen3.5-27B",
+    shortName: "Qwen3.5-27B",
+    accuracy: 41.6,
+    provider: "alibaba",
+  },
+  {
+    name: "Qwen3.5-35B-A3B",
+    shortName: "Qwen3.5-35B",
+    accuracy: 40.5,
+    provider: "alibaba",
+  },
+  {
+    name: "GPT-5-mini (2025-08-07)",
+    shortName: "GPT-5-mini",
+    accuracy: 31.9,
     provider: "openai",
   },
   {
-    name: "Opus 4.6",
-    shortName: "Opus 4.6",
-    accuracy: 65.4,
-    provider: "anthropic",
+    name: "Qwen3-Max-Thinking",
+    shortName: "Qwen3-Max",
+    accuracy: 22.5,
+    provider: "alibaba",
   },
   {
-    name: "GPT-5.2-Codex (xhigh, Anth.)",
-    shortName: "GPT-5.2 (A)",
-    accuracy: 64.7,
-    provider: "anthropic_ref",
-  },
-  {
-    name: "GPT-5.2-Codex (xhigh, OAI)",
-    shortName: "GPT-5.2 (O)",
-    accuracy: 64.0,
+    name: "GPT-OSS-120B",
+    shortName: "GPT-OSS-120B",
+    accuracy: 18.7,
     provider: "openai",
-  },
-  {
-    name: "GPT-5.2 (xhigh)",
-    shortName: "GPT-5.2",
-    accuracy: 62.2,
-    provider: "openai",
-  },
-  {
-    name: "Opus 4.5",
-    shortName: "Opus 4.5",
-    accuracy: 59.8,
-    provider: "anthropic",
-  },
-  {
-    name: "Gemini 3 Pro",
-    shortName: "Gemini 3",
-    accuracy: 56.2,
-    provider: "google",
-  },
-  {
-    name: "Sonnet 4.5",
-    shortName: "Sonnet 4.5",
-    accuracy: 51.0,
-    provider: "anthropic",
   },
 ];
 
 const colors: Record<string, string> = {
   openai: "#10b981",
-  anthropic: "#f97316",
-  anthropic_ref: "#f97316",
-  google: "#3b82f6",
+  alibaba: "#06b6d4",
+  moonshot: "#8b5cf6",
 };
 
 const darkModeColors: Record<string, string> = {
   openai: "#047857",
-  anthropic: "#c2410c",
-  anthropic_ref: "#c2410c",
-  google: "#1d4ed8",
+  alibaba: "#0891b2",
+  moonshot: "#6d28d9",
 };
 
 const providerLabels: Record<string, string> = {
   openai: "OpenAI",
-  anthropic: "Anthropic",
-  google: "Google",
+  alibaba: "Alibaba",
+  moonshot: "Moonshot",
 };
 
 interface ThemeColors {
@@ -125,7 +123,6 @@ const CustomTooltip = ({
 }: CustomTooltipWithThemeProps) => {
   if (active && payload && payload.length) {
     const d = payload[0].payload;
-    const prov = d.provider === "anthropic_ref" ? "anthropic" : d.provider;
     return (
       <div
         className={`max-w-50 rounded-lg border p-3 font-sans text-[13px] shadow-lg ${
@@ -141,28 +138,19 @@ const CustomTooltip = ({
         <div
           className={`mt-0.5 text-[11px] ${isDark ? "text-dark-muted" : "text-muted"}`}
         >
-          {providerLabels[prov]}
+          {providerLabels[d.provider]}
         </div>
-        {d.provider === "anthropic_ref" && (
-          <div
-            className={`mt-1 text-[10px] italic ${isDark ? "text-dark-muted" : "text-muted"}`}
-          >
-            Score as reported by Anthropic
-          </div>
-        )}
       </div>
     );
   }
   return null;
 };
 
-export default function TerminalBenchChart() {
+export default function TerminalBenchSmallChart() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const [hiddenProviders, setHiddenProviders] = useState<Set<string>>(
-    new Set(),
-  );
+  const [hiddenProviders, setHiddenProviders] = useState<Set<string>>(new Set());
 
   const theme = useMemo(() => (isDark ? darkTheme : lightTheme), [isDark]);
   const barColors = useMemo(() => (isDark ? darkModeColors : colors), [isDark]);
@@ -177,11 +165,7 @@ export default function TerminalBenchChart() {
   };
 
   const visibleData = useMemo(
-    () =>
-      data.filter((d) => {
-        const prov = d.provider === "anthropic_ref" ? "anthropic" : d.provider;
-        return !hiddenProviders.has(prov);
-      }),
+    () => data.filter((d) => !hiddenProviders.has(d.provider)),
     [hiddenProviders],
   );
 
@@ -207,7 +191,7 @@ export default function TerminalBenchChart() {
     return () => observer.disconnect();
   }, []);
 
-  const chartHeight = isMobile ? 360 : 520;
+  const chartHeight = isMobile ? 300 : 420;
   const chartMargin = isMobile
     ? { top: 0, right: 8, left: 0, bottom: 40 }
     : { top: 0, right: 20, left: 0, bottom: 70 };
@@ -244,14 +228,14 @@ export default function TerminalBenchChart() {
               isMobile ? "text-xl" : "text-[28px]"
             } ${isDark ? "text-dark-text" : "text-ink"}`}
           >
-            Agentic Coding
+            Small Coding Models
           </h1>
           <div
             className={`font-mono ${isMobile ? "mt-1 text-[11px]" : "mt-1.5 text-[13px]"} ${
               isDark ? "text-dark-muted" : "text-muted"
             }`}
           >
-            Terminal-Bench 2.0
+            Terminal-Bench 2.0 · Alibaba Leaderboard
           </div>
         </div>
 
@@ -260,13 +244,9 @@ export default function TerminalBenchChart() {
           className={`flex flex-wrap justify-center ${isMobile ? "mb-3 gap-3" : "mb-6 gap-6"}`}
         >
           {[
-            {
-              label: "Anthropic",
-              key: "anthropic",
-              color: barColors.anthropic,
-            },
+            { label: "Alibaba", key: "alibaba", color: barColors.alibaba },
+            { label: "Moonshot", key: "moonshot", color: barColors.moonshot },
             { label: "OpenAI", key: "openai", color: barColors.openai },
-            { label: "Google", key: "google", color: barColors.google },
           ].map(({ label, key, color }) => {
             const isHidden = hiddenProviders.has(key);
             return (
@@ -275,10 +255,7 @@ export default function TerminalBenchChart() {
                 type="button"
                 onClick={() => toggleProvider(key)}
                 className={`flex cursor-pointer select-none items-center border-none bg-transparent p-0 ${isMobile ? "gap-1" : "gap-2"}`}
-                style={{
-                  opacity: isHidden ? 0.4 : 1,
-                  transition: "opacity 0.2s ease",
-                }}
+                style={{ opacity: isHidden ? 0.4 : 1, transition: "opacity 0.2s ease" }}
               >
                 <div
                   className={`rounded-sm ${isMobile ? "h-2.5 w-2.5" : "h-3 w-3"}`}
@@ -343,7 +320,7 @@ export default function TerminalBenchChart() {
               }}
               axisLine={false}
               tickLine={false}
-              domain={[0, 100]}
+              domain={[0, 70]}
               tickFormatter={(v) => `${v}%`}
               width={isMobile ? 28 : 48}
             />
@@ -352,15 +329,15 @@ export default function TerminalBenchChart() {
               cursor={false}
             />
             <ReferenceLine
-              y={65.4}
-              stroke="#d4714e"
+              y={52.5}
+              stroke="#06b6d4"
               strokeDasharray="4 4"
-              strokeOpacity={0.25}
+              strokeOpacity={0.3}
             />
             <Bar
               dataKey="accuracy"
               radius={[3, 3, 0, 0]}
-              maxBarSize={isMobile ? 32 : 64}
+              maxBarSize={isMobile ? 40 : 72}
               shape={(props: any) => {
                 const index = Number(props.index);
                 const provider = props.payload?.provider;
@@ -405,24 +382,11 @@ export default function TerminalBenchChart() {
             <span
               className={`font-semibold ${isDark ? "text-dark-text" : "text-ink"}`}
             >
-              Note:
+              Source:
             </span>{" "}
-            All OpenAI models shown at
-            <span className={isDark ? "text-dark-text" : "text-ink/80"}>
-              {" "}
-              xhigh
-            </span>{" "}
-            compute setting. GPT-5.2-Codex appears twice —
-            <span className={isDark ? "text-dark-text" : "text-ink/80"}>
-              {" "}
-              64.7%
-            </span>{" "}
-            as reported by Anthropic,
-            <span className={isDark ? "text-dark-text" : "text-ink/80"}>
-              {" "}
-              64.0%
-            </span>{" "}
-            as reported by OpenAI.
+            Alibaba Cloud Terminal-Bench 2.0 leaderboard. All Qwen3.5 MoE models
+            use activated parameter counts (A-suffix). K2.5-1T-A32B is a
+            1T-parameter sparse MoE from Moonshot AI with 32B active parameters.
           </p>
         </div>
       </div>
