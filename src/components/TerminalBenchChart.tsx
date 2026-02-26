@@ -210,7 +210,7 @@ export default function TerminalBenchChart() {
   const chartHeight = isMobile ? 360 : 520;
   const chartMargin = isMobile
     ? { top: 0, right: 8, left: 0, bottom: 40 }
-    : { top: 0, right: 20, left: 0, bottom: 70 };
+    : { top: 0, right: 0, left: 20, bottom: 70 };
 
   return (
     <div
