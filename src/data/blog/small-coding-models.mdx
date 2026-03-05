@@ -12,17 +12,13 @@ tags:
 import TerminalBenchSmallChart from "../../components/TerminalBenchSmallChart.tsx";
 import More from "../../components/More.astro";
 
-> Updated on 2026-03-05. I've included Qwen3.5-4B and Qwen3.5-9B
-
 Frontier models get most of the headlines, but the more interesting race is happening one tier down. Here's how open-weight and smaller models stack up on Terminal-Bench 2.0.
 
 <TerminalBenchSmallChart client:load />
 
 <More />
 
-The headline result is striking: **[Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B)** leads the chart at 79.9%, followed closely by **[Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B)** at 79.1%. These are tiny models — 4B and 9B parameters respectively — outscoring every larger model in this comparison by a wide margin. Whatever Alibaba changed in this generation of small Qwen models, it's working.
-
-The next tier tells a different story. **Qwen3.5-397B-A17B** leads at 52.5%, followed by **K2.5-1T-A32B** (Moonshot, 50.8%) and **Qwen3.5-122B-A10B** (49.4%). All three are sparse MoE models — their active parameter counts are far smaller than the headline numbers suggest, which makes the performance impressive, but the gap to the tiny dense models is now the story.
+The Qwen3.5 family dominates the top of this chart. **Qwen3.5-397B-A17B** leads at 52.5%, followed by **K2.5-1T-A32B** (Moonshot, 50.8%) and **Qwen3.5-122B-A10B** (49.4%). All three are sparse MoE models — their active parameter counts are far smaller than the headline numbers suggest, which makes the performance particularly impressive.
 
 Drop down to the 27B–35B range and scores fall to the low 40s. **Qwen3.5-27B** (41.6%) and **Qwen3.5-35B-A3B** (40.5%) are competitive for their size, but the gap to the 100B+ tier is real.
 
@@ -32,8 +28,6 @@ The two OpenAI entries tell different stories. **GPT-5-mini** scores 31.9% — d
 
 | Model | Score | Provider |
 |-------|-------|----------|
-| Qwen3.5-4B | 79.9% | Alibaba |
-| Qwen3.5-9B | 79.1% | Alibaba |
 | Qwen3.5-397B-A17B | 52.5% | Alibaba |
 | K2.5-1T-A32B | 50.8% | Moonshot |
 | Qwen3.5-122B-A10B | 49.4% | Alibaba |
@@ -43,4 +37,4 @@ The two OpenAI entries tell different stories. **GPT-5-mini** scores 31.9% — d
 | Qwen3-Max-Thinking | 22.5% | Alibaba |
 | GPT-OSS-120B | 18.7% | OpenAI |
 
-The Qwen3.5-4B and 9B results are the real talking point here. At ~80% they surpass frontier-adjacent models like Sonnet 4.5 (51.0%) and approach the top closed models like Opus 4.6 (65.4%) — all at a fraction of the parameter count. If these numbers hold up to scrutiny, the efficiency curve for small models just bent sharply upward.
+The ceiling here is ~52% — well below frontier models like Opus 4.6 (65.4%) or GPT-5.3-Codex (77.3%). But the Qwen3.5 MoEs are within striking distance of Sonnet 4.5 (51.0%), which is a closed frontier model from a major lab. That gap is closing fast.
