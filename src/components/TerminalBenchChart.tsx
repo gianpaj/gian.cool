@@ -20,6 +20,18 @@ const data = [
     provider: "openai",
   },
   {
+    name: "GPT-5.4",
+    shortName: "GPT-5.4",
+    accuracy: 75.1,
+    provider: "openai",
+  },
+  {
+    name: "Gemini 3.1 Pro",
+    shortName: "Gemini 3.1",
+    accuracy: 68.5,
+    provider: "google",
+  },
+  {
     name: "Opus 4.6",
     shortName: "Opus 4.6",
     accuracy: 65.4,
@@ -210,7 +222,7 @@ export default function TerminalBenchChart() {
   const chartHeight = isMobile ? 360 : 520;
   const chartMargin = isMobile
     ? { top: 0, right: 8, left: 0, bottom: 40 }
-    : { top: 0, right: 0, left: 20, bottom: 70 };
+    : { top: 0, right: 0, left: 30, bottom: 70 };
 
   return (
     <div
@@ -422,7 +434,16 @@ export default function TerminalBenchChart() {
               {" "}
               64.0%
             </span>{" "}
-            as reported by OpenAI.
+            as reported by OpenAI. Harnesses differ: Anthropic &amp; Google used
+            the{" "}
+            <span className={isDark ? "text-dark-text" : "text-ink/80"}>
+              Terminus-2
+            </span>{" "}
+            harness; OpenAI used{" "}
+            <span className={isDark ? "text-dark-text" : "text-ink/80"}>
+              Codex
+            </span>
+            . Scores are not directly comparable across providers.
           </p>
         </div>
       </div>
