@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from "react";
 import {
   Bar,
   BarChart,
@@ -10,7 +10,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-} from 'recharts';
+} from "recharts";
 
 const data = [
   {
@@ -108,13 +108,13 @@ interface ThemeColors {
 }
 
 const lightTheme: ThemeColors = {
-  gridStroke: '#eee',
-  axisStroke: '#ddd',
+  gridStroke: "#eee",
+  axisStroke: "#ddd",
 };
 
 const darkTheme: ThemeColors = {
-  gridStroke: '#333',
-  axisStroke: '#444',
+  gridStroke: "#333",
+  axisStroke: "#444",
 };
 
 interface TooltipPayload {
@@ -148,8 +148,8 @@ const CustomTooltip = ({
       <div
         className={`max-w-50 rounded-lg border p-3 font-sans text-[13px] shadow-lg ${
           isDark
-            ? 'border-dark-border bg-dark-bg text-dark-text'
-            : 'border-border bg-white text-ink'
+            ? "border-dark-border bg-dark-bg text-dark-text"
+            : "border-border bg-white text-ink"
         }`}
       >
         <div className="mb-1 font-bold">{d.name}</div>
@@ -157,7 +157,7 @@ const CustomTooltip = ({
           {d.accuracy}%
         </div>
         <div
-          className={`mt-0.5 text-[11px] ${isDark ? 'text-dark-muted' : 'text-muted'}`}
+          className={`mt-0.5 text-[11px] ${isDark ? "text-dark-muted" : "text-muted"}`}
         >
           {providerLabels[d.provider]}
         </div>
@@ -198,19 +198,19 @@ export default function TerminalBenchSmallChart() {
       setIsMobile(window.innerWidth < 640);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
     const checkDark = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
+      setIsDark(document.documentElement.classList.contains("dark"));
     };
     checkDark();
     const observer = new MutationObserver(checkDark);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['class'],
+      attributeFilter: ["class"],
     });
     return () => observer.disconnect();
   }, []);
@@ -222,7 +222,7 @@ export default function TerminalBenchSmallChart() {
 
   return (
     <div
-      className={`flex items-center justify-center font-sans ${isMobile ? 'p-0' : 'p-6'}`}
+      className={`flex items-center justify-center font-sans ${isMobile ? "p-0" : "p-6"}`}
     >
       <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
@@ -232,31 +232,31 @@ export default function TerminalBenchSmallChart() {
       <div
         className={`w-full max-w-230 border shadow-md ${
           isMobile
-            ? 'rounded-xl px-2.5 py-5 pb-4'
-            : 'rounded-2xl px-8 py-9 pb-7'
-        } ${isDark ? 'border-dark-border bg-dark-surface' : 'border-border bg-white'}`}
+            ? "rounded-xl px-2.5 py-5 pb-4"
+            : "rounded-2xl px-8 py-9 pb-7"
+        } ${isDark ? "border-dark-border bg-dark-surface" : "border-border bg-white"}`}
       >
         {/* Header */}
-        <div className={`text-center ${isMobile ? 'mb-4' : 'mb-7'}`}>
+        <div className={`text-center ${isMobile ? "mb-4" : "mb-7"}`}>
           <div
             className={`font-mono uppercase tracking-widest ${
               isMobile
-                ? 'mb-1 text-[9px] tracking-[2px]'
-                : 'mb-2 text-[11px] tracking-[3px]'
-            } ${isDark ? 'text-dark-muted' : 'text-muted'}`}
+                ? "mb-1 text-[9px] tracking-[2px]"
+                : "mb-2 text-[11px] tracking-[3px]"
+            } ${isDark ? "text-dark-muted" : "text-muted"}`}
           >
             Benchmark Comparison
           </div>
           <h1
             className={`m-0 font-bold tracking-tight ${
-              isMobile ? 'text-xl' : 'text-[28px]'
-            } ${isDark ? 'text-dark-text' : 'text-ink'}`}
+              isMobile ? "text-xl" : "text-[28px]"
+            } ${isDark ? "text-dark-text" : "text-ink"}`}
           >
             Small Coding Models
           </h1>
           <div
-            className={`font-mono ${isMobile ? 'mt-1 text-[11px]' : 'mt-1.5 text-[13px]'} ${
-              isDark ? 'text-dark-muted' : 'text-muted'
+            className={`font-mono ${isMobile ? "mt-1 text-[11px]" : "mt-1.5 text-[13px]"} ${
+              isDark ? "text-dark-muted" : "text-muted"
             }`}
           >
             Terminal-Bench 2.0
@@ -265,7 +265,7 @@ export default function TerminalBenchSmallChart() {
 
         {/* Legend */}
         <div
-          className={`flex flex-wrap justify-center ${isMobile ? 'mb-3 gap-3' : 'mb-6 gap-6'}`}
+          className={`flex flex-wrap justify-center ${isMobile ? "mb-3 gap-3" : "mb-6 gap-6"}`}
         >
           {[
             { label: "Alibaba", key: "alibaba", color: barColors.alibaba },
@@ -276,27 +276,27 @@ export default function TerminalBenchSmallChart() {
             const isHidden = hiddenProviders.has(key);
             return (
               <button
-                className={`flex cursor-pointer select-none items-center border-none bg-transparent p-0 ${isMobile ? 'gap-1' : 'gap-2'}`}
+                className={`flex cursor-pointer select-none items-center border-none bg-transparent p-0 ${isMobile ? "gap-1" : "gap-2"}`}
                 key={key}
                 onClick={() => toggleProvider(key)}
                 style={{
                   opacity: isHidden ? 0.4 : 1,
-                  transition: 'opacity 0.2s ease',
+                  transition: "opacity 0.2s ease",
                 }}
                 type="button"
               >
                 <div
-                  className={`rounded-sm ${isMobile ? 'h-2.5 w-2.5' : 'h-3 w-3'}`}
+                  className={`rounded-sm ${isMobile ? "h-2.5 w-2.5" : "h-3 w-3"}`}
                   style={{
-                    background: isHidden ? 'transparent' : color,
+                    background: isHidden ? "transparent" : color,
                     border: `2px solid ${color}`,
-                    transition: 'background 0.2s ease',
+                    transition: "background 0.2s ease",
                   }}
                 />
                 <span
-                  className={`font-medium ${isMobile ? 'text-[10px]' : 'text-xs'} ${
-                    isDark ? 'text-dark-text' : 'text-ink/80'
-                  } ${isHidden ? 'line-through' : ''}`}
+                  className={`font-medium ${isMobile ? "text-[10px]" : "text-xs"} ${
+                    isDark ? "text-dark-text" : "text-ink/80"
+                  } ${isHidden ? "line-through" : ""}`}
                 >
                   {label}
                 </span>
@@ -308,14 +308,14 @@ export default function TerminalBenchSmallChart() {
         {/* Chart */}
         <ResponsiveContainer height={chartHeight} width="100%">
           <BarChart
-            barCategoryGap={isMobile ? '12%' : '18%'}
+            barCategoryGap={isMobile ? "12%" : "18%"}
             data={visibleData}
             margin={chartMargin}
             onMouseLeave={() => setHoveredIdx(null)}
             onMouseMove={(state) => {
               if (
                 state?.activeTooltipIndex !== undefined &&
-                typeof state.activeTooltipIndex === 'number'
+                typeof state.activeTooltipIndex === "number"
               ) {
                 setHoveredIdx(state.activeTooltipIndex);
               }
@@ -329,14 +329,14 @@ export default function TerminalBenchSmallChart() {
             <XAxis
               angle={isMobile ? -50 : -35}
               axisLine={{ stroke: theme.axisStroke }}
-              dataKey={isMobile ? 'shortName' : 'name'}
+              dataKey={isMobile ? "shortName" : "name"}
               interval={0}
               textAnchor="end"
               tick={{
-                fill: isDark ? '#d1d5db' : '#555',
+                fill: isDark ? "#d1d5db" : "#555",
                 fontSize: isMobile ? 9 : 11,
                 fontFamily: "'DM Sans', sans-serif",
-                textAnchor: 'end',
+                textAnchor: "end",
               }}
               tickLine={false}
             />
@@ -344,7 +344,7 @@ export default function TerminalBenchSmallChart() {
               axisLine={false}
               domain={[0, 70]}
               tick={{
-                fill: isDark ? '#9ca3af' : '#999',
+                fill: isDark ? "#9ca3af" : "#999",
                 fontSize: isMobile ? 9 : 11,
                 fontFamily: "'JetBrains Mono', monospace",
               }}
@@ -372,11 +372,11 @@ export default function TerminalBenchSmallChart() {
                 return (
                   <Rectangle
                     {...props}
-                    fill={barColors[provider] ?? '#8884d8'}
+                    fill={barColors[provider] ?? "#8884d8"}
                     opacity={
                       hoveredIdx !== null && hoveredIdx !== index ? 0.35 : 1
                     }
-                    style={{ transition: 'opacity 0.2s ease' }}
+                    style={{ transition: "opacity 0.2s ease" }}
                   />
                 );
               }}
@@ -386,7 +386,7 @@ export default function TerminalBenchSmallChart() {
                 formatter={(v) => `${v}%`}
                 position="top"
                 style={{
-                  fill: isDark ? '#e8e4de' : '#1a1a1a',
+                  fill: isDark ? "#e8e4de" : "#1a1a1a",
                   fontSize: isMobile ? 7 : 12,
                   fontWeight: 600,
                   fontFamily: "'JetBrains Mono', monospace",
@@ -398,23 +398,23 @@ export default function TerminalBenchSmallChart() {
 
         {/* Footer note */}
         <div
-          className={`rounded-lg border ${isMobile ? 'mt-3 p-2.5' : 'mt-4 p-4'} ${
-            isDark ? 'border-dark-border bg-dark-bg' : 'border-border bg-cream'
+          className={`rounded-lg border ${isMobile ? "mt-3 p-2.5" : "mt-4 p-4"} ${
+            isDark ? "border-dark-border bg-dark-bg" : "border-border bg-cream"
           }`}
         >
           <p
             className={`m-0 font-mono leading-relaxed ${
-              isMobile ? 'text-[9px]' : 'text-[11px]'
-            } ${isDark ? 'text-dark-muted' : 'text-muted'}`}
+              isMobile ? "text-[9px]" : "text-[11px]"
+            } ${isDark ? "text-dark-muted" : "text-muted"}`}
           >
             <span
-              className={`font-semibold ${isDark ? 'text-dark-text' : 'text-ink'}`}
+              className={`font-semibold ${isDark ? "text-dark-text" : "text-ink"}`}
             >
               Source:
-            </span>{' '}
-            Terminal-Bench 2.0 leaderboard. All Qwen3.5 MoE models
-            use activated parameter counts (A-suffix). K2.5-1T-A32B is a
-            1T-parameter sparse MoE from Moonshot AI with 32B active parameters.
+            </span>{" "}
+            Terminal-Bench 2.0 leaderboard. All Qwen3.5 MoE models use activated
+            parameter counts (A-suffix). K2.5-1T-A32B is a 1T-parameter sparse
+            MoE from Moonshot AI with 32B active parameters.
           </p>
         </div>
       </div>
