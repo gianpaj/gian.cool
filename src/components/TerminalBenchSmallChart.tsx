@@ -14,71 +14,92 @@ import {
 
 const data = [
   {
-    name: 'Qwen3.5-397B-A17B',
-    shortName: 'Qwen3.5-397B',
+    name: "Qwen3.6-27B",
+    shortName: "Qwen3.6-27B",
+    accuracy: 59.3,
+    provider: "alibaba",
+  },
+  {
+    name: "Qwen3.5-397B-A17B",
+    shortName: "Qwen3.5-397B",
     accuracy: 52.5,
-    provider: 'alibaba',
+    provider: "alibaba",
   },
   {
-    name: 'K2.5-1T-A32B',
-    shortName: 'K2.5-1T',
+    name: "Qwen3.6-35B-A3B",
+    shortName: "Qwen3.6-35B",
+    accuracy: 51.5,
+    provider: "alibaba",
+  },
+  {
+    name: "K2.5-1T-A32B",
+    shortName: "K2.5-1T",
     accuracy: 50.8,
-    provider: 'moonshot',
+    provider: "moonshot",
   },
   {
-    name: 'Qwen3.5-122B-A10B',
-    shortName: 'Qwen3.5-122B',
+    name: "Qwen3.5-122B-A10B",
+    shortName: "Qwen3.5-122B",
     accuracy: 49.4,
-    provider: 'alibaba',
+    provider: "alibaba",
   },
   {
-    name: 'Qwen3.5-27B',
-    shortName: 'Qwen3.5-27B',
+    name: "Gemma4-31B",
+    shortName: "Gemma4-31B",
+    accuracy: 42.9,
+    provider: "google",
+  },
+  {
+    name: "Qwen3.5-27B",
+    shortName: "Qwen3.5-27B",
     accuracy: 41.6,
-    provider: 'alibaba',
+    provider: "alibaba",
   },
   {
-    name: 'Qwen3.5-35B-A3B',
-    shortName: 'Qwen3.5-35B',
+    name: "Qwen3.5-35B-A3B",
+    shortName: "Qwen3.5-35B",
     accuracy: 40.5,
-    provider: 'alibaba',
+    provider: "alibaba",
   },
   {
-    name: 'GPT-5-mini (2025-08-07)',
-    shortName: 'GPT-5-mini',
+    name: "Gemma4-26BA4B",
+    shortName: "Gemma4-26BA4B",
+    accuracy: 34.2,
+    provider: "google",
+  },
+  {
+    name: "GPT-5-mini (2025-08-07)",
+    shortName: "GPT-5-mini",
     accuracy: 31.9,
-    provider: 'openai',
+    provider: "openai",
   },
   {
-    name: 'Qwen3-Max-Thinking',
-    shortName: 'Qwen3-Max',
-    accuracy: 22.5,
-    provider: 'alibaba',
-  },
-  {
-    name: 'GPT-OSS-120B',
-    shortName: 'GPT-OSS-120B',
+    name: "GPT-OSS-120B",
+    shortName: "GPT-OSS-120B",
     accuracy: 18.7,
-    provider: 'openai',
+    provider: "openai",
   },
 ];
 
 const colors: Record<string, string> = {
-  openai: '#10b981',
-  alibaba: '#06b6d4',
-  moonshot: '#8b5cf6',
+  openai: "#10b981",
+  alibaba: "#06b6d4",
+  moonshot: "#8b5cf6",
+  google: "#f59e0b",
 };
 
 const darkModeColors: Record<string, string> = {
-  openai: '#047857',
-  alibaba: '#0891b2',
-  moonshot: '#6d28d9',
+  openai: "#047857",
+  alibaba: "#0891b2",
+  moonshot: "#6d28d9",
+  google: "#d97706",
 };
 
 const providerLabels: Record<string, string> = {
-  openai: 'OpenAI',
-  alibaba: 'Alibaba',
-  moonshot: 'Moonshot',
+  openai: "OpenAI",
+  alibaba: "Alibaba",
+  moonshot: "Moonshot",
+  google: "Google",
 };
 
 interface ThemeColors {
@@ -247,9 +268,10 @@ export default function TerminalBenchSmallChart() {
           className={`flex flex-wrap justify-center ${isMobile ? 'mb-3 gap-3' : 'mb-6 gap-6'}`}
         >
           {[
-            { label: 'Alibaba', key: 'alibaba', color: barColors.alibaba },
-            { label: 'Moonshot', key: 'moonshot', color: barColors.moonshot },
-            { label: 'OpenAI', key: 'openai', color: barColors.openai },
+            { label: "Alibaba", key: "alibaba", color: barColors.alibaba },
+            { label: "Moonshot", key: "moonshot", color: barColors.moonshot },
+            { label: "Google", key: "google", color: barColors.google },
+            { label: "OpenAI", key: "openai", color: barColors.openai },
           ].map(({ label, key, color }) => {
             const isHidden = hiddenProviders.has(key);
             return (

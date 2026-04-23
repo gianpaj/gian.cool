@@ -2,7 +2,7 @@
 title: "Small coding models on Terminal-Bench 2"
 description: "How open-weight and smaller models compare on Terminal-Bench 2.0 — Qwen3.5, K2.5, GPT-5-mini, and more"
 slug: small-coding-models
-pubDate: 2026-02-26
+pubDate: 2026-04-23
 tags:
   - llm
   - benchmark
@@ -10,31 +10,41 @@ tags:
 ---
 
 import TerminalBenchSmallChart from "../../components/TerminalBenchSmallChart.tsx";
+import TerminalBenchSmallSizeChart from "../../components/TerminalBenchSmallSizeChart.tsx";
 import More from "../../components/More.astro";
+
+<small>
+Updated on: April 23rd 2026 <br/>
+Original date: Feb 26th 2026
+</small>
 
 Frontier models get most of the headlines, but the more interesting race is happening one tier down. Here's how open-weight and smaller models stack up on Terminal-Bench 2.0.
 
 <TerminalBenchSmallChart client:load />
 
+The top of the chart is no longer just a Qwen3.5 story. **Qwen3.6-27B** now leads this group at 59.3%, outperforming even the much larger **Qwen3.5-397B-A17B** at 52.5%. **Qwen3.6-35B-A3B** also lands in the top tier at 51.5%, suggesting Alibaba's newer generation is pushing small-model coding performance meaningfully higher.
+
+Just below that, the older leaders still hold up well. **K2.5-1T-A32B** scores 50.8%, **Qwen3.5-122B-A10B** reaches 49.4%, and **Gemma4-31B** comes in at 42.9%. In the same general size class, **Qwen3.5-27B** posts 41.6%, **Qwen3.5-35B-A3B** scores 40.5%, and **Gemma4-26BA4B** trails at 34.2%.
+
+**GPT-OSS-120B** at 18.7% remains the clearest outlier. Even at a much larger footprint than the 27B–35B class, it underperforms models that are dramatically smaller on disk. Once you add model size as a second dimension, the efficiency story becomes much more interesting than the raw leaderboard alone.
+
+| Model | Score | Provider | GGUF | Size |
+|-------|-------|----------|------|------|
+| Qwen3.6-27B | 59.3% | Alibaba | `unsloth/Qwen3.6-27B-GGUF` | 16.8 GB |
+| Qwen3.5-397B-A17B | 52.5% | Alibaba | `unsloth/Qwen3.5-397B-A17B-GGUF` | 244 GB |
+| Qwen3.6-35B-A3B | 51.5% | Alibaba | `unsloth/Qwen3.6-35B-A3B-GGUF` | 22.1 GB |
+| K2.5-1T-A32B | 50.8% | Moonshot | `unsloth/Kimi-K2.5-GGUF` | 621 GB |
+| Qwen3.5-122B-A10B | 49.4% | Alibaba | `unsloth/Qwen3.5-122B-A10B-GGUF` | 76.5 GB |
+| Gemma4-31B | 42.9% | Google | `unsloth/gemma-4-31B-it-GGUF` | 18.3 GB |
+| Qwen3.5-27B | 41.6% | Alibaba | `unsloth/Qwen3.5-27B-GGUF` | 16.7 GB |
+| Qwen3.5-35B-A3B | 40.5% | Alibaba | `unsloth/Qwen3.5-35B-A3B-GGUF` | 22 GB |
+| Gemma4-26BA4B | 34.2% | Google | `unsloth/gemma-4-26B-A4B-it-GGUF` | 16.9 GB |
+| GPT-OSS-120B | 18.7% | OpenAI | `unsloth/gpt-oss-120b-GGUF` | 62.8 GB |
+
+<TerminalBenchSmallSizeChart client:load />
+
+Using the same `Q4_K_M` quantization across the board makes the size comparison much cleaner. The scatter plot shows the main takeaway immediately: **Qwen3.6-27B** sits in the best part of the frontier here, delivering the highest score while staying under 17 GB. **Gemma4-31B** and **Qwen3.5-27B** also look strong on a score-per-GB basis, while the giant MoE checkpoints buy you some extra capability at a very steep storage cost.
+
 <More />
 
-The Qwen3.5 family dominates the top of this chart. **Qwen3.5-397B-A17B** leads at 52.5%, followed by **K2.5-1T-A32B** (Moonshot, 50.8%) and **Qwen3.5-122B-A10B** (49.4%). All three are sparse MoE models — their active parameter counts are far smaller than the headline numbers suggest, which makes the performance particularly impressive.
-
-Drop down to the 27B–35B range and scores fall to the low 40s. **Qwen3.5-27B** (41.6%) and **Qwen3.5-35B-A3B** (40.5%) are competitive for their size, but the gap to the 100B+ tier is real.
-
-The two OpenAI entries tell different stories. **GPT-5-mini** scores 31.9% — decent for a "mini" model, though well behind the Qwen3.5 MoEs. **GPT-OSS-120B** at 18.7% is a surprise outlier; at 120B parameters it underperforms models a fraction of its size, suggesting architecture and training focus matter far more than scale alone.
-
-**Qwen3-Max-Thinking** (22.5%) is the other anomaly. Chain-of-thought reasoning doesn't appear to help on terminal tasks, at least not at this evaluation setting.
-
-| Model | Score | Provider |
-|-------|-------|----------|
-| Qwen3.5-397B-A17B | 52.5% | Alibaba |
-| K2.5-1T-A32B | 50.8% | Moonshot |
-| Qwen3.5-122B-A10B | 49.4% | Alibaba |
-| Qwen3.5-27B | 41.6% | Alibaba |
-| Qwen3.5-35B-A3B | 40.5% | Alibaba |
-| GPT-5-mini (2025-08-07) | 31.9% | OpenAI |
-| Qwen3-Max-Thinking | 22.5% | Alibaba |
-| GPT-OSS-120B | 18.7% | OpenAI |
-
-The ceiling here is ~52% — well below frontier models like Opus 4.6 (65.4%) or GPT-5.3-Codex (77.3%). But the Qwen3.5 MoEs are within striking distance of Sonnet 4.5 (51.0%), which is a closed frontier model from a major lab. That gap is closing fast.
+The ceiling for this set is now close to 60%, which is a meaningful jump from the earlier ~52% range. Small and mid-sized open models are improving fast, and the newest Qwen3.6 entries make that trend hard to ignore.
