@@ -19,7 +19,7 @@ The pitch is simple: let a user's AI agent place real phone calls to businesses 
 
 Not a human call center. Not a browser automation hack. An agent-native way to get through phone-only workflows.
 
-{/* more */}
+<!-- more -->
 
 ## Why this matters
 
