@@ -1,8 +1,8 @@
 ---
 title: "Small coding models on Terminal-Bench 2"
-description: "How open-weight and smaller models compare on Terminal-Bench 2.0 — Qwen3.5, K2.5, GPT-5-mini, and more"
+description: "How open-weight and smaller models compare on Terminal-Bench 2.0 — Qwen3.5, Gemma 4, K2.5, GPT-5-mini, and more"
 slug: small-coding-models
-pubDate: 2026-04-23
+pubDate: 2026-06-04
 tags:
   - llm
   - benchmark
@@ -14,13 +14,15 @@ import TerminalBenchSmallSizeChart from "../../components/TerminalBenchSmallSize
 import More from "../../components/More.astro";
 
 <small>
-Updated on: April 23rd 2026 <br/>
+Updated on: June 4th 2026 <br/>
 Original date: Feb 26th 2026
 </small>
 
 Frontier models get most of the headlines, but the more interesting race is happening one tier down. Here's how open-weight and smaller models stack up on Terminal-Bench 2.0.
 
 <TerminalBenchSmallChart client:load />
+
+<More />
 
 The top of the chart is no longer just a Qwen3.5 story. **Qwen3.6-27B** now leads this group at 59.3%, outperforming even the much larger **Qwen3.5-397B-A17B** at 52.5%. **Qwen3.6-35B-A3B** also lands in the top tier at 51.5%, suggesting Alibaba's newer generation is pushing small-model coding performance meaningfully higher.
 
@@ -45,6 +47,16 @@ Just below that, the older leaders still hold up well. **K2.5-1T-A32B** scores 5
 
 Using the same `Q4_K_M` quantization across the board makes the size comparison much cleaner. The scatter plot shows the main takeaway immediately: **Qwen3.6-27B** sits in the best part of the frontier here, delivering the highest score while staying under 17 GB. **Gemma4-31B** and **Qwen3.5-27B** also look strong on a score-per-GB basis, while the giant MoE checkpoints buy you some extra capability at a very steep storage cost.
 
-<More />
-
 The ceiling for this set is now close to 60%, which is a meaningful jump from the earlier ~52% range. Small and mid-sized open models are improving fast, and the newest Qwen3.6 entries make that trend hard to ignore.
+
+For the overlapping text benchmarks, **Qwen3.5-9B** looks stronger on MMLU-Pro and GPQA Diamond, while **Gemma 4 12B Unified** is ahead on LiveCodeBench v6 and MMMLU. The Tau2 row is less clean because the labels differ: Gemma reports "Tau2 (average over 3)", while Qwen reports "TAU2-Bench".
+
+| Metric | Gemma 4 12B | Qwen3.5-9B |
+|---|---:|---:|
+| MMLU Pro | 77.2% | 82.5% |
+| GPQA Diamond | 78.8% | 81.7% |
+| LiveCodeBench v6 | 72.0% | 65.6% |
+| MMMLU | 83.4% | 81.2% |
+| Tau2 / TAU2-Bench | 69.0% | 79.1% |
+
+<More />
