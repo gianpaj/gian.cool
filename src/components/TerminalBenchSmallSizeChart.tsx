@@ -204,6 +204,7 @@ const CustomTooltip = ({
   );
 };
 
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: big chart component
 export default function TerminalBenchSmallSizeChart() {
   const [isMobile, setIsMobile] = useState(false);
   const [isDark, setIsDark] = useState(false);
