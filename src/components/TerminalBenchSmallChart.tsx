@@ -1,3 +1,4 @@
+import type { ComponentProps } from "react";
 import { useEffect, useMemo, useState } from "react";
 import {
   Bar,
@@ -106,6 +107,13 @@ interface ThemeColors {
   axisStroke: string;
   gridStroke: string;
 }
+
+type BarShapeProps = ComponentProps<typeof Rectangle> & {
+  index?: number | string;
+  payload?: {
+    provider?: string;
+  };
+};
 
 const lightTheme: ThemeColors = {
   gridStroke: "#eee",
@@ -366,15 +374,16 @@ export default function TerminalBenchSmallChart() {
               dataKey="accuracy"
               maxBarSize={isMobile ? 40 : 72}
               radius={[3, 3, 0, 0]}
-              shape={(props: any) => {
-                const index = Number(props.index);
-                const provider = props.payload?.provider;
+              shape={(props: BarShapeProps) => {
+                const { index, payload, ...rectangleProps } = props;
+                const barIndex = Number(index);
+                const provider = payload?.provider;
                 return (
                   <Rectangle
-                    {...props}
-                    fill={barColors[provider] ?? "#8884d8"}
+                    {...rectangleProps}
+                    fill={barColors[provider ?? ""] ?? "#8884d8"}
                     opacity={
-                      hoveredIdx !== null && hoveredIdx !== index ? 0.35 : 1
+                      hoveredIdx !== null && hoveredIdx !== barIndex ? 0.35 : 1
                     }
                     style={{ transition: "opacity 0.2s ease" }}
                   />

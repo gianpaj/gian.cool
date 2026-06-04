@@ -1,0 +1,178 @@
+---
+title: "AgentCaller: a phone layer for AI agents"
+description: "AI agents can browse the web, send email, and call APIs. AgentCaller gives them one more interface: the phone."
+slug: agentcaller
+pubDate: 2026-05-30
+tags:
+  - ai
+  - tools
+  - projects
+---
+
+AI agents are getting pretty good at the internet.
+
+They can search, compare options, fill out forms, click through workflows, send emails, and call APIs. But much of the real world still sits beyond their reach, behind a channel most agents cannot use: the phone network.
+
+That is the idea behind [AgentCaller.io](https://agentcaller.io), a product I am testing now.
+
+The pitch is simple: let a user's AI agent call businesses, handle the conversation, and return a structured result the agent can act on.
+
+Not a human call center. Not a browser automation hack. A phone interface built for agents.
+
+{/* text */}
+
+## Why this matters
+
+A large share of commerce and coordination still runs on phone calls.
+
+Restaurants take reservations by phone. Clinics confirm availability by phone. Repair shops quote timelines by phone. Local stores answer inventory questions by phone. Service businesses often have edge-case rules, partial availability, or operational details that never reach a website.
+
+From a software point of view, those businesses are invisible. They may have websites, but their real transaction surface is often just a phone number.
+
+That creates a hard ceiling for today's agents.
+
+An agent can find the number. It can summarize the options. It can tell you to call. But once the workflow leaves the browser and becomes a voice interaction, the automation usually stops.
+
+If agents are going to be useful rather than merely informative, they need a bridge into that layer of the world.
+
+## What AgentCaller does
+
+AgentCaller is meant to be that bridge.
+
+At a high level, the flow looks like this:
+
+1. Your agent sends a task.
+2. AgentCaller places the call.
+3. The conversation happens in natural language.
+4. AgentCaller returns a structured result.
+
+That structure matters.
+
+The output should not be a transcript blob. It should be something an agent can use immediately: whether the task succeeded, what the business said, which options it offered, what constraints came up, and what should happen next.
+
+That makes AgentCaller less like "AI voice as a gimmick" and more like an execution API for phone-based tasks.
+
+## The jobs it could unlock
+
+The obvious first use cases look like personal assistant work:
+
+- Booking a restaurant that only takes reservations by phone
+- Calling a barber or salon to ask about same-day availability
+- Checking whether a pharmacy has a prescription ready
+- Asking a store if a product is in stock before making the trip
+- Confirming whether a clinic, repair shop, or service provider can take a new appointment
+
+Those tasks are useful, but the bigger opportunity extends beyond consumer convenience.
+
+Once an agent can call, it can handle operational workflows that still depend on manual phone coordination:
+
+- Travel agents and concierge tools calling hotels, restaurants, or local operators
+- Marketplaces confirming availability with small businesses that lack APIs
+- Operations tools handling repetitive outbound coordination
+- Vertical AI products for local businesses that need phone execution, not just messaging
+- Internal business agents escalating to a phone call when web and email channels fail
+
+In each case, the agent stops planning and starts executing.
+
+## What makes the product interesting
+
+A few product choices matter more than the fact that it can talk.
+
+### 1. It is built for agents, not just end users
+
+The point is not to give a person a button that says "make a call." The point is to give software a clean interface for delegating a phone task and receiving a usable result.
+
+That means the product has to be:
+
+- Programmatic
+- Reliable enough for downstream workflows
+- Structured in its outputs
+- Simple to trigger from an agent runtime
+
+The developer experience matters as much as the end-user experience.
+
+### 2. It works in English and Spanish
+
+AgentCaller is designed to support both English and Spanish.
+
+That is not cosmetic. Many businesses where phone coordination still matters are local, multilingual, and lightly digitized. If the product works in only one language, much of the practical surface area disappears.
+
+### 3. It uses per-call payments
+
+The current model is pay per call via x402, using USDC on Base.
+
+That feels right for this kind of infrastructure. If an agent needs a capability for one discrete task, usage-based pricing makes more sense than forcing everything into enterprise SaaS seats or subscriptions.
+
+If agents become software buyers in their own right, capability-priced APIs make sense.
+
+### 4. There is no human in the loop
+
+This is central to the thesis.
+
+The goal is not "AI starts the workflow and a human operator finishes it." The goal is fully agentic execution for businesses whose only interface is a phone number.
+
+That category is much more interesting because it scales like software, not like operations disguised as software.
+
+## Why the potential is bigger than restaurant bookings
+
+It is easy to hear this idea and think of it as a neat consumer demo: AI books dinner for you. That is a fine starting point, but the broader version is more interesting.
+
+AgentCaller could become infrastructure for making phone-only businesses legible to software.
+
+That matters because millions of useful tasks still depend on organizations that never built APIs, never exposed reliable web flows, and probably never will. For those businesses, the phone number is effectively the API.
+
+If agents can use that API, they become much more useful.
+
+The internet trained us to think automation happens only where software interfaces already exist. But the real world is messy. High-value tasks still sit behind fragmented systems, front desks, voicemail trees, and local business workflows.
+
+A reliable calling layer gives agents one more way through that mess.
+
+## What I would want from it as a user
+
+If I used this through my own agent, I would want:
+
+- A simple way to pass intent, constraints, and context into the call
+- A structured result instead of raw audio, unless I ask for the transcript
+- A clear success or failure state
+- Enough detail for the agent to continue the workflow automatically
+- Predictable per-call pricing
+
+For example, I want my agent to be able to say:
+
+> Find a table for two near me tonight after 8pm, and if the first place is full, call the next three options.
+
+Or:
+
+> Call these three repair shops, ask for the earliest appointment for a screen replacement, and return the best option.
+
+Or:
+
+> Ask this pharmacy whether my prescription is ready, and if not, when I should call back.
+
+These tasks are small, but they are exactly the kind of work people want to delegate.
+
+## Why now is the right time to test it
+
+Several trends are lining up.
+
+Agents are getting better at planning and tool use. Voice models are becoming usable for real conversations. More software is being built around autonomous and semi-autonomous workflows. Yet the phone remains one of automation's biggest dead ends.
+
+That makes this a good moment to test whether the market wants an agent-to-phone bridge.
+
+The technical novelty is no longer the interesting part. The product question is:
+
+Are there enough valuable workflows blocked on "someone has to call" to justify dedicated infrastructure?
+
+I suspect there are.
+
+## The core thesis
+
+One missing primitive for useful agents is the ability to act in channels that were never designed for software.
+
+Email was one step. Browsers were another. Phone calls may be the next important one.
+
+If AgentCaller works, it will not just automate a few annoying errands. It will give agents access to a much larger part of the economy still coordinated by voice.
+
+That is the potential I am interested in.
+
+If you are building agent products, operations automation, concierge tools, or anything that regularly hits the "please call us" wall, I would love to hear which tasks you would want an agent to handle first.
