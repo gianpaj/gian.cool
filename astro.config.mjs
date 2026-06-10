@@ -1,6 +1,7 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
+import { unified } from '@astrojs/markdown-remark';
 import { defineConfig } from "astro/config";
 
 import { remarkExcerpt } from "./remark-excerpt.mjs";
@@ -10,12 +11,14 @@ export default defineConfig({
   site: "https://gian.cool",
   integrations: [
     mdx({
-      remarkPlugins: [remarkExcerpt],
+      processor: unified({ remarkPlugins: [remarkExcerpt] }),
     }),
     react(),
   ],
   markdown: {
-    remarkPlugins: [remarkExcerpt],
+    processor: unified({
+     remarkPlugins: [remarkExcerpt],
+    })
   },
   vite: {
     plugins: [tailwindcss()],

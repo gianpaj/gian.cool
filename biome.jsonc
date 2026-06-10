@@ -1,35 +1,48 @@
 {
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/next"
+  ],
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "overrides": [
     {
-      "includes": ["**/*.astro"],
+      "includes": [
+        "**/*.astro"
+      ],
       "linter": {
         "rules": {
           "style": {
             "useConst": "off",
-            "useImportType": "off",
+            "useImportType": "off"
           },
           "correctness": {
             "noUnusedVariables": "off",
-            "noUnusedImports": "off",
-          },
-        },
-      },
-    },
+            "noUnusedImports": "off"
+          }
+        }
+      }
+    }
   ],
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": true,
+    "useIgnoreFile": true
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!**/venv", "!**/.venv", "!**/node_modules", "!dist", "!build"],
+    "includes": [
+      "**",
+      "!**/venv",
+      "!**/.venv",
+      "!**/node_modules",
+      "!dist",
+      "!build"
+    ]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2,
+    "indentWidth": 2
   },
   "linter": {
     "enabled": true,
@@ -42,8 +55,8 @@
         "useConsistentTypeDefinitions": {
           "level": "warn",
           "options": {
-            "style": "interface",
-          },
+            "style": "interface"
+          }
         },
         "useBlockStatements": "off",
         "useEnumInitializers": "error",
@@ -61,27 +74,27 @@
         "useImportType": "error",
         "useExportType": "error",
         "noUselessElse": "error",
-        "useShorthandFunctionType": "error",
+        "useShorthandFunctionType": "error"
       },
       "suspicious": {
         "noArrayIndexKey": "off",
-        "noUnknownAtRules": "off",
+        "noUnknownAtRules": "off"
       },
       "correctness": {
-        "useUniqueElementIds": "off",
+        "useUniqueElementIds": "off"
       },
       "nursery": {
         "noShadow": "off",
-        "noLeakedRender": "off",
+        "noLeakedRender": "off"
       },
       "performance": {
-        "useTopLevelRegex": "off",
-      },
+        "useTopLevelRegex": "off"
+      }
     },
     "domains": {
       "next": "recommended",
-      "react": "recommended",
-    },
+      "react": "recommended"
+    }
   },
   "javascript": {
     "formatter": {
@@ -92,8 +105,8 @@
       "lineWidth": 80,
       "attributePosition": "auto",
       "quoteStyle": "single",
-      "trailingCommas": "all",
-    },
+      "trailingCommas": "all"
+    }
   },
   "assist": {
     "actions": {
@@ -102,23 +115,21 @@
           "level": "on",
           "options": {
             "groups": [
-              // Modules imported with the `npm:` protocol
               "npm:*",
               "npm:*/**",
               ":NODE:",
               ":PACKAGE:",
               ":BLANK_LINE:",
-              ":ALIAS:",
-            ],
-          },
-        },
-      },
-    },
+              ":ALIAS:"
+            ]
+          }
+        }
+      }
+    }
   },
   "css": {
     "parser": {
-      "tailwindDirectives": true,
-    },
-  },
-  "extends": ["ultracite/core", "ultracite/next"],
+      "tailwindDirectives": true
+    }
+  }
 }
