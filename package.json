@@ -16,30 +16,30 @@
     "test:run": "vitest run"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/mdx": "^5.0.4",
-    "@astrojs/react": "^5.0.4",
+    "@astrojs/react": "^5.0.7",
     "@astrojs/rss": "^4.0.18",
-    "@biomejs/biome": "^2.4.4",
+    "@biomejs/biome": "^2.4.16",
     "@resvg/resvg-wasm": "^2.6.2",
-    "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.1.10",
     "hast-util-to-html": "^9.0.5",
-    "markdown-it": "^14.1.1",
+    "markdown-it": "^14.2.0",
     "mdast-util-to-hast": "^13.2.1",
     "mdast-util-to-string": "^4.0.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "recharts": "^3.7.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "recharts": "^3.8.1",
     "satori": "^0.19.1",
-    "tailwindcss": "^4.1.18",
-    "ultracite": "^7.2.3"
+    "tailwindcss": "^4.3.0",
+    "ultracite": "^7.8.2"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^25.2.1",
-    "@types/react": "^19.2.13",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "rehype-stringify": "^10.0.1",
     "remark-mdx": "^3.1.1",
@@ -47,6 +47,6 @@
     "remark-rehype": "^11.1.2",
     "remark-stringify": "^11.0.0",
     "unified": "^11.0.5",
-    "vitest": "^4.1.0"
+    "vitest": "^4.1.8"
   }
 }
