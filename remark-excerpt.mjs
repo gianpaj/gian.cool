@@ -1,6 +1,6 @@
-import { toString } from "mdast-util-to-string";
-import { toHast } from "mdast-util-to-hast";
-import { toHtml } from "hast-util-to-html";
+import { toHtml } from 'hast-util-to-html';
+import { toHast } from 'mdast-util-to-hast';
+import { toString } from 'mdast-util-to-string';
 
 /**
  * A remark plugin that extracts an excerpt from MDX/Markdown content.
@@ -17,67 +17,62 @@ import { toHtml } from "hast-util-to-html";
 export function remarkExcerpt(options = {}) {
   const maxLength = options.maxLength || 300;
 
-  return function (tree, file) {
+  return (tree, file) => {
     let separatorIndex = -1;
     const excerptNodes = [];
 
-    const hrHTML = '<hr data-excerpt-separator="true" aria-hidden="true" style="display:none">';
+    const hrHTML =
+      '<hr data-excerpt-separator="true" aria-hidden="true" style="display:none">';
 
     // Find the separator: <!-- more --> (Markdown) or {/* more */} (MDX)
     for (let i = 0; i < tree.children.length; i++) {
       const node = tree.children[i];
 
       // Check for HTML comment <!-- more --> (Markdown)
-      if (node.type === "html" && /<!--\s*more\s*-->/.test(node.value)) {
+      if (node.type === 'html' && /<!--\s*more\s*-->/.test(node.value)) {
         separatorIndex = i;
         // Replace the comment with an hr marker for ExcerptOnly component
         tree.children[i] = {
-          type: "html",
+          type: 'html',
           value: hrHTML,
         };
         break;
       }
 
       // Check for raw HTML or comment nodes
-      if (node.type === "raw" && /<!--\s*more\s*-->/.test(node.value)) {
+      if (node.type === 'raw' && /<!--\s*more\s*-->/.test(node.value)) {
         separatorIndex = i;
         // Replace the comment with an hr marker for ExcerptOnly component
         tree.children[i] = {
-          type: "raw",
+          type: 'raw',
           value: hrHTML,
         };
         break;
       }
 
       // Check for MDX expression comment {/* more */}
-      if (node.type === "mdxFlowExpression" && /^\s*\/\*\s*more\s*\*\/\s*$/.test(node.value)) {
+      if (
+        node.type === 'mdxFlowExpression' &&
+        /^\s*\/\*\s*more\s*\*\/\s*$/.test(node.value)
+      ) {
         separatorIndex = i;
         // Replace the MDX comment with an hr marker for ExcerptOnly component
         // Use raw HTML node which works in both test and Astro MDX contexts
         tree.children[i] = {
-          type: "html",
+          type: 'html',
           value: hrHTML,
         };
         break;
       }
     }
 
-    if (separatorIndex !== -1) {
-      // Found separator - collect all nodes before it (excluding MDX imports/exports)
-      for (let i = 0; i < separatorIndex; i++) {
-        const node = tree.children[i];
-        // Skip MDX-specific nodes that can't be rendered to plain HTML
-        if (node.type !== "mdxjsEsm" && node.type !== "mdxJsxFlowElement") {
-          excerptNodes.push(node);
-        }
-      }
-    } else {
+    if (separatorIndex === -1) {
       // No separator found - extract first N characters worth of content
       let charCount = 0;
 
       for (const node of tree.children) {
         // Skip MDX-specific nodes
-        if (node.type === "mdxjsEsm" || node.type === "mdxJsxFlowElement") {
+        if (node.type === 'mdxjsEsm' || node.type === 'mdxJsxFlowElement') {
           continue;
         }
 
@@ -90,8 +85,11 @@ export function remarkExcerpt(options = {}) {
         } else {
           // This node would exceed the limit
           // For paragraphs, try to truncate
-          if (node.type === "paragraph" && charCount < maxLength) {
-            const truncated = truncateParagraphNode(node, maxLength - charCount);
+          if (node.type === 'paragraph' && charCount < maxLength) {
+            const truncated = truncateParagraphNode(
+              node,
+              maxLength - charCount,
+            );
             if (truncated) {
               excerptNodes.push(truncated);
             }
@@ -99,15 +97,24 @@ export function remarkExcerpt(options = {}) {
           break;
         }
       }
+    } else {
+      // Found separator - collect all nodes before it (excluding MDX imports/exports)
+      for (let i = 0; i < separatorIndex; i++) {
+        const node = tree.children[i];
+        // Skip MDX-specific nodes that can't be rendered to plain HTML
+        if (node.type !== 'mdxjsEsm' && node.type !== 'mdxJsxFlowElement') {
+          excerptNodes.push(node);
+        }
+      }
     }
 
     // Convert excerpt nodes to HTML
-    let excerptHtml = "";
+    let excerptHtml = '';
     if (excerptNodes.length > 0) {
       try {
         // Create a temporary root node with excerpt children
         const excerptTree = {
-          type: "root",
+          type: 'root',
           children: excerptNodes,
         };
 
@@ -118,7 +125,7 @@ export function remarkExcerpt(options = {}) {
         excerptHtml = toHtml(hast);
       } catch (err) {
         // Fallback to plain text if conversion fails
-        excerptHtml = `<p>${toString({ type: "root", children: excerptNodes })}</p>`;
+        excerptHtml = `<p>${toString({ type: 'root', children: excerptNodes })}</p>`;
       }
     }
 
@@ -141,8 +148,8 @@ function truncateParagraphNode(node, maxChars) {
   const truncatedChildren = [];
 
   for (const child of cloned.children || []) {
-    if (child.type === "text") {
-      const text = child.value || "";
+    if (child.type === 'text') {
+      const text = child.value || '';
       if (charCount + text.length <= maxChars) {
         truncatedChildren.push(child);
         charCount += text.length;
@@ -152,15 +159,15 @@ function truncateParagraphNode(node, maxChars) {
         let truncated = text.slice(0, remaining);
 
         // Try to end at a word boundary
-        const lastSpace = truncated.lastIndexOf(" ");
+        const lastSpace = truncated.lastIndexOf(' ');
         if (lastSpace > remaining * 0.5) {
           truncated = truncated.slice(0, lastSpace);
         }
 
         // Add ellipsis
         truncatedChildren.push({
-          type: "text",
-          value: truncated + "…",
+          type: 'text',
+          value: truncated + '…',
         });
         break;
       }
@@ -173,8 +180,8 @@ function truncateParagraphNode(node, maxChars) {
       } else {
         // Add ellipsis and stop
         truncatedChildren.push({
-          type: "text",
-          value: "…",
+          type: 'text',
+          value: '…',
         });
         break;
       }
