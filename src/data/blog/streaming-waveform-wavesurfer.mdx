@@ -1,0 +1,150 @@
+---
+title: "A live, growing waveform for streaming audio with wavesurfer.js"
+description: "Render a live waveform as PCM chunks arrive: pad peaks toward an estimated duration, colour playback progress, and hand off to a seekable Blob."
+slug: streaming-waveform-wavesurfer
+pubDate: 2026-06-16
+tags:
+  - audio
+  - web
+  - guide
+---
+
+_AI wrote this article._
+
+I was streaming text-to-speech (Gemini's `gemini-3.1-flash-tts`) over SSE. I
+wanted [wavesurfer.js](https://wavesurfer.xyz) to draw the waveform **live** as
+PCM chunks arrived: grow left→right toward the full length and colour the played
+portion, instead of waiting for a final file.
+
+Here's the result: a synthesized clip that plays in your browser without
+downloading an audio file.
+
+<iframe
+  src="/wavesurfer-streaming-waveform.html"
+  title="Streaming waveform demo"
+  loading="lazy"
+  style="width:100%;height:200px;border:0;"
+></iframe>
+
+{/* more */}
+
+## The catch: wavesurfer plays a media element
+
+wavesurfer v7 plays through an `HTMLMediaElement`, so it can play only a real,
+decodable source: a URL or a `Blob`. It cannot progressively play raw streaming
+PCM. Treat playback and visualization as separate problems:
+
+- **Playback** while streaming: schedule each PCM chunk with the Web Audio API.
+- **Visualization**: give wavesurfer **precomputed peaks**; no media required.
+
+Fortunately, wavesurfer can render a waveform from only peaks and a duration.
+
+## Gotcha #1: `setOptions({ peaks })` does not re-render
+
+My first instinct was to keep one instance and call `setOptions` with new peaks
+every frame. The `redraw` event fired, but the waveform never changed.
+`setOptions({ peaks })` updates the option; it does **not** replace the decoded
+buffer. The instance keeps drawing the buffer it was created with.
+
+Peaks update only through `load()`. When you supply channel data, `load()` skips
+the network fetch entirely:
+
+```js
+// ❌ does not update the rendered waveform
+ws.setOptions({ peaks: [peaks], duration });
+
+// ✅ re-renders from the new peaks, no fetch (empty url + channel data)
+ws.load("", [peaks], duration);
+```
+
+When more PCM arrives, append to your decimated peak array and call
+`load("", [peaks], duration)`. Throttle this; a few times per second is enough.
+
+## Gotcha #2: filling toward the total length
+
+If you pass the _current_ duration each time, wavesurfer stretches the waveform
+across the full width and rescales on every update. The bars keep shrinking. To
+make the waveform grow left→right toward the final length, pad the peaks with
+silence up to an **estimated** total duration, then pass that total. For TTS,
+`chars / 15` is a workable rough estimate.
+
+```js
+const total = Math.max(estimatedTotalSec, generatedSec);
+const binsPerSec = peaks.length / generatedSec;
+const targetBins = Math.ceil(total * binsPerSec);
+const padded =
+  targetBins > peaks.length ? peaks.concat(new Array(targetBins - peaks.length).fill(0)) : peaks;
+
+await ws.load("", [padded], total);
+```
+
+The real audio occupies the left side. The padded zeroes draw a flat baseline,
+which shrinks as more audio arrives.
+
+## Gotcha #3: the progress colour
+
+wavesurfer colours the played region up to its current time. During streaming,
+no media is loaded, but `setTime()` still drives the progress render. Use
+`setTime`, not `seekTo`; only `setTime` respects the duration you passed to
+`load`. Feed it the live playback position from the Web Audio clock:
+`audioCtx.currentTime - startTime`.
+
+```js
+await ws.load("", [padded], total);
+ws.setTime(playedSeconds); // colours the played portion
+```
+
+## Gotcha #4: the handoff to a seekable file
+
+Two details matter here.
+
+First, **don't pass peaks to `loadBlob`**. When you provide precomputed channel
+data, wavesurfer renders from it and _skips loading the blob into its media
+element_. The waveform appears, but no audio source backs it, so clicks cannot
+seek. Pass the blob alone and let wavesurfer decode it. A few-second local clip
+decodes instantly.
+
+```js
+// ❌ renders, but media src stays empty → not seekable / not playable
+ws.loadBlob(blob, [peaks], duration);
+
+// ✅ decodes the blob, wires up seekable media, renders the exact waveform
+ws.loadBlob(blob);
+```
+
+Second, **hand off as soon as the full clip exists, not when playback ends.** My
+first version swapped to the file player only after the live playthrough
+finished, which left the entire first listen un-seekable. Instead, as soon as the
+stream completes, capture the current position, stop the Web Audio engine, call
+`loadBlob`, then `setTime(position)` and resume. Seeking works from then on. You
+still cannot seek into audio that has not been generated.
+
+## Putting it together
+
+The loop is:
+
+```js
+// once: render from peaks, no media
+const ws = WaveSurfer.create({
+  container,
+  peaks: [[0, 0]],
+  duration: 1,
+  waveColor: "#888",
+  progressColor: "#8b5cf6",
+});
+
+// per chunk (throttled): accumulate peaks, play via Web Audio,
+// then update the waveform + progress
+acc.push(float32); // decimated signed peaks
+scheduleForPlayback(float32); // Web Audio AudioBufferSourceNode
+await ws.load("", [padPeaks(acc)], totalSec);
+ws.setTime(playedSec);
+```
+
+When the stream finishes, you already have the full PCM in memory. Encode it to a
+WAV `Blob`, then call `ws.loadBlob(blob)` on the _same_ instance to hand off to
+real seek and replay. The user sees one player and one play/pause button from the
+first byte to the final file.
+
+The full demo source is a single self-contained HTML file:
+[`wavesurfer-streaming-waveform.html`](/wavesurfer-streaming-waveform.html).
