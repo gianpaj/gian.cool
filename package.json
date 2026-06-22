@@ -2,14 +2,14 @@
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/markdown-remark": "^7.2.0",
-    "@astrojs/mdx": "^6.0.3",
-    "@astrojs/react": "^5.0.7",
+    "@astrojs/mdx": "^7.0.0",
+    "@astrojs/react": "^6.0.0",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@resvg/resvg-wasm": "^2.6.2",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.0",
-    "astro": "^6.4.6",
+    "astro": "^7.0.0",
     "hast-util-to-html": "^9.0.5",
     "markdown-it": "^14.2.0",
     "mdast-util-to-hast": "^13.2.1",
@@ -51,6 +51,7 @@
     "check": "ultracite check",
     "fix": "ultracite fix"
   },
+  "packageManager": "pnpm@11.7.0",
   "type": "module",
   "version": "0.0.1"
 }
