@@ -36,6 +36,12 @@
       color: #2c3e50;
     }
 
+    .headline {
+      font-size: 13px;
+      color: #555;
+      margin-top: 2px;
+    }
+
     .contact {
       text-align: right;
       font-size: 11.5px;
@@ -99,9 +105,12 @@
 <body>
 
 <div class="header">
-  <h1>Gianfranco Palumbo</h1>
+  <div>
+    <h1>Gianfranco Palumbo</h1>
+    <div class="headline">Senior AI Engineer · Freelance / Contract</div>
+  </div>
   <div class="contact">
-    Málaga, Spain · +34 622 016 025<br>
+    Madrid &amp; Málaga, Spain · Remote or on-site<br>
     <a href="mailto:gianpa@gmail.com">gianpa@gmail.com</a> ·
     <a href="https://www.linkedin.com/in/gianpaj/">LinkedIn</a> ·
     <a href="https://github.com/gianpaj">GitHub</a>
@@ -111,10 +120,11 @@
 <div class="section">
   <div class="section-title">Summary</div>
   <p class="summary">
-    Senior AI Engineer with 14 years of software engineering experience, specialising in AI agent development,
-    voice AI, and LLM-powered applications. Builds production-grade full-stack systems using Python (FastAPI)
-    and React/TypeScript, integrating multiple AI providers and deploying real-time voice agents, RAG pipelines,
-    and AI-powered SaaS platforms. Based in Spain — available for freelance and contract engagements.
+    Senior AI Engineer with 14 years of software engineering experience, specialising in AI agents, voice AI,
+    and LLM-powered applications. Builds production full-stack systems in Python (FastAPI, Google ADK) and
+    React/TypeScript: real-time voice agents with paying customers, chatbots with memory and retrieval,
+    evaluated with custom eval suites. Works daily with AI coding agents (Claude Code, Codex).
+    Based in Spain and available for freelance and contract work.
   </p>
 </div>
 
@@ -123,7 +133,11 @@
   <div class="skills-grid">
     <div class="skill-row">
       <span class="skill-label">AI &amp; LLMs</span>
-      <span class="skill-value">OpenAI, Gemini, Anthropic, Grok, Mistral, LangChain, Vercel AI SDK, MCP, RAG</span>
+      <span class="skill-value">Anthropic Claude, OpenAI, Gemini, Grok, Mistral, RAG, memory &amp; retrieval, LangChain</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">Agents &amp; Workflows</span>
+      <span class="skill-value">Google ADK, Vercel AI SDK, MCP, tool calling, custom evals, Inngest, Vercel Workflows</span>
     </div>
     <div class="skill-row">
       <span class="skill-label">Voice AI</span>
@@ -131,7 +145,7 @@
     </div>
     <div class="skill-row">
       <span class="skill-label">CV &amp; ML</span>
-      <span class="skill-value">YOLOv8, OpenCV, scikit-learn, Hugging Face Transformers</span>
+      <span class="skill-value">YOLOv8, OpenCV, scikit-learn</span>
     </div>
     <div class="skill-row">
       <span class="skill-label">Backend</span>
@@ -146,8 +160,8 @@
       <span class="skill-value">AWS (Lambda, S3, EC2), GCP Cloud Run, Vercel, Docker, Fly.io, Cloudflare R2</span>
     </div>
     <div class="skill-row">
-      <span class="skill-label">Observability</span>
-      <span class="skill-value">LangSmith, Sentry, Axiom, Coralogix, NewRelic</span>
+      <span class="skill-label">Tooling</span>
+      <span class="skill-value">Claude Code, Codex, Zed · LangSmith, Sentry, Axiom, Coralogix, NewRelic</span>
     </div>
   </div>
 </div>
@@ -157,25 +171,25 @@
 
   <div class="job">
     <div class="job-header">
-      <span class="job-title">Senior Full-Stack AI Engineer · Contractor</span>
+      <span class="job-title">Senior Full-Stack AI Engineer · Contract (part-time, full-time since 2026)</span>
       <span class="job-date">Jan 2020 – Present</span>
     </div>
-    <div class="job-company">MoveFlux Corporation – Remote (Madrid / Málaga)</div>
+    <div class="job-company">MoveFlux Corporation (digital agency) – Remote</div>
     <ul>
-      <li>Build real-time voice AI agents using LiveKit (Agents SDK, SIP, WebRTC), integrating Whisper and Deepgram STT with multi-provider TTS for multilingual conversational AI.</li>
-      <li>Integrate LLM providers (Gemini, Grok, OpenAI, Mistral) with tool-calling and streaming to power production AI applications and chatbots.</li>
-      <li>Develop AI-powered SaaS platforms with Python (FastAPI), Next.js, React, Supabase/PostgreSQL, Stripe billing, and SendGrid.</li>
-      <li>Implement RAG pipelines using LangChain, Vercel AI SDK, and MongoDB vector search to reduce hallucinations and improve retrieval accuracy.</li>
-      <li>Deploy and monitor services on Google Cloud Run, Vercel, Fly.io, and AWS with LangSmith, Sentry, and Axiom observability.</li>
+      <li>Deliver full-stack web apps, APIs and AI features for agency clients in Python and TypeScript.</li>
+      <li>Since 2023, build and run voice AI products with paying B2C customers: real-time agents on LiveKit (Agents SDK, SIP, WebRTC), Whisper and Deepgram STT, and multi-provider TTS in several languages.</li>
+      <li>Built a production chatbot on the Vercel AI SDK and Anthropic Claude APIs, with long-term memory, knowledge retrieval (RAG on MongoDB vector search) and custom evals to catch regressions.</li>
+      <li>Build AI agents and background workflows in Python (FastAPI, Google ADK) and TypeScript, orchestrated with Inngest and Vercel Workflows; integrate OpenAI, Gemini, Grok and Mistral with tool calling and streaming.</li>
+      <li>Ship SaaS with Next.js, Supabase/PostgreSQL, Stripe and SendGrid; deploy on Cloud Run, Vercel, Fly.io and AWS, monitored with LangSmith, Sentry and Axiom.</li>
     </ul>
   </div>
 
   <div class="job">
     <div class="job-header">
-      <span class="job-title">Senior Full Stack Engineer · Permanent</span>
+      <span class="job-title">Senior Full Stack Engineer</span>
       <span class="job-date">May 2025 – Jun 2026</span>
     </div>
-    <div class="job-company"><a href="https://twin.org">TWIN.org (IOTA Foundation)</a> – Remote (Málaga)</div>
+    <div class="job-company"><a href="https://twin.org">TWIN.org (IOTA Foundation)</a> – Remote</div>
     <ul>
       <li>Developed the TWIN ID ecosystem, a decentralised identity platform for digitising global trade value chains.</li>
       <li>Architected the TWIN Onboarding Toolkit, a modular React/TypeScript library published as NPM packages to standardise verification flows.</li>
@@ -185,15 +199,14 @@
 
   <div class="job">
     <div class="job-header">
-      <span class="job-title">Senior Software Engineer · Contractor</span>
+      <span class="job-title">Senior Software Engineer · Contract</span>
       <span class="job-date">Jan 2020 – Nov 2024</span>
     </div>
-    <div class="job-company"><a href="https://www.cartrawler.com">CarTrawler</a> – Dublin, Ireland → Málaga</div>
+    <div class="job-company"><a href="https://www.cartrawler.com">CarTrawler</a> – Dublin, Ireland / Remote</div>
     <ul>
       <li>Built a taxi booking engine for Ryanair using React, Vite, Astro, and a headless CMS (Payload).</li>
       <li>Developed React Native SDK with TypeScript and Redux; wrote native iOS (Swift) and Android (Kotlin) code.</li>
-      <li>Built Node.js backend services (Fastify, Redis) with push notifications and email; deployed via Docker, AWS Lambda, and CloudFront.</li>
-      <li>Wrote integration and unit tests with Vitest; monitored services on Coralogix.</li>
+      <li>Built Node.js backend services (Fastify, Redis) with push notifications and email, tested with Vitest; deployed via Docker, AWS Lambda and CloudFront, monitored on Coralogix.</li>
     </ul>
   </div>
 
@@ -208,6 +221,22 @@
       <li>Integrated Google Cloud Storage, local payment and shipping providers; deployed on AWS EC2 with CI/CD.</li>
       <li>Monitored all services with Sentry and NewRelic.</li>
     </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Full Stack Developer · Contract</span>
+      <span class="job-date">Jan 2016 – Nov 2017</span>
+    </div>
+    <div class="job-company">Irish Distillers Pernod Ricard – Dublin, Ireland</div>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Web Development Career Path Mentor · Contract, part-time</span>
+      <span class="job-date">Sep 2015 – Mar 2019</span>
+    </div>
+    <div class="job-company">Thinkful coding bootcamp (now Chegg) – Remote</div>
   </div>
 
   <div class="job">
