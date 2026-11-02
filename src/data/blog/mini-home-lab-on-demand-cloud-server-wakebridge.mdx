@@ -14,8 +14,6 @@ Do you have a beefy PC probably under your desk? Or do you have a dedicated room
 
 ![My desk and tower PC](/2026-10-09-mini-home-lab-on-demand-cloud-server-wakebridge.webp)
 
-If you're not using it 24/7, leaving a computer running wastes electricity and dumps heat into your room. My tower draws an estimated **45–75 W at idle (~60 W typical)** at the wall—and **~230 W** when the GPU is working.
-
 If you're not using it 24/7, leaving a desktop running wastes ~€7/month of electricity and dumps heat into your room ([full breakdown below](#what-leaving-it-on-actually-costs))—whereas suspended, it uses almost nothing and wakes up in seconds.
 
 Now that coding agents can do a lot, I've been walking my dog and doing small fixes on my coding projects.
@@ -109,7 +107,7 @@ Every 30 seconds, it resets the 15-minute idle timer if _any_ of these are busy:
 
 All of this was vibe-coded using Android Studio on Mac. I have experience building production React Native apps, so that helps when debugging things. Except for when Codex on the RTX machine decided to install all the Android SDK tooling to build on Ubuntu :D
 
-Now I get cloud-server convenience on my own hardware: one tap on the widget when I need it while I'm out with my dog, **`~5 seconds`** later it's online over Tailscale, and 15 minutes after my coding agent finishes, it goes right back to sleep.
+Now I get cloud-server convenience on my own hardware: one tap on the widget when I need it while I'm out with my dog, **~5 seconds** later it's online over Tailscale, and 15 minutes after my coding agent finishes, it goes right back to sleep.
 
 ## What leaving it on actually costs
 
@@ -123,7 +121,7 @@ On my electricity bill in Spain (**€0.1596/kWh** all-in with taxes), here's wh
 | Idle on desktop | ~60 W (45–75 W)  | €0.23      | **€6.90** (~€84/yr) |
 | GPU working     | ~230 W           | €0.88      | **€26.44**          |
 
-€7/month of idle draw won't bankrupt anyone, **but** it's €84/year of wasted heat in Malaga — and if you ever run low-margin background GPU jobs (~€0.042/hr), paying for 24/7 idle power means you need ~65% paid utilization just to break even on electricity. Suspending it cuts idle draw to almost zero while still resuming in **`[~5 seconds]`**.
+€7/month of idle draw won't bankrupt anyone, **but** it's €84/year of wasted heat in Malaga — and if you ever run low-margin background GPU jobs (~€0.042/hr), paying for 24/7 idle power means you need ~65% paid utilization just to break even on electricity. Suspending it cuts idle draw to almost zero while still resuming in **~5 seconds**.
 
 ---
 
