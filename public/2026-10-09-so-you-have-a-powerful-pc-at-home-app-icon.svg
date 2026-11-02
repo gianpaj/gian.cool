@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72">
+  <title>WakeBridge adaptive launcher icon</title>
+  <!-- Circular preview of the Android launcher background and foreground. -->
+  <circle cx="54" cy="54" r="36" fill="#172033" />
+  <path fill="#FFCC33" d="M58.8,26.8L38,58.8h14.4l-3.2,22.4L70,46H55.6z" />
+</svg>
