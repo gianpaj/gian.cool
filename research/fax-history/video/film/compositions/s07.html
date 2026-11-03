@@ -1,0 +1,302 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+    .s07-title {
+      position: absolute;
+      left: 192px;
+      top: 150px;
+      width: 1536px;
+      font-family: var(--font-display);
+      font-size: 104px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+    }
+    .s07-word {
+      display: inline-block;
+    }
+    .s07-quiet {
+      position: absolute;
+      left: 192px;
+      width: 720px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.2;
+    }
+
+    /* Bits to sound: one cell per bit, the wave drawn above its bits. */
+    #s07-wave {
+      position: absolute;
+      left: 192px;
+      top: 400px;
+      width: 1536px;
+      height: 200px;
+    }
+    #s07-wavedraw {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0px 100% 0px 0px);
+    }
+    #s07-wavedraw svg {
+      display: block;
+      overflow: visible;
+    }
+    #s07-play {
+      position: absolute;
+      left: 0;
+      top: -10px;
+      width: 3px;
+      height: 320px;
+      background: var(--accent);
+      opacity: 0;
+    }
+    #s07-bits {
+      position: absolute;
+      left: 192px;
+      top: 640px;
+      width: 1536px;
+      display: flex;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 1.2;
+    }
+    .s07-bit {
+      width: 46.5454px;
+      text-align: center;
+    }
+
+    /* The end-of-line code and the pendulums it replaces. */
+    #s07-t2 {
+      font-size: 96px;
+    }
+    #s07-eol {
+      position: absolute;
+      left: 192px;
+      top: 420px;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 72px;
+      line-height: 1.2;
+    }
+    #s07-pend {
+      position: absolute;
+      left: 1180px;
+      top: 380px;
+      width: 420px;
+      height: 300px;
+    }
+    #s07-beam {
+      position: absolute;
+      left: 40px;
+      top: 18px;
+      width: 340px;
+      height: 4px;
+      background: var(--ink);
+    }
+    .s07-pendulum {
+      position: absolute;
+      top: 20px;
+      width: 44px;
+      height: 248px;
+    }
+    #s07-pa {
+      left: 68px;
+    }
+    #s07-pb {
+      left: 308px;
+    }
+    .s07-rod {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 4px;
+      height: 210px;
+      background: var(--ink);
+    }
+    .s07-bob {
+      position: absolute;
+      left: 0;
+      top: 204px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+    .s07-pivot {
+      position: absolute;
+      top: 12px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+    #s07-t3 {
+      top: 620px;
+    }
+
+    /* Japan. */
+    #s07-mini {
+      position: absolute;
+      left: 960px;
+      top: 176px;
+      width: 900px;
+      height: 728px;
+    }
+    #s07-print {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0px 0px 100% 0px);
+    }
+    #s07-print img {
+      display: block;
+      width: 900px;
+      height: 728px;
+      image-rendering: pixelated;
+    }
+    #s07-scan {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 900px;
+      height: 3px;
+      background: var(--accent);
+      opacity: 0;
+    }
+    #s07-t4 {
+      top: 250px;
+      width: 740px;
+      font-size: 96px;
+    }
+    #s07-q4 {
+      top: 500px;
+    }
+    #s07-t5 {
+      top: 220px;
+      width: 740px;
+      font-size: 84px;
+    }
+  </style>
+  <div data-hf-id="hf-w6kl" id="root" data-composition-id="s07" data-width="1920" data-height="1080">
+    <h1 data-hf-id="hf-jpx1" id="s07-t1" class="s07-title clip" data-start="0.6" data-duration="7.3">
+      <span data-hf-id="hf-ntop" id="s07-t1-in">A modem turns the bits into sound.</span>
+    </h1>
+    <div data-hf-id="hf-s1js" id="s07-wave" class="clip" data-start="1.9" data-duration="6.0">
+      <div data-hf-id="hf-f769" id="s07-wavedraw">
+        <svg data-hf-id="hf-1ptm" width="1536" height="200" viewBox="0 0 1536 200">
+          <path data-hf-id="hf-g9fv" id="s07-wave-path" d="" fill="none" stroke="#141414" stroke-width="4" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <div data-hf-id="hf-a7vm" id="s07-play"></div>
+    </div>
+    <div data-hf-id="hf-ffdo" id="s07-bits" class="clip" data-start="0.05" data-duration="7.85"></div>
+
+    <h1 data-hf-id="hf-da9d" id="s07-t2" class="s07-title clip" data-start="8.1" data-duration="9.5">
+      <span data-hf-id="hf-5a6v" class="s07-word">Every</span> <span data-hf-id="hf-ainq" class="s07-word">line</span> <span data-hf-id="hf-477i" class="s07-word">ends</span><br data-hf-id="hf-x5px" />
+      <span data-hf-id="hf-muyk" class="s07-word">with</span> <span data-hf-id="hf-9lx3" class="s07-word">the</span> <span data-hf-id="hf-sotu" class="s07-word">same</span>
+      <span data-hf-id="hf-e6ep" class="s07-word">code:</span>
+    </h1>
+    <p data-hf-id="hf-x4rj" id="s07-eol" class="clip" data-start="9.3" data-duration="8.3" data-beat="eol">
+      <span data-hf-id="hf-degt" class="s07-c">0</span><span data-hf-id="hf-ptht" class="s07-c">0</span><span data-hf-id="hf-r0ew" class="s07-c">0</span><span data-hf-id="hf-qm3v" class="s07-c">0</span
+      ><span data-hf-id="hf-omkq" class="s07-c">0</span><span data-hf-id="hf-o89p" class="s07-c">0</span><span data-hf-id="hf-pf6s" class="s07-c">0</span><span data-hf-id="hf-p0vr" class="s07-c">0</span
+      ><span data-hf-id="hf-te92" class="s07-c">0</span><span data-hf-id="hf-szy1" class="s07-c">0</span><span data-hf-id="hf-ic8j" class="s07-c">0</span><span data-hf-id="hf-dsru" class="s07-c">1</span>
+    </p>
+    <div data-hf-id="hf-ntl8" id="s07-pend" class="clip" data-start="10.4" data-duration="3.2">
+      <div data-hf-id="hf-lwzd" id="s07-pend-in">
+        <div data-hf-id="hf-f1yp" id="s07-beam"></div>
+        <div data-hf-id="hf-75st" id="s07-pa" class="s07-pendulum"><div data-hf-id="hf-yyz4" class="s07-rod"></div><div data-hf-id="hf-bcvy" class="s07-bob"></div></div>
+        <div data-hf-id="hf-dbim" id="s07-pb" class="s07-pendulum"><div data-hf-id="hf-752g" class="s07-rod"></div><div data-hf-id="hf-s3j6" class="s07-bob"></div></div>
+        <div data-hf-id="hf-mexi" class="s07-pivot" style="left: 82px"></div>
+        <div data-hf-id="hf-hzqf" class="s07-pivot" style="left: 322px"></div>
+      </div>
+    </div>
+    <h1 data-hf-id="hf-1lgp" id="s07-t3" class="s07-title clip" data-start="13.6" data-duration="4.0">
+      <span data-hf-id="hf-j53z" class="s07-word">A</span> <span data-hf-id="hf-twb5" class="s07-word">code</span> <span data-hf-id="hf-a2wx" class="s07-word">does</span>
+      <span data-hf-id="hf-t453" class="s07-word">the</span> <span data-hf-id="hf-fetc" class="s07-word">pendulum's</span> <span data-hf-id="hf-gbpn" class="s07-word">job.</span>
+    </h1>
+
+    <div data-hf-id="hf-3uco" id="s07-mini" class="clip" data-start="17.9" data-duration="17.1">
+      <div data-hf-id="hf-2b89" id="s07-print"><img data-hf-id="hf-wdjw" id="s07-miniimg" src="assets/img/minifax-bit.png" alt="" /></div>
+      <div data-hf-id="hf-cjzr" id="s07-scan"></div>
+    </div>
+    <h1 data-hf-id="hf-wwkg" id="s07-t4" class="s07-title clip" data-start="18.3" data-duration="6.2">
+      <span data-hf-id="hf-uzuw" class="s07-word">Japan</span> <span data-hf-id="hf-tvsx" class="s07-word">pushed</span> <span data-hf-id="hf-s6kn" class="s07-word">hardest.</span>
+    </h1>
+    <p data-hf-id="hf-86kr" id="s07-q4" class="s07-quiet clip" data-start="20.1" data-duration="4.4">
+      <span data-hf-id="hf-3whv" id="s07-q4-in">Kanji are slow to type, easy to fax.</span>
+    </p>
+    <h1 data-hf-id="hf-ht8j" id="s07-t5" class="s07-title clip" data-start="24.4" data-duration="10.6" data-hold>
+      <span data-hf-id="hf-iki3" id="s07-t5-in">Japan offered its compression patents free, if the world adopted them.</span>
+    </h1>
+  </div>
+  <script>
+    (function () {
+      // The 33 bits from s06 (001000 010 001000 10 0101000 010 110100), one cell each.
+      const BITS = "001000010001000100101000010110100";
+      const CELL = 1536 / BITS.length;
+      const bitsEl = document.getElementById("s07-bits");
+      for (let i = 0; i < BITS.length; i++) {
+        const s = document.createElement("span");
+        s.className = "s07-bit";
+        s.textContent = BITS[i];
+        bitsEl.appendChild(s);
+      }
+      // A tone per bit: one cycle for a 0, two for a 1, phase kept continuous across cells.
+      let d = "";
+      let phase = 0;
+      for (let x = 0; x <= 1536; x += 1) {
+        const bit = BITS[Math.min(BITS.length - 1, Math.floor(x / CELL))];
+        if (x > 0) phase += (2 * Math.PI * (bit === "1" ? 2 : 1)) / CELL;
+        d += (x ? "L" : "M") + x + " " + (100 - 64 * Math.sin(phase)).toFixed(1);
+      }
+      document.getElementById("s07-wave-path").setAttribute("d", d);
+
+      const tl = gsap.timeline({ paused: true });
+      const OUT = { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in", immediateRender: false };
+      const IN0 = { opacity: 1, filter: "blur(0px)" };
+      const SWEEP = 3.6;
+
+      // 0-7.8 s: the bits arrive, then turn into sound under the playhead (modem sound from 2.0 s).
+      tl.fromTo(".s07-bit", { opacity: 0 }, { opacity: 1, duration: 0.12, stagger: 0.03, ease: "power2.out" }, 0.1);
+      tl.fromTo("#s07-t1-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 0.7);
+      tl.fromTo("#s07-play", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, 2.0);
+      tl.fromTo("#s07-play", { x: 0 }, { x: 1533, duration: SWEEP, ease: "none" }, 2.0);
+      tl.fromTo("#s07-wavedraw", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: SWEEP, ease: "none" }, 2.0);
+      tl.fromTo(".s07-bit", { opacity: 1 }, { opacity: 0.3, duration: 0.15, stagger: SWEEP / BITS.length, ease: "power2.out", immediateRender: false }, 2.0 + SWEEP / BITS.length);
+      tl.fromTo("#s07-play", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, 2.0 + SWEEP);
+      tl.fromTo(["#s07-t1-in", "#s07-wavedraw"], IN0, { ...OUT, stagger: 0.04 }, 7.5);
+      tl.fromTo(".s07-bit", { opacity: 0.3, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.004, ease: "power3.in", immediateRender: false }, 7.55);
+
+      // 8.2-17.9 s: the end-of-line code takes over the pendulums' job.
+      tl.fromTo("#s07-t2 .s07-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 8.2);
+      tl.fromTo(".s07-c", { opacity: 0 }, { opacity: 1, duration: 0.1, stagger: 0.04, ease: "power2.out" }, 9.4);
+      tl.fromTo("#s07-pend-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 10.5);
+      tl.fromTo("#s07-pa", { rotation: -14, transformOrigin: "22px 0px" }, { rotation: 14, transformOrigin: "22px 0px", duration: 0.8, repeat: 3, yoyo: true, ease: "sine.inOut" }, 10.5);
+      tl.fromTo("#s07-pb", { rotation: -10, transformOrigin: "22px 0px" }, { rotation: 16, transformOrigin: "22px 0px", duration: 0.88, repeat: 3, yoyo: true, ease: "sine.inOut" }, 10.5);
+      tl.fromTo("#s07-pend-in", IN0, { ...OUT, duration: 0.3 }, 13.2);
+      tl.fromTo("#s07-t3 .s07-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.09, ease: "power2.out" }, 13.7);
+      tl.fromTo(["#s07-t2 .s07-word", ".s07-c", "#s07-t3 .s07-word"], IN0, { ...OUT, stagger: 0.008 }, 17.3);
+
+      // 18-23.5 s: the minifax prints behind the scan line, at fax pace.
+      tl.fromTo("#s07-scan", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, 18.0);
+      tl.fromTo("#s07-print", { clipPath: "inset(0px 0px 100% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 5.5, ease: "none" }, 18.0);
+      tl.fromTo("#s07-scan", { y: 0 }, { y: 725, duration: 5.5, ease: "none" }, 18.0);
+      tl.fromTo("#s07-scan", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, 23.5);
+
+      tl.fromTo("#s07-t4 .s07-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 18.4);
+      tl.fromTo("#s07-q4-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 20.2);
+      tl.fromTo(["#s07-t4 .s07-word", "#s07-q4-in"], IN0, { ...OUT, stagger: 0.03 }, 24.1);
+
+      // 24.5 s to the end: the offer, held clean for the cut to s08 (data-hold: deliberate stillness).
+      tl.fromTo("#s07-t5-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 24.5);
+
+      window.__timelines["s07"] = tl;
+    })();
+  </script>
+</template>

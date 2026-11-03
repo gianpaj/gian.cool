@@ -1,0 +1,243 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+
+    /* The real handshake as a 1-bit spectrogram: 10.31 s across 1680 px (162.953 px a second). */
+    #s09-strip {
+      position: absolute;
+      left: 120px;
+      top: 260px;
+      width: 1680px;
+      height: 560px;
+    }
+    #s09-specbox {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    #s09-specbox img {
+      display: block;
+      width: 1680px;
+      height: 560px;
+      image-rendering: pixelated;
+    }
+    /* Not yet heard: the part right of the playhead sits faint under a paper wash. */
+    #s09-dim {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1680px;
+      height: 560px;
+      background: var(--paper);
+      opacity: 0.72;
+    }
+    #s09-head {
+      position: absolute;
+      left: -1px;
+      top: -14px;
+      width: 3px;
+      height: 588px;
+      background: var(--accent);
+    }
+
+    #s09-title {
+      position: absolute;
+      left: 192px;
+      top: 112px;
+      font-family: var(--font-display);
+      font-size: 104px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .s09-word {
+      display: inline-block;
+    }
+
+    /* Labels sit on the strip at their band; a paper backing keeps them clear of the dotted clicks. */
+    .s09-label {
+      position: absolute;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .s09-label > span {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--paper);
+    }
+    .s09-hz {
+      font-family: var(--font-bits);
+      font-weight: 600;
+    }
+    #s09-la {
+      left: 184px;
+      top: 294px;
+    }
+    #s09-lb {
+      left: 532px;
+      top: 674px;
+    }
+    #s09-lc {
+      left: 692px;
+      top: 742px;
+    }
+    #s09-ld {
+      left: 944px;
+      top: 430px;
+    }
+    #s09-le {
+      left: 1378px;
+      top: 286px;
+    }
+
+    #s09-close {
+      position: absolute;
+      left: 192px;
+      top: 108px;
+      font-family: var(--font-display);
+      font-size: 84px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    #s09-quiet {
+      position: absolute;
+      left: 192px;
+      top: 196px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    /* The page itself: the T.4 codes for one line, then the end-of-line code. */
+    #s09-bits {
+      position: absolute;
+      left: 192px;
+      top: 888px;
+      width: 1224px;
+      height: 52px;
+    }
+    #s09-bits-text {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 52px;
+      white-space: pre;
+    }
+    #s09-cursor {
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 3px;
+      height: 52px;
+      background: var(--accent);
+    }
+  </style>
+  <div data-hf-id="hf-eu53" id="root" data-composition-id="s09" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-pwgw" id="s09-strip">
+      <div data-hf-id="hf-6tl6" id="s09-specbox">
+        <img data-hf-id="hf-eun8" src="assets/img/spec-bit.png" alt="" />
+        <div data-hf-id="hf-5rrc" id="s09-dim"></div>
+      </div>
+      <div data-hf-id="hf-t14g" id="s09-head"></div>
+    </div>
+
+    <h1 data-hf-id="hf-qn7q" id="s09-title" class="clip" data-start="0" data-duration="11.7">
+      <span data-hf-id="hf-5s65" class="s09-word">The</span> <span data-hf-id="hf-jcal" class="s09-word">scream,</span> <span data-hf-id="hf-h0qu" class="s09-word">decoded.</span>
+    </h1>
+
+    <p data-hf-id="hf-ut53" id="s09-la" class="s09-label clip" data-start="1" data-duration="10.7">
+      <span data-hf-id="hf-44dy" id="s09-la-in"><span data-hf-id="hf-t9ct" class="s09-hz">2,100 Hz:</span> “I'm a fax.”</span>
+    </p>
+    <p data-hf-id="hf-aez7" id="s09-lb" class="s09-label clip" data-start="3.5" data-duration="8.2">
+      <span data-hf-id="hf-pzcg" id="s09-lb-in">Get ready</span>
+    </p>
+    <p data-hf-id="hf-1w7w" id="s09-lc" class="s09-label clip" data-start="4.5" data-duration="7.2">
+      <span data-hf-id="hf-fpvj" id="s09-lc-in">What I can do, at 300 bits a second</span>
+    </p>
+    <p data-hf-id="hf-3igf" id="s09-ld" class="s09-label clip" data-start="6" data-duration="5.7" data-beat="decoded">
+      <span data-hf-id="hf-an4f" id="s09-ld-in">Silence:<br data-hf-id="hf-x5px" />waiting for an answer</span>
+    </p>
+    <p data-hf-id="hf-5q5k" id="s09-le" class="s09-label clip" data-start="8.7" data-duration="3">
+      <span data-hf-id="hf-ilqe" id="s09-le-in">No reply,<br data-hf-id="hf-rsrt" />so it asks again</span>
+    </p>
+
+    <h1 data-hf-id="hf-s9hy" id="s09-close" class="clip" data-start="11.8" data-duration="5.7" data-hold>
+      <span data-hf-id="hf-j7qc" class="s09-word">Two</span> <span data-hf-id="hf-gidw" class="s09-word">machines</span> <span data-hf-id="hf-66nq" class="s09-word">agreeing</span><br data-hf-id="hf-szow" />
+      <span data-hf-id="hf-mu20" class="s09-word">how</span> <span data-hf-id="hf-qk17" class="s09-word">to</span> <span data-hf-id="hf-rwzw" class="s09-word">send</span>
+      <span data-hf-id="hf-gnzx" class="s09-word">the</span> <span data-hf-id="hf-mi6k" class="s09-word">dots.</span>
+    </h1>
+    <p data-hf-id="hf-mfj1" id="s09-quiet" class="clip" data-start="17.4" data-duration="9.2">
+      <span data-hf-id="hf-m97h" id="s09-quiet-in">Then the page itself: a hiss of compressed bits.</span>
+    </p>
+    <div data-hf-id="hf-s2d0" id="s09-bits" class="clip" data-start="18" data-duration="8.6">
+      <div data-hf-id="hf-avj5" id="s09-bits-text">001000 010 001000 10 0101000 010 110100 000000000001</div>
+      <div data-hf-id="hf-qr84" id="s09-cursor"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const SPEC_W = 1680;
+      const SPEC_S = 10.31; // seconds of recording across the strip
+      const PLAY_AT = 1.0; // the recording starts at 206.0 s absolute = 1.0 s here
+
+      // Title: per-word blur in.
+      tl.fromTo("#s09-title .s09-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 0.15);
+
+      // 1.0-11.31 s: the playhead runs with the recording, linear, and wipes the wash away behind it.
+      tl.fromTo("#s09-head", { x: 0 }, { x: SPEC_W, duration: SPEC_S, ease: "none" }, PLAY_AT);
+      tl.fromTo("#s09-dim", { x: 0 }, { x: SPEC_W, duration: SPEC_S, ease: "none" }, PLAY_AT);
+      tl.fromTo("#s09-head", { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "power3.in", immediateRender: false }, PLAY_AT + SPEC_S);
+
+      // Labels land as the playhead reaches each part: whole-line blur in, then dead still.
+      [
+        ["#s09-la-in", 1.0],
+        ["#s09-lb-in", 3.5],
+        ["#s09-lc-in", 4.5],
+        ["#s09-ld-in", 6.0],
+        ["#s09-le-in", 8.7],
+      ].forEach(function (l) {
+        tl.fromTo(l[0], { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, l[1]);
+      });
+
+      // 11.35 s: the words leave; the strip steps down to make room for the line.
+      tl.fromTo(
+        ["#s09-title .s09-word", "#s09-la-in", "#s09-lb-in", "#s09-lc-in", "#s09-ld-in", "#s09-le-in"],
+        { opacity: 1, filter: "blur(0px)" },
+        { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.025, ease: "power3.in", immediateRender: false },
+        11.35,
+      );
+      tl.fromTo("#s09-strip", { y: 0 }, { y: 50, duration: 0.7, ease: "power2.inOut" }, 11.45);
+
+      // 11.8 s: per word from light grey to ink.
+      tl.fromTo("#s09-close .s09-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.09, ease: "power2.out" }, 11.8);
+      tl.fromTo("#s09-close .s09-word", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.02, ease: "power3.in", immediateRender: false }, 17.15);
+
+      // 17.5 s: the quiet line, then the page's bits print out behind an accent edge.
+      tl.fromTo("#s09-quiet-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 17.5);
+      tl.fromTo("#s09-bits-text", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 6.0, ease: "none" }, 18.2);
+      tl.fromTo("#s09-cursor", { x: 0 }, { x: 1224, duration: 6.0, ease: "none" }, 18.2);
+      tl.fromTo("#s09-cursor", { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "power3.in", immediateRender: false }, 24.25);
+
+      // 26.2 s: the words leave; only the strip remains for s10 to collapse.
+      tl.fromTo(["#s09-quiet-in", "#s09-bits-text"], { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.05, ease: "power3.in", immediateRender: false }, 26.2);
+
+      window.__timelines["s09"] = tl;
+    })();
+  </script>
+</template>

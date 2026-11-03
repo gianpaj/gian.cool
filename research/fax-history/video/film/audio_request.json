@@ -1,0 +1,140 @@
+{
+  "provider": "gemini",
+  "tts_model": "gemini-3.8-flash-tts",
+  "voice": "Charon",
+  "lang": "en",
+  "style": "Warm, curious documentary narrator. Measured, unhurried pace with clear diction. Leave a short natural pause between sentences. Sound genuinely interested, never salesy.",
+  "lines": [
+    {
+      "id": "v01",
+      "text": "That scream is a fax machine saying hello."
+    },
+    {
+      "id": "v02",
+      "text": "Zoom in close, and it's all dots. Black, or white."
+    },
+    {
+      "id": "v03",
+      "text": "So the first fax, Alexander Bain's in 1843, was already digital: contact, or none."
+    },
+    {
+      "id": "v04",
+      "text": "The stylus swept the page line by line, and the receiver had to keep exactly in step. Bain used two pendulums. They drifted, so every line landed a little further over."
+    },
+    {
+      "id": "v05",
+      "text": "Giovanni Caselli fixed the timing with a two-metre pendulum, and from 1865 ran a regular fax service, Paris to Lyon."
+    },
+    {
+      "id": "v05b",
+      "text": "But on-or-off dots can't show a face."
+    },
+    {
+      "id": "v06",
+      "text": "So for a century, fax went analog: shades of grey."
+    },
+    {
+      "id": "v07",
+      "text": "In 1924, President Coolidge's portrait crossed the Atlantic by radio."
+    },
+    {
+      "id": "v08",
+      "text": "Ten years earlier, a French paper printed a photo sent down a phone line."
+    },
+    {
+      "id": "v09",
+      "text": "Ships got their weather maps the same way, by radio."
+    },
+    {
+      "id": "v10",
+      "text": "But the line can't tell picture from noise. Every crackle shows up."
+    },
+    {
+      "id": "v11",
+      "text": "The way out was a different question. Not how bright is this spot, but simply: black, or white?"
+    },
+    {
+      "id": "v12",
+      "text": "Draw a line: above it, white. Below it, black. Small noise never crosses it, so the copy comes out clean."
+    },
+    {
+      "id": "v13",
+      "text": "The idea wasn't new. In 1920, the Bartlane system sent photos across the Atlantic as telegraph code."
+    },
+    {
+      "id": "v14",
+      "text": "In 1980, the world agreed on one standard: Group 3."
+    },
+    {
+      "id": "v15",
+      "text": "The scanner slices each line into 1,728 dots."
+    },
+    {
+      "id": "v16",
+      "text": "Instead of every dot, it sends the length of each run, with short codes for common runs. These 67 dots become 33 bits."
+    },
+    {
+      "id": "v17",
+      "text": "A blank line takes just 29 bits. Compression, not just going digital, is what made fax fast."
+    },
+    {
+      "id": "v18",
+      "text": "A modem turns the bits into sound."
+    },
+    {
+      "id": "v19",
+      "text": "And timing? Every line ends with eleven zeros and a one, and the receiver lines up on it."
+    },
+    {
+      "id": "v20",
+      "text": "Japan wanted this most. Thousands of characters are slow to type, but easy to write and fax. At the standards talks, Japan offered its improved compression free, if everyone used it."
+    },
+    {
+      "id": "v21",
+      "text": "The difference was enormous. An early analog fax took six minutes for one page. A Group 3 machine sent it in six to fifteen seconds."
+    },
+    {
+      "id": "v22",
+      "text": "Offices bought them by the million. Each dot here is twenty-five thousand machines in America. Nearly all of them were built in Japan."
+    },
+    {
+      "id": "v23",
+      "text": "So the scream is a negotiation. Here's what I can do. How fast can we go? Is this line clean enough?"
+    },
+    {
+      "id": "v24",
+      "text": "After that, you'd hear only a steady hiss: the compressed page, flowing through."
+    },
+    {
+      "id": "v25",
+      "text": "Today, a fax call often travels over the internet instead of a phone line."
+    },
+    {
+      "id": "v26",
+      "text": "Voice compression would mangle the tones, so a gateway turns them back into bits, ships them as packets, with spare copies, and rebuilds the tones at the far end."
+    },
+    {
+      "id": "v27",
+      "text": "Digital data, dressed as analog sound, carried inside a digital network."
+    },
+    {
+      "id": "v28",
+      "text": "And fax still hasn't gone away. In 2023, two out of three American hospitals were still faxing."
+    },
+    {
+      "id": "v29",
+      "text": "In Japan, more than half of homes still had one in 2012."
+    },
+    {
+      "id": "v30",
+      "text": "Same idea as Bain's. But nothing drifts."
+    },
+    {
+      "id": "v31",
+      "text": "Next time you hear that scream, listen for its very first note."
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

@@ -1,0 +1,177 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+    #s01-pagebox {
+      position: absolute;
+      left: 1010px;
+      top: 64px;
+      width: 748px;
+      height: 952px;
+      overflow: hidden;
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+    }
+    #s01-pagezoom {
+      position: absolute;
+      inset: 0;
+    }
+    #s01-print {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0 0 58% 0);
+    }
+    #s01-print img {
+      display: block;
+      width: 748px;
+      height: 952px;
+      image-rendering: pixelated;
+    }
+    #s01-scan {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 748px;
+      height: 3px;
+      background: var(--accent);
+    }
+    #s01-bainbox {
+      position: absolute;
+      left: 1050px;
+      top: 170px;
+      width: 678px;
+      height: 720px;
+      clip-path: inset(0 0 100% 0);
+    }
+    #s01-bainbox img {
+      display: block;
+      width: 678px;
+      height: 720px;
+    }
+    #s01-bainscan {
+      position: absolute;
+      left: 1050px;
+      top: 170px;
+      width: 678px;
+      height: 3px;
+      background: var(--accent);
+      opacity: 0;
+    }
+    .s01-title {
+      position: absolute;
+      left: 192px;
+      width: 780px;
+      font-family: var(--font-display);
+      font-size: 112px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+    }
+    .s01-word {
+      display: inline-block;
+    }
+    #s01-q {
+      top: 330px;
+    }
+    #s01-dots {
+      top: 330px;
+    }
+    #s01-digital {
+      top: 200px;
+      font-size: 104px;
+    }
+    #s01-1843 {
+      top: 430px;
+      font-size: 104px;
+    }
+    #s01-quiet {
+      position: absolute;
+      left: 192px;
+      top: 600px;
+      width: 740px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.2;
+    }
+    .s01-accent {
+      color: var(--accent-text);
+    }
+  </style>
+  <div data-hf-id="hf-q5mn" id="root" data-composition-id="s01" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-nqcm" id="s01-pagebox">
+      <div data-hf-id="hf-lani" id="s01-pagezoom">
+        <div data-hf-id="hf-aqkj" id="s01-print"><img data-hf-id="hf-5pko" id="s01-page" src="assets/img/page-bit.png" alt="" /></div>
+        <div data-hf-id="hf-t109" id="s01-scan"></div>
+      </div>
+    </div>
+
+    <div data-hf-id="hf-m3jb" id="s01-bainbox"><img data-hf-id="hf-9mez" id="s01-bain" src="assets/img/bain-patent-grey.png" alt="" /></div>
+    <div data-hf-id="hf-1srb" id="s01-bainscan"></div>
+
+    <h1 data-hf-id="hf-fc4o" id="s01-q" class="s01-title clip" data-start="0" data-duration="5.9" data-beat="hook">
+      <span data-hf-id="hf-6su8" class="s01-word">Why</span> <span data-hf-id="hf-0ao3" class="s01-word">does</span> <span data-hf-id="hf-evn1" class="s01-word">a</span>
+      <span data-hf-id="hf-kwkp" class="s01-word">fax</span> <span data-hf-id="hf-pigc" class="s01-word">scream?</span>
+    </h1>
+    <h1 data-hf-id="hf-y7ga" id="s01-dots" class="s01-title clip" data-start="6.1" data-duration="5.0">
+      <span data-hf-id="hf-dx2l" class="s01-word">Every</span> <span data-hf-id="hf-nra5" class="s01-word">fax</span> <span data-hf-id="hf-fixe" class="s01-word">is</span>
+      <span data-hf-id="hf-wx5v" class="s01-word">made</span> <span data-hf-id="hf-1y5b" class="s01-word">of</span> <span data-hf-id="hf-xkzo" class="s01-word">dots.</span>
+    </h1>
+    <h1 data-hf-id="hf-atvf" id="s01-digital" class="s01-title clip" data-start="12.4" data-duration="7.5" data-beat="digital">
+      <span data-hf-id="hf-ea8k" id="s01-digital-in">The first fax was <span data-hf-id="hf-up6q" class="s01-accent">digital.</span></span>
+    </h1>
+    <h1 data-hf-id="hf-ilif" id="s01-1843" class="s01-title clip" data-start="14.0" data-duration="5.9">
+      <span data-hf-id="hf-kh66" id="s01-1843-in">In 1843.</span>
+    </h1>
+    <p data-hf-id="hf-zepw" id="s01-quiet" class="clip" data-start="15.6" data-duration="4.3" data-hold>
+      <span data-hf-id="hf-v1f6" id="s01-quiet-in">Each dot: contact, or no contact.<br data-hf-id="hf-x5px" />On or off.</span>
+    </p>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const PAGE_H = 952;
+
+      // 0-5.5 s: the page prints behind the scan line (constant speed is the point: linear).
+      tl.fromTo("#s01-print", { clipPath: "inset(0px 0px 58% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 5.5, ease: "none" }, 0);
+      tl.fromTo("#s01-scan", { y: PAGE_H * 0.42 }, { y: PAGE_H - 3, duration: 5.5, ease: "none" }, 0);
+      tl.to("#s01-scan", { opacity: 0, duration: 0.2, ease: "power3.in" }, 5.5);
+
+      // Title 1: per-word blur in.
+      tl.fromTo("#s01-q .s01-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 0.3);
+      tl.to("#s01-q .s01-word", { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.03, ease: "power3.in" }, 5.55);
+
+      // 6.0-7.2 s: camera pushes into "à Paris" until single dots read.
+      tl.fromTo("#s01-pagezoom", { scale: 1, transformOrigin: "352px 380px" }, { scale: 4.2, transformOrigin: "352px 380px", duration: 1.2, ease: "power2.inOut" }, 6.0);
+
+      // Title 2: per word from light grey to ink, no position change.
+      tl.fromTo("#s01-dots .s01-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.09, ease: "power2.out" }, 6.25);
+      tl.to("#s01-dots .s01-word", { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.03, ease: "power3.in" }, 10.75);
+
+      // 10.9-11.6 s: pull back out, then the page is pulled up and away.
+      // 7.2-10.9 s: the camera drifts along the line of dots, so the viewer reads them as a row.
+      tl.fromTo("#s01-pagezoom", { x: 0 }, { x: -260, duration: 3.7, ease: "power1.inOut" }, 7.2);
+      tl.to("#s01-pagezoom", { scale: 1, x: 0, duration: 0.7, ease: "power2.inOut" }, 10.9);
+      tl.fromTo("#s01-pagebox", { y: 0 }, { y: -1100, duration: 0.6, ease: "power3.in" }, 11.6);
+
+      // 12.0-15.0 s: Bain's 1843 drawing prints in the page's place.
+      tl.set("#s01-bainscan", { opacity: 1 }, 12.0);
+      tl.fromTo("#s01-bainbox", { clipPath: "inset(0px 0px 100% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 3.0, ease: "none" }, 12.0);
+      tl.fromTo("#s01-bainscan", { y: 0 }, { y: 717, duration: 3.0, ease: "none" }, 12.0);
+      tl.to("#s01-bainscan", { opacity: 0, duration: 0.2, ease: "power3.in" }, 15.0);
+
+      // Thesis lines: whole-line blur in, then dead still.
+      tl.fromTo("#s01-digital-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 12.45);
+      tl.fromTo("#s01-1843-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 14.05);
+      tl.fromTo("#s01-quiet-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 15.65);
+
+      // Exit the words; the drawing holds for s02.
+      tl.to(["#s01-digital-in", "#s01-1843-in", "#s01-quiet-in"], { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.05, ease: "power3.in" }, 19.5);
+
+      window.__timelines["s01"] = tl;
+    })();
+  </script>
+</template>

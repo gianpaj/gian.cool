@@ -1,0 +1,346 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+
+    /* s07's last frame (the minifax at right) whips out to the left. */
+    #s08-mini {
+      position: absolute;
+      left: 960px;
+      top: 176px;
+      width: 900px;
+      height: 728px;
+    }
+    #s08-mini img {
+      display: block;
+      width: 900px;
+      height: 728px;
+      image-rendering: pixelated;
+    }
+
+    /* 180-193: two machines, a page printing under each. */
+    #s08-machines,
+    #s08-machines-in,
+    #s08-field {
+      position: absolute;
+      inset: 0;
+    }
+    .s08-photo {
+      position: absolute;
+      top: 72px;
+      display: block;
+      width: 620px;
+    }
+    #s08-mufax {
+      left: 192px;
+      height: 413px;
+    }
+    #s08-kxf {
+      left: 1010px;
+      height: 405px;
+      image-rendering: pixelated;
+    }
+    .s08-pagebox {
+      position: absolute;
+      top: 516px;
+      width: 299px;
+      height: 381px;
+      overflow: hidden;
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+    }
+    #s08-pageL {
+      left: 192px;
+    }
+    #s08-pageR {
+      left: 1010px;
+    }
+    .s08-print {
+      position: absolute;
+      inset: 0;
+    }
+    .s08-print img {
+      display: block;
+      width: 299px;
+      height: 381px;
+    }
+    #s08-printR img {
+      image-rendering: pixelated;
+    }
+    .s08-scan {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 299px;
+      height: 3px;
+      background: var(--accent);
+    }
+    .s08-clock {
+      position: absolute;
+      top: 737px;
+      width: 160px;
+      height: 160px;
+      overflow: visible;
+    }
+    .s08-clock circle,
+    .s08-clock line {
+      stroke: var(--ink);
+      fill: none;
+    }
+    .s08-clock .s08-hub {
+      fill: var(--ink);
+      stroke: none;
+    }
+    #s08-clockL {
+      left: 527px;
+    }
+    #s08-clockR {
+      left: 1345px;
+    }
+    .s08-label {
+      position: absolute;
+      top: 516px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    #s08-g1 {
+      left: 527px;
+    }
+    #s08-g3 {
+      left: 1345px;
+    }
+
+    /* 193-205: one dot per 25,000 US fax machines. */
+    .s08-line {
+      position: absolute;
+      left: 192px;
+      font-family: var(--font-display);
+      font-size: 84px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .s08-word {
+      display: inline-block;
+    }
+    #s08-l1 {
+      top: 116px;
+    }
+    #s08-l2 {
+      top: 212px;
+    }
+    #s08-grid {
+      position: absolute;
+      left: 192px;
+      top: 360px;
+      width: 1148px;
+      height: 568px;
+    }
+    .s08-dot {
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+    #s08-year {
+      position: absolute;
+      left: 1388px;
+      top: 352px;
+      width: 340px;
+      height: 124px;
+      font-family: var(--font-display);
+      font-size: 120px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      font-variant-numeric: tabular-nums;
+    }
+    .s08-yr {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+    #s08-japan {
+      position: absolute;
+      left: 1388px;
+      top: 822px;
+      width: 340px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.2;
+    }
+
+    /* Dip cut into s09: the last 3 frames darken. */
+    #s08-dip {
+      position: absolute;
+      inset: 0;
+      background: var(--ink);
+      opacity: 0;
+    }
+  </style>
+  <div data-hf-id="hf-dzp0" id="root" data-composition-id="s08" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-u10k" id="s08-mini"><img data-hf-id="hf-mypn" src="assets/img/minifax-bit.png" alt="" /></div>
+
+    <div data-hf-id="hf-dvva" id="s08-machines" class="clip" data-start="0" data-duration="13">
+      <div data-hf-id="hf-nunt" id="s08-machines-in">
+        <img data-hf-id="hf-911k" id="s08-mufax" class="s08-photo" src="assets/img/mufax-grey.png" alt="" />
+        <img data-hf-id="hf-dtaj" id="s08-kxf" class="s08-photo" src="assets/img/kxf90-bit.png" alt="" />
+
+        <div data-hf-id="hf-kxit" id="s08-pageL" class="s08-pagebox">
+          <div data-hf-id="hf-74ko" id="s08-printL" class="s08-print"><img data-hf-id="hf-4ano" src="assets/img/page-grey.png" alt="" /></div>
+          <div data-hf-id="hf-w2xu" id="s08-scanL" class="s08-scan"></div>
+        </div>
+        <div data-hf-id="hf-z2y3" id="s08-pageR" class="s08-pagebox">
+          <div data-hf-id="hf-ogce" id="s08-printR" class="s08-print"><img data-hf-id="hf-64wk" src="assets/img/page-bit.png" alt="" /></div>
+          <div data-hf-id="hf-3z5w" id="s08-scanR" class="s08-scan"></div>
+        </div>
+
+        <!-- One turn of the hand = one page. -->
+        <svg data-hf-id="hf-bs0s" id="s08-clockL" class="s08-clock" viewBox="0 0 160 160">
+          <circle data-hf-id="hf-mj9y" cx="80" cy="80" r="76" stroke-width="3" />
+          <g data-hf-id="hf-o6j4" class="s08-ticks"></g>
+          <line data-hf-id="hf-muj4" id="s08-handL" x1="80" y1="80" x2="80" y2="20" stroke-width="5" stroke-linecap="round" />
+          <circle data-hf-id="hf-3vib" class="s08-hub" cx="80" cy="80" r="7" />
+        </svg>
+        <svg data-hf-id="hf-imyi" id="s08-clockR" class="s08-clock" viewBox="0 0 160 160">
+          <circle data-hf-id="hf-4rga" cx="80" cy="80" r="76" stroke-width="3" />
+          <g data-hf-id="hf-lf54" class="s08-ticks"></g>
+          <line data-hf-id="hf-nezm" id="s08-handR" x1="80" y1="80" x2="80" y2="20" stroke-width="5" stroke-linecap="round" />
+          <circle data-hf-id="hf-dolf" class="s08-hub" cx="80" cy="80" r="7" />
+        </svg>
+
+        <p data-hf-id="hf-vgrt" id="s08-g1" class="s08-label clip" data-start="0.9" data-duration="12">
+          <span data-hf-id="hf-q9ky" id="s08-g1-in">Group 1 (1968):<br data-hf-id="hf-x5px" />6 minutes a page</span>
+        </p>
+        <p data-hf-id="hf-583w" id="s08-g3" class="s08-label clip" data-start="2.9" data-duration="10" data-beat="speed">
+          <span data-hf-id="hf-ryor" id="s08-g3-in">Group 3 (1980):<br data-hf-id="hf-rsrt" />6 to 15 seconds</span>
+        </p>
+      </div>
+    </div>
+
+    <div data-hf-id="hf-jvk4" id="s08-field" class="clip" data-start="12.9" data-duration="12.1">
+      <h1 data-hf-id="hf-lsro" id="s08-l1" class="s08-line clip" data-start="13" data-duration="12">
+        <span data-hf-id="hf-2tzd" class="s08-word">US</span> <span data-hf-id="hf-23og" class="s08-word">fax</span> <span data-hf-id="hf-45pz" class="s08-word">machines:</span>
+        <span data-hf-id="hf-yimk" class="s08-word">25,000</span> <span data-hf-id="hf-s7im" class="s08-word">in</span> <span data-hf-id="hf-7gtu" class="s08-word">1970.</span>
+      </h1>
+      <h1 data-hf-id="hf-ogfh" id="s08-l2" class="s08-line clip" data-start="19.7" data-duration="5.3">
+        <span data-hf-id="hf-21mo" class="s08-word">5</span> <span data-hf-id="hf-fah3" class="s08-word">million</span> <span data-hf-id="hf-ef4i" class="s08-word">in</span>
+        <span data-hf-id="hf-7x9k" class="s08-word">1990.</span>
+      </h1>
+      <div data-hf-id="hf-vuf1" id="s08-grid"></div>
+      <div data-hf-id="hf-tk76" id="s08-year"></div>
+      <p data-hf-id="hf-zkpl" id="s08-japan" class="clip" data-start="21.5" data-duration="3.5">
+        <span data-hf-id="hf-q662" id="s08-japan-in">Nearly all made in Japan.</span>
+      </p>
+    </div>
+
+    <div data-hf-id="hf-hw30" id="s08-dip"></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const PAGE_H = 381;
+      const SVG_NS = "http://www.w3.org/2000/svg";
+
+      // Clock ticks: 12 marks, drawn once.
+      document.querySelectorAll("#s08-clockL .s08-ticks, #s08-clockR .s08-ticks").forEach(function (g) {
+        if (g.childNodes.length) return;
+        for (let k = 0; k < 12; k++) {
+          const a = (k * Math.PI) / 6;
+          const t = document.createElementNS(SVG_NS, "line");
+          t.setAttribute("x1", 80 + 62 * Math.sin(a));
+          t.setAttribute("y1", 80 - 62 * Math.cos(a));
+          t.setAttribute("x2", 80 + 72 * Math.sin(a));
+          t.setAttribute("y2", 80 - 72 * Math.cos(a));
+          t.setAttribute("stroke-width", k % 3 === 0 ? 4 : 2);
+          g.appendChild(t);
+        }
+      });
+
+      // 0-0.45 s: whip. The minifax smears out left, the two machines smear in from the right.
+      tl.fromTo("#s08-mini", { x: -140, filter: "blur(10px)" }, { x: -1900, filter: "blur(18px)", duration: 0.24, ease: "power2.in" }, 0);
+      tl.fromTo("#s08-machines-in", { x: 1600, filter: "blur(16px)" }, { x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 0.04);
+
+      // Left, Group 1: crawls. 36x slower than the right (6 min vs 10 s), so one page takes 72 s here.
+      // It starts 23% printed so the first handwritten line is already arriving.
+      tl.fromTo("#s08-printL", { clipPath: "inset(0px 0px 77% 0px)" }, { clipPath: "inset(0px 0px 60.5% 0px)", duration: 11.9, ease: "none" }, 0.5);
+      tl.fromTo("#s08-scanL", { y: PAGE_H * 0.23 }, { y: PAGE_H * 0.395, duration: 11.9, ease: "none" }, 0.5);
+      tl.fromTo("#s08-handL", { rotation: 82.8, svgOrigin: "80 80" }, { rotation: 142.3, svgOrigin: "80 80", duration: 11.9, ease: "none" }, 0.5);
+
+      // Right, Group 3: a whole page in 2 s, five times.
+      const again = { duration: 2, ease: "none", repeat: 4, repeatDelay: 0.4 };
+      tl.fromTo("#s08-printR", { clipPath: "inset(0px 0px 100% 0px)" }, Object.assign({ clipPath: "inset(0px 0px 0% 0px)" }, again), 0.6);
+      tl.fromTo("#s08-scanR", { y: 0 }, Object.assign({ y: PAGE_H - 3 }, again), 0.6);
+      tl.fromTo("#s08-handR", { rotation: 0, svgOrigin: "80 80" }, Object.assign({ rotation: 360, svgOrigin: "80 80" }, again), 0.6);
+
+      // Labels: whole-line blur in, then dead still.
+      tl.fromTo("#s08-g1-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 1.0);
+      tl.fromTo("#s08-g3-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 3.0);
+
+      // 12.4 s: the machines leave the way they came.
+      tl.fromTo("#s08-machines-in", { x: 0 }, { x: -1920, duration: 0.4, ease: "power3.in", immediateRender: false }, 12.4);
+
+      // 13-25 s: the dot field. Dot i appears when 200^p reaches i + 1 (p = 0 in 1970, 1 in 1990):
+      // the two endpoints are the data; between them the count grows at a constant rate.
+      const grid = document.getElementById("s08-grid");
+      if (!grid.childNodes.length) {
+        for (let i = 0; i < 200; i++) {
+          const d = document.createElement("div");
+          d.className = "s08-dot";
+          d.style.left = (i % 20) * 58 + "px";
+          d.style.top = Math.floor(i / 20) * 58 + "px";
+          grid.appendChild(d);
+        }
+      }
+      const year = document.getElementById("s08-year");
+      if (!year.childNodes.length) {
+        for (let y = 1970; y <= 1990; y++) {
+          const s = document.createElement("span");
+          s.className = "s08-yr";
+          s.textContent = String(y);
+          // The years between the two data points flick past as a count; only 1970 and 1990 are read.
+          if (y !== 1970 && y !== 1990) s.setAttribute("data-layout-ignore", "");
+          year.appendChild(s);
+        }
+      }
+      const dots = grid.querySelectorAll(".s08-dot");
+      const years = year.querySelectorAll(".s08-yr");
+      const G0 = 16.0;
+      const GD = 3.6;
+      // Dot n appears in the year the US count reached n x 25,000, interpolated through the
+      // three known points: 1 dot (1970), 10 dots (250,000 in 1980), 200 dots (5 million in 1990).
+      const yearOfCount = (c) => (c <= 10 ? 10 * Math.log10(c) : 10 + (10 * Math.log(c / 10)) / Math.log(20));
+
+      tl.fromTo(dots[0], { scale: 0 }, { scale: 1, duration: 0.6, ease: "expo.out" }, 13.0);
+      for (let i = 1; i < 200; i++) {
+        tl.fromTo(dots[i], { scale: 0 }, { scale: 1, duration: 0.3, ease: "expo.out" }, G0 + (GD * yearOfCount(i + 1)) / 20);
+      }
+
+      tl.fromTo(years[0], { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 13.0);
+      for (let k = 1; k < years.length; k++) {
+        const at = G0 + (GD * k) / 20;
+        tl.fromTo(years[k - 1], { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, at);
+        tl.fromTo(years[k], { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, at);
+      }
+
+      // Lines: per-word blur in.
+      tl.fromTo("#s08-l1 .s08-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 13.1);
+      tl.fromTo("#s08-l2 .s08-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 19.8);
+      tl.fromTo("#s08-japan-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 21.6);
+
+      // Dip cut: darken ~40% for the last 3 frames before the hard cut to s09.
+      tl.fromTo("#s08-dip", { opacity: 0 }, { opacity: 0.4, duration: 0.04, ease: "none" }, 24.86);
+
+      window.__timelines["s08"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,330 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+    #s05-pagebox {
+      position: absolute;
+      left: 1000px;
+      top: 65px;
+      width: 746px;
+      height: 950px;
+      overflow: hidden;
+    }
+    #s05-edge {
+      position: absolute;
+      inset: 0;
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+      outline-offset: -2px;
+    }
+    #s05-pagebox img {
+      display: block;
+      width: 746px;
+      height: 950px;
+    }
+    #s05-clean {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0 0 100% 0);
+    }
+    #s05-clean img {
+      image-rendering: pixelated;
+    }
+    #s05-scan {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 746px;
+      height: 3px;
+      background: var(--accent);
+      opacity: 0;
+    }
+    .s05-title {
+      position: absolute;
+      left: 192px;
+      width: 760px;
+      font-family: var(--font-display);
+      font-size: 104px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+    }
+    .s05-word {
+      display: inline-block;
+    }
+    #s05-t1 {
+      top: 210px;
+    }
+    #s05-t2 {
+      top: 480px;
+    }
+    .s05-accent {
+      color: var(--accent-text);
+    }
+    .s05-quiet {
+      position: absolute;
+      left: 192px;
+      width: 760px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.2;
+    }
+
+    /* Threshold diagram: each part is its own layer so it can be drawn on its own. */
+    #s05-diag {
+      position: absolute;
+      left: 192px;
+      top: 150px;
+      width: 720px;
+      height: 520px;
+    }
+    .s05-part {
+      position: absolute;
+      left: 0;
+      width: 720px;
+      clip-path: inset(0 100% 0 0);
+    }
+    .s05-part svg {
+      display: block;
+      overflow: visible;
+    }
+    #s05-wave,
+    #s05-thr {
+      top: 0;
+      height: 300px;
+    }
+    #s05-sq {
+      top: 340px;
+      height: 140px;
+    }
+    .s05-label {
+      position: absolute;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 1.2;
+      opacity: 0;
+    }
+    #s05-lw {
+      left: 16px;
+      top: 312px;
+    }
+    #s05-lb {
+      left: 120px;
+      top: 470px;
+    }
+    #s05-play {
+      position: absolute;
+      left: 0;
+      top: -10px;
+      width: 3px;
+      height: 500px;
+      background: var(--accent);
+      opacity: 0;
+    }
+    #s05-q {
+      top: 700px;
+    }
+
+    /* Bartlane: a sheet laid over the page, then lifted off again. */
+    #s05-bart {
+      position: absolute;
+      left: 1000px;
+      top: 65px;
+      width: 746px;
+      height: 950px;
+    }
+    #s05-bartsheet {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+      outline-offset: -2px;
+      display: flex;
+      justify-content: center;
+    }
+    #s05-bartsheet img {
+      display: block;
+      width: 666px;
+      height: 950px;
+    }
+    #s05-bt {
+      top: 170px;
+      font-size: 84px;
+    }
+    #s05-bq {
+      top: 660px;
+    }
+    #s05-swatches {
+      position: absolute;
+      left: 192px;
+      top: 800px;
+      display: flex;
+      gap: 14px;
+    }
+    .s05-swatch {
+      width: 64px;
+      height: 64px;
+      outline: 2px solid var(--ink);
+      outline-offset: -2px;
+    }
+  </style>
+  <div data-hf-id="hf-fvbf" id="root" data-composition-id="s05" data-width="1920" data-height="1080">
+    <!-- The page, handed over from s04: noisy underneath, the clean copy printed over it. -->
+    <div data-hf-id="hf-eeiq" id="s05-pagebox">
+      <img data-hf-id="hf-49do" id="s05-noisy" src="assets/img/page-noisy.png" alt="" />
+      <div data-hf-id="hf-98nh" id="s05-clean"><img data-hf-id="hf-wgww" id="s05-bit" src="assets/img/page-bit.png" alt="" /></div>
+      <div data-hf-id="hf-z9hp" id="s05-scan"></div>
+      <div data-hf-id="hf-s4ex" id="s05-edge"></div>
+    </div>
+
+    <h1 data-hf-id="hf-yol0" id="s05-t1" class="s05-title clip" data-start="0.2" data-duration="5.6">
+      <span data-hf-id="hf-juf4" class="s05-word">Don't</span> <span data-hf-id="hf-yiv4" class="s05-word">send</span> <span data-hf-id="hf-n569" class="s05-word">the</span>
+      <span data-hf-id="hf-jzqa" class="s05-word">picture.</span>
+    </h1>
+    <h1 data-hf-id="hf-hl9l" id="s05-t2" class="s05-title clip" data-start="2.5" data-duration="3.3" data-beat="decision">
+      <span data-hf-id="hf-488k" id="s05-t2-in">Send the <span data-hf-id="hf-kr9g" class="s05-accent">decision.</span></span>
+    </h1>
+
+    <div data-hf-id="hf-53p8" id="s05-diag" class="clip" data-start="5.9" data-duration="10.5">
+      <div data-hf-id="hf-5g2q" id="s05-wave" class="s05-part">
+        <svg data-hf-id="hf-s44m" width="720" height="300" viewBox="0 0 720 300">
+          <path data-hf-id="hf-f1q9" id="s05-wave-path" d="" fill="none" stroke="#141414" stroke-width="4" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <div data-hf-id="hf-5vb5" id="s05-thr" class="s05-part">
+        <svg data-hf-id="hf-nhwq" width="720" height="300" viewBox="0 0 720 300">
+          <line data-hf-id="hf-7cr4" x1="0" y1="150" x2="720" y2="150" stroke="#141414" stroke-width="3" stroke-dasharray="14 10" />
+        </svg>
+      </div>
+      <div data-hf-id="hf-xo7p" id="s05-sq" class="s05-part">
+        <svg data-hf-id="hf-55ha" width="720" height="140" viewBox="0 0 720 140">
+          <path data-hf-id="hf-ad9w" id="s05-sq-path" d="" fill="none" stroke="#141414" stroke-width="5" stroke-linejoin="miter" />
+        </svg>
+      </div>
+      <div data-hf-id="hf-1iaa" id="s05-lw" class="s05-label">white</div>
+      <div data-hf-id="hf-qxa7" id="s05-lb" class="s05-label">black</div>
+      <div data-hf-id="hf-bf7w" id="s05-play"></div>
+    </div>
+    <p data-hf-id="hf-52r4" id="s05-q" class="s05-quiet clip" data-start="9.1" data-duration="7.3">
+      <span data-hf-id="hf-tjqz" id="s05-q-a">Above the line: white.</span><br data-hf-id="hf-x5px" /><span data-hf-id="hf-1b55" id="s05-q-b">Below: black.</span><br data-hf-id="hf-rsrt" /><span data-hf-id="hf-wtjn"
+        id="s05-q-c"
+        >Small noise changes nothing.</span
+      >
+    </p>
+
+    <div data-hf-id="hf-05ys" id="s05-bart" class="clip" data-start="16.9" data-duration="9.7">
+      <div data-hf-id="hf-kajc" id="s05-bartsheet"><img data-hf-id="hf-0x43" id="s05-bartimg" src="assets/img/bartlane-grey.png" alt="" /></div>
+    </div>
+    <h1 data-hf-id="hf-3lhy" id="s05-bt" class="s05-title clip" data-start="17.4" data-duration="8.8">
+      <span data-hf-id="hf-v96g" class="s05-word">1920:</span> <span data-hf-id="hf-38f3" class="s05-word">Bartlane</span> <span data-hf-id="hf-s5yo" class="s05-word">sent</span>
+      <span data-hf-id="hf-kywb" class="s05-word">photos</span> <span data-hf-id="hf-vwr3" class="s05-word">across</span> <span data-hf-id="hf-k6hx" class="s05-word">the</span>
+      <span data-hf-id="hf-bl0u" class="s05-word">Atlantic</span> <span data-hf-id="hf-n1fy" class="s05-word">as</span> <span data-hf-id="hf-gz8y" class="s05-word">telegraph</span>
+      <span data-hf-id="hf-dszn" class="s05-word">code.</span>
+    </h1>
+    <p data-hf-id="hf-s9i0" id="s05-bq" class="s05-quiet clip" data-start="21.0" data-duration="5.2">
+      <span data-hf-id="hf-9uiz" id="s05-bq-in">Five shades of grey, sent as code.</span>
+    </p>
+    <div data-hf-id="hf-kaxa" id="s05-swatches" class="clip" data-start="22.3" data-duration="3.9">
+      <div data-hf-id="hf-c3la" class="s05-swatch" style="background: #efefec"></div>
+      <div data-hf-id="hf-xvbx" class="s05-swatch" style="background: #b4b4b1"></div>
+      <div data-hf-id="hf-n15f" class="s05-swatch" style="background: #7a7a78"></div>
+      <div data-hf-id="hf-thyq" class="s05-swatch" style="background: #454544"></div>
+      <div data-hf-id="hf-s6a1" class="s05-swatch" style="background: #141414"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // The analog signal: a rounded on/off level plus a deterministic sum of sines as line noise.
+      const W = 720;
+      const EDGES = [110, 200, 300, 340, 470, 590, 640];
+      const MID = 150;
+      const UNIT = 75;
+      const level = (x) =>
+        EDGES.reduce((b, t, k) => b + (k % 2 === 0 ? -2 : 2) * (0.5 + 0.5 * Math.tanh((x - t) / 3)), 1);
+      const noise = (x) =>
+        0.17 * Math.sin(0.19 * x + 0.4) +
+        0.12 * Math.sin(0.43 * x + 1.9) +
+        0.08 * Math.sin(0.97 * x + 0.7) +
+        0.05 * Math.sin(2.11 * x + 2.3);
+      const signal = (x) => level(x) + noise(x);
+
+      let wave = "";
+      for (let x = 0; x <= W; x += 2) wave += (x ? "L" : "M") + x + " " + (MID - signal(x) * UNIT).toFixed(1);
+      document.getElementById("s05-wave-path").setAttribute("d", wave);
+
+      // The decision: threshold the same signal. Above the line is white (high), below is black (low).
+      const HI = 20;
+      const LO = 120;
+      let up = signal(0) > 0;
+      let sq = "M0 " + (up ? HI : LO);
+      for (let x = 0.5; x <= W; x += 0.5) {
+        const now = signal(x) > 0;
+        if (now !== up) {
+          sq += "L" + x + " " + (up ? HI : LO) + "L" + x + " " + (now ? HI : LO);
+          up = now;
+        }
+      }
+      sq += "L" + W + " " + (up ? HI : LO);
+      document.getElementById("s05-sq-path").setAttribute("d", sq);
+
+      const tl = gsap.timeline({ paused: true });
+      const OUT = { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in", immediateRender: false };
+      const IN0 = { opacity: 1, filter: "blur(0px)" };
+
+      // 0-5.8 s: the rule, in two lines.
+      tl.fromTo("#s05-t1 .s05-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.09, ease: "power2.out" }, 0.3);
+      tl.fromTo("#s05-t2-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 2.6);
+      tl.fromTo("#s05-t1 .s05-word", IN0, { ...OUT, stagger: 0.03 }, 5.45);
+      tl.fromTo("#s05-t2-in", IN0, OUT, 5.55);
+
+      // 6-10.1 s: the diagram grows one part at a time.
+      tl.fromTo("#s05-wave", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 1.4, ease: "power2.inOut" }, 6.0);
+      tl.fromTo("#s05-thr", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 0.6, ease: "power4.out" }, 7.7);
+      // The decision is taken at constant speed: linear sweep, square wave drawn behind the playhead.
+      tl.fromTo("#s05-play", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, 8.6);
+      tl.fromTo("#s05-play", { x: 0 }, { x: 717, duration: 1.5, ease: "none" }, 8.6);
+      tl.fromTo("#s05-sq", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 1.5, ease: "none" }, 8.6);
+      tl.fromTo("#s05-play", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, 10.1);
+      tl.fromTo("#s05-lw", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 8.85);
+      tl.fromTo("#s05-lb", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 9.05);
+
+      // The quiet line, one phrase per part it names.
+      tl.fromTo("#s05-q-a", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 9.2);
+      tl.fromTo("#s05-q-b", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 10.4);
+      tl.fromTo("#s05-q-c", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 11.6);
+
+      // 13.5-16.5 s: the scan line sweeps down; above it the page is decided, below it still noisy.
+      tl.fromTo("#s05-scan", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, 13.5);
+      tl.fromTo("#s05-clean", { clipPath: "inset(0px 0px 100% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 3.0, ease: "none" }, 13.5);
+      tl.fromTo("#s05-scan", { y: 0 }, { y: 947, duration: 3.0, ease: "none" }, 13.5);
+      tl.fromTo("#s05-scan", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, 16.5);
+
+      // 16-16.3 s: the diagram and its line leave.
+      tl.fromTo(["#s05-wave", "#s05-thr", "#s05-sq", "#s05-lw", "#s05-lb"], IN0, OUT, 16.0);
+      tl.fromTo(["#s05-q-a", "#s05-q-b", "#s05-q-c"], IN0, { ...OUT, stagger: 0.03 }, 16.0);
+
+      // 17-26.5 s: Bartlane's 1920 page is laid over ours, then lifted off again.
+      tl.fromTo("#s05-bartsheet", { x: 940 }, { x: 0, duration: 0.7, ease: "expo.out" }, 17.0);
+      tl.fromTo("#s05-bt .s05-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 17.5);
+      tl.fromTo("#s05-bq-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 21.1);
+      tl.fromTo(".s05-swatch", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.2, ease: "expo.out" }, 22.4);
+
+      tl.fromTo("#s05-bt .s05-word", IN0, { ...OUT, stagger: 0.02 }, 25.85);
+      tl.fromTo("#s05-bq-in", IN0, OUT, 25.9);
+      tl.fromTo(".s05-swatch", { opacity: 1 }, { opacity: 0, duration: 0.2, stagger: 0.02, ease: "power3.in", immediateRender: false }, 25.9);
+      tl.fromTo("#s05-bartsheet", { x: 0 }, { x: 940, duration: 0.42, ease: "power3.in", immediateRender: false }, 26.1);
+
+      // 26.9-28.25 s: the scan line runs down the clean page and stops under one row (row 124 of
+      // page-bit, "hommage de G. Caselli"); s06 opens on this frame and dives into that row.
+      tl.fromTo("#s05-scan", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none", immediateRender: false }, 26.9);
+      tl.fromTo("#s05-scan", { y: 0 }, { y: 425, duration: 1.35, ease: "none", immediateRender: false }, 26.9);
+
+      window.__timelines["s05"] = tl;
+    })();
+  </script>
+</template>

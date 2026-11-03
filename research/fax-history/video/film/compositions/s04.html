@@ -1,0 +1,233 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--paper);
+    }
+    #s04-ground {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+    }
+    /* The face from s03, same box; the grey print crossfades in over the on/off one. */
+    #s04-facebox {
+      position: absolute;
+      left: 1170px;
+      top: 90px;
+      width: 517px;
+      height: 900px;
+    }
+    #s04-facebox img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 517px;
+      height: 900px;
+    }
+    #s04-face-onoff {
+      image-rendering: pixelated;
+    }
+    #s04-face-grey {
+      opacity: 0;
+    }
+    #s04-belinobox {
+      position: absolute;
+      left: 1010px;
+      top: 251px;
+      width: 814px;
+      height: 577px;
+    }
+    #s04-belinobox img {
+      display: block;
+      width: 814px;
+      height: 577px;
+    }
+    #s04-icebox {
+      position: absolute;
+      left: 1010px;
+      top: 271px;
+      width: 814px;
+      height: 538px;
+      opacity: 0;
+    }
+    #s04-icebox img {
+      display: block;
+      width: 814px;
+      height: 538px;
+    }
+    /* The noisy page prints at 1x, then settles into the right half for s05. */
+    #s04-noisybox {
+      position: absolute;
+      left: 980px;
+      top: -20px;
+      width: 880px;
+      height: 1120px;
+    }
+    #s04-print {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0 0 100% 0);
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+      outline-offset: -2px;
+    }
+    #s04-print img {
+      display: block;
+      width: 880px;
+      height: 1120px;
+    }
+    #s04-scan {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 880px;
+      height: 3px;
+      background: var(--accent);
+      opacity: 0;
+    }
+    .s04-title {
+      position: absolute;
+      left: 192px;
+      font-family: var(--font-display);
+      font-size: 84px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+    }
+    .s04-word {
+      display: inline-block;
+    }
+    .s04-accent {
+      color: var(--accent);
+    }
+    #s04-analog {
+      top: 220px;
+      width: 928px;
+      font-size: 112px;
+    }
+    #s04-1924 {
+      top: 220px;
+      width: 928px;
+    }
+    #s04-1914,
+    #s04-ships {
+      top: 330px;
+      width: 780px;
+    }
+    #s04-crackle {
+      top: 300px;
+      width: 760px;
+    }
+    #s04-current {
+      position: absolute;
+      left: 192px;
+      top: 540px;
+      width: 928px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.2;
+    }
+  </style>
+  <div data-hf-id="hf-h6so" id="root" data-composition-id="s04" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ef80" id="s04-ground"></div>
+
+    <div data-hf-id="hf-qazl" id="s04-facebox">
+      <img data-hf-id="hf-6onu" id="s04-face-onoff" src="assets/img/coolidge-onoff.png" alt="" />
+      <img data-hf-id="hf-cgps" id="s04-face-grey" src="assets/img/coolidge-grey.png" alt="" />
+    </div>
+    <div data-hf-id="hf-5ek5" id="s04-belinobox"><img data-hf-id="hf-n06p" id="s04-belino" src="assets/img/belino-1914-grey.png" alt="" /></div>
+    <div data-hf-id="hf-443h" id="s04-icebox"><img data-hf-id="hf-ojtt" id="s04-ice" src="assets/img/icebreaker-grey.png" alt="" /></div>
+    <div data-hf-id="hf-lsi8" id="s04-noisybox">
+      <div data-hf-id="hf-miai" id="s04-print"><img data-hf-id="hf-gkud" id="s04-noisy" src="assets/img/page-noisy.png" alt="" /></div>
+      <div data-hf-id="hf-fxbu" id="s04-scan"></div>
+    </div>
+
+    <h1 data-hf-id="hf-2epf" id="s04-analog" class="s04-title clip" data-start="0.6" data-duration="4.0" data-beat="darkroom">
+      <span data-hf-id="hf-eilf" id="s04-analog-in">So fax went<br data-hf-id="hf-x5px" /><span data-hf-id="hf-zg8z" class="s04-accent">analog.</span></span>
+    </h1>
+    <p data-hf-id="hf-ojlg" id="s04-current" class="clip" data-start="2.5" data-duration="4.5">
+      <span data-hf-id="hf-lbdt" id="s04-current-in">Light became current.<br data-hf-id="hf-rsrt" />Current became shades of grey.</span>
+    </p>
+    <h2 data-hf-id="hf-7jjg" id="s04-1924" class="s04-title clip" data-start="5.5" data-duration="5.45" data-hold>
+      <span data-hf-id="hf-yx5e" id="s04-1924-in">
+        <span data-hf-id="hf-cy11" class="s04-word">1924:</span> <span data-hf-id="hf-0fls" class="s04-word">a</span> <span data-hf-id="hf-vhj3" class="s04-word">photo</span><br data-hf-id="hf-szow" />
+        <span data-hf-id="hf-3nd4" class="s04-word">across</span> <span data-hf-id="hf-hpkw" class="s04-word">the</span> <span data-hf-id="hf-uivd" class="s04-word">Atlantic</span><br data-hf-id="hf-sldv" />
+        <span data-hf-id="hf-83ls" class="s04-word">by</span> <span data-hf-id="hf-8ebm" class="s04-word">radio.</span>
+      </span>
+    </h2>
+    <h2 data-hf-id="hf-nrju" id="s04-1914" class="s04-title clip" data-start="11.9" data-duration="5.1" data-hold>
+      <span data-hf-id="hf-slvt" id="s04-1914-in">
+        <span data-hf-id="hf-6wqk" class="s04-word">1914:</span> <span data-hf-id="hf-bxfc" class="s04-word">a</span> <span data-hf-id="hf-fddr" class="s04-word">photo</span> <span data-hf-id="hf-ac6w" class="s04-word">by</span><br data-hf-id="hf-qluq" />
+        <span data-hf-id="hf-zavv" class="s04-word">phone</span> <span data-hf-id="hf-iil1" class="s04-word">line,</span> <span data-hf-id="hf-hq9u" class="s04-word">in</span><br data-hf-id="hf-q7jp" />
+        <span data-hf-id="hf-5njt" class="s04-word">four</span> <span data-hf-id="hf-2zks" class="s04-word">minutes.</span>
+      </span>
+    </h2>
+    <h2 data-hf-id="hf-wphw" id="s04-ships" class="s04-title clip" data-start="17.3" data-duration="3.7" data-hold>
+      <span data-hf-id="hf-fqg7" id="s04-ships-in">Radio carried<br data-hf-id="hf-regs" />weather maps<br data-hf-id="hf-r05r" />to ships.</span>
+    </h2>
+    <h2 data-hf-id="hf-35wl" id="s04-crackle" class="s04-title clip" data-start="21.3" data-duration="4.05">
+      <span data-hf-id="hf-alyv" id="s04-crackle-in">
+        <span data-hf-id="hf-kfs0" class="s04-word">Every</span> <span data-hf-id="hf-ryru" class="s04-word">crackle</span><br data-hf-id="hf-p0mm" />
+        <span data-hf-id="hf-fkoc" class="s04-word">on</span> <span data-hf-id="hf-3cfs" class="s04-word">the</span> <span data-hf-id="hf-ti57" class="s04-word">line</span><br data-hf-id="hf-ombl" />
+        <span data-hf-id="hf-rj76" class="s04-word">became</span> <span data-hf-id="hf-aqi9" class="s04-word">a</span> <span data-hf-id="hf-hl2s" class="s04-word">mark</span><br data-hf-id="hf-qsyj" />
+        <span data-hf-id="hf-zshw" class="s04-word">on</span> <span data-hf-id="hf-25ip" class="s04-word">the</span> <span data-hf-id="hf-vr50" class="s04-word">page.</span>
+      </span>
+    </h2>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const NOISY_H = 1120;
+      const exitBlur = (sel, at) =>
+        tl.fromTo(sel, { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in", immediateRender: false }, at);
+
+      // 0-0.4 s: colour flood to the darkroom; the face stays and turns grey over 0.6 s.
+      tl.fromTo("#s04-ground", { backgroundColor: "#efefec" }, { backgroundColor: "#262624", duration: 0.4, ease: "power2.inOut" }, 0);
+      tl.fromTo("#s04-face-grey", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.inOut" }, 0);
+
+      // Whole line blurs in.
+      tl.fromTo("#s04-analog-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 0.65);
+      exitBlur("#s04-analog-in", 4.35);
+      tl.fromTo("#s04-current-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 2.55);
+      exitBlur("#s04-current-in", 6.75);
+
+      // Per-word blur in, on the face.
+      tl.fromTo("#s04-1924 .s04-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 5.55);
+      exitBlur("#s04-1924-in", 10.7);
+
+      // 11.0-12.0 s: the face leaves left, the 1914 Belinograph page arrives from the right.
+      tl.fromTo("#s04-facebox", { x: 0 }, { x: -1750, duration: 0.45, ease: "power3.in" }, 11.0);
+      tl.fromTo("#s04-belinobox", { x: 950 }, { x: 0, duration: 0.8, ease: "expo.out" }, 11.2);
+
+      // Per word from grey to paper.
+      tl.fromTo("#s04-1914 .s04-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.09, ease: "power2.out" }, 11.95);
+      exitBlur("#s04-1914-in", 16.75);
+
+      // 17.0-17.3 s: blur swap to the ship's weather-fax receiver (radiofax sound starts at 17).
+      tl.fromTo("#s04-belinobox", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power3.in", immediateRender: false }, 17.0);
+      tl.fromTo("#s04-icebox", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out" }, 17.15);
+      tl.fromTo("#s04-ships-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 17.35);
+      exitBlur("#s04-ships-in", 20.75);
+
+      // 21.0-21.5 s: the photo is pulled up and away; the noisy page prints in its place.
+      tl.fromTo("#s04-icebox", { y: 0 }, { y: -900, duration: 0.5, ease: "power3.in" }, 21.0);
+      tl.fromTo("#s04-scan", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, 21.2);
+      tl.fromTo("#s04-print", { clipPath: "inset(0px 0px 100% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 2.6, ease: "none" }, 21.25);
+      tl.fromTo("#s04-scan", { y: 0 }, { y: NOISY_H - 3, duration: 2.6, ease: "none" }, 21.25);
+      tl.fromTo("#s04-scan", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, 23.85);
+
+      tl.fromTo("#s04-crackle .s04-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 21.35);
+      exitBlur("#s04-crackle-in", 25.1);
+
+      // 25.35-25.95 s: carry across. The page settles into the right half
+      // (x 1000, y 65, 746 x 950) as the ground floods back to paper.
+      tl.fromTo("#s04-noisybox", { x: 0, y: 0, scale: 1, transformOrigin: "0px 0px" }, { x: 20, y: 85, scale: 950 / NOISY_H, transformOrigin: "0px 0px", duration: 0.6, ease: "power2.inOut" }, 25.35);
+      tl.fromTo("#s04-ground", { backgroundColor: "#262624" }, { backgroundColor: "#efefec", duration: 0.6, ease: "power2.inOut", immediateRender: false }, 25.35);
+
+      window.__timelines["s04"] = tl;
+    })();
+  </script>
+</template>

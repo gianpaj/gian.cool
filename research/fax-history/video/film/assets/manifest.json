@@ -1,0 +1,151 @@
+{
+ "page-grey": {
+  "file": "assets/img/page-grey.png",
+  "w": 880,
+  "h": 1120
+ },
+ "page-bit": {
+  "file": "assets/img/page-bit.png",
+  "w": 880,
+  "h": 1120
+ },
+ "page-onoff": {
+  "file": "assets/img/page-onoff.png",
+  "w": 880,
+  "h": 1120
+ },
+ "page-sheared": {
+  "file": "assets/img/page-sheared.png",
+  "w": 880,
+  "h": 1120
+ },
+ "page-noisy": {
+  "file": "assets/img/page-noisy.png",
+  "w": 880,
+  "h": 1120
+ },
+ "bain-patent-grey": {
+  "file": "assets/img/bain-patent-grey.png",
+  "w": 848,
+  "h": 900
+ },
+ "caselli-drawing-grey": {
+  "file": "assets/img/caselli-drawing-grey.png",
+  "w": 679,
+  "h": 1000
+ },
+ "caselli-flowers-grey": {
+  "file": "assets/img/caselli-flowers-grey.png",
+  "w": 800,
+  "h": 731
+ },
+ "coolidge-grey": {
+  "file": "assets/img/coolidge-grey.png",
+  "w": 560,
+  "h": 975
+ },
+ "coolidge-onoff": {
+  "file": "assets/img/coolidge-onoff.png",
+  "w": 558,
+  "h": 972
+ },
+ "coolidge-bit": {
+  "file": "assets/img/coolidge-bit.png",
+  "w": 560,
+  "h": 972
+ },
+ "belin-1907-grey": {
+  "file": "assets/img/belin-1907-grey.png",
+  "w": 698,
+  "h": 940
+ },
+ "belino-1914-grey": {
+  "file": "assets/img/belino-1914-grey.png",
+  "w": 1298,
+  "h": 920
+ },
+ "bartlane-grey": {
+  "file": "assets/img/bartlane-grey.png",
+  "w": 701,
+  "h": 1000
+ },
+ "icebreaker-grey": {
+  "file": "assets/img/icebreaker-grey.png",
+  "w": 1300,
+  "h": 859
+ },
+ "mufax-grey": {
+  "file": "assets/img/mufax-grey.png",
+  "w": 900,
+  "h": 600
+ },
+ "kxf90-bit": {
+  "file": "assets/img/kxf90-bit.png",
+  "w": 900,
+  "h": 588
+ },
+ "minifax-bit": {
+  "file": "assets/img/minifax-bit.png",
+  "w": 900,
+  "h": 728
+ },
+ "receiving-2009-bit": {
+  "file": "assets/img/receiving-2009-bit.png",
+  "w": 1100,
+  "h": 824
+ },
+ "sharp-home-bit": {
+  "file": "assets/img/sharp-home-bit.png",
+  "w": 1000,
+  "h": 560
+ },
+ "spec-grey": {
+  "file": "assets/img/spec-grey.png",
+  "w": 1680,
+  "h": 560
+ },
+ "spec-bit": {
+  "file": "assets/img/spec-bit.png",
+  "w": 1680,
+  "h": 560
+ },
+ "spec-axis": {
+  "duration_s": 10.31,
+  "fmin_hz": 1000,
+  "fmax_hz": 2400,
+  "px_per_s": 162.953,
+  "y_of_hz": {
+   "1100": 520.0,
+   "1650": 300.0,
+   "1850": 220.0,
+   "2100": 120.0
+  },
+  "segments_s": [
+   [
+    0.0,
+    2.5,
+    "2,100 Hz answer tone (CED)"
+   ],
+   [
+    2.5,
+    3.5,
+    "V.21 preamble, ~1,650 Hz"
+   ],
+   [
+    3.5,
+    4.9,
+    "DIS capability list, 1,650/1,850 Hz"
+   ],
+   [
+    5.0,
+    7.7,
+    "silence: waiting for the caller"
+   ],
+   [
+    7.7,
+    10.3,
+    "no reply, so it repeats preamble + DIS"
+   ]
+  ]
+ }
+}

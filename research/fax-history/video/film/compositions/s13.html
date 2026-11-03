@@ -1,0 +1,74 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+    #s13-credits {
+      position: absolute;
+      inset: 0;
+      font-family: "Roboto", "Noto Sans JP", sans-serif;
+      font-size: 30px;
+      line-height: 1.4;
+    }
+    .s13-col {
+      position: absolute;
+      top: 240px;
+    }
+    #s13-col1 {
+      left: 192px;
+      width: 800px;
+    }
+    #s13-col2 {
+      left: 1072px;
+      width: 656px;
+    }
+    .s13-head {
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+    .s13-item {
+      font-weight: 400;
+      padding-left: 30px;
+      text-indent: -30px;
+      margin-bottom: 8px;
+    }
+  </style>
+  <div data-hf-id="hf-vbj4" id="root" data-composition-id="s13" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-yanx" id="s13-credits" class="clip" data-start="0" data-duration="8" data-beat="credits" data-hold>
+      <div data-hf-id="hf-oj6v" id="s13-col1" class="s13-col">
+        <p data-hf-id="hf-ui8w" class="s13-head">Images (changed to 1-bit and greyscale),<br data-hf-id="hf-x5px" />via Wikimedia Commons:</p>
+        <p data-hf-id="hf-o4lq" class="s13-item">1914 Belinograph photo: BnF, CC BY-SA 4.0</p>
+        <p data-hf-id="hf-nxtj" class="s13-item">Mufax Courier: Richard Ash, CC BY-SA 2.0</p>
+        <p data-hf-id="hf-g7q5" class="s13-item">Panasonic KX-F90: Pittigrilli, Georgfotoart, CC BY-SA 4.0</p>
+        <p data-hf-id="hf-klf7" class="s13-item">NTT Minifax MF1: Spbear, CC BY-SA 4.0</p>
+        <p data-hf-id="hf-op1n" class="s13-item">Receiving a fax: Karl Baron, CC BY 2.0</p>
+        <p data-hf-id="hf-8w3k" class="s13-item">Sharp UX-D63CL: Mr.ちゅらさん, CC BY-SA 4.0</p>
+        <p data-hf-id="hf-ll8i" class="s13-item">
+          Public domain: Bain patent (EPO), Caselli drawings, 1862 pantelegram (R. W. Burns, IEE), Coolidge photoradiogram
+          (Radio News, 1925), Bartlane (Science and Invention), icebreaker weather fax (Helsingin Sanomat)
+        </p>
+      </div>
+      <div data-hf-id="hf-fvb0" id="s13-col2" class="s13-col">
+        <p data-hf-id="hf-xq5h" class="s13-head">Sounds:</p>
+        <p data-hf-id="hf-ct0l" class="s13-item">Fax answering tones: Anton, CC BY-SA 2.5</p>
+        <p data-hf-id="hf-u5hi" class="s13-item">Radiofax: US National Weather Service, public&nbsp;domain</p>
+        <p data-hf-id="hf-nou1" class="s13-item">V.92 fax modem: EditUZB, CC BY-SA 4.0</p>
+        <p data-hf-id="hf-6mhe" class="s13-item">Laser fax: Work With Sounds / Werstas, CC&nbsp;BY&nbsp;4.0</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // One entrance, all text landed by 0.5 s (292.5), then held still to 300.
+      tl.fromTo(["#s13-col1", "#s13-col2"], { opacity: 0 }, { opacity: 1, duration: 0.35, stagger: 0.1, ease: "power2.out" }, 0.05);
+
+      window.__timelines["s13"] = tl;
+    })();
+  </script>
+</template>

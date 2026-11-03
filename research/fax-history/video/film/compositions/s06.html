@@ -1,0 +1,406 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+
+    /* The clean page from s05; the camera dives into one row of its dots. */
+    #s06-view {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0px 0px 0px 0px);
+    }
+    #s06-page {
+      position: absolute;
+      left: 1000px;
+      top: 65px;
+      width: 746px;
+      height: 950px;
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+      outline-offset: -2px;
+    }
+    #s06-scan {
+      position: absolute;
+      left: 0;
+      top: 425px;
+      width: 746px;
+      height: 3px;
+      background: var(--accent);
+    }
+    #s06-page img {
+      display: block;
+      width: 746px;
+      height: 950px;
+      image-rendering: pixelated;
+    }
+
+    .s06-title {
+      position: absolute;
+      left: 192px;
+      top: 150px;
+      width: 1536px;
+      font-family: var(--font-display);
+      font-size: 96px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+    }
+    .s06-word {
+      display: inline-block;
+    }
+    .s06-quiet {
+      position: absolute;
+      left: 192px;
+      width: 1400px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.2;
+    }
+    #s06-q1 {
+      top: 390px;
+    }
+
+    /* One scan line: 1,728 dots, one pixel each. */
+    #s06-strip {
+      position: absolute;
+      left: 94px;
+      top: 587px;
+      width: 1732px;
+      height: 26px;
+    }
+    .s06-frame {
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--ink);
+      clip-path: inset(0px 100% 0px 0px);
+    }
+    #s06-zoom {
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      width: 1728px;
+      height: 22px;
+    }
+    #s06-fill {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0px 100% 0px 0px);
+    }
+    #s06-fill svg,
+    #s06-ex svg {
+      display: block;
+    }
+    #s06-play {
+      position: absolute;
+      left: 2px;
+      top: -17px;
+      width: 3px;
+      height: 60px;
+      background: var(--accent);
+      opacity: 0;
+    }
+    #s06-t2 {
+      font-size: 104px;
+    }
+
+    /* The worked example from T.4: the first 67 dots, 22 px each. */
+    #s06-ex {
+      position: absolute;
+      left: 192px;
+      top: 589px;
+      width: 1474px;
+      height: 22px;
+    }
+    #s06-runs,
+    #s06-codes {
+      position: absolute;
+      left: 192px;
+      top: 618px;
+      width: 1474px;
+      height: 130px;
+    }
+    .s06-brk {
+      position: absolute;
+      top: 0;
+      height: 12px;
+      border: 3px solid var(--ink);
+      border-top: none;
+    }
+    .s06-lab {
+      position: absolute;
+      top: 22px;
+      width: 130px;
+      text-align: center;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+    .s06-code {
+      position: absolute;
+      top: 70px;
+      text-align: center;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 1.2;
+    }
+    #s06-count {
+      position: absolute;
+      left: 192px;
+      top: 830px;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 1.2;
+    }
+    .s06-num {
+      display: inline-block;
+      width: 2ch;
+      text-align: right;
+    }
+
+    /* A blank line. */
+    #s06-blank {
+      position: absolute;
+      left: 94px;
+      top: 587px;
+      width: 1732px;
+      height: 26px;
+    }
+    #s06-bcodes {
+      position: absolute;
+      left: 192px;
+      top: 680px;
+      display: flex;
+      gap: 34px;
+    }
+    .s06-grp {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .s06-bits {
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 56px;
+      line-height: 1.2;
+      white-space: pre;
+    }
+    .s06-gbrk {
+      height: 14px;
+      margin: 6px 4px 0;
+      border: 3px solid var(--ink);
+      border-top: none;
+    }
+    .s06-glab {
+      margin-top: 8px;
+      text-align: center;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+    #s06-q4 {
+      top: 870px;
+    }
+  </style>
+  <div data-hf-id="hf-utsa" id="root" data-composition-id="s06" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ez9w" id="s06-view">
+      <div data-hf-id="hf-kb6e" id="s06-page">
+        <img data-hf-id="hf-ka7g" id="s06-pageimg" src="assets/img/page-bit.png" alt="" />
+        <div data-hf-id="hf-vt5w" id="s06-scan"></div>
+      </div>
+    </div>
+
+    <h1 data-hf-id="hf-uwep" id="s06-t1" class="s06-title clip" data-start="1.3" data-duration="4.6">
+      <span data-hf-id="hf-1691" class="s06-word">1980:</span> <span data-hf-id="hf-l9wh" class="s06-word">one</span> <span data-hf-id="hf-uxwy" class="s06-word">standard</span><br data-hf-id="hf-x5px" />
+      <span data-hf-id="hf-auli" class="s06-word">for</span> <span data-hf-id="hf-do7a" class="s06-word">every</span> <span data-hf-id="hf-jfqe" class="s06-word">fax</span>
+      <span data-hf-id="hf-i28a" class="s06-word">machine.</span>
+    </h1>
+    <p data-hf-id="hf-1sdn" id="s06-q1" class="s06-quiet clip" data-start="2.8" data-duration="3.1">
+      <span data-hf-id="hf-qvtf" id="s06-q1-in">Group 3, agreed at the CCITT.</span>
+    </p>
+
+    <div data-hf-id="hf-yaii" id="s06-strip" class="clip" data-start="5.9" data-duration="7.5">
+      <div data-hf-id="hf-95ic" id="s06-frame" class="s06-frame"></div>
+      <div data-hf-id="hf-pg6a" id="s06-zoom">
+        <div data-hf-id="hf-hwuc" id="s06-fill">
+          <svg data-hf-id="hf-rs06" width="1728" height="22" viewBox="0 0 1728 22" shape-rendering="crispEdges">
+            <path data-hf-id="hf-89mw" id="s06-dots" d="" fill="#141414" />
+          </svg>
+        </div>
+      </div>
+      <div data-hf-id="hf-4rlx" id="s06-play"></div>
+    </div>
+    <h1 data-hf-id="hf-vvnt" id="s06-t2" class="s06-title clip" data-start="6.2" data-duration="5.8">
+      <span data-hf-id="hf-56gq" id="s06-n">0</span> <span data-hf-id="hf-afg7" class="s06-word">dots</span> <span data-hf-id="hf-n5lc" class="s06-word">in</span>
+      <span data-hf-id="hf-w34a" class="s06-word">every</span> <span data-hf-id="hf-gicl" class="s06-word">line.</span>
+    </h1>
+
+    <div data-hf-id="hf-91si" id="s06-ex" class="clip" data-start="12.7" data-duration="11.7" data-beat="runs">
+      <svg data-hf-id="hf-8jgq" id="s06-grid" width="1474" height="22" viewBox="0 0 1474 22"></svg>
+    </div>
+    <div data-hf-id="hf-tvhe" id="s06-runs" class="clip" data-start="13.2" data-duration="11.2">
+      <div data-hf-id="hf-m4fb" class="s06-brk" style="left: 3px; width: 258px"></div>
+      <div data-hf-id="hf-3xmz" class="s06-lab" style="left: 67px">12 white</div>
+      <div data-hf-id="hf-vh17" class="s06-brk" style="left: 267px; width: 16px"></div>
+      <div data-hf-id="hf-vqe7" class="s06-lab" style="left: 210px">1 black</div>
+      <div data-hf-id="hf-22d3" class="s06-brk" style="left: 289px; width: 258px"></div>
+      <div data-hf-id="hf-ie4t" class="s06-lab" style="left: 353px">12 white</div>
+      <div data-hf-id="hf-9tmq" class="s06-brk" style="left: 553px; width: 60px"></div>
+      <div data-hf-id="hf-9t60" class="s06-lab" style="left: 518px">3 black</div>
+      <div data-hf-id="hf-zhj0" class="s06-brk" style="left: 619px; width: 522px"></div>
+      <div data-hf-id="hf-0gxx" class="s06-lab" style="left: 815px">24 white</div>
+      <div data-hf-id="hf-etjp" class="s06-brk" style="left: 1147px; width: 16px"></div>
+      <div data-hf-id="hf-al0g" class="s06-lab" style="left: 1090px">1 black</div>
+      <div data-hf-id="hf-gfq9" class="s06-brk" style="left: 1169px; width: 302px"></div>
+      <div data-hf-id="hf-kjv7" class="s06-lab" style="left: 1255px">14 white</div>
+    </div>
+    <div data-hf-id="hf-2qa5" id="s06-codes" class="clip" data-start="16.3" data-duration="8.1">
+      <div data-hf-id="hf-tuo6" class="s06-code" style="left: 57px; width: 150px">001000</div>
+      <div data-hf-id="hf-cks9" class="s06-code" style="left: 210px; width: 130px">010</div>
+      <div data-hf-id="hf-zmrm" class="s06-code" style="left: 343px; width: 150px">001000</div>
+      <div data-hf-id="hf-2xci" class="s06-code" style="left: 518px; width: 130px">10</div>
+      <div data-hf-id="hf-1gk0" class="s06-code" style="left: 790px; width: 180px">0101000</div>
+      <div data-hf-id="hf-2njq" class="s06-code" style="left: 1090px; width: 130px">010</div>
+      <div data-hf-id="hf-4tby" class="s06-code" style="left: 1245px; width: 150px">110100</div>
+    </div>
+    <h1 data-hf-id="hf-8jzk" id="s06-t3" class="s06-title clip" data-start="13.7" data-duration="10.7">
+      <span data-hf-id="hf-2eyp" id="s06-t3-in">Send how many,<br data-hf-id="hf-rsrt" />not every dot.</span>
+    </h1>
+    <p data-hf-id="hf-5a5a" id="s06-count" class="clip" data-start="19.8" data-duration="4.6">
+      <span data-hf-id="hf-82cz" id="s06-count-in"><span data-hf-id="hf-2j2n" id="s06-n67" class="s06-num">67</span> dots. <span data-hf-id="hf-ghop" id="s06-n33" class="s06-num">33</span> bits.</span>
+    </p>
+
+    <div data-hf-id="hf-uges" id="s06-blank" class="clip" data-start="25.0" data-duration="10.0">
+      <div data-hf-id="hf-rhpg" id="s06-bframe" class="s06-frame"></div>
+    </div>
+    <h1 data-hf-id="hf-0hs0" id="s06-t4" class="s06-title clip" data-start="25.4" data-duration="9.6">
+      <span data-hf-id="hf-espy" class="s06-word">A</span> <span data-hf-id="hf-tq0f" class="s06-word">blank</span> <span data-hf-id="hf-bqo9" class="s06-word">line:</span><br data-hf-id="hf-szow" />
+      <span data-hf-id="hf-qw21" class="s06-word">1,728</span> <span data-hf-id="hf-3yyf" class="s06-word">dots</span> <span data-hf-id="hf-v4dk" class="s06-word">in</span>
+      <span data-hf-id="hf-1y3y" class="s06-word">29</span> <span data-hf-id="hf-0for" class="s06-word">bits.</span>
+    </h1>
+    <div data-hf-id="hf-ezpq" id="s06-bcodes" class="clip" data-start="26.5" data-duration="8.5">
+      <div data-hf-id="hf-qyln" id="s06-g1" class="s06-grp">
+        <div data-hf-id="hf-ff2i" class="s06-bits"><span data-hf-id="hf-3cnw" id="s06-b1">010011011</span> <span data-hf-id="hf-797u" id="s06-b2">00110101</span></div>
+        <div data-hf-id="hf-s1cg" id="s06-g1-brk" class="s06-gbrk"></div>
+        <div data-hf-id="hf-a8mt" id="s06-g1-lab" class="s06-glab">1,728 white</div>
+      </div>
+      <div data-hf-id="hf-iaps" id="s06-g2" class="s06-grp">
+        <div data-hf-id="hf-eor2" class="s06-bits"><span data-hf-id="hf-y7c2" id="s06-b3">000000000001</span></div>
+        <div data-hf-id="hf-mcs7" id="s06-g2-brk" class="s06-gbrk"></div>
+        <div data-hf-id="hf-8g65" id="s06-g2-lab" class="s06-glab">end of line</div>
+      </div>
+    </div>
+    <p data-hf-id="hf-5cwl" id="s06-q4" class="s06-quiet clip" data-start="31.2" data-duration="3.8">
+      <span data-hf-id="hf-p9uf" id="s06-q4-in">Most of a page is blank.</span>
+    </p>
+  </div>
+  <script>
+    (function () {
+      // The T.4 worked example (12W 1B 12W 3B 24W 1B 14W) opens the line; the rest is row 124
+      // of page-bit.png (the "hommage de G. Caselli" line), each of its dots spread over 4.
+      const EXAMPLE = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW";
+      const BLACK_RUNS = [
+        12, 1, 25, 3, 52, 1, 272, 16, 292, 4, 304, 4, 312, 8, 324, 4, 344, 8, 356, 4, 364, 8, 392, 84, 484, 4, 492, 8,
+        504, 4, 512, 52, 568, 16, 620, 36, 688, 44, 756, 24, 784, 4, 848, 48, 900, 36, 992, 4, 1000, 4, 1008, 4, 1016,
+        16, 1036, 4, 1068, 4, 1076, 4, 1112, 28, 1168, 4, 1176, 16, 1196, 24, 1224, 12, 1240, 36, 1280, 4, 1296, 24,
+        1336, 4, 1344, 20, 1384, 24, 1436, 4, 1444, 4,
+      ];
+      let d = "";
+      for (let i = 0; i < BLACK_RUNS.length; i += 2) d += "M" + BLACK_RUNS[i] + " 0h" + BLACK_RUNS[i + 1] + "v22h-" + BLACK_RUNS[i + 1] + "z";
+      document.getElementById("s06-dots").setAttribute("d", d);
+
+      const NS = "http://www.w3.org/2000/svg";
+      const grid = document.getElementById("s06-grid");
+      for (let i = 0; i < EXAMPLE.length; i++) {
+        const r = document.createElementNS(NS, "rect");
+        const black = EXAMPLE[i] === "B";
+        r.setAttribute("x", 22 * i + 1);
+        r.setAttribute("y", 1);
+        r.setAttribute("width", 20);
+        r.setAttribute("height", 20);
+        r.setAttribute("fill", black ? "#141414" : "#efefec");
+        r.setAttribute("stroke", black ? "none" : "rgba(20,20,20,0.5)");
+        r.setAttribute("stroke-width", 1.5);
+        grid.appendChild(r);
+      }
+
+      const fmt = (v) => {
+        const n = Math.round(v);
+        return n >= 1000 ? Math.floor(n / 1000) + "," + String(n % 1000).padStart(3, "0") : String(n);
+      };
+      const nEl = document.getElementById("s06-n");
+      const n67 = document.getElementById("s06-n67");
+      const n33 = document.getElementById("s06-n33");
+
+      const tl = gsap.timeline({ paused: true });
+      const OUT = { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in", immediateRender: false };
+      const IN0 = { opacity: 1, filter: "blur(0px)" };
+
+      // 0-1.45 s: zoom through into one row of dots (row 124 lands on y 600), then the view narrows to it.
+      tl.fromTo("#s06-page", { scale: 1, x: 0, y: 0, transformOrigin: "339.3px 422.4px" }, { scale: 10, x: -379.3, y: 112.6, transformOrigin: "339.3px 422.4px", duration: 1.2, ease: "power2.inOut" }, 0.05);
+      tl.fromTo("#s06-scan", { opacity: 1 }, { opacity: 0, duration: 0.4, ease: "power3.in" }, 0.35);
+      tl.fromTo("#s06-view", { clipPath: "inset(0px 0px 0px 0px)" }, { clipPath: "inset(585px 0px 465px 0px)", duration: 0.8, ease: "power2.inOut" }, 0.65);
+
+      // 1.4-5.9 s: the standard.
+      tl.fromTo("#s06-t1 .s06-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 1.4);
+      tl.fromTo("#s06-q1-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 2.9);
+      tl.fromTo("#s06-t1 .s06-word", IN0, { ...OUT, stagger: 0.03 }, 5.6);
+      tl.fromTo("#s06-q1-in", IN0, OUT, 5.65);
+
+      // 6.0 s: the row closes into one line of 1,728 dots.
+      tl.fromTo("#s06-view", { clipPath: "inset(585px 0px 465px 0px)" }, { clipPath: "inset(600px 0px 480px 0px)", duration: 0.3, ease: "power3.in", immediateRender: false }, 5.9);
+      tl.fromTo("#s06-frame", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 0.6, ease: "power4.out" }, 6.0);
+
+      // 6.4-9.4 s: the playhead reads the line at constant speed while the count runs.
+      tl.fromTo("#s06-play", { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, 6.4);
+      tl.fromTo("#s06-play", { x: 0 }, { x: 1725, duration: 3.0, ease: "none" }, 6.4);
+      tl.fromTo("#s06-fill", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 3.0, ease: "none" }, 6.4);
+      const c1728 = { v: 0 };
+      tl.fromTo(c1728, { v: 0 }, { v: 1728, duration: 3.0, ease: "none", onUpdate: () => (nEl.textContent = fmt(c1728.v)) }, 6.4);
+      tl.fromTo("#s06-play", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, 9.4);
+      tl.fromTo("#s06-t2 .s06-word", { opacity: 0 }, { opacity: 1, duration: 0.25, stagger: 0.08, ease: "power2.out" }, 9.45);
+      tl.fromTo(["#s06-n", "#s06-t2 .s06-word"], IN0, { ...OUT, stagger: 0.03 }, 11.7);
+
+      // 12-13 s: the first 67 dots grow to 22 px squares.
+      tl.fromTo("#s06-frame", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in" }, 12.0);
+      tl.fromTo("#s06-zoom", { scaleX: 1, x: 0, transformOrigin: "0px 11px" }, { scaleX: 22, x: 96, transformOrigin: "0px 11px", duration: 1.0, ease: "power2.inOut" }, 12.0);
+      tl.fromTo("#s06-grid", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 12.85);
+
+      // 13.3-15.8 s: runs, bracketed and named one at a time.
+      tl.fromTo("#s06-runs .s06-brk", { opacity: 0, scaleX: 0.3 }, { opacity: 1, scaleX: 1, duration: 0.5, stagger: 0.35, ease: "power4.out" }, 13.3);
+      tl.fromTo("#s06-runs .s06-lab", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.35, ease: "power2.out" }, 13.4);
+      tl.fromTo("#s06-t3-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 13.8);
+
+      // 16.4-18.5 s: each run becomes its code.
+      tl.fromTo("#s06-codes .s06-code", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.35, ease: "power4.out" }, 16.4);
+
+      // 19.6 s: the count lands.
+      tl.fromTo("#s06-count-in", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, 19.9);
+      const c67 = { a: 0, b: 0 };
+      tl.fromTo(c67, { a: 0, b: 0 }, { a: 67, b: 33, duration: 1.5, ease: "power2.out", onUpdate: () => ((n67.textContent = fmt(c67.a)), (n33.textContent = fmt(c67.b))) }, 19.9);
+
+      tl.fromTo(["#s06-grid", "#s06-runs .s06-brk", "#s06-runs .s06-lab", "#s06-codes .s06-code"], IN0, OUT, 24.1);
+      tl.fromTo(["#s06-t3-in", "#s06-count-in"], IN0, { ...OUT, stagger: 0.05 }, 24.1);
+
+      // 25-35 s: a blank line.
+      tl.fromTo("#s06-bframe", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 0.7, ease: "power4.out" }, 25.1);
+      tl.fromTo("#s06-t4 .s06-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.09, ease: "power2.out" }, 25.5);
+      tl.fromTo(["#s06-b1", "#s06-b2", "#s06-b3"], { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 1.0, ease: "power4.out" }, 26.6);
+      tl.fromTo(["#s06-g1-brk", "#s06-g1-lab"], { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 27.75);
+      tl.fromTo(["#s06-g2-brk", "#s06-g2-lab"], { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 28.75);
+      tl.fromTo("#s06-q4-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 31.3);
+
+      tl.fromTo(["#s06-t4 .s06-word"], IN0, { ...OUT, stagger: 0.02 }, 34.45);
+      tl.fromTo(["#s06-b1", "#s06-b2", "#s06-b3", "#s06-g1-brk", "#s06-g1-lab", "#s06-g2-brk", "#s06-g2-lab", "#s06-q4-in", "#s06-bframe"], IN0, OUT, 34.55);
+
+      window.__timelines["s06"] = tl;
+    })();
+  </script>
+</template>
