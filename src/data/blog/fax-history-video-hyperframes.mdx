@@ -1,0 +1,74 @@
+---
+title: "Making a 5-minute history of the fax with Claude Code, HyperFrames and Gemini TTS"
+description: "The bare steps: research, story, scenes, voice and render, from one Claude Code session."
+slug: fax-history-video-hyperframes
+pubDate: 2026-11-03
+tags:
+  - ai
+  - coding_agent
+  - audio
+  - workflow
+---
+
+I made a 5-minute explainer about the history of the fax machine without opening a video editor. Claude Code did the research, wrote every scene as HTML, and [HyperFrames](https://hyperframes.heygen.com) rendered it to MP4 on my own machine. Gemini read the narration.
+
+<iframe
+  src="https://www.youtube-nocookie.com/embed/hiNpalAU9Sw"
+  title="The first fax was digital (in 1843)"
+  loading="lazy"
+  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  style="width:100%;aspect-ratio:16/9;border:0;"
+></iframe>
+
+[Watch on YouTube](https://www.youtube.com/watch?v=hiNpalAU9Sw)
+
+{/* more */}
+
+These are the steps, with the prompts I typed (typos included).
+
+## 1. Research
+
+> Can you start taking the history of the fax machine from https://en.wikipedia.org/wiki/Fax and related articles on Wikipedia and other places and compile them? Both images and text. [...] Make a few folders and organize the content and research that you find
+
+Claude pulled 51 Wikipedia articles and 110 Wikimedia Commons images with their licences through the Wikipedia and Commons APIs, plus a few recordings: a fax handshake, a radiofax signal, modems. A second agent covered sources outside Wikipedia: books, IEEE pages and museums, plus 13 public-domain patent drawings and magazine scans. The output was folders of notes, a timeline, a fact-check list and a credits file.
+
+## 2. Story
+
+With the HyperFrames plugin installed in Claude Code:
+
+> Using /hyperframes:hyperframes make a 5 min about the history fo the Fax machine
+
+It pitched three storylines and recommended one: a single page travelling through every fax machine in history. I asked for a twist, using a 7-beat story map: hook, old way, new rule, mechanism, proof, payoff, action. The twist became the thesis: **the first fax was digital**. Bain's 1843 machine sent dots that were on or off. Fax went analog for a century to carry photos, and came back to dots in 1980.
+
+![The first fax was digital. In 1843.](/2026-11-03-fax-history-video-first-fax-was-digital.webp)
+
+## 3. Picture
+
+> looks great. go ahead. only video first. we'll add the voice after
+
+- A Python script turned the archive images into a fax look: 1-bit dots for anything after 1980, greyscale for the analog years. It also drew a spectrogram of the real fax handshake recording.
+- Claude wrote a `SPEC.md` with every shot, its timing and its on-screen copy, plus a list of banned AI-video clichés.
+- Claude built the first scene itself. Four subagents built the other 12 in parallel. Each scene is an HTML file animated with GSAP.
+- `hyperframes check` caught layout and timing problems, and `hyperframes snapshot --review` made contact sheets of every scene and cut to look at.
+
+![The scream, decoded](/2026-11-03-fax-history-video-fax-scream-decoded.webp)
+
+## 4. Voice
+
+> should we generate the speech now and add it to the preview? use gemini 3.8 tts
+
+- Claude wrote a script of about 30 lines that explains around the on-screen text instead of reading it out.
+- The HyperFrames audio engine generated the lines with `gemini-3.8-flash-tts` (voice Charon) and my Gemini API key.
+- The first pass came to 284 seconds of speech, too long for the picture. Claude shortened 16 lines and regenerated them. It didn't stretch the scenes.
+- Each line sits in its scene as its own `<audio>`. The fax and modem recordings play quieter under the voice.
+
+## 5. Render
+
+I hit render in HyperFrames Studio, which runs locally. Headless Chrome captured 9,000 frames, and FFmpeg encoded them with the audio in about 3 minutes.
+
+No HeyGen account or cloud render was involved. The only costs were my Claude plan and the Gemini TTS calls.
+
+## 6. Upload
+
+Claude drafted the YouTube title, the chapters, and the description with credits for every CC BY-SA image and sound.
