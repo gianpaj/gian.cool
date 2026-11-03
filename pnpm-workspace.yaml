@@ -7,3 +7,12 @@ minimumReleaseAgeExclude:
   - '@astrojs/react@6.0.0'
   - astro@7.0.0
   - '@babel/core@7.29.1'
+  - minimatch@10.2.3
+  - brace-expansion@5.0.5
+  - yaml@2.8.3
+  - defu@6.1.5
+  - postcss@8.5.10
+  - fast-uri@3.1.1
+  - fast-uri@3.1.2
+  - fast-xml-builder@1.1.7
+  - brace-expansion@5.0.6
