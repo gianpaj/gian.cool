@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #efefec;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        background: #efefec;
+        color: #141414;
+        font-family: "Archivo Black", sans-serif;
+      }
+      #year {
+        position: absolute;
+        left: 96px;
+        top: 70px;
+        font-size: 400px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+      }
+      #line {
+        position: absolute;
+        left: 104px;
+        top: 560px;
+        font-size: 140px;
+        line-height: 1;
+        letter-spacing: -0.015em;
+      }
+      #line span {
+        color: #d93a0b;
+      }
+      .bain {
+        position: absolute;
+        left: 1064px;
+        top: 116px;
+        width: 860px;
+        height: 848px;
+      }
+      .bain img {
+        display: block;
+        width: 860px;
+        height: 848px;
+      }
+      #bain-grey {
+        clip-path: inset(0 0 52% 0);
+      }
+      #bain-dots {
+        clip-path: inset(48% 0 0 0);
+      }
+      #bain-dots img {
+        image-rendering: pixelated;
+      }
+      #scan {
+        position: absolute;
+        left: 1044px;
+        top: 521px;
+        width: 876px;
+        height: 8px;
+        background: #ff4f1f;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="thumb" data-start="0" data-duration="1" data-width="1920" data-height="1080" data-no-timeline>
+      <div id="bain-grey" class="bain"><img src="assets/bain-grey.png" alt="" /></div>
+      <div id="bain-dots" class="bain"><img src="assets/bain-dots.png" alt="" /></div>
+      <div id="scan"></div>
+      <div id="year">1843</div>
+      <div id="line">The first fax<br />was <span>digital.</span></div>
+    </div>
+  </body>
+</html>
