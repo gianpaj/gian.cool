@@ -1,0 +1,5 @@
+# Rendered video and local HyperFrames caches
+renders/*.mp4
+.hyperframes/
+.thumbnails/
+.waveform-cache/

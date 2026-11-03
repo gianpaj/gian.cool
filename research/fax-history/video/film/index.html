@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --paper: #efefec;
+        --ink: #141414;
+        --accent: #ff4f1f;
+        --accent-text: #d93a0b;
+        --darkroom: #262624;
+        --font-display: "Archivo Black", sans-serif;
+        --font-body: "Roboto", sans-serif;
+        --font-bits: "IBM Plex Mono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--paper);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        font-family: var(--font-body);
+        color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-gukl"
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="300"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div data-hf-id="hf-v62j" id="s01" data-composition-id="s01" data-composition-src="compositions/s01.html" data-start="0" data-duration="20" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-v1jb" id="s02" data-composition-id="s02" data-composition-src="compositions/s02.html" data-start="20" data-duration="16" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-pypz" id="s03" data-composition-id="s03" data-composition-src="compositions/s03.html" data-start="36" data-duration="18" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-54r7" id="s04" data-composition-id="s04" data-composition-src="compositions/s04.html" data-start="54" data-duration="26" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-65q6" id="s05" data-composition-id="s05" data-composition-src="compositions/s05.html" data-start="80" data-duration="30" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-bbvk" id="s06" data-composition-id="s06" data-composition-src="compositions/s06.html" data-start="110" data-duration="35" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-bpm3" id="s07" data-composition-id="s07" data-composition-src="compositions/s07.html" data-start="145" data-duration="35" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-wy9m" id="s08" data-composition-id="s08" data-composition-src="compositions/s08.html" data-start="180" data-duration="25" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-n907" id="s09" data-composition-id="s09" data-composition-src="compositions/s09.html" data-start="205" data-duration="27" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-3zz8" id="s10" data-composition-id="s10" data-composition-src="compositions/s10.html" data-start="232" data-duration="26" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-ve5t" id="s11" data-composition-id="s11" data-composition-src="compositions/s11.html" data-start="258" data-duration="22" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-0qy4" id="s12" data-composition-id="s12" data-composition-src="compositions/s12.html" data-start="280" data-duration="12" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-xy63" id="s13" data-composition-id="s13" data-composition-src="compositions/s13.html" data-start="292" data-duration="8" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+
+      <!-- Sound: real recordings, each on the action that makes it, ducked under the narration. No music bed yet. -->
+      <audio data-hf-id="hf-w1yx" id="snd-hook-scream" class="clip" src="assets/audio/fax-answering-tones.ogg" data-start="0" data-duration="2.6" data-volume="0.8" data-fade-out="0.1" data-track-index="5"></audio>
+      <audio data-hf-id="hf-6eyj" id="snd-hook-scream-under" class="clip" src="assets/audio/fax-answering-tones.ogg" data-start="2.6" data-media-start="2.6" data-duration="7.7" data-volume="0.2" data-fade-out="0.6" data-track-index="5"></audio>
+      <audio data-hf-id="hf-bpem" id="snd-radiofax" class="clip" src="assets/audio/radiofax-signal.ogg" data-start="71" data-duration="9" data-volume="0.18" data-fade-in="0.4" data-fade-out="1" data-track-index="5"></audio>
+      <audio data-hf-id="hf-vi04" id="snd-modem" class="clip" src="assets/audio/2005-v92-fax-modem-56k-handshake.wav" data-start="148.4" data-media-start="2" data-duration="5" data-volume="0.5" data-fade-in="0.2" data-fade-out="0.8" data-track-index="5"></audio>
+      <audio data-hf-id="hf-nyzw" id="snd-decode" class="clip" src="assets/audio/fax-answering-tones.ogg" data-start="206" data-duration="10.3" data-volume="0.9" data-track-index="5"></audio>
+      <audio data-hf-id="hf-sqsj" id="snd-print" class="clip" src="assets/audio/fax-laser-fax-machine-sounds.ogg" data-start="272" data-media-start="1" data-duration="5" data-volume="0.7" data-fade-in="0.2" data-fade-out="0.6" data-track-index="6"></audio>
+      <audio data-hf-id="hf-1u29" id="snd-end-tone" class="clip" src="assets/audio/fax-answering-tones.ogg" data-start="280.5" data-duration="2.1" data-volume="0.7" data-fade-out="0.3" data-track-index="5"></audio>
+
+      <!-- Narration: Gemini gemini-3.8-flash-tts, voice Charon. Script in audio_request.json. -->
+      <audio data-hf-id="hf-ljth" id="vo-v01" class="clip" src="assets/voice/v01.wav" data-start="2.31" data-duration="4.48" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-m9ot" id="vo-v02" class="clip" src="assets/voice/v02.wav" data-start="6.32" data-duration="5.32" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-6z0e" id="vo-v03" class="clip" src="assets/voice/v03.wav" data-start="12.17" data-duration="7.92" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-7dsb" id="vo-v04" class="clip" src="assets/voice/v04.wav" data-start="20.31" data-duration="14.68" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-4s96" id="vo-v05" class="clip" src="assets/voice/v05.wav" data-start="36.37" data-duration="10.32" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-8340" id="vo-v05b" class="clip" src="assets/voice/v05b.wav" data-start="47.47" data-duration="3.56" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-c6p5" id="vo-v06" class="clip" src="assets/voice/v06.wav" data-start="54.27" data-duration="5.12" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-22ua" id="vo-v07" class="clip" src="assets/voice/v07.wav" data-start="59.31" data-duration="6.24" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-hse5" id="vo-v08" class="clip" src="assets/voice/v08.wav" data-start="65.06" data-duration="5.88" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-pqft" id="vo-v09" class="clip" src="assets/voice/v09.wav" data-start="70.93" data-duration="4.24" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-pwgg" id="vo-v10" class="clip" src="assets/voice/v10.wav" data-start="74.85" data-duration="5.64" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-t7kr" id="vo-v11" class="clip" src="assets/voice/v11.wav" data-start="80.28" data-duration="8.92" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-f8pl" id="vo-v12" class="clip" src="assets/voice/v12.wav" data-start="88.95" data-duration="10.52" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-nhog" id="vo-v13" class="clip" src="assets/voice/v13.wav" data-start="99.13" data-duration="8.88" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-8ai2" id="vo-v14" class="clip" src="assets/voice/v14.wav" data-start="111.1" data-duration="5.48" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-42so" id="vo-v15" class="clip" src="assets/voice/v15.wav" data-start="116.12" data-duration="6.32" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-6b9h" id="vo-v16" class="clip" src="assets/voice/v16.wav" data-start="122.14" data-duration="11.28" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-0h5z" id="vo-v17" class="clip" src="assets/voice/v17.wav" data-start="135.02" data-duration="9.12" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-0lzq" id="vo-v18" class="clip" src="assets/voice/v18.wav" data-start="145.01" data-duration="3.56" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-8pkx" id="vo-v19" class="clip" src="assets/voice/v19.wav" data-start="153.36" data-duration="7.48" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-18ex" id="vo-v20" class="clip" src="assets/voice/v20.wav" data-start="163.19" data-duration="15.68" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-te2z" id="vo-v21" class="clip" src="assets/voice/v21.wav" data-start="180.31" data-duration="11.28" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-8icu" id="vo-v22" class="clip" src="assets/voice/v22.wav" data-start="192.84" data-duration="9.88" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-vu04" id="vo-v23" class="clip" src="assets/voice/v23.wav" data-start="216.31" data-duration="9.08" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-8tsf" id="vo-v24" class="clip" src="assets/voice/v24.wav" data-start="225.08" data-duration="6.76" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-e8fx" id="vo-v25" class="clip" src="assets/voice/v25.wav" data-start="232.31" data-duration="5.76" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-i2n9" id="vo-v26" class="clip" src="assets/voice/v26.wav" data-start="238.1" data-duration="11.88" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-0ea2" id="vo-v27" class="clip" src="assets/voice/v27.wav" data-start="250.25" data-duration="6.8" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-mscv" id="vo-v28" class="clip" src="assets/voice/v28.wav" data-start="258.3" data-duration="8.68" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-27da" id="vo-v29" class="clip" src="assets/voice/v29.wav" data-start="266.61" data-duration="5.6" data-volume="1" data-track-index="8"></audio>
+      <audio data-hf-id="hf-pfqw" id="vo-v30" class="clip" src="assets/voice/v30.wav" data-start="275.87" data-duration="4.4" data-volume="1" data-track-index="7"></audio>
+      <audio data-hf-id="hf-ut2r" id="vo-v31" class="clip" src="assets/voice/v31.wav" data-start="282.32" data-duration="5.32" data-volume="1" data-track-index="8"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

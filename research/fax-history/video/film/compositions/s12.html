@@ -1,0 +1,188 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+
+    /* The page exactly where s11 left it: centred, 480 x 611. */
+    #s12-pagebox {
+      position: absolute;
+      left: 720px;
+      top: 234px;
+      width: 480px;
+      height: 611px;
+    }
+    #s12-page-in {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+    }
+    #s12-page-in img {
+      display: block;
+      width: 480px;
+      height: 611px;
+      image-rendering: pixelated;
+    }
+
+    /* Spectrogram strip: the first 1,080 px (6.6 s) of spec-bit, 2,400 Hz down to ~1,300 Hz, at 1x. */
+    #s12-strip {
+      position: absolute;
+      left: 648px;
+      top: 380px;
+      width: 1080px;
+      height: 360px;
+    }
+    #s12-strip-in {
+      position: absolute;
+      inset: 0;
+    }
+    #s12-specwin {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    #s12-specwin img {
+      position: absolute;
+      left: 0;
+      top: -40px;
+      display: block;
+      width: 1680px;
+      height: 560px;
+      image-rendering: pixelated;
+    }
+    /* 2,100 Hz sits at y 120 of the image (80 in this window); the tone runs 0-407 px. */
+    #s12-band {
+      position: absolute;
+      left: -6px;
+      top: 52px;
+      width: 419px;
+      height: 56px;
+      border: 3px solid var(--accent);
+      clip-path: inset(0 100% 0 0);
+    }
+    #s12-head {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 360px;
+      background: var(--accent);
+      opacity: 0;
+    }
+
+    .s12-title {
+      position: absolute;
+      left: 192px;
+      font-family: var(--font-display);
+      font-size: 84px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .s12-word {
+      display: inline-block;
+    }
+    #s12-title {
+      top: 120px;
+    }
+    .s12-accent {
+      color: var(--accent-text);
+    }
+    #s12-quiet {
+      position: absolute;
+      left: 648px;
+      top: 780px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 1.2;
+    }
+    #s12-end {
+      top: 420px;
+      font-size: 110px;
+    }
+  </style>
+  <div data-hf-id="hf-x143" id="root" data-composition-id="s12" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ws6e" id="s12-pagebox" class="clip" data-start="0" data-duration="7.5" data-layout-allow-overflow>
+      <div data-hf-id="hf-ppol" id="s12-page-in"><img data-hf-id="hf-h8h4" id="s12-page" src="assets/img/page-bit.png" alt="" /></div>
+    </div>
+
+    <div data-hf-id="hf-4zxx" id="s12-strip" class="clip" data-start="0" data-duration="7.5">
+      <div data-hf-id="hf-se4c" id="s12-strip-in">
+        <div data-hf-id="hf-wyf8" id="s12-specwin" data-layout-allow-overflow><img data-hf-id="hf-50c4" id="s12-spec" src="assets/img/spec-bit.png" alt="" /></div>
+        <div data-hf-id="hf-gjmv" id="s12-band"></div>
+        <div data-hf-id="hf-266w" id="s12-head"></div>
+      </div>
+    </div>
+
+    <h1 data-hf-id="hf-7f0n" id="s12-title" class="s12-title clip" data-start="0.6" data-duration="6.6">
+      <span data-hf-id="hf-7uqr" class="s12-word">Next</span> <span data-hf-id="hf-9zrb" class="s12-word">time</span> <span data-hf-id="hf-d1bx" class="s12-word">a</span>
+      <span data-hf-id="hf-j2qh" class="s12-word">fax</span> <span data-hf-id="hf-z2z0" class="s12-word">screams,</span><br data-hf-id="hf-x5px" />
+      <span data-hf-id="hf-ksvt" class="s12-word">listen</span> <span data-hf-id="hf-dkcl" class="s12-word">for</span> <span data-hf-id="hf-xk45" class="s12-word">the</span>
+      <span data-hf-id="hf-kqmo" class="s12-word s12-accent">2,100</span> <span data-hf-id="hf-eyfx" class="s12-word s12-accent">Hz</span>
+      <span data-hf-id="hf-0pg8" class="s12-word">tone.</span>
+    </h1>
+    <p data-hf-id="hf-qujm" id="s12-quiet" class="clip" data-start="2.9" data-duration="4.3" data-hold>
+      <span data-hf-id="hf-uwae" id="s12-quiet-in">It's saying: I'm a fax.</span>
+    </p>
+
+    <h1 data-hf-id="hf-mamu" id="s12-end" class="s12-title clip" data-start="7.6" data-duration="4.4" data-beat="end-line" data-hold>
+      <span data-hf-id="hf-tt3x" class="s12-word">A</span> <span data-hf-id="hf-gy8k" class="s12-word">picture</span> <span data-hf-id="hf-9huq" class="s12-word">is</span>
+      <span data-hf-id="hf-m84k" class="s12-word">just</span> <span data-hf-id="hf-vtfe" class="s12-word">dots,</span><br data-hf-id="hf-rsrt" />
+      <span data-hf-id="hf-pp44" class="s12-word">sent</span> <span data-hf-id="hf-dv81" class="s12-word">in</span> <span data-hf-id="hf-ep12" class="s12-word">step.</span>
+    </h1>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const TONE_PX = 407; // 2.5 s of answer tone at 163 px a second
+
+      // 0-0.7 s: the page shrinks to the left, to 330 x 420 at x 192, y 380 (a camera move: power2.inOut).
+      tl.fromTo(
+        "#s12-page-in",
+        { x: 0, y: 0, scale: 1, transformOrigin: "0px 0px" },
+        { x: -528, y: 146, scale: 0.6875, transformOrigin: "0px 0px", duration: 0.7, ease: "power2.inOut" },
+        0,
+      );
+
+      // The strip slides in from the right behind the page's trailing edge, never over it.
+      tl.fromTo("#s12-strip-in", { x: 240, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease: "expo.out" }, 0.35);
+
+      // 280.5-283: the playhead crosses the 2,100 Hz tone while it plays (linear), marking the band behind it.
+      tl.fromTo("#s12-head", { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, 0.45);
+      tl.fromTo("#s12-head", { x: 0 }, { x: TONE_PX, duration: 2.5, ease: "none" }, 0.5);
+      tl.fromTo("#s12-band", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 2.5, ease: "none" }, 0.5);
+      tl.fromTo("#s12-head", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, 3.0);
+
+      // Title: per word from light grey to ink, no position change.
+      tl.fromTo("#s12-title .s12-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.08, ease: "power2.out" }, 0.7);
+      tl.fromTo("#s12-quiet-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 3.0);
+
+      // 286.9-287.4: once the narration ends, words blur out; the page is pulled up and away; the strip leaves right.
+      tl.fromTo(
+        ["#s12-title .s12-word", "#s12-quiet-in"],
+        { opacity: 1, filter: "blur(0px)" },
+        { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.02, ease: "power3.in", immediateRender: false },
+        6.9,
+      );
+      tl.fromTo("#s12-page-in", { y: 146 }, { y: -680, duration: 0.5, ease: "power3.in", immediateRender: false }, 6.95);
+      tl.fromTo("#s12-strip-in", { x: 0, opacity: 1 }, { x: 200, opacity: 0, duration: 0.35, ease: "power3.in", immediateRender: false }, 6.95);
+
+      // 287.6-292: the last line, alone on paper. Per-word blur in, then dead still.
+      tl.fromTo("#s12-end .s12-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 7.7);
+      tl.fromTo(
+        "#s12-end .s12-word",
+        { opacity: 1, filter: "blur(0px)" },
+        { opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power3.in", immediateRender: false },
+        11.78,
+      );
+
+      window.__timelines["s12"] = tl;
+    })();
+  </script>
+</template>
