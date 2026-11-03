@@ -17,6 +17,7 @@ export const VALID_TAGS = [
   'review',
   'terminal',
   'tools',
+  'video',
   'web',
   'workflow',
 ] as const;
@@ -51,6 +52,7 @@ export const TAG_METADATA: Record<Tag, { label: string; description: string }> =
     tools: { label: 'Tools', description: 'Software and utilities' },
     macos: { label: 'macOS', description: 'Apple desktop platform' },
     web: { label: 'Web', description: 'Web development topics' },
+    video: { label: 'Video', description: 'Making and editing video' },
     projects: {
       label: 'Projects',
       description: 'Build logs and project write-ups',
