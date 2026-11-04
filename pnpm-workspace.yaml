@@ -2,6 +2,7 @@ allowBuilds:
   esbuild: true
   sharp: true
 minimumReleaseAgeExclude:
+  - '@napi-rs/wasm-runtime@1.2.7'
   - '@astrojs/markdown-satteri@0.3.1'
   - '@astrojs/mdx@7.0.0'
   - '@astrojs/react@6.0.0'
