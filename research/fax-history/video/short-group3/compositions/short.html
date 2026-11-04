@@ -1,0 +1,389 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+    /* Below 1330 px the app draws its own UI: texture only. */
+    #sh-tex {
+      position: absolute;
+      left: 0;
+      top: 1400px;
+      width: 1080px;
+      height: 520px;
+      overflow: hidden;
+      opacity: 0.18;
+    }
+    #sh-tex img {
+      position: absolute;
+      left: 0;
+      top: -760px;
+      width: 1760px;
+      height: 2240px;
+      image-rendering: pixelated;
+    }
+    .sh-head {
+      position: absolute;
+      left: 96px;
+      font-family: var(--font-display);
+      line-height: 1;
+      letter-spacing: -0.015em;
+      white-space: nowrap;
+    }
+    .sh-acc {
+      color: var(--accent-text);
+    }
+    .sh-quiet {
+      position: absolute;
+      left: 96px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 52px;
+    }
+    #sh-hook { top: 210px; font-size: 150px; line-height: 1.02; }
+    #sh-1980 { top: 180px; font-size: 300px; }
+    #sh-g3 { top: 500px; font-size: 96px; }
+    #sh-1728 { top: 200px; font-size: 260px; }
+    #sh-dpl { top: 480px; }
+    #sh-runs-h { top: 230px; font-size: 140px; line-height: 1.02; }
+    #sh-67 { top: 230px; font-size: 210px; }
+    #sh-33 { top: 230px; font-size: 210px; }
+    #sh-blank-h { top: 200px; font-size: 120px; }
+    #sh-29 { top: 350px; font-size: 210px; }
+    #sh-final { top: 330px; font-size: 150px; line-height: 1.04; }
+    #sh-final .sh-l1 { font-size: 118px; }
+
+    /* The page, with the scan line resting on one row. */
+    #sh-pagebox {
+      position: absolute;
+      left: 100px;
+      top: 660px;
+      width: 880px;
+      height: 460px;
+      overflow: hidden;
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+    }
+    #sh-pagezoom {
+      position: absolute;
+      inset: 0;
+    }
+    #sh-pagezoom img {
+      position: absolute;
+      left: 0;
+      top: -270px;
+      width: 880px;
+      height: 1120px;
+      image-rendering: pixelated;
+    }
+    #sh-pscan {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 880px;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    /* One real scan line, 1,728 dots at 2 px each, scrolling past a playhead. */
+    #sh-stripwin {
+      position: absolute;
+      left: 0;
+      top: 800px;
+      width: 1080px;
+      height: 72px;
+      overflow: hidden;
+      border-top: 2px solid rgba(20, 20, 20, 0.35);
+      border-bottom: 2px solid rgba(20, 20, 20, 0.35);
+    }
+    #sh-strip {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 3456px;
+      height: 64px;
+      image-rendering: pixelated;
+    }
+    #sh-play {
+      position: absolute;
+      left: 538px;
+      top: 770px;
+      width: 4px;
+      height: 132px;
+      background: var(--accent);
+    }
+
+    /* The T.4 worked example: 67 dots as runs. */
+    #sh-runs {
+      position: absolute;
+      inset: 0;
+    }
+    .sq {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      transform-origin: 0 0;
+    }
+    .sq.w {
+      background: var(--paper);
+      box-shadow: inset 0 0 0 2px rgba(20, 20, 20, 0.55);
+    }
+    .sq.b {
+      background: var(--ink);
+    }
+    .sh-lab,
+    .sh-code {
+      position: absolute;
+      left: 770px;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 22px;
+      white-space: nowrap;
+    }
+    .sh-code {
+      color: var(--ink);
+    }
+
+    /* A blank line. */
+    #sh-blankwin {
+      position: absolute;
+      left: 96px;
+      top: 700px;
+      width: 888px;
+      height: 56px;
+      border: 2px solid rgba(20, 20, 20, 0.55);
+      background: var(--paper);
+    }
+    #sh-bscan {
+      position: absolute;
+      left: 96px;
+      top: 680px;
+      width: 4px;
+      height: 96px;
+      background: var(--accent);
+    }
+    #sh-bcodes {
+      position: absolute;
+      left: 96px;
+      top: 820px;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 44px;
+      white-space: nowrap;
+    }
+    #sh-bcodes span {
+      display: inline-block;
+    }
+    .sh-blab {
+      position: absolute;
+      top: 890px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 34px;
+      border-top: 3px solid var(--ink);
+      padding-top: 8px;
+    }
+    #sh-blab1 { left: 96px; width: 470px; }
+    #sh-blab2 { left: 600px; width: 314px; }
+
+    /* Captions: the narration, phrase by phrase, inside the safe band. */
+    .sh-cap {
+      position: absolute;
+      left: 96px;
+      top: 1160px;
+      width: 888px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 56px;
+      line-height: 1.15;
+    }
+  </style>
+  <div id="root" data-composition-id="short" data-width="1080" data-height="1920">
+    <div id="sh-tex" data-layout-ignore><img id="sh-tex-img" src="assets/img/page-texture.png" alt="" /></div>
+
+    <!-- 0-1.4: hook, already on screen at frame 0 -->
+    <h1 id="sh-hook" class="sh-head clip" data-start="0" data-duration="1.3" data-beat="hook"><span id="sh-hook-in">How fax<br />got fast</span></h1>
+    <div id="sh-pagebox" class="clip" data-start="0" data-duration="6.25">
+      <div id="sh-pagezoom">
+        <img src="assets/img/page-bit.png" alt="" />
+        <div id="sh-pscan"></div>
+      </div>
+    </div>
+
+    <!-- 1.4-6.35: 1980, Group 3 -->
+    <h1 id="sh-1980" class="sh-head clip" data-start="1.25" data-duration="4.05">
+      <span class="sh-ch">1</span><span class="sh-ch">9</span><span class="sh-ch">8</span><span class="sh-ch">0</span>
+    </h1>
+    <h1 id="sh-g3" class="sh-head sh-acc clip" data-start="4.3" data-duration="1.0"><span id="sh-g3-in">Group 3</span></h1>
+
+    <!-- 6.4-12.4: 1,728 dots in every line -->
+    <h1 id="sh-1728" class="sh-head clip" data-start="5.3" data-duration="5.25" data-beat="dots"><span id="sh-1728-n">0</span></h1>
+    <p id="sh-dpl" class="sh-quiet clip" data-start="5.6" data-duration="4.95"><span id="sh-dpl-in">dots in every line</span></p>
+    <div id="sh-stripwin" class="clip" data-start="5.75" data-duration="4.8" data-layout-allow-overflow><img id="sh-strip" src="assets/img/row-1728.png" alt="" /></div>
+    <div id="sh-play" class="clip" data-start="5.75" data-duration="4.8"></div>
+
+    <!-- 12.5-23.4: runs, codes, 67 dots -> 33 bits -->
+    <h1 id="sh-runs-h" class="sh-head clip" data-start="10.55" data-duration="5.8"><span id="sh-runs-h-in">Send the<br />runs</span></h1>
+    <h1 id="sh-67" class="sh-head clip" data-start="16.35" data-duration="1.25"><span id="sh-67-in">67 dots</span></h1>
+    <h1 id="sh-33" class="sh-head sh-acc clip" data-start="17.6" data-duration="2.05" data-beat="bits"><span id="sh-33-in">33 bits</span></h1>
+    <div id="sh-runs" class="clip" data-start="10.55" data-duration="9.15"></div>
+
+    <!-- 23.5-29: a blank line -->
+    <h1 id="sh-blank-h" class="sh-head clip" data-start="20.55" data-duration="2.85"><span id="sh-blank-h-in">Blank line:</span></h1>
+    <h1 id="sh-29" class="sh-head sh-acc clip" data-start="21.95" data-duration="1.45"><span id="sh-29-in">29 bits</span></h1>
+    <div id="sh-blankwin" class="clip" data-start="19.7" data-duration="3.7"></div>
+    <div id="sh-bscan" class="clip" data-start="19.7" data-duration="0.95"></div>
+    <div id="sh-bcodes" class="clip" data-start="20.65" data-duration="2.75">
+      <span id="sh-bc1">010011011</span> <span id="sh-bc2">00110101</span> <span id="sh-bc3">000000000001</span>
+    </div>
+    <div id="sh-blab1" class="sh-blab clip" data-start="21.25" data-duration="2.15"><span id="sh-blab1-in">1,728 white</span></div>
+    <div id="sh-blab2" class="sh-blab clip" data-start="21.85" data-duration="1.55"><span id="sh-blab2-in">end of line</span></div>
+
+    <!-- 29-35: the claim -->
+    <h1 id="sh-final" class="sh-head clip" data-start="23.4" data-duration="5.1" data-beat="claim" data-hold>
+      <span class="sh-l1 sh-acc" id="sh-f1">Compression</span><br /><span id="sh-f2">made fax</span><br /><span id="sh-f3">fast.</span>
+    </h1>
+
+    <!-- Captions -->
+    <p id="sh-c01" class="sh-cap clip" data-start="1.3" data-duration="3.0">In 1980, the world agreed on one standard:</p>
+    <p id="sh-c02" class="sh-cap clip" data-start="4.3" data-duration="1.2">Group 3.</p>
+    <p id="sh-c03" class="sh-cap clip" data-start="5.55" data-duration="4.9">The scanner slices each line into 1,728 dots.</p>
+    <p id="sh-c04" class="sh-cap clip" data-start="10.85" data-duration="2.9">Instead of every dot, it sends the length of each run,</p>
+    <p id="sh-c06" class="sh-cap clip" data-start="13.8" data-duration="2.5">with short codes for common runs.</p>
+    <p id="sh-c07" class="sh-cap clip" data-start="16.35" data-duration="1.25">These 67 dots</p>
+    <p id="sh-c08" class="sh-cap clip" data-start="17.6" data-duration="2.0">become 33 bits.</p>
+    <p id="sh-c09" class="sh-cap clip" data-start="20.55" data-duration="2.8">A blank line takes just 29 bits.</p>
+    <p id="sh-c10" class="sh-cap clip" data-start="23.4" data-duration="2.2">Compression, not just going digital,</p>
+    <p id="sh-c11" class="sh-cap clip" data-start="25.65" data-duration="2.85">is what made fax fast.</p>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // Bottom texture drifts slowly under the app UI.
+      tl.fromTo("#sh-tex-img", { x: 0 }, { x: -460, duration: 28.5, ease: "none" }, 0);
+
+      // 0-6.0: the scan line settles onto one row of the page.
+      tl.fromTo("#sh-pscan", { y: 40 }, { y: 225, duration: 3.3, ease: "power2.inOut" }, 1.3);
+      tl.to("#sh-hook-in", { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power3.in" }, 1.13);
+
+      // 1980: per letter, then Group 3 blurs in.
+      tl.fromTo("#sh-1980 .sh-ch", { opacity: 0.3, filter: "blur(4px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, stagger: 0.1, ease: "power2.out" }, 1.3);
+      tl.fromTo("#sh-g3-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 4.35);
+
+      // 6.4-7.4: push into that row until it becomes the strip.
+      tl.fromTo("#sh-pagezoom", { scale: 1, transformOrigin: "440px 227px" }, { scale: 6, transformOrigin: "440px 227px", duration: 0.8, ease: "power3.in" }, 5.3);
+      tl.fromTo("#sh-pagebox", { opacity: 1 }, { opacity: 0, duration: 0.25, ease: "power3.in" }, 5.95);
+      tl.fromTo("#sh-stripwin", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, 5.8);
+
+      // 7.0-11.6: the line scrolls past the playhead; the count is the dot under it.
+      tl.fromTo("#sh-strip", { x: 540 }, { x: 540 - 3456, duration: 4.2, ease: "none" }, 5.9);
+      const n = document.getElementById("sh-1728-n");
+      const count = { v: 0 };
+      tl.fromTo(count, { v: 0 }, {
+        v: 1728,
+        duration: 4.2,
+        ease: "none",
+        onUpdate: () => { n.textContent = Math.round(count.v).toLocaleString("en-US"); },
+      }, 5.9);
+      tl.fromTo("#sh-dpl-in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 5.65);
+      tl.to(["#sh-1728-n", "#sh-dpl-in", "#sh-strip", "#sh-play"], { opacity: 0, duration: 0.15, ease: "power3.in" }, 10.38);
+
+      // 12.5-23.4: the worked example from ITU-T T.4.
+      const RUNS = [
+        { n: 12, c: "w", code: "001000" },
+        { n: 1, c: "b", code: "010" },
+        { n: 12, c: "w", code: "001000" },
+        { n: 3, c: "b", code: "10" },
+        { n: 24, c: "w", code: "0101000" },
+        { n: 1, c: "b", code: "010" },
+        { n: 14, c: "w", code: "110100" },
+      ];
+      const LINE_X = 96, LINE_Y = 700, LINE_PITCH = 13.4, LINE_SCALE = 12 / 22;
+      const ROW_X = 96, ROW_Y = 640, ROW_GAP = 62, ROW_PITCH = 26;
+      const CHAR = 21.6, BITS_Y = 760;
+      const runs = document.getElementById("sh-runs");
+      if (!runs.childNodes.length) {
+        let i = 0;
+        RUNS.forEach((r, ri) => {
+          for (let k = 0; k < r.n; k++, i++) {
+            const d = document.createElement("div");
+            d.className = "sq " + r.c;
+            d.dataset.i = String(i);
+            d.dataset.r = String(ri);
+            d.style.left = ROW_X + k * ROW_PITCH + "px";
+            d.style.top = ROW_Y + ri * ROW_GAP + "px";
+            runs.appendChild(d);
+          }
+          const lab = document.createElement("div");
+          lab.className = "sh-lab";
+          lab.style.top = ROW_Y + ri * ROW_GAP + "px";
+          lab.textContent = "×" + r.n;
+          runs.appendChild(lab);
+          const code = document.createElement("div");
+          code.className = "sh-code";
+          code.style.top = ROW_Y + ri * ROW_GAP + "px";
+          code.textContent = r.code;
+          runs.appendChild(code);
+        });
+      }
+      const squares = runs.querySelectorAll(".sq");
+      const labs = runs.querySelectorAll(".sh-lab");
+      const codes = runs.querySelectorAll(".sh-code");
+
+      // Line state: 67 small squares in one row, printed left to right.
+      squares.forEach((sq) => {
+        const i = Number(sq.dataset.i), ri = Number(sq.dataset.r);
+        const k = i - RUNS.slice(0, ri).reduce((a, r) => a + r.n, 0);
+        const dx = LINE_X + i * LINE_PITCH - (ROW_X + k * ROW_PITCH);
+        const dy = LINE_Y - (ROW_Y + ri * ROW_GAP);
+        tl.fromTo(sq, { x: dx, y: dy, scale: LINE_SCALE, opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, 10.65 + i * 0.015);
+        // 14.6: unstack into one row per run.
+        tl.fromTo(sq, { x: dx, y: dy, scale: LINE_SCALE }, { x: 0, y: 0, scale: 1, duration: 0.7, ease: "power3.inOut", immediateRender: false }, 12.1 + ri * 0.06);
+      });
+      tl.fromTo("#sh-runs-h-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 10.6);
+      tl.fromTo(labs, { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.06, ease: "power2.out" }, 12.8);
+      // 16.95: run lengths swap to their codes.
+      tl.fromTo(labs, { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power3.in", immediateRender: false }, 13.8);
+      tl.fromTo(codes, { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, stagger: 0.05, ease: "power4.out" }, 13.95);
+      tl.to("#sh-runs-h-in", { opacity: 0, filter: "blur(6px)", duration: 0.15, ease: "power3.in" }, 16.18);
+      tl.fromTo("#sh-67-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 16.4);
+      // 21.55: the squares go; the codes close up into one line of 33 bits.
+      tl.to(squares, { opacity: 0, duration: 0.25, ease: "power3.in" }, 17.55);
+      let col = 0;
+      codes.forEach((c, ri) => {
+        tl.fromTo(c, { x: 0, y: 0 }, { x: ROW_X + col * CHAR - 770, y: BITS_Y - (ROW_Y + ri * ROW_GAP), duration: 0.6, ease: "power3.inOut", immediateRender: false }, 17.65);
+        col += RUNS[ri].code.length + 1;
+      });
+      tl.fromTo("#sh-33-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 17.65);
+      tl.to(["#sh-33-in", codes], { opacity: 0, filter: "blur(6px)", duration: 0.2, ease: "power3.in" }, 19.45);
+
+      // 23.5-29: an empty line is scanned, then coded.
+      tl.fromTo("#sh-blankwin", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, 19.7);
+      tl.fromTo("#sh-bscan", { x: 0 }, { x: 884, duration: 0.8, ease: "none" }, 19.75);
+      tl.fromTo("#sh-blank-h-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 20.6);
+      tl.fromTo("#sh-bc1", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 20.7);
+      tl.fromTo("#sh-bc2", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 21.25);
+      tl.fromTo("#sh-bc3", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 21.8);
+      tl.fromTo("#sh-blab1-in", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 21.3);
+      tl.fromTo("#sh-blab2-in", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 21.9);
+      tl.fromTo("#sh-29-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 22.0);
+      tl.to(["#sh-blank-h-in", "#sh-29-in", "#sh-blankwin", "#sh-bcodes", "#sh-blab1", "#sh-blab2"], { opacity: 0, filter: "blur(6px)", duration: 0.18, ease: "power3.in" }, 23.18);
+
+      // 29-35: the claim lands word by word with the voice.
+      tl.fromTo("#sh-f1", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 23.45);
+      tl.fromTo("#sh-f2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 26.2);
+      tl.fromTo("#sh-f3", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 26.6);
+
+      // Captions: a quick fade in; each clip ends where the next begins.
+      document.querySelectorAll(".sh-cap").forEach((c) => {
+        tl.fromTo(c.id ? "#" + c.id : c, { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none" }, Number(c.dataset.start));
+      });
+
+      window.__timelines["short"] = tl;
+    })();
+  </script>
+</template>

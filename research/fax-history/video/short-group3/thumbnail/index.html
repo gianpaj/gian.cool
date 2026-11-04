@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #efefec;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        background: #efefec;
+        color: #141414;
+      }
+      .big {
+        position: absolute;
+        left: 96px;
+        font-family: "Archivo Black", sans-serif;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      #kicker { top: 170px; font-size: 110px; }
+      #dots { top: 300px; font-size: 230px; }
+      #bits { top: 545px; font-size: 230px; color: #d93a0b; }
+      #scan {
+        position: absolute;
+        left: 96px;
+        top: 812px;
+        width: 888px;
+        height: 6px;
+        background: #ff4f1f;
+      }
+      #fax {
+        position: absolute;
+        left: 120px;
+        top: 836px;
+        width: 780px;
+        height: 510px;
+        image-rendering: pixelated;
+      }
+      #tex {
+        position: absolute;
+        left: 0;
+        top: 1400px;
+        width: 1080px;
+        height: 520px;
+        overflow: hidden;
+        opacity: 0.18;
+      }
+      #tex img {
+        position: absolute;
+        left: -120px;
+        top: -760px;
+        width: 1760px;
+        height: 2240px;
+        image-rendering: pixelated;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="thumb" data-start="0" data-duration="1" data-width="1080" data-height="1920" data-no-timeline>
+      <div id="tex"><img src="assets/page-texture.png" alt="" /></div>
+      <div id="kicker" class="big">Fax, 1980:</div>
+      <div id="dots" class="big">67 dots</div>
+      <div id="bits" class="big">33 bits</div>
+      <div id="scan"></div>
+      <img id="fax" src="assets/kxf90-bit.png" alt="" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+.hyperframes/
+.thumbnails/
+.waveform-cache/
+renders/*.mp4

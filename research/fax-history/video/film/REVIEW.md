@@ -8,7 +8,7 @@
   - before 1980 they are grey or hard on/off;
   - from 1980 they are a 1-bit fax dither in 2×4 px dots.
 - No music: the project isn't signed in to HeyGen. Sound is only real recordings, each placed on the action that makes it: the handshake (0 s, 206 s, 280.5 s), radiofax (71 s), the V.92 modem (148.4 s) and the laser fax printing (272 s).
-- Narration: Gemini `gemini-3.8-flash-tts`, voice Charon, 32 lines (`audio_request.json`), one `<audio>` per line in `index.html`, alternating tracks 7 and 8. Each line is placed in its scene's window; lines were trimmed to fit rather than stretching the picture. The voice never repeats an on-screen line word for word.
+- Narration: Gemini `gemini-3.8-flash-tts`, voice Charon, 32 lines (`audio_request.json`). All lines are generated in one request by `tools/gemini_tts_single.py`, so the voice stays the same throughout; separate requests drifted, and `seed` does not make the model repeatable. The file is cut back into lines at the pauses that best fit each line's length (`assets/voice/split.json`); a transcription of every piece matched its first and last words. One `<audio>` per line in `index.html`, alternating tracks 7 and 8, each starting at its scene's anchor. The voice never repeats an on-screen line word for word.
 - Effects sit under the voice: the hook recording drops from 0.8 to 0.2 after the 2,100 Hz tone, and radiofax plays at 0.18. The s09 decode (206–216.3 s) and the print (272–277 s) play with no voice over them.
 - s12's last line starts at 287.6 s, after the narration ends.
 

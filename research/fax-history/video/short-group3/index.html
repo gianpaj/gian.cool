@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --paper: #efefec;
+        --ink: #141414;
+        --accent: #ff4f1f;
+        --accent-text: #d93a0b;
+        --font-display: "Archivo Black", sans-serif;
+        --font-body: "Roboto", sans-serif;
+        --font-bits: "IBM Plex Mono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--paper);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        color: var(--ink);
+        font-family: var(--font-body);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="28.5" data-width="1080" data-height="1920">
+      <div id="short" data-composition-id="short" data-composition-src="compositions/short.html" data-start="0" data-duration="28.5" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+
+      <!-- Narration lines v14-v17 from the film (Gemini gemini-3.8-flash-tts, voice Charon), taken from the single-request narration. -->
+      <audio id="vo-v14" class="clip" src="assets/voice/v14.wav" data-start="1.0" data-duration="4.2" data-volume="1" data-track-index="7"></audio>
+      <audio id="vo-v15" class="clip" src="assets/voice/v15.wav" data-start="5.3" data-duration="5.13" data-volume="1" data-track-index="8"></audio>
+      <audio id="vo-v16" class="clip" src="assets/voice/v16.wav" data-start="10.6" data-duration="8.63" data-volume="1" data-track-index="7"></audio>
+      <audio id="vo-v17" class="clip" src="assets/voice/v17.wav" data-start="20.3" data-duration="7.0" data-volume="1" data-track-index="8"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

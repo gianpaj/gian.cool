@@ -1,0 +1,162 @@
+[
+ {
+  "id": "v01",
+  "duration_s": 3.33,
+  "speech_s": 2.86
+ },
+ {
+  "id": "v02",
+  "duration_s": 4.47,
+  "speech_s": 3.87
+ },
+ {
+  "id": "v03",
+  "duration_s": 7.54,
+  "speech_s": 6.94
+ },
+ {
+  "id": "v04",
+  "duration_s": 12.24,
+  "speech_s": 11.64
+ },
+ {
+  "id": "v05",
+  "duration_s": 8.93,
+  "speech_s": 8.33
+ },
+ {
+  "id": "v05b",
+  "duration_s": 3.93,
+  "speech_s": 3.33
+ },
+ {
+  "id": "v06",
+  "duration_s": 4.03,
+  "speech_s": 3.43
+ },
+ {
+  "id": "v07",
+  "duration_s": 4.63,
+  "speech_s": 4.03
+ },
+ {
+  "id": "v08",
+  "duration_s": 4.05,
+  "speech_s": 3.45
+ },
+ {
+  "id": "v09",
+  "duration_s": 3.17,
+  "speech_s": 2.57
+ },
+ {
+  "id": "v10",
+  "duration_s": 4.82,
+  "speech_s": 4.22
+ },
+ {
+  "id": "v11",
+  "duration_s": 7.13,
+  "speech_s": 6.53
+ },
+ {
+  "id": "v12",
+  "duration_s": 7.84,
+  "speech_s": 7.24
+ },
+ {
+  "id": "v13",
+  "duration_s": 6.81,
+  "speech_s": 6.21
+ },
+ {
+  "id": "v14",
+  "duration_s": 4.2,
+  "speech_s": 3.6
+ },
+ {
+  "id": "v15",
+  "duration_s": 5.13,
+  "speech_s": 4.53
+ },
+ {
+  "id": "v16",
+  "duration_s": 8.63,
+  "speech_s": 8.03
+ },
+ {
+  "id": "v17",
+  "duration_s": 7.0,
+  "speech_s": 6.4
+ },
+ {
+  "id": "v18",
+  "duration_s": 2.36,
+  "speech_s": 1.76
+ },
+ {
+  "id": "v19",
+  "duration_s": 5.93,
+  "speech_s": 5.33
+ },
+ {
+  "id": "v20",
+  "duration_s": 11.63,
+  "speech_s": 11.03
+ },
+ {
+  "id": "v21",
+  "duration_s": 10.71,
+  "speech_s": 10.11
+ },
+ {
+  "id": "v22",
+  "duration_s": 8.89,
+  "speech_s": 8.29
+ },
+ {
+  "id": "v23",
+  "duration_s": 7.23,
+  "speech_s": 6.63
+ },
+ {
+  "id": "v24",
+  "duration_s": 5.31,
+  "speech_s": 4.71
+ },
+ {
+  "id": "v25",
+  "duration_s": 4.37,
+  "speech_s": 3.77
+ },
+ {
+  "id": "v26",
+  "duration_s": 9.55,
+  "speech_s": 8.95
+ },
+ {
+  "id": "v27",
+  "duration_s": 5.86,
+  "speech_s": 5.26
+ },
+ {
+  "id": "v28",
+  "duration_s": 7.23,
+  "speech_s": 6.63
+ },
+ {
+  "id": "v29",
+  "duration_s": 4.02,
+  "speech_s": 3.42
+ },
+ {
+  "id": "v30",
+  "duration_s": 3.32,
+  "speech_s": 2.72
+ },
+ {
+  "id": "v31",
+  "duration_s": 4.21,
+  "speech_s": 3.62
+ }
+]
