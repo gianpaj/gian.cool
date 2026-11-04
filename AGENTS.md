@@ -19,6 +19,7 @@
 - `src/layouts/Layout.astro` — Base layout with dark/light theme toggle
 - `src/components/` — Astro and React components
 - `remark-excerpt.mjs` / `rehype-excerpt-wrapper.mjs` — Custom remark/rehype plugins for excerpt handling
+- `Gianfranco_Palumbo_CV.html` — Base CV, linked from `index.html`. Tailored versions for job applications live in a private repo at `~/Dropbox/CV`; follow its `AGENTS.md`
 
 ## Commands
 

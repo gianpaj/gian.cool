@@ -75,11 +75,11 @@
       font-size: 11.5px;
     }
 
-    .skill-row { display: flex; gap: 6px; }
-    .skill-label { font-weight: 600; min-width: 100px; color: #2c3e50; }
+    .skill-row { display: grid; grid-template-columns: 110px 1fr; column-gap: 8px; }
+    .skill-label { font-weight: 600; color: #2c3e50; }
     .skill-value { color: #444; }
 
-    .job { margin-bottom: 12px; }
+    .job { margin-bottom: 12px; break-inside: avoid; }
     .job-header { display: flex; justify-content: space-between; align-items: baseline; }
     .job-title { font-weight: 600; font-size: 12.5px; }
     .job-date { font-size: 11px; color: #666; white-space: nowrap; }

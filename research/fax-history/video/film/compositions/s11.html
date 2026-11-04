@@ -1,0 +1,243 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--ink);
+    }
+    #s11-ground {
+      position: absolute;
+      inset: 0;
+      background: var(--ink);
+    }
+
+    /* 258-266: hospital photo left (1x, cropped at the frame's left edge). */
+    #s11-hospbox {
+      position: absolute;
+      left: 0;
+      top: 128px;
+      width: 960px;
+      height: 824px;
+      overflow: hidden;
+    }
+    #s11-hosp-in {
+      position: absolute;
+      inset: 0;
+    }
+    #s11-hosp-in img {
+      position: absolute;
+      left: -140px;
+      top: 0;
+      display: block;
+      width: 1100px;
+      height: 824px;
+      image-rendering: pixelated;
+    }
+    #s11-pct {
+      position: absolute;
+      left: 1056px;
+      top: 280px;
+      font-family: var(--font-display);
+      font-size: 220px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      font-variant-numeric: tabular-nums;
+    }
+    #s11-hosp {
+      position: absolute;
+      left: 1056px;
+      top: 560px;
+      width: 640px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 1.2;
+    }
+
+    /* 266-272: Sharp home fax right (1x), flush with the frame's right edge. */
+    #s11-sharpbox {
+      position: absolute;
+      left: 920px;
+      top: 260px;
+      width: 1000px;
+      height: 560px;
+      overflow: hidden;
+    }
+    #s11-sharp-in {
+      position: absolute;
+      inset: 0;
+    }
+    #s11-sharp-in img {
+      display: block;
+      width: 1000px;
+      height: 560px;
+      image-rendering: pixelated;
+    }
+
+    /* 272-280: the page prints centred, as in s01. */
+    #s11-pagebox {
+      position: absolute;
+      left: 720px;
+      top: 234px;
+      width: 480px;
+      height: 611px;
+    }
+    #s11-page-in {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      outline: 2px solid rgba(20, 20, 20, 0.35);
+    }
+    #s11-print {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0 0 100% 0);
+    }
+    #s11-print img {
+      display: block;
+      width: 480px;
+      height: 611px;
+      image-rendering: pixelated;
+    }
+    #s11-scan {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 480px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .s11-title {
+      position: absolute;
+      left: 192px;
+      font-family: var(--font-display);
+      font-size: 84px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .s11-word {
+      display: inline-block;
+    }
+    #s11-japan {
+      top: 412px;
+    }
+    #s11-c1 {
+      top: 330px;
+    }
+    #s11-c2 {
+      left: 1270px;
+      top: 600px;
+    }
+    .s11-accent {
+      color: var(--accent-text);
+    }
+  </style>
+  <div data-hf-id="hf-ddfm" id="root" data-composition-id="s11" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-xk7u" id="s11-ground"></div>
+
+    <div data-hf-id="hf-hcj6" id="s11-hospbox" class="clip" data-start="0" data-duration="8.2" data-layout-allow-overflow>
+      <div data-hf-id="hf-qmmv" id="s11-hosp-in"><img data-hf-id="hf-8jd1" id="s11-hosp-img" src="assets/img/receiving-2009-bit.png" alt="" /></div>
+    </div>
+    <h1 data-hf-id="hf-zy29" id="s11-pct" class="clip" data-start="0.9" data-duration="6.9" data-beat="stat">
+      <span data-hf-id="hf-dsdm" id="s11-pct-in"><span data-hf-id="hf-hh8v" id="s11-num">67</span>%</span>
+    </h1>
+    <p data-hf-id="hf-xh6h" id="s11-hosp" class="clip" data-start="2.6" data-duration="5.2" data-hold>
+      <span data-hf-id="hf-49uq" class="s11-word">of</span> <span data-hf-id="hf-xtiv" class="s11-word">US</span> <span data-hf-id="hf-j7wa" class="s11-word">hospitals</span>
+      <span data-hf-id="hf-j9a3" class="s11-word">still</span> <span data-hf-id="hf-18qe" class="s11-word">used</span> <span data-hf-id="hf-zloi" class="s11-word">fax</span>
+      <span data-hf-id="hf-yxt0" class="s11-word">in</span> <span data-hf-id="hf-m6d0" class="s11-word">2023.</span>
+    </p>
+
+    <div data-hf-id="hf-m9hx" id="s11-sharpbox" class="clip" data-start="7.9" data-duration="6.0">
+      <div data-hf-id="hf-nub7" id="s11-sharp-in"><img data-hf-id="hf-acqh" id="s11-sharp-img" src="assets/img/sharp-home-bit.png" alt="" /></div>
+    </div>
+    <h1 data-hf-id="hf-6qri" id="s11-japan" class="s11-title clip" data-start="8.3" data-duration="5.5" data-hold>
+      <span data-hf-id="hf-2vt0" class="s11-word">In</span> <span data-hf-id="hf-mw67" class="s11-word">Japan,</span> <span data-hf-id="hf-ixpc" class="s11-word">59%</span><br data-hf-id="hf-x5px" />
+      <span data-hf-id="hf-x5mu" class="s11-word">of</span> <span data-hf-id="hf-hdt1" class="s11-word">homes</span> <span data-hf-id="hf-fxfs" class="s11-word">had</span><br data-hf-id="hf-rsrt" />
+      <span data-hf-id="hf-vg6y" class="s11-word">a</span> <span data-hf-id="hf-jmcm" class="s11-word">fax</span> <span data-hf-id="hf-xysc" class="s11-word">in</span>
+      <span data-hf-id="hf-dff0" class="s11-word">2012.</span>
+    </h1>
+
+    <div data-hf-id="hf-yy9s" id="s11-pagebox" class="clip" data-start="13.8" data-duration="8.2">
+      <div data-hf-id="hf-4goe" id="s11-page-in">
+        <div data-hf-id="hf-mf5s" id="s11-print"><img data-hf-id="hf-9mg5" id="s11-page" src="assets/img/page-bit.png" alt="" /></div>
+        <div data-hf-id="hf-bgao" id="s11-scan"></div>
+      </div>
+    </div>
+    <h1 data-hf-id="hf-jtbh" id="s11-c1" class="s11-title clip" data-start="15.3" data-duration="6.6">
+      <span data-hf-id="hf-in2b" id="s11-c1-in">Dots, like<br data-hf-id="hf-szow" />1843.</span>
+    </h1>
+    <h1 data-hf-id="hf-yq0u" id="s11-c2" class="s11-title clip" data-start="18.2" data-duration="3.7">
+      <span data-hf-id="hf-l0k5" id="s11-c2-in">This time,<br data-hf-id="hf-sldv" />every one<br data-hf-id="hf-qluq" /><span data-hf-id="hf-aeuu" class="s11-accent">exact.</span></span>
+    </h1>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const PAGE_H = 611;
+
+      // 0-0.4 s: colour flood from s10's ink back to paper.
+      tl.fromTo("#s11-ground", { backgroundColor: "#141414" }, { backgroundColor: "#efefec", duration: 0.4, ease: "power2.inOut" }, 0);
+
+      // 258-266: the hospital photo arrives from the left; 67% counts up, then the line greys in.
+      tl.fromTo("#s11-hosp-in", { x: -960 }, { x: 0, duration: 0.8, ease: "expo.out" }, 0.25);
+      tl.fromTo("#s11-pct-in", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 1.0);
+      const count = { v: 0 };
+      tl.fromTo(
+        count,
+        { v: 0 },
+        {
+          v: 67,
+          duration: 1.4,
+          ease: "power3.out",
+          onUpdate: function () {
+            const el = document.getElementById("s11-num");
+            if (el) el.textContent = String(Math.round(count.v));
+          },
+        },
+        1.0,
+      );
+      tl.fromTo("#s11-hosp .s11-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.08, ease: "power2.out" }, 2.7);
+
+      tl.fromTo(
+        ["#s11-pct-in", "#s11-hosp .s11-word"],
+        { opacity: 1, filter: "blur(0px)" },
+        { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.02, ease: "power3.in", immediateRender: false },
+        7.5,
+      );
+      tl.fromTo("#s11-hosp-in", { x: 0 }, { x: -960, duration: 0.45, ease: "power3.in", immediateRender: false }, 7.6);
+
+      // 266-272: the Sharp home fax arrives from the right; the line blurs in word by word.
+      tl.fromTo("#s11-sharp-in", { x: 1048 }, { x: 0, duration: 0.8, ease: "expo.out" }, 8.0);
+      tl.fromTo("#s11-japan .s11-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 8.4);
+      tl.fromTo(
+        "#s11-japan .s11-word",
+        { opacity: 1, filter: "blur(0px)" },
+        { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.03, ease: "power3.in", immediateRender: false },
+        13.3,
+      );
+      tl.fromTo("#s11-sharp-in", { x: 0 }, { x: 1048, duration: 0.45, ease: "power3.in", immediateRender: false }, 13.35);
+
+      // 272-276: the page prints centred behind the scan line (linear: constant speed is the point).
+      tl.fromTo("#s11-page-in", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, 13.8);
+      tl.fromTo("#s11-print", { clipPath: "inset(0px 0px 100% 0px)" }, { clipPath: "inset(0px 0px 0% 0px)", duration: 4.0, ease: "none" }, 14.0);
+      tl.fromTo("#s11-scan", { y: 0 }, { y: PAGE_H - 3, duration: 4.0, ease: "none" }, 14.0);
+      tl.fromTo("#s11-scan", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "power3.in", immediateRender: false }, 18.0);
+
+      // Payoff lines: whole-line blur in, then dead still. The page holds for s12.
+      tl.fromTo("#s11-c1-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 15.4);
+      tl.fromTo("#s11-c2-in", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 18.3);
+      tl.fromTo(
+        ["#s11-c1-in", "#s11-c2-in"],
+        { opacity: 1, filter: "blur(0px)" },
+        { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.05, ease: "power3.in", immediateRender: false },
+        21.55,
+      );
+
+      window.__timelines["s11"] = tl;
+    })();
+  </script>
+</template>

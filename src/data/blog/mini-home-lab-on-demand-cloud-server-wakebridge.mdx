@@ -1,0 +1,137 @@
+---
+title: "Your mini home lab as an on-demand cloud server - WakeBridge"
+description: "How I turned a €970 second-hand RTX PC into an on-demand dev server and GitHub runner that wakes from an Android widget and sleeps automatically."
+slug: mini-home-lab-on-demand-cloud-server-wakebridge
+pubDate: 2026-11-02
+tags:
+  - automation
+  - android
+  - projects
+  - coding_agent
+---
+
+Do you have a beefy PC probably under your desk? Or do you have a dedicated room and you're building a home lab?
+
+![My desk and tower PC](/2026-10-09-mini-home-lab-on-demand-cloud-server-wakebridge.webp)
+
+If you're not using it 24/7, leaving a desktop running wastes ~€7/month of electricity and dumps heat into your room ([full breakdown below](#what-leaving-it-on-actually-costs))—whereas suspended, it uses almost nothing and wakes up in seconds.
+
+Now that coding agents can do a lot, I've been walking my dog and doing small fixes on my coding projects.
+And my Ubuntu server with 1TB of SSD is much faster than my MacBook Air and I don't have to worry about the laptop going to sleep or connecting it to a charger.
+
+Renting an equivalent cloud box (12 threads, 32 GB RAM, 1 TB NVMe, 16 GB GPU) would easily run €150+/month — whereas I already own this hardware, and if it sleeps when idle, it behaves like a scale-to-zero server at home.
+
+I started putting this PC to sleep (which I call my RTX machine) by pressing the physical button before I go to sleep and pressing it when I want it on.
+Or via this command:
+
+```sh
+sudo systemctl suspend
+```
+
+After a few times I realised I can do both remotely.
+I have an always-on Jetson Nano mini computer (you can use a Raspberry Pi too) that's connected to Tailscale – private free VPN for your devices.
+So when walking my dog and I want to use Claude Code, [T3 Code](https://t3.codes) or Codex, I can SSH into the Jetson Nano, and send a wake-on-lan packet:
+
+```sh
+$ cat ./wakertx.sh
+wakeonlan 34:5a:60:0b:c0:24
+
+$ ./wakertx.sh
+```
+
+_On my Android phone I use [JuiceSSH](https://www.reddit.com/r/androidapps/comments/1pqzq46/juice_ssh_delisted_december_2025/) but Termius is good too._
+
+This wakes up the sleeping gianT\* (gianRTX).
+Since this machine is also on my Tailscale network, I can then SSH and run any more powerful tasks like Claude Code or any benchmarks. And now it's actually a GitHub runner for my [startup](https://holabrisa.com).
+
+After waking it up and shutting it down every other day, I thought there must be a better way.
+
+## Introducing WakeBridge
+
+<img
+  src="/2026-10-09-mini-home-lab-on-demand-cloud-server-wakebridge-app-icon.svg"
+  alt="WakeBridge adaptive icon: a yellow lightning bolt on a navy background"
+  width="96"
+/>
+
+<img
+  src="/2026-10-09-mini-home-lab-on-demand-cloud-server-wakebridge-screenshot.webp"
+  alt="WakeBridge Android connection setup with server URL, wake API token, and Cloudflare Access fields"
+  width="320"
+/>
+
+[https://github.com/gianpaj/wakebridge](https://github.com/gianpaj/wakebridge)
+
+_An Android App that turns on your remote PC_
+
+```
+Android app or widget
+        │
+        │ HTTPS: Cloudflare credentials + app bearer token
+        ▼
+Cloudflare Access and Tunnel (optional)
+        │
+        │ HTTP over the tunnel to 127.0.0.1:8787
+        ▼
+Always-on computer (e.g. Raspberry Pi or Jetson Nano): WakeBridge server
+        │
+        │ UDP Wake-on-LAN magic packet
+        ▼
+Powerful PC or Mac
+```
+
+_Tap widget → Sending… → Waking… → Online_
+
+### Why not an SSH snippet or HTTP Shortcuts?
+
+A few reasons I wanted a dedicated app + tiny Go server:
+
+1. **Know when it's actually booted:** Sending a magic packet doesn't tell you if the machine woke up. WakeBridge's Go server probes `gianRTX`'s SSH port (`GET /status`), and the Android widget polls every 2 seconds until it flips from **Waking…** to **Online**.
+2. **No always-on phone VPN needed:** Wake-on-LAN is a Layer-2 LAN broadcast, so something needs to be in my home network. Using Cloudflare Tunnel + Access means I can tap the widget over cellular data without keeping Tailscale running 24/7 on my phone battery or pressing another few buttons.
+3. **Honestly, I didn't know they existed:** I thought, how hard can it be for a coding agent to build a mobile app plus the necessary machinery?
+
+## Going back to sleep automatically
+
+The mobile app doesn't have a **sleep or shutdown button**. I didn't want to remember to turn the PC off and we can do something better.
+
+Instead, `gianRTX` puts itself back to sleep after **15 minutes of inactivity** using Ubuntu's `autosuspend` daemon ([my install script & config](https://github.com/gianpaj/mac-setup-script/blob/gianpaj-version/ubuntu/install-autosuspend.sh)).
+
+Every 30 seconds, it resets the 15-minute idle timer if _any_ of these are busy:
+
+- **CPU or GPU load** (`load > 1.0` or a custom `autosuspend-gpu-busy` check)
+- **Network traffic** (`> 50 KB/s` over Ethernet or `tailscale0`)
+- **Active ports & package managers** (Ollama on `11434`, Tailscale Serve on `443`, or `apt`/`dpkg`/`rsync`)
+- **Active Codex turns:** an LLM agent waiting on an API call uses almost zero CPU, so a custom `autosuspend-codex-busy` script checks Codex's local control socket—active turns keep the PC awake, while an idle open chat lets it sleep.
+
+## Vibe-coding it (and walking the dog)
+
+All of this was vibe-coded using Android Studio on Mac. I have experience building production React Native apps, so that helps when debugging things. Except for when Codex on the RTX machine decided to install all the Android SDK tooling to build on Ubuntu :D
+
+Now I get cloud-server convenience on my own hardware: one tap on the widget when I need it while I'm out with my dog, **~5 seconds** later it's online over Tailscale, and 15 minutes after my coding agent finishes, it goes right back to sleep.
+
+## What leaving it on actually costs
+
+Without a wall power meter (`nvidia-smi` only reports GPU draw, not CPU, motherboard, or PSU losses), a realistic wall estimate for a Ryzen 5 7600X + 32 GB DDR5 + RTX 4060 Ti is **45–75 W at idle (~60 W typical)**.
+
+On my electricity bill in Spain (**€0.1596/kWh** all-in with taxes), here's what 24/7 power looks like:
+
+| State           | Wall draw (est.) | Cost / day | Cost / month (30d)  |
+| :-------------- | :--------------- | :--------- | :------------------ |
+| Suspended       | ~2–4 W           | ~€0.01     | ~€0.25–0.45         |
+| Idle on desktop | ~60 W (45–75 W)  | €0.23      | **€6.90** (~€84/yr) |
+| GPU working     | ~230 W           | €0.88      | **€26.44**          |
+
+€7/month of idle draw won't bankrupt anyone, **but** it's €84/year of wasted heat in Malaga — and if you ever run low-margin background GPU jobs (~€0.042/hr), paying for 24/7 idle power means you need ~65% paid utilization just to break even on electricity. Suspending it cuts idle draw to almost zero while still resuming in **~5 seconds**.
+
+---
+
+\*My PC's current specs:
+
+- CPU: AMD Ryzen 5 7600X, 6 cores / 12 threads
+- RAM: 32GB DDR5
+- SSD: KIOXIA EXCERIA PLUS G3 NVMe, 1 TB SSD
+- Motherboard: MSI PRO B650M-P (MS-7E27)
+- Graphics card: NVIDIA GeForce RTX 4060 Ti 16 GB
+- Power supply: Corsair RM 850x
+
+Paid €970 second hand in May 2026 on Wallapop in Seville.

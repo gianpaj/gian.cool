@@ -1,0 +1,326 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      overflow: hidden;
+      color: var(--paper);
+    }
+    #s10-ground {
+      position: absolute;
+      inset: 0;
+      background: var(--ink);
+    }
+
+    /* s09's last frame: the spectrogram strip, which collapses into a row of bits. */
+    #s10-strip {
+      position: absolute;
+      left: 120px;
+      top: 310px;
+      width: 1680px;
+      height: 560px;
+    }
+    #s10-strip img {
+      display: block;
+      width: 1680px;
+      height: 560px;
+      image-rendering: pixelated;
+    }
+    #s10-row {
+      position: absolute;
+      left: 192px;
+      top: 561px;
+      width: 1469px;
+      height: 58px;
+    }
+    #s10-row-in {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 58px;
+      white-space: nowrap;
+    }
+    #s10-row-edge {
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 3px;
+      height: 58px;
+      background: var(--accent);
+    }
+
+    .s10-title {
+      position: absolute;
+      left: 192px;
+      font-family: var(--font-display);
+      font-size: 104px;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .s10-word {
+      display: inline-block;
+    }
+    #s10-today {
+      top: 150px;
+    }
+    #s10-payoff {
+      top: 250px;
+      font-size: 120px;
+    }
+    .s10-accent {
+      color: var(--accent);
+    }
+    .s10-cap {
+      position: absolute;
+      left: 192px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    #s10-cap1 {
+      top: 300px;
+    }
+    #s10-cap2 {
+      top: 366px;
+    }
+
+    /* The diagram, left to right on one wire at y 640:
+       fax, tones, T.38 gateway, bits, packets (each with a spare copy), T.38 gateway, fax. */
+    #s10-diagram,
+    #s10-diagram-in {
+      position: absolute;
+      inset: 0;
+    }
+    .s10-part {
+      position: absolute;
+    }
+    .s10-fax {
+      top: 552px;
+      width: 270px;
+      height: 176px;
+    }
+    .s10-fax img {
+      display: block;
+      width: 270px;
+      height: 176px;
+      image-rendering: pixelated;
+    }
+    #s10-faxA {
+      left: 120px;
+    }
+    #s10-faxB {
+      left: 1530px;
+      top: 531px;
+      height: 218px;
+    }
+    #s10-faxB img {
+      height: 218px;
+    }
+    #s10-tones {
+      left: 400px;
+      top: 600px;
+      width: 140px;
+      height: 80px;
+    }
+    #s10-tones path {
+      fill: none;
+      stroke: var(--paper);
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+    .s10-gw {
+      top: 480px;
+      width: 180px;
+      height: 320px;
+    }
+    .s10-gw-box {
+      position: absolute;
+      inset: 0;
+      border: 3px solid var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 48px;
+    }
+    #s10-gwA {
+      left: 550px;
+    }
+    #s10-gwB {
+      left: 1335px;
+    }
+    #s10-bits {
+      left: 742px;
+      top: 618px;
+      font-family: var(--font-bits);
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 44px;
+      white-space: pre;
+    }
+    #s10-lane {
+      left: 925px;
+      top: 530px;
+      width: 400px;
+      height: 220px;
+      overflow: hidden;
+    }
+    #s10-wire {
+      left: 1515px;
+      top: 639px;
+      width: 15px;
+      height: 3px;
+      background: var(--paper);
+    }
+
+    /* Packets: paper, a 2 px ink outline, a 1-bit dot texture inside (2 x 4 px dots, drawn in SVG). */
+    .s10-pkt {
+      position: absolute;
+      left: 0;
+      width: 88px;
+      height: 60px;
+      border: 2px solid var(--ink);
+      background-color: var(--paper);
+      background-repeat: repeat;
+      image-rendering: pixelated;
+    }
+    .s10-top {
+      top: 24px;
+    }
+    .s10-copy {
+      top: 136px;
+    }
+    .s10-texA {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='8' shape-rendering='crispEdges'><rect width='2' height='4' fill='%23141414'/><rect x='2' y='4' width='2' height='4' fill='%23141414'/></svg>");
+    }
+    .s10-texB {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'><rect width='2' height='4' fill='%23141414'/><rect x='4' y='4' width='2' height='4' fill='%23141414'/></svg>");
+    }
+    .s10-texC {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' shape-rendering='crispEdges'><rect width='8' height='4' fill='%23141414'/><rect x='6' y='4' width='2' height='4' fill='%23141414'/></svg>");
+    }
+  </style>
+  <div data-hf-id="hf-8k65" id="root" data-composition-id="s10" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-evu1" id="s10-ground"></div>
+    <div data-hf-id="hf-f3qi" id="s10-strip"><img data-hf-id="hf-eun8" src="assets/img/spec-bit.png" alt="" /></div>
+
+    <div data-hf-id="hf-n07w" id="s10-row" class="clip" data-start="0.25" data-duration="5.85">
+      <div data-hf-id="hf-ye5f" id="s10-row-in">001000 010 001000 10 0101000 010 110100 000000000001</div>
+      <div data-hf-id="hf-2fk2" id="s10-row-edge"></div>
+    </div>
+
+    <h1 data-hf-id="hf-f5ex" id="s10-today" class="s10-title clip" data-start="0.5" data-duration="5.6">
+      <span data-hf-id="hf-m9ef" class="s10-word">Today,</span> <span data-hf-id="hf-flmj" class="s10-word">the</span> <span data-hf-id="hf-0g9s" class="s10-word">call</span>
+      <span data-hf-id="hf-vld4" class="s10-word">is</span><br data-hf-id="hf-x5px" />
+      <span data-hf-id="hf-fgds" class="s10-word">often</span> <span data-hf-id="hf-ailt" class="s10-word">not</span> <span data-hf-id="hf-jyib" class="s10-word">a</span>
+      <span data-hf-id="hf-p0cc" class="s10-word">phone</span> <span data-hf-id="hf-kdze" class="s10-word">call.</span>
+    </h1>
+
+    <div data-hf-id="hf-knsy" id="s10-diagram" class="clip" data-start="6" data-duration="19.75">
+      <div data-hf-id="hf-fjo5" id="s10-diagram-in">
+        <div data-hf-id="hf-9iwd" id="s10-faxA" class="s10-part s10-fax"><img data-hf-id="hf-b4sf" src="assets/img/kxf90-bit.png" alt="" /></div>
+        <svg data-hf-id="hf-zoht" id="s10-tones" class="s10-part" viewBox="0 0 140 80">
+          <path data-hf-id="hf-00d8" d="M0 40 C 9.3 6, 18.7 6, 28 40 S 46.7 74, 56 40 S 74.7 6, 84 40 S 102.7 74, 112 40 S 130.7 6, 140 40" />
+        </svg>
+        <div data-hf-id="hf-2w5t" id="s10-gwA" class="s10-part s10-gw"><div data-hf-id="hf-tni2" class="s10-gw-box">T.38</div></div>
+        <div data-hf-id="hf-na9z" id="s10-bits" class="s10-part">00100001</div>
+        <div data-hf-id="hf-qn1f" id="s10-lane" class="s10-part">
+          <div data-hf-id="hf-fu3r" id="s10-p1" class="s10-pkt s10-top s10-texA"></div>
+          <div data-hf-id="hf-5ijf" id="s10-p2" class="s10-pkt s10-top s10-texB"></div>
+          <div data-hf-id="hf-n26v" id="s10-p3" class="s10-pkt s10-top s10-texC"></div>
+          <div data-hf-id="hf-huc2" id="s10-c1" class="s10-pkt s10-copy s10-texA"></div>
+          <div data-hf-id="hf-x2ne" id="s10-c2" class="s10-pkt s10-copy s10-texB"></div>
+          <div data-hf-id="hf-8z9y" id="s10-c3" class="s10-pkt s10-copy s10-texC"></div>
+        </div>
+        <div data-hf-id="hf-185k" id="s10-gwB" class="s10-part s10-gw clip" data-start="12.7" data-duration="13.05" data-beat="packets">
+          <div data-hf-id="hf-dgcd" id="s10-gwB-in" class="s10-gw-box">T.38</div>
+        </div>
+        <div data-hf-id="hf-zjcy" id="s10-wire" class="s10-part"></div>
+        <div data-hf-id="hf-dh0e" id="s10-faxB" class="s10-part s10-fax"><img data-hf-id="hf-mypn" src="assets/img/minifax-bit.png" alt="" /></div>
+      </div>
+    </div>
+
+    <p data-hf-id="hf-sd8b" id="s10-cap1" class="s10-cap clip" data-start="6.4" data-duration="11.3">
+      <span data-hf-id="hf-kex1" class="s10-word">T.38</span> <span data-hf-id="hf-vut0" class="s10-word">turns</span> <span data-hf-id="hf-0sfv" class="s10-word">the</span>
+      <span data-hf-id="hf-swzt" class="s10-word">tones</span> <span data-hf-id="hf-hc0r" class="s10-word">back</span> <span data-hf-id="hf-lcey" class="s10-word">into</span>
+      <span data-hf-id="hf-bufc" class="s10-word">bits</span>
+    </p>
+    <p data-hf-id="hf-y8sc" id="s10-cap2" class="s10-cap clip" data-start="11" data-duration="6.7">
+      <span data-hf-id="hf-i12x" class="s10-word">and</span> <span data-hf-id="hf-j4uf" class="s10-word">sends</span> <span data-hf-id="hf-vu5e" class="s10-word">them</span>
+      <span data-hf-id="hf-8b28" class="s10-word">as</span> <span data-hf-id="hf-ty0d" class="s10-word">internet</span> <span data-hf-id="hf-927b" class="s10-word">packets,</span>
+      <span data-hf-id="hf-pcag" class="s10-word">with</span> <span data-hf-id="hf-45k3" class="s10-word">spare</span> <span data-hf-id="hf-gkvh" class="s10-word">copies.</span>
+    </p>
+
+    <h1 data-hf-id="hf-t4ur" id="s10-payoff" class="s10-title clip" data-start="18" data-duration="7.75">
+      <span data-hf-id="hf-5bt0" class="s10-word">Digital,</span> <span data-hf-id="hf-lknr" class="s10-word s10-accent">inside</span>
+      <span data-hf-id="hf-hk7e" class="s10-word">digital.</span>
+    </h1>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+      // 0-0.4 s: colour flood paper -> ink while the strip collapses into a row of bits.
+      tl.fromTo("#s10-ground", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.inOut" }, 0);
+      tl.fromTo("#s10-strip", { scaleY: 1, transformOrigin: "50% 50%" }, { scaleY: 0.03, transformOrigin: "50% 50%", duration: 0.38, ease: "power3.in" }, 0);
+      tl.fromTo("#s10-strip", { opacity: 1 }, { opacity: 0, duration: 0.1, ease: "none" }, 0.32);
+      // The bits print out left to right behind an accent edge, at constant speed.
+      tl.fromTo("#s10-row-in", { clipPath: "inset(0px 100% 0px 0px)" }, { clipPath: "inset(0px 0% 0px 0px)", duration: 3.0, ease: "none" }, 0.35);
+      tl.fromTo("#s10-row-edge", { x: 0 }, { x: 1469, duration: 3.0, ease: "none" }, 0.35);
+      tl.fromTo("#s10-row-edge", { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "power3.in", immediateRender: false }, 3.4);
+
+      // 0.6 s: per-word blur in.
+      tl.fromTo("#s10-today .s10-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.067, ease: "power4.out" }, 0.6);
+      tl.fromTo(["#s10-today .s10-word", "#s10-row-in"], { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.02, ease: "power3.in", immediateRender: false }, 5.8);
+
+      // 6.1-13.8 s: the diagram grows left to right, each part wiping in as the line names it.
+      const wipe = function (sel, at, dur) {
+        tl.fromTo(sel, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: dur || 0.5, ease: "power2.out" }, at);
+      };
+      wipe("#s10-faxA", 6.1);
+      wipe("#s10-tones", 6.8, 0.6);
+      wipe("#s10-gwA", 7.4);
+      tl.fromTo("#s10-bits", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "none" }, 8.4);
+      wipe("#s10-gwB-in", 12.7);
+      wipe("#s10-wire", 13.3, 0.2);
+      wipe("#s10-faxB", 13.4);
+
+      // Packets cross at constant speed (one crossing of the 400 px lane per 2 s), each spare copy
+      // 0.25 s behind its original. The wrap re-enters a packet on the left once it has slid fully out.
+      const PKT_W = 88;
+      const SPEED = (400 + PKT_W) / 2;
+      const wrapX = gsap.utils.unitize(gsap.utils.wrap(-PKT_W, 400));
+      const runTo = 25.6;
+      const cross = function (sel, at) {
+        const dur = runTo - at;
+        tl.fromTo(sel, { x: -PKT_W }, { x: -PKT_W + SPEED * dur, duration: dur, ease: "none", modifiers: { x: wrapX } }, at);
+      };
+      [1, 2, 3].forEach(function (n, k) {
+        cross("#s10-p" + n, 11.2 + k * 0.6667);
+        cross("#s10-c" + n, 11.45 + k * 0.6667);
+      });
+
+      // Lines: per word from dim to paper.
+      tl.fromTo("#s10-cap1 .s10-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.08, ease: "power2.out" }, 6.4);
+      tl.fromTo("#s10-cap2 .s10-word", { opacity: 0.12 }, { opacity: 1, duration: 0.25, stagger: 0.08, ease: "power2.out" }, 11.0);
+      tl.fromTo(["#s10-cap1 .s10-word", "#s10-cap2 .s10-word"], { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.015, ease: "power3.in", immediateRender: false }, 17.45);
+
+      // 18.0 s: the payoff, per-word blur in; "inside" in accent.
+      tl.fromTo("#s10-payoff .s10-word", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.1, ease: "power4.out" }, 18.0);
+
+      // 25.3 s: everything leaves; the ink ground is left for s11's flood.
+      tl.fromTo("#s10-payoff .s10-word", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.2, stagger: 0.03, ease: "power3.in", immediateRender: false }, 25.3);
+      tl.fromTo("#s10-diagram-in", { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power3.in" }, 25.35);
+
+      window.__timelines["s10"] = tl;
+    })();
+  </script>
+</template>
