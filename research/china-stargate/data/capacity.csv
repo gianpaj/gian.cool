@@ -1,0 +1,9 @@
+series,value,unit,status,as_of_or_target,source,scope,caution
+Galaxy first phase,120,MW IT,reported delivered,2026-08,S1,first phase,not a measured live load
+Galaxy current estimate,118,MW IT,independent model estimate,2026-11-01,S4,current site,fit-out assumed
+Galaxy campus,800,MW IT,plan,2027-12,S1,four phases,not operating capacity
+Galaxy pilot,5,MW,reported live pilot,2026-09,S1,subset of first phase,not additive to 120
+Galaxy forecast,470,MW IT,model projection,2027-Q4,S4,forecast buildout,different assumptions from S1 plan
+Envision announced Galaxy,3,GW unspecified,company plan,full buildout date unspecified,S3,campus per company,scope conflicts with S1
+Wind farms,420,MW generation nameplate,article reported installed,2026-11-07,S1,two wind farms,not firm output
+First two phases design load,240,MW load,article design comparison,2026-11-07,S1,first two phases,not verified operating
