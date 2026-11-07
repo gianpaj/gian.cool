@@ -1,0 +1,97 @@
+{
+  "pageid": 147108816,
+  "ns": 6,
+  "title": "File:NVIDIA H100 (极客湾Geekerwan) 014.png",
+  "index": 2,
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 1499753,
+      "width": 3840,
+      "height": 2160,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/NVIDIA_H100_%28%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan%29_014.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:NVIDIA_H100_(%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan)_014.png",
+      "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=147108816",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2024-04-05 13:42:34",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "NVIDIA H100 (极客湾Geekerwan) 014",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "Media from YouTube|Files from external sources with reviewed licenses|Pictures by 极客湾Geekerwan|Files uploaded by PantheraLeo1359531|NVIDIA H100",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "View of the high-performance graphics card NVIDIA H100, which is based on the Hopper architecture. The NVIDIA H100 PCIe has the following features: RAM memory type: HBM2, RAM: 80 GiB, memory speed: 2 TiB/s, 14592 Cuda cores. The cards usually run in a network or cluster and cost several tens of thousands of euros per card.",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "2023-06-14",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<ul><li><bdi lang=\"en\" dir=\"ltr\"><a href=\"//commons.wikimedia.org/wiki/Commons:YouTube_files\" title=\"Commons:YouTube files\">YouTube</a>: <a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/watch?v=-nb_DZAH-TM\"><bdi lang=\"\">这是史上最快GPU！我们测了四张H100！价值120万元！</bdi></a> – View/save archived versions on <a rel=\"nofollow\" class=\"external text\" href=\"https://web.archive.org/web/*/https://www.youtube.com/watch?v=-nb_DZAH-TM\">archive.org</a></bdi></li>\n<li>Archive link: <a rel=\"nofollow\" class=\"external free\" href=\"https://web.archive.org/web/20240405133205/https://www.youtube.com/watch?v=-nb_DZAH-TM\">https://web.archive.org/web/20240405133205/https://www.youtube.com/watch?v=-nb_DZAH-TM</a></li></ul>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.youtube.com/@geekerwan1024\">极客湾Geekerwan</a>",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC BY 3.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Attribution 3.0",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "true",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Attribution": {
+          "value": "极客湾Geekerwan",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by/3.0",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc-by-3.0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ]
+}
