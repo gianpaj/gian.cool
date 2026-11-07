@@ -1,0 +1,27 @@
+
+@font-face{font-family:Film;src:url(fonts/DejaVuSans.ttf);font-weight:400}
+@font-face{font-family:Film;src:url(fonts/DejaVuSans-Bold.ttf);font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0}
+.clip{position:absolute;inset:0;width:1920px;height:1080px}
+.scene{background:#f5f3ea}
+.eyebrow{position:absolute;left:92px;top:51px;font-size:28px;letter-spacing:3px;color:#585b50}
+.date{position:absolute;right:92px;top:51px;font-size:28px;color:#585b50}
+h1{position:absolute;top:120px;left:92px;right:92px;font-size:64px;line-height:1.16;letter-spacing:-2px;font-weight:700}
+.content{position:absolute;left:100px;right:100px;top:285px;height:500px}
+.source{position:absolute;left:100px;right:100px;top:815px;height:64px;font-size:28px;line-height:1.23;color:#51564c}
+svg{display:block;width:100%;height:100%;overflow:visible;font-family:Film,sans-serif}
+.word-stack{height:100%;display:flex;flex-direction:column;justify-content:center;gap:35px}
+.reveal{font-size:78px;line-height:1.13;font-weight:700;letter-spacing:-1.4px}
+.reveal.smaller{font-size:55px;line-height:1.22}
+.reveal:nth-child(2){color:#a64d10}
+.photo-text{height:100%;display:grid;grid-template-columns:650px 1fr;gap:70px;align-items:center}
+.photo-copy .eyeline{font-size:29px;color:#a64d10;letter-spacing:3px;margin-bottom:35px}
+.photo-note{font-size:58px;line-height:1.25;font-weight:700;letter-spacing:-1px}
+.photo{width:100%;height:500px;object-fit:contain;background:#e8e6dc}
+.map-panel{position:absolute;left:0;top:-70px;width:1720px;height:605px}
+.map-panel svg{overflow:hidden}
+.credits{height:100%;display:flex;flex-direction:column;justify-content:center;gap:28px}
+.credits p{font-size:32px;line-height:1.35}
+.caption{position:absolute;inset:auto 150px 65px;width:auto;height:auto;min-height:82px;display:flex;align-items:center;justify-content:center;padding:13px 34px;background:#242a26;color:#fff;font-size:36px;line-height:1.28;text-align:center;z-index:90}
+.scene.s01 h1{max-width:1690px;font-size:71px}
+.scene.s33 h1{font-size:76px}
