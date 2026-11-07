@@ -12,6 +12,7 @@ The strongest angle is how Envision connects wind generation, storage and high-v
 | `sources/license-*.json` | Original Commons rights metadata for the six licensed assets |
 | `images/open/` | Six downloaded, licensed images: Ulanqab turbines, racks, accelerator card, cooling pipes, Frontier supercomputer and regional relief map |
 | `images/permission-needed/` | Three downloaded reference images: two Envision facility photos and one public-preview SemiAnalysis figure |
+| `images/maps/` | Original 4K locator PNG, editable SVG and map provenance; Ulanqab relative to Beijing and Hohhot |
 | `images/CREDITS.md`, `images/manifest.json` | Original pages, exact download URLs, creator, rights, credit, intended use, pixel dimensions and SHA-256 for every image |
 | `notes/evidence.md` | Claim checks, engineering explanation and unresolved questions |
 | `notes/summary.md` | Article TL;DR and distinction between Envision's Galaxy campus and OpenAI's US Stargate project |
@@ -19,6 +20,8 @@ The strongest angle is how Envision connects wind generation, storage and high-v
 | `notes/lei-zhang.md` | Founder profile and his relevance to Envision's move into AI infrastructure |
 | `notes/interview-lei-zhang.md` | Verified company PR route, interview questions and an unsent request draft |
 | `notes/narrative.md` | Original factual narrative backbone with approximate five-minute pacing and asset suggestions |
+| [Proposed video plan](../../plans/2026-11-07-china-stargate-video.md) | 3:36 storyline, pacing, interview option and visual direction |
+| `video/story_script.json` | Proposed 36-shot draft with narration, visual continuity, asset IDs and source IDs |
 | `data/capacity.csv` | Source-labelled capacity values, dates, units and status for an original chart |
 | `data/diagram-inputs.json` | Inputs for original power, cooling, current and energy explanations |
 

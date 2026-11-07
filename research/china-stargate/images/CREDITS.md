@@ -1,5 +1,7 @@
 # Image credits
 
+The original Ulanqab locator PNG and SVG have their own [map credits and coordinate sources](maps/CREDITS.md). The downloaded photographs and relief map are credited below.
+
 Accessed 2026-11-07. Downloads are unmodified versions supplied by each endpoint. Dimensions and SHA-256 hashes are in `manifest.json`. Six open-license images are at least 1920 px wide. Press photos are smaller; use them as reference or limited-size inserts after clearance.
 
 Credit each creator, link the original page and license, and identify any crop, annotation or other adaptation. CC BY-SA files carry share-alike obligations for adaptations. Check the relevant license when assembling the future video. Public visibility does not grant reuse permission.

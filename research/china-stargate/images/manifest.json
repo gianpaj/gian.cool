@@ -172,5 +172,53 @@
     "height": 1443,
     "bytes": 4927981,
     "sha256": "ea20cddd29308e11af598eb9565725f9dee46a27b81edb4040db7d45fac10d5e"
+  },
+  {
+    "id": "ulanqab-locator-png",
+    "file": "images/maps/ulanqab-locator.png",
+    "original_page": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "direct_file_url": null,
+    "creator": "Original map prepared for this project; basemap contributors Tom Patterson, Nathaniel Vaughn Kelso and Natural Earth contributors",
+    "license": "Original project artwork; Natural Earth basemap geometry is public domain. City coordinates are factual data.",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "attribution": "Map prepared for this project. Made with Natural Earth. City references: GeoNames and Wikipedia; checked 2026-11-07.",
+    "asset_date": "2026-11-07",
+    "accessed": "2026-11-07",
+    "intended_use": "Locator shot showing Ulanqab about 300 km northwest of Beijing and about 125 km east of Hohhot; city reference points, not Galaxy campus.",
+    "status": "Original graphic with public-domain basemap; no third-party campus photography",
+    "width": 3840,
+    "height": 2160,
+    "bytes": 372338,
+    "sha256": "d3fa9c2694f920fa60c78f4fae23b422ec0495b31a4dac311eeb9a172113aaf5",
+    "provenance": "images/maps/CREDITS.md",
+    "inputs": [
+      "data/location-geometry.json",
+      "data/location-points.json"
+    ],
+    "renderer": "scripts/render-location-map.cjs"
+  },
+  {
+    "id": "ulanqab-locator-svg",
+    "file": "images/maps/ulanqab-locator.svg",
+    "original_page": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "direct_file_url": null,
+    "creator": "Original map prepared for this project; basemap contributors Tom Patterson, Nathaniel Vaughn Kelso and Natural Earth contributors",
+    "license": "Original project artwork; Natural Earth basemap geometry is public domain. City coordinates are factual data.",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "attribution": "Map prepared for this project. Made with Natural Earth. City references: GeoNames and Wikipedia; checked 2026-11-07.",
+    "asset_date": "2026-11-07",
+    "accessed": "2026-11-07",
+    "intended_use": "Locator shot showing Ulanqab about 300 km northwest of Beijing and about 125 km east of Hohhot; city reference points, not Galaxy campus.",
+    "status": "Original graphic with public-domain basemap; no third-party campus photography",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 159637,
+    "sha256": "a9e6f096df4745bbd90e65de47a9a89abf0082857f5e9ec61d743efad8bad2ea",
+    "provenance": "images/maps/CREDITS.md",
+    "inputs": [
+      "data/location-geometry.json",
+      "data/location-points.json"
+    ],
+    "renderer": "scripts/render-location-map.cjs"
   }
 ]
