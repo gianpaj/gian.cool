@@ -1,10 +1,10 @@
 # Why a wind-turbine maker is building an AI campus
 
-Status: approved for video production on 2026-11-07. Research date: 2026-11-07.
+Status: initial video cut generated and verified locally on 2026-11-07. Research date: 2026-11-07.
 
 ## Story and audience
 
-Target a 3:36 educational news video for a curious general audience. This assumes viewers know AI runs on computers but do not know data-centre power engineering.
+The production cut is a 3:26 educational news video for a curious general audience. This assumes viewers know AI runs on computers but do not know data-centre power engineering.
 
 The question is why Envision, a company founded around wind turbines, is developing Galaxy in Ulanqab. Lei Zhang supplies the human thread. Following electricity into the rack supplies the explanation.
 
@@ -22,19 +22,19 @@ Ending: "The next test is how much useful computing this energy system can deliv
 
 | Time | Purpose | Picture and information |
 |---|---|---|
-| 0:00 to 0:18 | Ask the question | Regional wind photo becomes a simple turbine-to-rack diagram. Name Galaxy and Envision. Label the photo's region and 2012 date. |
-| 0:18 to 0:48 | Introduce the builder and place | Introduce Zhang briefly, then locate Ulanqab about 300 km northwest of Beijing in Inner Mongolia. Attribute the September visit to SemiAnalysis. Explain that OpenAI's US Stargate is the comparison and Galaxy is Envision's separate project. |
-| 0:48 to 1:18 | Establish what the scale means | Reported 120 MW first phase, delivered in August 2026, versus an 800 MW IT campus plan. Define IT capacity in plain language. Keep delivered and planned portions visually distinct. |
-| 1:18 to 2:00 | Explain the engineering | Show an illustrative accelerator and rack, then the reported 5 MW pilot. Trace AC through the solid-state transformer to the 800 V DC bus and rack converters. Use one equal-power DC example to explain current and conductor heating. |
-| 2:00 to 2:42 | Explain the energy business | Return to Envision's turbines, batteries and power equipment. Show wind varying against a steady example load and a battery shifting energy. Distinguish annual renewable share from reliable hourly supply. |
-| 2:42 to 3:12 | Identify the testable questions | Delivered capacity does not measure actual load or confirm chip inventory. The larger capacity announcements need their scope clarified. Ask what Zhang and the site engineers can substantiate. |
-| 3:12 to 3:36 | Close and credit | Return to the opening power path and deliver the ending line. Hold three credit/source cards for six seconds each, from 3:18 to 3:36. |
+| 0:00 to 0:16 | Ask the question | Regional wind photo becomes a simple turbine-to-rack diagram. Name Galaxy and Envision. Label the photo's region and 2012 date. |
+| 0:16 to 0:47 | Introduce the builder and place | Introduce Zhang briefly, then locate Ulanqab about 300 km northwest of Beijing in Inner Mongolia. Attribute the September visit to SemiAnalysis. Explain that OpenAI's US Stargate is the comparison and Galaxy is Envision's separate project. |
+| 0:47 to 1:13 | Establish what the scale means | Reported 120 MW first phase, delivered in August 2026, versus an 800 MW IT campus plan. Define IT capacity in plain language. Keep delivered and planned portions visually distinct. |
+| 1:13 to 1:51 | Explain the engineering | Show an illustrative accelerator and rack, then the reported 5 MW pilot. Trace AC through the solid-state transformer to the 800 V DC bus and rack converters. Use one equal-power DC example to explain current and conductor heating. |
+| 1:51 to 2:31 | Explain the energy business | Return to Envision's turbines, batteries and power equipment. Show wind varying against a steady example load and a battery shifting energy. Distinguish annual renewable share from reliable hourly supply. |
+| 2:31 to 3:01 | Identify the testable questions | Delivered capacity does not measure actual load or confirm chip inventory. The larger capacity announcements need their scope clarified. Ask what Zhang and the site engineers can substantiate. |
+| 3:01 to 3:26 | Close and credit | Return to the opening power path and deliver the ending line. Hold three credit/source cards for six seconds each, from 3:08 to 3:26. |
 
 ## Narration and rhythm
 
-The [structured draft](../research/china-stargate/video/story_script.json) contains 419 narration words across 33 narrated shots, followed by three credit shots. At 140 words per minute, speech occupies about 180 seconds within the 198-second story section. The remainder gives numbers and diagrams time to land. This is a calculated allowance, not a measured voice recording.
+The [structured script](../research/china-stargate/video/story_script.json) contains 419 narration words across 33 narrated shots, followed by three credit shots. The Gemini take measures 186.44 seconds, including vocal sounds and pauses. The production cut lasts 206 seconds, with credits starting at 188 seconds. Measured boundaries and 90 caption groups are in [timing.json](../research/china-stargate/video/film/audio/timing.json).
 
-The full timeline has 36 six-second units. Narration should flow naturally across cuts; the units are editing cues, not a requirement to restart every sentence or introduce a new image every six seconds. A diagram can persist across several units.
+The editorial script uses 36 six-second units as editing references. Production shot boundaries follow the measured speech. Narration flows across cuts, and a diagram can persist across several shots.
 
 Use one electrical example. At equal 100 kW DC power, 400 V requires 250 A and 800 V requires 125 A. Hold the example across the explanation. These are illustrative values, not Galaxy measurements. Keep conductor resistance fixed when discussing heating; do not imply that total system losses fall by the same ratio.
 
@@ -71,7 +71,7 @@ The guide separates inline human vocal events from non-vocal effects. Wind, mach
 
 Zhang is the strategy source. The baseline draft works with a name card and narration. A cleared real portrait can replace the name card's empty image area without changing timing.
 
-Reserve 2:00 to 2:12 for a possible recorded answer replacing segments 21 and 22. Ask: "What made you decide to build the computing facilities that consume your energy?" Choose an excerpt after recording and checking its meaning. No answer or interview is assumed to exist.
+Segments 21 and 22, about 1:51 to 2:02 in the production cut, can accommodate a recorded answer after retiming. Ask: "What made you decide to build the computing facilities that consume your energy?" Choose an excerpt after recording and checking its meaning. No answer or interview is assumed to exist.
 
 Use the [interview brief](../research/china-stargate/notes/interview-lei-zhang.md) for the factual follow-ups. The site engineers are needed for technical measurements. Zhang's account of the strategy does not independently verify capacity, efficiency or renewable share.
 
@@ -81,7 +81,7 @@ Use documentary photos and original explanatory graphics in 16:9. Keep photo col
 
 The recurring schematic has a three-bladed turbine, the same left-to-right power line and a rectangular rack with five horizontal slots. Retain their positions as storage and conversion blocks appear. Keep this a conceptual diagram, not an invented Galaxy floor plan.
 
-The baseline uses four collected assets: `ulanqab-wind-2012`, `ulanqab-locator-png`, `server-racks` and `h100-board`. Generic hardware must remain labelled illustrative. Source watermarks stay visible. The photograph of the H100 does not establish that Galaxy uses that chip.
+The baseline uses four collected assets: `ulanqab-wind-2012`, `ulanqab-locator-svg`, `server-racks` and `h100-board`. Generic hardware must remain labelled illustrative. Source watermarks stay visible. The photograph of the H100 does not establish that Galaxy uses that chip.
 
 The existing permission-needed facility images are optional replacements after clearance. A portrait and external speech footage also need their reuse status checked. Do not fabricate a site visit, interview, personal likeness or documentary interior.
 
@@ -97,7 +97,7 @@ Before recording, recheck dated site claims, read the script aloud and review th
 
 ## Use of the requested skill
 
-Apply the script-generation and visual-continuity steps from `~/github/gianpaj/skills/video-story-generator/SKILL.md`. The requested 3 to 4 minute length takes precedence over its 24/48/72-second presets. Its six-second unit gives a 216-second draft.
+Apply the script-generation and visual-continuity steps from `~/github/gianpaj/skills/video-story-generator/SKILL.md`. The requested 3 to 4 minute length takes precedence over its 24/48/72-second presets. Its six-second units remain editorial references; production uses measured speech timing.
 
 The structured file preserves `analysis`, `story_script`, subject consistency and shot descriptions, and adds narration, timings, asset IDs and source IDs for documentary review. Existing imagery is the mixed-mode input; factual descriptions and research guide its use.
 

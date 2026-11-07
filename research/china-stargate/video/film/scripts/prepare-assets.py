@@ -9,7 +9,7 @@ import urllib.request
 
 FILM = Path(__file__).resolve().parent.parent
 RESEARCH = FILM.parents[1]
-images = [('wind.jpg', 'open/ulanqab-wind-2012.jpg'), ('racks.jpg', 'open/server-racks.jpg'), ('h100.png', 'open/h100-board.png'), ('locator.png', 'maps/ulanqab-locator.png')]
+images = [('wind.jpg', 'open/ulanqab-wind-2012.jpg'), ('racks.jpg', 'open/server-racks.jpg'), ('h100.png', 'open/h100-board.png')]
 (FILM/'assets/images').mkdir(parents=True, exist_ok=True)
 for target, source in images:
     shutil.copyfile(RESEARCH/'images'/source, FILM/'assets/images'/target)
@@ -25,4 +25,4 @@ if not original.exists():
 timing = json.loads((FILM/'audio/timing.json').read_text())
 duration = timing['duration_seconds']
 subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-i', str(original), '-t', str(duration), '-af', f'loudnorm=I=-18:TP=-3:LRA=7,afade=t=in:d=1.5,afade=t=out:st={duration-4}:d=4', '-ar', '48000', '-ac', '2', str(FILM/'audio/music.wav')], check=True)
-print('Prepared four credited image copies and the licensed music bed')
+print('Prepared three credited photograph copies and the licensed music bed')

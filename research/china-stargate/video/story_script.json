@@ -1,5 +1,5 @@
 {
-  "status": "Approved for production; narration and visuals being prepared",
+  "status": "Initial video cut rendered locally and verified",
   "created": "2026-11-07",
   "research_as_of": "2026-11-07",
   "skill": "/home/gianpaj/github/gianpaj/skills/video-story-generator/SKILL.md",
@@ -21,7 +21,7 @@
         "role": "documentary regional context"
       },
       {
-        "id": "ulanqab-locator-png",
+        "id": "ulanqab-locator-svg",
         "role": "original geographic locator; city-reference distances"
       },
       {
@@ -35,8 +35,14 @@
     ]
   },
   "scope": {
-    "current_phase": "HyperFrames video production",
-    "production_actions_performed": [],
+    "current_phase": "Initial video cut complete",
+    "production_actions_performed": [
+      "Prepared a separate Gemini TTS performance transcript",
+      "Generated one continuous narration take",
+      "Aligned the approved words to local Whisper timestamps",
+      "Built and checked an editable HyperFrames composition",
+      "Rendered and inspected a 1080p H264/AAC MP4"
+    ],
     "skill_adaptation": "Preserve the approved documentary story and six-second editing units. Use licensed imagery and original diagrams. Prepare Gemini TTS separately, then fit measured speech to visual timing."
   },
   "asset_manifest": "../images/manifest.json",
@@ -56,11 +62,9 @@
     "conditions": "Use only a real recorded answer with agreed usage and verified transcript. Pick the excerpt after recording, not a predetermined quote. If unavailable, retain the complete narrator version."
   },
   "production_dependencies": [
-    "Confirm publication date and recheck time-sensitive site claims before recording.",
-    "Build the original graphics and review their technical accuracy.",
-    "Confirm attribution and adaptation requirements for each photo and map; provide full links in accompanying credits.",
-    "Obtain permission before substituting any campus image, founder portrait or external speech footage.",
-    "Complete the separate TTS preparation pass after narration approval, including vocal bursts and pause cues; measure generated audio before locking visual timing."
+    "A human listening pass for pronunciation, vocal cues and music balance.",
+    "Permission before substituting campus photography, a founder portrait or interview footage.",
+    "A recorded and checked interview before using the optional interview replacement."
   ],
   "story_script": [
     {
@@ -147,7 +151,7 @@
       "narration": "Ulanqab sits about 300 kilometres northwest of Beijing, in China's Inner Mongolia.",
       "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Use the original sourced Ulanqab locator map. Establish Beijing, follow the approximate 300 km straight-line connector northwest to Ulanqab, then hold its label. Keep Hohhot secondary and the city-reference distance caption visible. No campus pin. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
       "asset_ids": [
-        "ulanqab-locator-png"
+        "ulanqab-locator-svg"
       ],
       "original_graphic_required": false,
       "source_ids": [
@@ -605,5 +609,12 @@
       "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
     }
   ],
-  "tts_preparation": "../../../plans/2026-11-07-china-stargate-video.md#separate-tts-preparation"
+  "tts_preparation": "../../../plans/2026-11-07-china-stargate-video.md#separate-tts-preparation",
+  "production": {
+    "duration_seconds": 206,
+    "timing_file": "film/audio/timing.json",
+    "output": "film/exports/galaxy-explained.mp4",
+    "verification": "film/verification.json",
+    "timing_note": "The six-second shot timings in story_script are editorial references; the rendered cut follows measured narration."
+  }
 }

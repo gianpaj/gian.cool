@@ -1,6 +1,6 @@
 # China Stargate video research
 
-Class: research. Lifecycle: proposed. Research and storyline are approved for production; the video is unpublished.
+Class: research. Lifecycle: implemented. The research collection and first local video cut are complete; the video is unpublished.
 
 Deliverables live in `research/china-stargate/`. Scope covers research, original explanatory notes, image downloads and video production. The fax reference and unrelated blog edits remain untouched.
 
@@ -18,9 +18,9 @@ The installed unslop skill was found in the Claude synced skill directory and re
 
 Lei Zhang is a research and interview subject for the energy-to-computing strategy. The profile separates his stated desert-AI ambitions from Galaxy operating evidence. The interview brief records Envision's published PR route and unsent request copy; no outreach has been sent.
 
-The proposed editorial plan is `plans/2026-11-07-china-stargate-video.md`, with a structured draft at `research/china-stargate/video/story_script.json`. It targets 216 seconds using the requested video-story-generator skill's six-second units. The user's three to four minute duration overrides the skill's shorter presets.
+The editorial plan is `plans/2026-11-07-china-stargate-video.md`, with a structured draft at `research/china-stargate/video/story_script.json`. Its six-second editing units follow the requested video-story-generator skill; production timings follow the measured narration. The user's three to four minute duration overrides the skill's shorter presets.
 
-The proposed story follows Envision's energy-to-computing strategy, with Lei Zhang introducing the human decision and an electrical example explaining the mechanism. A full founder biography would crowd the explanation; a cost-led comparison lacks accessible supporting detail. A real interview can replace twelve seconds of narration, while the baseline works without it. The user authorized video generation and logical commits on 2026-11-07. No interview is assumed to exist.
+The story follows Envision's energy-to-computing strategy, with Lei Zhang introducing the human decision and an electrical example explaining the mechanism. A full founder biography would crowd the explanation; a cost-led comparison lacks accessible supporting detail. A real interview can replace twelve seconds of narration, while the baseline works without it. The user authorized video generation and logical commits on 2026-11-07. No interview is assumed to exist.
 
 The locator map uses public-domain Natural Earth geometry and sourced city reference points. It shows about 300 km from Ulanqab to Beijing and about 125 km to Hohhot as calculated straight-line distances, with no Galaxy campus pin. Map provenance and the alternative Hohhot reference-point distance are recorded in `research/china-stargate/images/maps/CREDITS.md`. Segment 6 uses the original locator and a matching location line.
 
@@ -33,3 +33,9 @@ The requested generated video is the output, so the CLI skill permits proceeding
 Gemini 3.8 Flash TTS with Charon generated one 186.44-second take. Performance follows the Gemini TTS skill and companion guide; a local adapter uses the current Interactions API because the installed helper uses preview-model request fields. Three breaths and seven short pauses are vocal cues, not captions. Local Whisper transcription matches the approved script apart from spelling, proper-name recognition and token splits; critical dates, quantities and qualifiers match. Measured timing produces a 206-second cut with 18 seconds of credits.
 
 The seven HyperFrames chapters share local fonts and a pinned GSAP 3.13.0 build. A single caption composition contains 90 speech-aligned groups. The quiet music bed is Chris Zabriskie’s Cylinder Eight, with CC BY 4.0 confirmed on the composer’s site and the downloaded Commons file verified by hash. No fabricated site ambience is added.
+
+Delivery is `research/china-stargate/video/film/exports/galaxy-explained.mp4`: 206 seconds, 1920 × 1080, 30 fps, H.264/AAC, 17,367,276 bytes. Generated audio and exports stay local outside Git. The film’s README, CREDITS, REVIEW and verification JSON are the production handoff.
+
+Runtime, layout, motion, contrast, craft and audio checks pass. Six chapter-density warnings are retained because each chapter keeps its related shots together. Review covered beat, phone and seam sheets, full-size scene frames and decoded MP4 frames. Seven sampled decoded frames match authoring snapshots at SSIM 0.9921–0.9988. Sound measures -14.4 LUFS integrated, -1 dBTP and zero clipping. It was measured and transcribed, not heard; a human listening pass remains useful.
+
+SVG blade rotation uses local transform attributes to preserve the turbine hub under seeking. Storage is a branch of the conceptual power path, avoiding an implication that all supply passes through the battery. The film’s map derivative removes non-renderable empty geometry paths and enlarges city labels. The CLI rendered through one software screenshot worker after its BeginFrame path fell back; the verified output is complete.

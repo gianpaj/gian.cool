@@ -1,11 +1,10 @@
 {
-  "name": "film",
+  "name": "galaxy-explained",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "npx --yes hyperframes@0.9.20 preview",
     "check": "npx --yes hyperframes@0.9.20 check",
-    "render": "npx --yes hyperframes@0.9.20 render",
-    "publish": "npx --yes hyperframes@0.9.20 publish"
+    "render": "npx --yes hyperframes@0.9.20 render"
   }
 }

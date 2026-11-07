@@ -1,6 +1,6 @@
 # Galaxy: from wind to AI
 
-An editable 16:9 educational news video about Envision's Galaxy campus. The approved narration is in [story_script.json](../story_script.json). Production uses HyperFrames 0.9.20, 1920 × 1080 at 30 fps.
+A rendered 3:26 educational news video about Envision's Galaxy campus, with an editable 16:9 project. The approved narration is in [story_script.json](../story_script.json). Production uses HyperFrames 0.9.20, 1920 × 1080 at 30 fps.
 
 The measured Gemini narration is 186.44 seconds. The current cut is 206 seconds, including an ending hold and 18 seconds of credits. Shot boundaries follow the generated speech; the plan's six-second units remain editorial references.
 
@@ -13,6 +13,8 @@ The measured Gemini narration is 186.44 seconds. The current cut is 206 seconds,
 - `narration.srt` contains captions made from approved copy, aligned to local transcription.
 - `exports/galaxy-explained.mp4` is the generated delivery file, excluded from Git.
 - `REVIEW.md` records visual and audio checks and remaining limits.
+
+The [MP4](exports/galaxy-explained.mp4) is 16.6 MiB. [Verification](verification.json) records its hash, stream properties, checks and audio measurements.
 
 ## Reproduce
 
@@ -35,6 +37,8 @@ The speech workflow follows `~/.agents/skills/gemini-tts/SKILL.md` and its compa
 
 ## Credits and evidence
 
+The [video credits](CREDITS.md) list only the material used in this cut.
+
 Full image attribution, original pages, licenses and adaptations are in [the image credits](../../images/CREDITS.md) and [map credits](../../images/maps/CREDITS.md). The film fits or crops licensed photographs and animates the regional wind photo. The wind-photo adaptation retains CC BY-SA 3.0 terms. The H100 watermark remains visible.
 
 Music: "Cylinder Eight" by Chris Zabriskie, from *Cylinders*, 2014. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), [composer's album](https://chriszabriskie.com/cylinders/), [composer's reuse statement](https://chriszabriskie.com/use/). The excerpt is normalized, mixed quietly and faded. The direct file URL and hash are in `audio/music-source.json`.
@@ -42,3 +46,5 @@ Music: "Cylinder Eight" by Chris Zabriskie, from *Cylinders*, 2014. [CC BY 4.0](
 [Sources](../../sources/README.md), [founder reporting](../../sources/lei-zhang.md) and [claim checks](../../notes/evidence.md) accompany the video. Campus photography requiring permission is excluded. Generic hardware is labelled illustrative. No interview or location sound is presented. The article's paid sections were not accessed.
 
 Fonts retain their license in `assets/fonts/LICENSE.txt`; GSAP retains its header and license link in `assets/vendor/README.md`.
+
+The CLI reports three companion HyperFrames skills missing. For further authoring support, the user can install the core pack with `npx hyperframes skills update`. The requested `hyperframes-cli` skill is installed.

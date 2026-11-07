@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-07",
+  "status": "Rendered locally and verified",
+  "artifact": "exports/galaxy-explained.mp4",
+  "bytes": 17367276,
+  "sha256": "cb8c9b4f107e2571134d263bcd5519f5d4ccb5f5ef1970649d6f4986a5d6c3ac",
+  "duration_seconds": 206,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "video_frames": 6180,
+  "video_codec": "h264",
+  "pixel_format": "yuv420p",
+  "audio_codec": "aac",
+  "audio_sample_rate": 48000,
+  "audio_channels": 2,
+  "hyperframes_version": "0.9.20",
+  "render_quality": "delivery",
+  "capture_path": "screenshot",
+  "gpu_mode": "software",
+  "requested_workers": 4,
+  "effective_workers": 1,
+  "render_wall_seconds": 345.6,
+  "browser_checks_skipped": false,
+  "checks": {
+    "lint": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 6
+    },
+    "runtime": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "layout": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "motion": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "contrast": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "craft": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "audio": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  },
+  "kept_warnings": "Six chapter-density warnings; coherent chapters contain four to seven shot clips.",
+  "audio_loudness": {
+    "lufsIntegrated": -14.4,
+    "lufsShortTermMax": -11.6,
+    "samplePeakDb": -1,
+    "truePeakDb": -1,
+    "clipping": {
+      "count": 0,
+      "firstAt": null
+    }
+  },
+  "audio_review": "Transcription and signal measurements; not heard by the agent. Human pronunciation and music-balance review remains useful.",
+  "decoded_frame_times_seconds": [
+    0,
+    2.9,
+    7.95,
+    31.6,
+    60.13,
+    91.8,
+    101,
+    113,
+    136,
+    166.14,
+    196,
+    205.9
+  ],
+  "frame_similarity_ssim": {
+    "2.9": 0.992141,
+    "7.95": 0.998454,
+    "31.6": 0.998275,
+    "101": 0.998418,
+    "113": 0.998764,
+    "136": 0.998697,
+    "196": 0.998566
+  },
+  "research_as_of": "2026-11-07",
+  "full_credits": "CREDITS.md",
+  "review": "REVIEW.md"
+}

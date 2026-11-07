@@ -1,6 +1,6 @@
 # China's Stargate research collection
 
-Initial research and image collection for an approximately five-minute educational news video. Research cut-off and source access date: 2026-11-07. No film has been rendered and no blog post prepared or published.
+Research, imagery and a rendered 3:26 educational news video. Research cut-off and source access date: 2026-11-07. The [1080p MP4](video/film/exports/galaxy-explained.mp4), [editable project](video/film/README.md), [used-material credits](video/film/CREDITS.md) and [review](video/film/REVIEW.md) are ready locally. Generated audio and exports are excluded from Git.
 
 The strongest angle is how Envision connects wind generation, storage and high-voltage DC power to AI computing at its Galaxy campus in Ulanqab. The narrative follows electricity to the rack, with one worked example. It takes the fax video's emphasis on explaining a physical mechanism and keeping numerical claims checkable.
 
@@ -20,8 +20,8 @@ The strongest angle is how Envision connects wind generation, storage and high-v
 | `notes/lei-zhang.md` | Founder profile and his relevance to Envision's move into AI infrastructure |
 | `notes/interview-lei-zhang.md` | Verified company PR route, interview questions and an unsent request draft |
 | `notes/narrative.md` | Original factual narrative backbone with approximate five-minute pacing and asset suggestions |
-| [Proposed video plan](../../plans/2026-11-07-china-stargate-video.md) | 3:36 storyline, pacing, interview option and visual direction |
-| `video/story_script.json` | Proposed 36-shot draft with narration, visual continuity, asset IDs and source IDs |
+| [Video plan](../../plans/2026-11-07-china-stargate-video.md) | Approved storyline and production timing, interview option and visual direction |
+| `video/story_script.json` | Approved 36-shot editorial script with narration, visual continuity, asset IDs and source IDs; measured production timing is in video/film/audio/timing.json |
 | `data/capacity.csv` | Source-labelled capacity values, dates, units and status for an original chart |
 | `data/diagram-inputs.json` | Inputs for original power, cooling, current and energy explanations |
 
@@ -38,4 +38,4 @@ The canonical newsletter page's public preview was read through an ordinary unau
 - Cooling equipment classification conflicts across sources. Detailed schematics, measured PUE, water use, actual renewable share and battery MW/MWh ratings were not obtained.
 - The article's one-fifth-US-cost comparison cannot be audited from the accessed material. Keep it out of an unqualified headline or narration.
 
-The six licensed alternatives are usable with their attribution and adaptation terms. They illustrate mechanisms and regional context; none shows Galaxy's installed hardware. Full original Commons downloads returned rate-limit responses; the saved 1920-pixel versions decoded successfully and were visually inspected. No dependencies or unrelated repository files were changed.
+The six licensed alternatives are usable with their attribution and adaptation terms. They illustrate mechanisms and regional context; none shows Galaxy's installed hardware. Full original Commons downloads returned rate-limit responses; the saved 1920-pixel versions decoded successfully and were visually inspected. The film carries its own pinned animation library and local fonts. The blog app and fax project are unchanged.
