@@ -18,12 +18,12 @@ The [MP4](exports/galaxy-explained.mp4) is 16.6 MiB. [Verification](verification
 
 ## Reproduce
 
-Run commands from this folder. Node.js 22+, Python 3 and FFmpeg/FFprobe are required.
+Run commands from this folder. Node.js 22+, Python 3 and FFmpeg/FFprobe are required. HyperFrames installs the local Whisper runtime and model on the first transcription when they are missing.
 
 ```sh
 python3 scripts/prepare-assets.py
 python3 scripts/generate-narration.py --key-file /path/to/private/gemini-key
-npx --yes hyperframes@0.9.20 transcribe audio/narration.wav --engine whisper --model small.en --language en --no-runtime-install --json
+npx --yes hyperframes@0.9.20 transcribe audio/narration.wav --engine whisper --model small.en --language en --json
 python3 scripts/align-narration.py
 python3 scripts/prepare-assets.py
 python3 scripts/build-film.py
