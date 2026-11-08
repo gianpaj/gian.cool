@@ -1,0 +1,96 @@
+{
+  "accessed": "2026-11-08",
+  "purpose": "Illustrative scale comparisons; not measured Galaxy electrical load",
+  "sources": {
+    "PC1": {
+      "url": "https://www.eia.gov/tools/faqs/faq.php?id=97&t=3",
+      "publisher": "US Energy Information Administration",
+      "title": "How much electricity does an American home use?",
+      "data_year": 2022,
+      "page_updated": "2024-01-08",
+      "value": 10791,
+      "unit": "kWh per US residential electric-utility customer per year",
+      "boundary": "Electricity purchased from the grid; excludes some on-site generation"
+    },
+    "PC2": {
+      "url": "https://allianz-arena.com/en/arena/facts/general-information",
+      "publisher": "Allianz Arena",
+      "title": "General information: Electrical Data",
+      "data_date": "Not stated on page",
+      "value": 12,
+      "unit": "MW available electrical power",
+      "boundary": "Available power from two substations; not actual match-day draw or annual consumption"
+    },
+    "PC3": {
+      "url": "https://www.iea.org/reports/energy-and-ai/understanding-the-energy-ai-nexus",
+      "publisher": "International Energy Agency",
+      "title": "Energy and AI: Understanding the energy-AI nexus",
+      "publication_year": 2025,
+      "value": 100,
+      "unit": "MW illustrative hyperscale data-centre capacity",
+      "boundary": "IEA describes AI-focused hyperscale centres of 100 MW or more; it does not specify that this example is IT-only. The video separately assumes 100 MW computing load per example centre."
+    }
+  },
+  "calculations": [
+    {
+      "kind": "US homes annual grid-purchase equivalent",
+      "input_MW": 120,
+      "formula": "MW * 1000 kW/MW * 8760 hours/year / 10791 kWh/customer/year",
+      "result_homes": 97414.51209341118,
+      "rounded_homes": 100000,
+      "assumption": "Continuous full-capacity consumption for one non-leap year",
+      "source_ids": [
+        "PC1"
+      ]
+    },
+    {
+      "kind": "US homes annual grid-purchase equivalent",
+      "input_MW": 800,
+      "formula": "MW * 1000 kW/MW * 8760 hours/year / 10791 kWh/customer/year",
+      "result_homes": 649430.0806227411,
+      "rounded_homes": 650000,
+      "assumption": "Continuous full-capacity consumption for one non-leap year",
+      "source_ids": [
+        "PC1"
+      ]
+    },
+    {
+      "kind": "Stadium available-power equivalent",
+      "input_MW": 800,
+      "formula": "800 MW / 12 MW per Allianz Arena connection",
+      "result_stadiums": 66.66666666666667,
+      "rounded_stadiums": 67,
+      "source_ids": [
+        "PC2"
+      ]
+    },
+    {
+      "kind": "Illustrative AI-centre computing capacity",
+      "input_MW_IT": 800,
+      "assumed_MW_IT_per_centre": 100,
+      "formula": "800 MW IT / 100 MW IT per illustrative centre",
+      "result_centres": 8,
+      "source_ids": [
+        "PC3"
+      ],
+      "assumption": "Chosen computing-load benchmark; cooling and other loads excluded"
+    },
+    {
+      "kind": "Pilot share of reported phase",
+      "formula": "5 MW / 120 MW * 100",
+      "result_percent": 4.166666666666666,
+      "rounded_percent": 4,
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "limits": [
+    "Galaxy 120 MW is reported delivered capacity, not measured operating load.",
+    "Galaxy 800 MW is the reported planned IT capacity, not a power station output or commissioned load.",
+    "Comparisons translate scale; they do not imply homes or stadiums are served by Galaxy.",
+    "A non-leap full year is 8,760 hours. Actual operation and energy use are unverified.",
+    "Cooling, power conversion and other facility loads require additional electricity beyond IT load.",
+    "AI-centre size varies widely. Eight is arithmetic under a chosen 100 MW IT-load assumption, not a count of equivalent real campuses."
+  ]
+}

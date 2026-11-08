@@ -104,3 +104,22 @@ Credit each creator, link the original page and license, and identify any crop, 
 - Credit: China_Inner_Mongolia_location_map.svg : Das steinerne Herz derivative work: Das steinerne Herz ( talk ) / Wikimedia Commons / CC BY-SA 3.0; link source and license; label edits.
 - Use: Regional geography, not a precise campus locator.
 - Image date: 2011-02-24 08:58. Accessed 2026-11-07.
+
+## lei-zhang-2025
+
+- File: `open/lei-zhang-2025.jpg` (1280 × 1857 px).
+- Photographer: Ricardo Stuckert / Presidência da República; published by Lula Oficial.
+- [Original Commons page](https://commons.wikimedia.org/wiki/File:12.05.2025_-_Audi%C3%AAncia_concedida_ao_Presidente_da_Envision,_Lei_Zhang_(54513747158).jpg). [Original publisher](https://www.flickr.com/photos/lulaoficial/54513747158/).
+- Direct URL and hash are in `manifest.json`; original rights metadata is in `sources/license-lei-zhang-2025.json`.
+- License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). Attribution and share-alike terms apply to the crop.
+- Context: Beijing meeting with Lei Zhang on 12 May 2025. The original shows two people; the video frames its right side as a founder portrait.
+- Credit: Ricardo Stuckert / PR / Lula Oficial / CC BY-SA 2.0; cropped.
+- Accessed 2026-11-08.
+
+## Company wordmarks in the project comparison
+
+Envision's unchanged company mark comes from the [official homepage](https://www.envision-group.com/), decoded from an embedded PNG in its public `version/1793848051656/js/app.js` bundle. The exact source and extraction are in `manifest.json`. Copyright and trademark remain with Envision; no open license is claimed.
+
+OpenAI's unchanged 2025 wordmark is sourced to its [brand guidelines](https://openai.com/brand/), downloaded from the [Commons file](https://commons.wikimedia.org/wiki/File:OpenAI_logo_2025_(wordmark).svg). Commons classifies the simple wordmark as PD-textlogo; trademark restrictions remain. The wordmark is shown without the Blossom, with its proportions and clear space preserved.
+
+These are company marks beside the Galaxy and Stargate project names. A separate standalone Stargate project mark was not verified. They do not indicate a partnership between Envision and OpenAI. Unrelated Galaxy financial-services and Stargate entertainment marks are excluded. Checked 2026-11-08.
