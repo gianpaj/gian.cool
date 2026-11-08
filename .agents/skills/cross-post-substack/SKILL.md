@@ -1,129 +1,114 @@
 ---
 name: cross-post-substack
-description: Cross-post gian.cool blog articles to Substack, or update their Substack drafts, with matching tags and slugs. Use for preparing copies, syncing metadata, and publishing requested posts.
+description: Cross-post gian.cool blog articles to Substack, or update their Substack metadata, with matching tags and slugs. Use for preparing copies, resuming drafts, and publishing requested posts.
 ---
 
 # Cross-post to Substack
 
-Copy posts from `src/data/blog/` to `https://gianpaj.substack.com` using
-[substack-api-mcp](https://github.com/cotletdev/substack-api-mcp-server).
-The publication owner is `@gianpaj`. The official Substack MCP is read-only;
-use the installed unofficial MCP or its `substack-mcp` CLI for writes.
+Use the [local helper](scripts/cross-post.mjs) for copies from `src/data/blog/`
+to `https://gianpaj.substack.com`, owned by `@gianpaj`. It uses the repository's
+Markdown parser and the installed
+[substack-api-mcp](https://github.com/cotletdev/substack-api-mcp-server) transport.
+The official Substack MCP is read-only.
 
-## Select and check
+## Commands
 
-- Follow the requested selection. For latest posts, sort frontmatter `pubDate`
-  descending and exclude `draft: true`; filenames do not indicate recency.
-- Use frontmatter `title`, `description`, `slug`, and `tags` as the source of
-  truth. Use `description` as the Substack subtitle. Preserve tag names exactly,
-  including underscores such as `coding_agent`.
-- Default to public, web-only copies. Email subscribers only when explicitly
-  requested. A request to prepare drafts or change metadata does not itself
-  authorize publication. Honor publishing authorization already in the task.
-- Verify the signed-in handle, publication subdomain, and publishing role before
-  writes. The package selects the first administered publication automatically;
-  stop if it selects a publication other than `gianpaj`.
-- List published posts, drafts, and scheduled posts, following pagination.
-  Match by slug, original-source link, and title to avoid duplicates. Reuse a
-  matching task draft; do not overwrite unrelated drafts or live content.
+Run from the repository root with Node 24 and installed project dependencies.
+Use source filenames or `--latest N`; latest selects non-draft articles by
+frontmatter `pubDate`, not filename order.
 
-## Connect
+```sh
+node .agents/skills/cross-post-substack/scripts/cross-post.mjs preview --latest 3
+node .agents/skills/cross-post-substack/scripts/cross-post.mjs draft --latest 3 --confirm
+node .agents/skills/cross-post-substack/scripts/cross-post.mjs metadata src/data/blog/agentcaller.mdx --confirm
+node .agents/skills/cross-post-substack/scripts/cross-post.mjs publish src/data/blog/agentcaller.mdx --confirm
+```
 
-Check `substack-mcp --version`, `substack-mcp status`, and
-`substack-mcp tools --json`. Inspect the installed schema and implementation
-when needed; these unofficial endpoints can change.
+`preview` is offline and performs no Substack requests. It prints the prepared
+document, source and content hashes, metadata, conversion warnings, and delivery
+mode. `--output /tmp/substack-preview.json` saves the full payload for inspection.
 
-If missing, install with `uv tool install substack-api-mcp`. Use the installed
-executable for MCP configuration; registration alone does not verify a working
-connection. Verify initialization and tool listing without making live writes.
+`draft` creates or updates an unpublished task draft, synchronizes its metadata,
+and verifies saved content. `metadata` changes tags and slug without replacing
+the article. It preserves a published post's historical delivery setting.
+`publish` requires a synchronized draft and unchanged source, verifies the live
+post, and checks the public page. It always sends `send_email=false`; this helper
+does not send newsletters.
 
-A saved session works without browser automation. To connect a local signed-in
-Chrome, enable remote debugging at `chrome://inspect/#remote-debugging`, run
-`substack-mcp connect`, and approve Chrome's connection prompt.
+Use `--confirm` only when the current task authorizes that operation. A request
+to write or improve this helper does not authorize creating or publishing posts.
+Honor publishing authorization already given; do not ask for it again.
 
-For a session on another computer, ask for the `substack.sid` cookie through the
-host's private secret input. In Chrome it is under Developer Tools → Application
-→ Cookies → `https://substack.com`. The CLI's `connect --token` prompt calls it
-`auth_token`, but the Substack cookie name is `substack.sid`.
+## Content and images
 
-Read private input from its secret file inside the command, without printing
-it or putting it in command arguments. The package's `session.from_token()` and
-`session.save()` save it to `~/.config/substack-api-mcp/session.json` with mode
-`0600`. Keep credentials outside the repository and generated article files.
+The source frontmatter supplies the title, subtitle from `description`, exact
+tag names, and slug. Substack URLs use `/p/{slug}`, without the blog's date
+folders. The helper derives the original link using `src/utils/post-path.ts`.
 
-If Substack returns `reauthentication_required`, stop the failed operation and
-read the post's state. A session accepted for drafting can still require fresh
-verification to publish. Request a fresh session after a new sign-in on the
-user's working computer, or let the user finish publication there. Resume from
-saved IDs after authentication; do not recreate drafts or repeatedly retry the
-same credentials. Report what remains unpublished.
+The helper preserves nested lists, links, emphasis, code blocks, and images. It
+removes excerpt separators outside code, resolves relative URLs, and links to
+interactive embeds. Unsupported HTML or MDX fails with an error instead of
+silently disappearing. Preserve source files; do not rewrite the article while
+cross-posting.
 
-## Prepare the article
+Tables become labeled text summaries. To include rendered PNG tables, add
+`--tables images`; the text summaries remain. The renderer uses a local TTF
+font, detected on macOS/Linux or supplied with `--font /path/font.ttf`.
 
-- Copy the complete MDX body without frontmatter or `{/* more */}`. The marker
-  limits the homepage excerpt, not the cross-post's content.
-- Preserve wording, headings, lists, quotes, links, code blocks, and images.
-  Do not editorially rewrite the article as part of cross-posting.
-- Add a short original-publication link and date. Derive the URL using the live
-  mechanism in `src/utils/post-path.ts`; do not guess the date-path format.
-- Resolve root-relative image and link URLs against `https://gian.cool`.
-  Resolve fragment links against the original article unless the corresponding
-  Substack anchor is verified. Check referenced assets are publicly accessible.
-- Convert HTML images to Markdown images. For unsupported image formats, use a
-  supported asset if one exists, or retain a link to the original image.
-- The package's Markdown converter supports basic formatting, images, and code
-  blocks. It does not support tables or arbitrary MDX components. Convert tables
-  to labeled lists while retaining every cell. Replace interactive demos and
-  unsupported embeds with descriptive links; retain an existing YouTube watch
-  link rather than duplicating it. Flag any content that cannot transfer.
-- Save prepared payloads and non-secret receipts in a task temporary directory.
-  Record source path, Substack post ID, edit URL, and intended slug so a partial
-  run can resume without duplicating posts.
+Use `--cover /path/image.png` or `--cover https://...` to upload and set a draft
+cover. PNG, JPEG, and WebP files are supported. `--upload-images` re-hosts article
+images on Substack; otherwise they retain their public source URLs. SVG images
+become links. Uploaded URLs are cached in the receipt for reruns.
 
-## Create or update the draft
+Use the same conversion and image options when previewing, drafting, and
+publishing. Changing them changes the content hash and requires another draft
+synchronization before publishing. Metadata-only changes do not upload images.
 
-Use `create_draft` with `title`, `subtitle`, `body_markdown`, and
-`audience="everyone"`, or `update_draft` for an existing task draft. The latter
-accepts `fields` as a JSON object encoded in a string, and replaces the whole
-body when `body_markdown` is supplied.
+## Receipts and recovery
 
-Set `should_send_email=false` on each draft before publication. The package's
-`substack.publishing.set_options` performs this save while retaining content,
-bylines, audience, and the selected section. Select the main section unless the
-user requests another. Read the draft back and verify the saved email setting.
+Receipts live at `~/.local/state/gian-cool/substack/receipts.json`; override the
+directory with `--state-dir PATH`. Keep it outside the repository. Source paths
+are relative to the repository so worktrees share the same post mapping.
 
-Apply metadata before publishing:
+The helper records source and content hashes, post IDs, slugs, upload URLs, and
+operation states. It writes receipts atomically and locks mutations across
+processes. For a stale lock, inspect its `owner.json` and confirm the process is
+inactive before removing only that lock directory.
 
-1. Use `list_post_tags` to reuse existing tags, `create_post_tag` for missing
-   names, then `tag_post` with the post and tag IDs. Metadata-only requests must
-   preserve existing article content and publication state.
-2. Set the frontmatter slug with the publication-scoped API request
-   `PUT /api/v1/drafts/{post_id}` and JSON body `{"slug":"the-frontmatter-slug"}`.
-   The MCP's `update_draft` tool does not accept a slug. Use the package's
-   authenticated `ToolContext` and `substack.client.call` for this partial
-   update, retaining its host restrictions. Read back the slug and check that
-   title, subtitle, body, audience, publication state, and email setting survive.
-3. Substack uses `/p/{slug}`. Match the slug, not gian.cool's date folders. If
-   the slug is already assigned to another post, inspect that post instead of
-   inventing a suffix or overwriting it.
+Before creating a post, the helper checks published posts, drafts, and scheduled
+posts. It reuses receipted IDs or a unique post with the original-source link.
+Title or slug collisions without a matching source link require inspection.
+External edits, scheduled posts, and ambiguous matches stop synchronization.
+It refuses draft-body updates to published articles.
 
-Compare the saved body with the prepared document using the package's
-`substack.markdown.to_doc` and `substack.client.body_doc`. Verify code blocks
-and image sources survive conversion. Do not treat draft creation as publication.
+On a timeout or failed write, rerun the same command with the same state
+directory. The helper reads live state before continuing. It recovers draft IDs
+after a lost create response, reconciles an applied update, and verifies an
+already-published post without publishing it again. Preserve receipts when
+resolving errors.
 
-## Publish and verify
+## Authentication
 
-When publication is authorized, call `publish_post` with `post_id` and explicit
-`send_email=false`. Its default is **true**. For an explicit email request, use
-the requested delivery setting. Run the platform's prepublish check; the package
-includes it in `publish_post`.
+Install the transport once with `uv tool install substack-api-mcp==1.0.6`.
+The adapter runs its Python environment through `uv tool run --offline`; it does
+not install packages during posting. The version check binds the adapter to the
+API it supports. Inspect and test the adapter before changing that check.
 
-After each write, save the returned post ID and URL before continuing. On a
-failure or timeout, read the post's state before retrying. For web-only posts,
-verify `is_published=true`, the requested slug and content, and
-`should_send_email=false`; check the public page is accessible. A successful
-request or a draft editor link alone does not establish publication.
+Use `substack-mcp status` to check the session. For a local signed-in Chrome,
+enable remote debugging at `chrome://inspect/#remote-debugging`, run
+`substack-mcp connect`, and approve Chrome's prompt.
 
-Report published URLs and delivery mode. If publication is blocked, give the
-saved draft links and the specific remaining authentication step. For metadata
-updates, report the saved tags and slugs without implying the posts are live.
+For a session on another computer, request `substack.sid` through the host's
+private secret input. In Chrome it is under Developer Tools → Application →
+Cookies → `https://substack.com`. The `connect --token` prompt calls it
+`auth_token`; the actual cookie is `substack.sid`. Read private input from its
+secret file without printing it. The package's `session.from_token()` and
+`session.save()` store it outside the repository with mode `0600`.
+
+If Substack returns `reauthentication_required`, stop and request a fresh
+session after a new sign-in on the user's working computer. Do not repeatedly
+retry the same credentials. Resume from receipts; report draft links and the
+remaining authentication step if publication stays blocked.
+
+Report verified published URLs and web-only delivery. For metadata updates or
+blocked publication, distinguish saved metadata and drafts from live delivery.
