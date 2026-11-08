@@ -44,3 +44,4 @@ They are in `.agents/skills/` folder .e.g `.agents/skills/agent-browser/`
 - `/find-skills` - Discover and install agent skills
 - `/frontend-design` - Create production-grade frontend interfaces with high design quality
 - `/code-review` - Code review a pull request
+- `/cross-post-substack` - [Cross-post blog articles to Substack](.agents/skills/cross-post-substack/SKILL.md) with matching tags and slugs
