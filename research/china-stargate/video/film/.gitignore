@@ -1,0 +1,10 @@
+.hyperframes/
+audio/*.wav
+audio/*.mp3
+audio/*.ogg
+audio/*.json
+exports/
+assets/images/
+!audio/narration-request.json
+!audio/timing.json
+!audio/music-source.json

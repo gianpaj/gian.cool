@@ -1,0 +1,36 @@
+{
+  "accessed": "2026-11-07",
+  "power_chain": {
+    "source_ids": ["S1", "S3", "S5"],
+    "nodes": ["Wind farms and grid", "10 kV AC input", "Solid-state transformer", "800 V DC bus", "Rack DC/DC converters", "Accelerators and memory"],
+    "storage_branch": "Battery storage connected through appropriate power electronics; exact Galaxy topology unverified",
+    "caption": "Simplified explanation of the reported 5 MW pilot; not an as-built engineering drawing"
+  },
+  "cooling": {
+    "source_ids": ["S1", "S7"],
+    "nodes": ["Chip heat", "Cold plate or air-to-water coil", "Water loop", "Outdoor heat rejection"],
+    "caption": "General mechanism. Galaxy equipment and absence of central chillers remain attributed to SemiAnalysis. Do not imply this is the verified site schematic."
+  },
+  "dc_current_example": {
+    "power_W": 100000,
+    "voltage_V": [400, 800],
+    "current_A": [250, 125],
+    "formula": "I=P/V for ideal DC; heating=P_loss=I^2 R",
+    "caption": "Illustrative equal-power DC comparison, constant conductor resistance. Doubling voltage halves current and quarters resistive loss in that conductor. Not a site efficiency measurement or comparison with three-phase AC."
+  },
+  "annual_energy_example": {
+    "IT_power_MW": 120,
+    "hours": 8760,
+    "energy_MWh": 1051200,
+    "energy_TWh": 1.0512,
+    "caption": "Arithmetic at continuous full IT load for 365 days, not actual consumption; excludes cooling and electrical losses."
+  },
+  "wind_average_example": {
+    "nameplate_MW": 420,
+    "capacity_factor": [0.35, 0.40],
+    "mean_output_MW": [147, 168],
+    "load_MW": 240,
+    "gross_annual_energy_ratio": [0.6125, 0.70],
+    "caption": "Original arithmetic using S1's wind nameplate and local capacity-factor range. Gross annual energy ratio before curtailment and storage losses; not hourly coverage, measured Galaxy production or evidence for 24/7 renewables."
+  }
+}

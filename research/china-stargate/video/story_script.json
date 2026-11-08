@@ -1,0 +1,620 @@
+{
+  "status": "Initial video cut rendered locally and verified",
+  "created": "2026-11-07",
+  "research_as_of": "2026-11-07",
+  "skill": "/home/gianpaj/github/gianpaj/skills/video-story-generator/SKILL.md",
+  "input_mode": "mixed",
+  "image_count": 4,
+  "style_used": "Documentary photography and original explanatory graphics",
+  "title": "Why a wind-turbine maker is building an AI campus",
+  "duration_seconds": 216,
+  "segment_duration_seconds": 6,
+  "segment_count": 36,
+  "narration_word_count": 419,
+  "analysis": {
+    "subject": "Envision's documented Galaxy campus and Lei Zhang's energy-to-computing strategy. The recurring visual subject is the power path; do not invent personal appearance, site interiors or equipment. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+    "scene": "Real regional geography and explicitly illustrative rack and accelerator imagery connected through a simplified power schematic.",
+    "style": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow.",
+    "image_roles": [
+      {
+        "id": "ulanqab-wind-2012",
+        "role": "documentary regional context"
+      },
+      {
+        "id": "ulanqab-locator-svg",
+        "role": "original geographic locator; city-reference distances"
+      },
+      {
+        "id": "h100-board",
+        "role": "illustrative hardware; not Galaxy evidence"
+      },
+      {
+        "id": "server-racks",
+        "role": "illustrative hardware; not Galaxy evidence"
+      }
+    ]
+  },
+  "scope": {
+    "current_phase": "Initial video cut complete",
+    "production_actions_performed": [
+      "Prepared a separate Gemini TTS performance transcript",
+      "Generated one continuous narration take",
+      "Aligned the approved words to local Whisper timestamps",
+      "Built and checked an editable HyperFrames composition",
+      "Rendered and inspected a 1080p H264/AAC MP4"
+    ],
+    "skill_adaptation": "Preserve the approved documentary story and six-second editing units. Use licensed imagery and original diagrams. Prepare Gemini TTS separately, then fit measured speech to visual timing."
+  },
+  "asset_manifest": "../images/manifest.json",
+  "asset_credits": "../images/CREDITS.md",
+  "diagram_inputs": "../data/diagram-inputs.json",
+  "source_register": "../sources/README.md",
+  "founder_source_register": "../sources/lei-zhang.md",
+  "interview_option": {
+    "status": "not arranged",
+    "start_seconds": 120,
+    "duration_seconds": 12,
+    "replaces_segments": [
+      21,
+      22
+    ],
+    "question": "What made you decide to build the computing facilities that consume your energy?",
+    "conditions": "Use only a real recorded answer with agreed usage and verified transcript. Pick the excerpt after recording, not a predetermined quote. If unavailable, retain the complete narrator version."
+  },
+  "production_dependencies": [
+    "A human listening pass for pronunciation, vocal cues and music balance.",
+    "Permission before substituting campus photography, a founder portrait or interview footage.",
+    "A recorded and checked interview before using the optional interview replacement."
+  ],
+  "story_script": [
+    {
+      "segment_id": 1,
+      "start_seconds": 0,
+      "duration_seconds": 6,
+      "beat": "hook",
+      "narration": "Why is a wind-turbine maker building an AI data centre?",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Regional wind photograph held for two seconds, then a slow 5% push towards one turbine. Label Ulanqab region, 2012. End on the turbine hub. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [
+        "ulanqab-wind-2012"
+      ],
+      "original_graphic_required": false,
+      "source_ids": [
+        "S1",
+        "L1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 2,
+      "start_seconds": 6,
+      "duration_seconds": 6,
+      "beat": "hook",
+      "narration": "In Inner Mongolia, Envision is connecting those businesses through an AI campus called Galaxy.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Original schematic: carry the turbine hub into a three-bladed turbine symbol on the left. Draw a single power line to a rack on the right over four seconds. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 3,
+      "start_seconds": 12,
+      "duration_seconds": 6,
+      "beat": "hook",
+      "narration": "Follow the electricity to understand why an energy company wants to build it.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Hold the complete turbine-to-rack schematic. Reveal the title without moving it while read. End with the power line spanning the frame. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 4,
+      "start_seconds": 18,
+      "duration_seconds": 6,
+      "beat": "founder_and_place",
+      "narration": "Envision founder and CEO Lei Zhang started the company in 2007, making wind turbines.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Original name card: Lei Zhang, Founder and CEO, Envision. Carry the turbine symbol from the prior shot. Use a name card until a real portrait is cleared; no invented likeness. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "L1",
+        "L2"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 5,
+      "start_seconds": 24,
+      "duration_seconds": 6,
+      "beat": "founder_and_place",
+      "narration": "It expanded into batteries and energy systems. Computing creates demand for that equipment.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Extend the same schematic with battery storage and conversion equipment. Reveal each component once, keeping the route left to right. The final sentence is editorial synthesis. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "L2",
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 6,
+      "start_seconds": 30,
+      "duration_seconds": 6,
+      "beat": "founder_and_place",
+      "narration": "Ulanqab sits about 300 kilometres northwest of Beijing, in China's Inner Mongolia.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Use the original sourced Ulanqab locator map. Establish Beijing, follow the approximate 300 km straight-line connector northwest to Ulanqab, then hold its label. Keep Hohhot secondary and the city-reference distance caption visible. No campus pin. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [
+        "ulanqab-locator-svg"
+      ],
+      "original_graphic_required": false,
+      "source_ids": [
+        "S1",
+        "MAP_SOURCES"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 7,
+      "start_seconds": 36,
+      "duration_seconds": 6,
+      "beat": "founder_and_place",
+      "narration": "SemiAnalysis visited in September 2026. Its report is the starting point for this story.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Original source card with article title, publisher and September 2026 visit date. No article screenshot. Carry the location name into the source card. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 8,
+      "start_seconds": 42,
+      "duration_seconds": 6,
+      "beat": "founder_and_place",
+      "narration": "OpenAI's Stargate is the American comparison. Galaxy is a separate Envision project.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Plain text identifies Galaxy / Envision / Ulanqab and Stargate / OpenAI partners / United States. This is an identity distinction, not a size comparison. End on Galaxy. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S13"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 9,
+      "start_seconds": 48,
+      "duration_seconds": 6,
+      "beat": "scale",
+      "narration": "SemiAnalysis reports 120 megawatts delivered in August, within a year.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Original capacity graphic from capacity.csv. Reveal 120 MW IT and Reported delivered: August 2026. Hold both the number and status. Attribute to SemiAnalysis. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 10,
+      "start_seconds": 54,
+      "duration_seconds": 6,
+      "beat": "scale",
+      "narration": "Here, IT capacity means power intended for servers and other computing equipment.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Use the same 120 MW label. Show a bracket around server, storage and network symbols; leave cooling outside that bracket. No household analogy. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S7"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 11,
+      "start_seconds": 60,
+      "duration_seconds": 6,
+      "beat": "scale",
+      "narration": "The report puts the full campus plan at 800 megawatts of IT capacity.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Extend the capacity graphic to the full 800 MW plan. Give the planned portion an unfilled outline and a clear Planned label. Preserve the reported 120 MW phase within it. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 12,
+      "start_seconds": 66,
+      "duration_seconds": 6,
+      "beat": "scale",
+      "narration": "A delivered phase and a future plan are different milestones. That distinction matters.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Hold the status distinction, with only the delivered-phase segment filled. Leave Planned / SemiAnalysis visible. Do not animate the plan into a completed campus. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 13,
+      "start_seconds": 72,
+      "duration_seconds": 6,
+      "beat": "scale",
+      "narration": "Capacity alone cannot tell us how much useful AI computing is actually taking place.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Move from the capacity graphic into the rack symbol. Replace any performance counter with a question mark labelled Actual workload unverified. Avoid a simulated utilization reading. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 14,
+      "start_seconds": 78,
+      "duration_seconds": 6,
+      "beat": "power_to_rack",
+      "narration": "Accelerators process data, with memory and networks keeping them supplied.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Hold the H100 board image without erasing its source watermark. Caption Illustrative accelerator / Galaxy hardware unverified. Finish by outlining a simple abstract chip block. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [
+        "h100-board"
+      ],
+      "original_graphic_required": false,
+      "source_ids": [
+        "S7"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 15,
+      "start_seconds": 84,
+      "duration_seconds": 6,
+      "beat": "power_to_rack",
+      "narration": "Power must reach those racks reliably. Their heat also has to leave the building.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Use generic server-rack photograph, labelled Illustrative. Transition to original heat arrows around the rack symbol. Keep electrical supply and heat removal visually distinct. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [
+        "server-racks"
+      ],
+      "original_graphic_required": false,
+      "source_ids": [
+        "S7"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 16,
+      "start_seconds": 90,
+      "duration_seconds": 6,
+      "beat": "power_to_rack",
+      "narration": "SemiAnalysis describes a five-megawatt pilot testing a different way of supplying the racks.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Return to Galaxy name and a separate 5 MW pilot inset, labelled Reported live pilot, September 2026. Show it as a subset, never added to total capacity. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 17,
+      "start_seconds": 96,
+      "duration_seconds": 6,
+      "beat": "power_to_rack",
+      "narration": "Solid-state transformers convert incoming alternating current into an 800-volt direct-current bus.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Simplified schematic: 10 kV AC -> solid-state transformer -> 800 V DC bus. Reveal one stage every two seconds. Caption Simplified pilot architecture, not as-built. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 18,
+      "start_seconds": 102,
+      "duration_seconds": 6,
+      "beat": "power_to_rack",
+      "narration": "At the same power, doubling DC voltage halves the current in a conductor.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Original ideal-DC worked example: 100 kW at 400 V uses 250 A; 100 kW at 800 V uses 125 A. Reveal sequentially, label Equal power / Illustrative, then hold across the next shot. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S5"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 19,
+      "start_seconds": 108,
+      "duration_seconds": 6,
+      "beat": "power_to_rack",
+      "narration": "At the same resistance, lower current reduces heating losses. Galaxy's actual savings need measuring.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Hold the equal-power example, shrinking the heat marker at lower current. Keep Constant resistance / DC illustration visible. No percentage efficiency claim for Galaxy. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S5"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 20,
+      "start_seconds": 114,
+      "duration_seconds": 6,
+      "beat": "power_to_rack",
+      "narration": "Rack electronics still reduce voltage further before that power reaches the chips.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Continue from the same 800 V bus into a rack DC/DC block and then an abstract chip. Never show 800 V applied directly to silicon. End on the power line entering the rack. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S3",
+        "S5"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 21,
+      "start_seconds": 120,
+      "duration_seconds": 6,
+      "beat": "wind_and_storage",
+      "narration": "Envision also makes turbines and batteries, extending its role beyond owning the building.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Zoom out along the schematic to show turbine, battery and rack together. Label as Envision supply roles, not a literal physical layout. Optional interview replacement begins here. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "L1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 22,
+      "start_seconds": 126,
+      "duration_seconds": 6,
+      "beat": "wind_and_storage",
+      "narration": "The company can coordinate generation, storage and equipment supplying power inside the campus.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Emphasize the connections between those same components sequentially. Keep equipment positions fixed and the power direction consistent. Optional interview replacement ends here. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 23,
+      "start_seconds": 132,
+      "duration_seconds": 6,
+      "beat": "wind_and_storage",
+      "narration": "But a wind farm's rated power is not its output at every moment.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Return to the regional wind photo, retaining its 2012 caption. Transition to an original variable-output line, explicitly labelled Illustrative, with no implied Galaxy measurements. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [
+        "ulanqab-wind-2012"
+      ],
+      "original_graphic_required": false,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 24,
+      "start_seconds": 138,
+      "duration_seconds": 6,
+      "beat": "wind_and_storage",
+      "narration": "The wind rises and falls. Computing equipment needs reliable power through those changes.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Animate an illustrative chronological wind-output line under a constant example load for four seconds. Do not reuse the article's sorted-hours curve as a time series. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 25,
+      "start_seconds": 144,
+      "duration_seconds": 6,
+      "beat": "wind_and_storage",
+      "narration": "Batteries store some surplus electricity and supply it when generation falls below demand.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. On the same illustrative graph, move surplus energy into the battery symbol, then out during a short dip. Preserve the line geometry and load reference. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 26,
+      "start_seconds": 150,
+      "duration_seconds": 6,
+      "beat": "wind_and_storage",
+      "narration": "Their usefulness depends on power, stored energy, and how long the calm lasts.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Extend the illustrative calm interval until the depicted battery is depleted. No invented Galaxy MW, MWh or autonomy values. Include a grid branch as a general reliability option. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 27,
+      "start_seconds": 156,
+      "duration_seconds": 6,
+      "beat": "wind_and_storage",
+      "narration": "'Wind-powered' does not establish that wind supplies all the electricity, every hour.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Hold a simple distinction between annual renewable energy share and hourly supply. Label Actual Galaxy hourly mix not obtained. End with the rack still connected to a supply path. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 28,
+      "start_seconds": 162,
+      "duration_seconds": 6,
+      "beat": "evidence_limits",
+      "narration": "How much of Galaxy is fitted with hardware and actually running remains unverified.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Return to the campus capacity graphic, keeping Reported delivered and Planned labels. Add no new capacity numbers; show the missing measurement as a text question. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 29,
+      "start_seconds": 168,
+      "duration_seconds": 6,
+      "beat": "evidence_limits",
+      "narration": "Reported delivered capacity is not a measurement of load drawn by working servers.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Separate the fixed capacity label from an empty Actual IT load field. Do not fill the latter with a synthetic meter reading or confuse Epoch modelling with measurements. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 30,
+      "start_seconds": 174,
+      "duration_seconds": 6,
+      "beat": "evidence_limits",
+      "narration": "Buildings and megawatts cannot confirm installed chips, or how much work they produce.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Hold original rack diagram. Reveal two questions: Installed hardware? Useful output? Keep the diagram uncluttered; no unverified chip branding. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 31,
+      "start_seconds": 180,
+      "duration_seconds": 6,
+      "beat": "evidence_limits",
+      "narration": "Envision's larger capacity announcements also need reconciling with SemiAnalysis's description of the campus.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Text-only scope question: Which campus boundary and phases? Link the competing figures in the companion notes rather than adding another unqualified headline number. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 32,
+      "start_seconds": 186,
+      "duration_seconds": 6,
+      "beat": "evidence_limits",
+      "narration": "Those are questions for Zhang and the site's engineers, alongside the wider strategy.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Return to Lei Zhang name card and the schematic, without an invented portrait or interview. Present the question: What can the site demonstrate today? Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "L1",
+        "S1",
+        "S3"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 33,
+      "start_seconds": 192,
+      "duration_seconds": 6,
+      "beat": "payoff_and_credits",
+      "narration": "The next test is how much useful computing this energy system can deliver.",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Complete the same turbine-to-rack schematic used in the opening. Hold it still as the final line lands. No national winner ranking or fictional performance reveal. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S3",
+        "S7"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 34,
+      "start_seconds": 198,
+      "duration_seconds": 6,
+      "beat": "payoff_and_credits",
+      "narration": "",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Static credit card 1: regional wind and relief-map creators and licenses. Full source and license URLs go in the accompanying published credits. Six-second reading hold. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "ASSET_CREDITS"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 35,
+      "start_seconds": 204,
+      "duration_seconds": 6,
+      "beat": "payoff_and_credits",
+      "narration": "",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Static credit card 2: accelerator and rack-photo creators and licenses. Confirm that only the images actually used are credited. Six-second reading hold. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "ASSET_CREDITS"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    },
+    {
+      "segment_id": 36,
+      "start_seconds": 210,
+      "duration_seconds": 6,
+      "beat": "payoff_and_credits",
+      "narration": "",
+      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Static source card: SemiAnalysis public preview; Envision; NVIDIA; IEA; founder source register. Research as of 7 November 2026. Point to accompanying full credits and source list. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "asset_ids": [],
+      "original_graphic_required": true,
+      "source_ids": [
+        "S1",
+        "S3",
+        "S5",
+        "S7",
+        "L1"
+      ],
+      "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
+    }
+  ],
+  "tts_preparation": "../../../plans/2026-11-07-china-stargate-video.md#separate-tts-preparation",
+  "production": {
+    "duration_seconds": 206,
+    "timing_file": "film/audio/timing.json",
+    "output": "film/exports/galaxy-explained.mp4",
+    "verification": "film/verification.json",
+    "timing_note": "The six-second shot timings in story_script are editorial references; the rendered cut follows measured narration."
+  }
+}

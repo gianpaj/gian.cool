@@ -1,0 +1,92 @@
+{
+  "pageid": 13785035,
+  "ns": 6,
+  "title": "File:China Inner Mongolia relief location map.png",
+  "index": 5,
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 6002071,
+      "width": 2000,
+      "height": 1503,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/China_Inner_Mongolia_relief_location_map.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:China_Inner_Mongolia_relief_location_map.png",
+      "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=13785035",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2011-02-24 09:00:07",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "China Inner Mongolia relief location map",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "GFDL|Retouched pictures|License migration redundant|Self-published work|Uploaded with derivativeFX|Location maps of Inner Mongolia|Relief location maps of China",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "Location map of <a href=\"https://en.wikipedia.org/wiki/Inner_Mongolia\" class=\"extiw\" title=\"en:Inner Mongolia\">Inner Mongolia</a>, <a href=\"https://en.wikipedia.org/wiki/People%27s_Republic_of_China\" class=\"extiw\" title=\"en:People's Republic of China\">People's Republic of China</a> \n<p>Equirectangular projection, N/S stretching 141 %. True scale parallel: 45°00' N.\n</p><p>Geographic limits of the map: \n</p>\n<ul><li>N: 53.5° N</li>\n<li>S: 37.0° N</li>\n<li>W: 96.0° E</li>\n<li>E: 127.0° E</li></ul>",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "2011-02-24 08:58",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<ul><li><a href=\"//commons.wikimedia.org/wiki/File:China_Inner_Mongolia_location_map.svg\" title=\"File:China Inner Mongolia location map.svg\">China_Inner_Mongolia_location_map.svg</a></li></ul>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<ul><li><a href=\"//commons.wikimedia.org/wiki/File:China_Inner_Mongolia_location_map.svg\" title=\"File:China Inner Mongolia location map.svg\">China_Inner_Mongolia_location_map.svg</a>: <a href=\"//commons.wikimedia.org/wiki/User:Das_steinerne_Herz\" title=\"User:Das steinerne Herz\">Das steinerne Herz</a></li>\n<li>derivative work: <a href=\"//commons.wikimedia.org/wiki/User:Das_steinerne_Herz\" title=\"User:Das steinerne Herz\">Das steinerne Herz</a> (<a href=\"//commons.wikimedia.org/wiki/User_talk:Das_steinerne_Herz\" title=\"User talk:Das steinerne Herz\"><span class=\"signature-talk\">talk</span></a>)</li></ul>",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC BY-SA 3.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Attribution-Share Alike 3.0",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "true",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc-by-sa-3.0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ]
+}

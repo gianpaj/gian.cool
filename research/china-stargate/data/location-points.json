@@ -1,0 +1,47 @@
+{
+  "accessed": "2026-11-07",
+  "coordinate_system": "WGS84 longitude and latitude; cartographic city reference points",
+  "points": [
+    {
+      "id": "ulanqab",
+      "name": "Ulanqab",
+      "lon": 113.132,
+      "lat": 40.994,
+      "reference": "municipal-government reference point in the urban area",
+      "source": "https://en.wikipedia.org/wiki/Ulanqab"
+    },
+    {
+      "id": "hohhot",
+      "name": "Hohhot",
+      "lon": 111.6522222,
+      "lat": 40.8105556,
+      "reference": "GeoNames populated-place reference",
+      "source": "https://www.geonames.org/advanced-search.html?q=Inner+Mongolia+Autonomous+Region&startRow=0"
+    },
+    {
+      "id": "beijing",
+      "name": "Beijing",
+      "lon": 116.3975,
+      "lat": 39.90667,
+      "reference": "Tiananmen reference point",
+      "source": "https://en.wikipedia.org/wiki/Beijing"
+    }
+  ],
+  "distances": [
+    {
+      "from": "ulanqab",
+      "to": "hohhot",
+      "distance_km": 126.027,
+      "display_km": 125,
+      "method": "Great-circle haversine, spherical Earth mean radius 6371.0088 km"
+    },
+    {
+      "from": "ulanqab",
+      "to": "beijing",
+      "distance_km": 301.581,
+      "display_km": 300,
+      "method": "Great-circle haversine, spherical Earth mean radius 6371.0088 km"
+    }
+  ],
+  "limit": "Straight-line city-reference distances; not road, rail, latency or Galaxy campus measurements. Hohhot is the nearby regional-capital reference; Beijing is the major-city reference. This is not an exhaustive ranking of nearby cities by population."
+}

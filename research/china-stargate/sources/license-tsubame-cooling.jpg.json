@@ -1,0 +1,92 @@
+{
+  "pageid": 133081473,
+  "ns": 6,
+  "title": "File:TSUBAME 3.0 PA075076 01.jpg",
+  "index": 2,
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 5697264,
+      "width": 3456,
+      "height": 4608,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/TSUBAME_3.0_PA075076_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:TSUBAME_3.0_PA075076_01.jpg",
+      "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=133081473",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2023-06-14 09:12:54",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "TSUBAME 3.0 PA075076 01",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "TSUBAME 3.0|Self-published work|Japan photographs taken on 2018-10-07",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "Cooling water pipes to the racks of computing nodes of TSUBAME 3.0 supercomputer.  Photographed on the open house for <i>Koudaisai</i> Tokyo Tech Festival and Open Campus.",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "Taken on 7 October 2018",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Kestrel&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Kestrel (page does not exist)\">Kestrel</a>",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC BY-SA 4.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Attribution-Share Alike 4.0",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "true",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc-by-sa-4.0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ]
+}

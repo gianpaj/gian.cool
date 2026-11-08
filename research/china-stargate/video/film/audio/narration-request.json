@@ -1,0 +1,30 @@
+{
+  "model": "gemini-3.8-flash-tts",
+  "input": [
+    {
+      "type": "user_input",
+      "content": [
+        {
+          "type": "text",
+          "text": "Why is a wind-turbine maker building an AI data centre? <short pause>\n\nIn Inner Mongolia, Envision is connecting those businesses through an AI campus called Galaxy.\n\nFollow the electricity to understand why an energy company wants to build it.\n\n<breath> Envision founder and CEO Lei Zhang started the company in 2007, making wind turbines.\n\nIt expanded into batteries and energy systems. Computing creates demand for that equipment.\n\nUlanqab sits about 300 kilometres northwest of Beijing, in China's Inner Mongolia.\n\nSemiAnalysis visited in September 2026. Its report is the starting point for this story.\n\nOpenAI's Stargate is the American comparison. Galaxy is a separate Envision project. <short pause>\n\nSemiAnalysis reports 120 megawatts delivered in August, within a year.\n\nHere, IT capacity means power intended for servers and other computing equipment.\n\nThe report puts the full campus plan at 800 megawatts of IT capacity.\n\nA delivered phase and a future plan are different milestones. That distinction matters.\n\nCapacity alone cannot tell us how much useful AI computing is actually taking place. <short pause>\n\n<breath> Accelerators process data, with memory and networks keeping them supplied.\n\nPower must reach those racks reliably. Their heat also has to leave the building.\n\nSemiAnalysis describes a five-megawatt pilot testing a different way of supplying the racks.\n\nSolid-state transformers convert incoming alternating current into an 800-volt direct-current bus. <short pause>\n\nAt the same power, doubling DC voltage halves the current in a conductor.\n\nAt the same resistance, lower current reduces heating losses. Galaxy's actual savings need measuring.\n\nRack electronics still reduce voltage further before that power reaches the chips.\n\n<breath> Envision also makes turbines and batteries, extending its role beyond owning the building.\n\nThe company can coordinate generation, storage and equipment supplying power inside the campus. <short pause>\n\nBut a wind farm's rated power is not its output at every moment.\n\nThe wind rises and falls. Computing equipment needs reliable power through those changes.\n\nBatteries store some surplus electricity and supply it when generation falls below demand.\n\nTheir usefulness depends on power, stored energy, and how long the calm lasts.\n\n'Wind-powered' does not establish that wind supplies all the electricity, every hour. <short pause>\n\nHow much of Galaxy is fitted with hardware and actually running remains unverified.\n\nReported delivered capacity is not a measurement of load drawn by working servers.\n\nBuildings and megawatts cannot confirm installed chips, or how much work they produce.\n\nEnvision's larger capacity announcements also need reconciling with SemiAnalysis's description of the campus.\n\nThose are questions for Zhang and the site's engineers, alongside the wider strategy. <short pause>\n\nThe next test is how much useful computing this energy system can deliver.",
+          "annotations": [
+            {
+              "type": "speech_metadata",
+              "style": "Calm, curious documentary narration. Clear neutral British English. Conversational and connected, with measured emphasis on the explanatory questions. Aim for about 140 words per minute, slowing slightly for electrical units and figures. Keep the same vocal character throughout. Natural light breathing, without theatrical reactions. Pronounce Lei Zhang approximately lay jahng, and Ulanqab approximately oo-lahn-chahb. Read DC as D C, AI as A I, and CEO as C E O. Preserve every qualifier such as reports, planned and unverified."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "response_format": {
+    "type": "audio"
+  },
+  "generation_config": {
+    "speech_config": [
+      {
+        "voice": "Charon"
+      }
+    ]
+  }
+}
