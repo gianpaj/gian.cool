@@ -211,7 +211,7 @@ def scene(number):
         return '<div class="credits"><p>SemiAnalysis • “We Visited China’s Stargate in Inner Mongolia”</p><p>Everlyn Tan · Jeremie Eliahou Ontiveros · Xiaopeng Laoban · Dylan Patel</p><p>Published 7 Nov 2026 • unauthenticated public preview</p><p>Cross-checks: Envision releases · Epoch AI · NVIDIA · OpenAI · LSE</p></div>', 'Full source links, access dates and claim checks accompany the video in the research folder'
     if number == 35:
         return '<div class="credits"><p>Wind: 天王星 / Wikimedia Commons / CC BY-SA 3.0</p><p>Racks: Carl Lender / Wikimedia Commons / CC BY 2.0</p><p>H100: 极客湾Geekerwan / Wikimedia Commons / CC BY 3.0</p><p>Map: original graphic; Natural Earth public-domain geography</p><p>Photo crops, fitting and motion are identified in the accompanying credits.</p></div>', 'creativecommons.org/licenses/by-sa/3.0 • /by/2.0 • /by/3.0'
-    return '<div class="credits"><p>Research, script and explanatory graphics: gian.cool</p><p>AI narration: Gemini TTS • Charon</p><p>Music: “Cylinder Eight” / Chris Zabriskie / CC BY 4.0</p><p>Research checked 7 November 2026</p><p>No on-site recording or interview is presented.</p><p>Capacity, chip inventory and measured efficiency retain the stated limits.</p></div>', 'Music from Cylinders (2014) • chriszabriskie.com • creativecommons.org/licenses/by/4.0/'
+    return '<div class="credits"><p>Research, script and explanatory graphics: gian.cool</p><p>AI narration: Gemini TTS • Charon</p><p>Research checked 7 November 2026</p><p>No on-site recording or interview is presented.</p><p>Capacity, chip inventory and measured efficiency retain the stated limits.</p></div>', 'Research and source links accompany this educational video'
 
 
 css = '''
@@ -281,8 +281,6 @@ audio = ''
 if (FILM/'audio/narration.wav').exists():
     audio_duration=times['audio_duration_seconds'] if times else 198
     audio=f'<audio id="narration" class="clip" src="audio/narration.wav" data-start="0" data-duration="{audio_duration:.3f}" data-track-index="2" data-volume="1"></audio>'
-if (FILM/'audio/music.wav').exists():
-    audio+=f'<audio id="music" class="clip" src="audio/music.wav" data-start="0" data-duration="{duration:.3f}" data-track-index="3" data-volume="0.16"></audio>'
 
 (FILM/'compositions').mkdir(exist_ok=True)
 (FILM/'assets/film.css').write_text(css)
