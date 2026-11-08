@@ -1,5 +1,9 @@
 # Galaxy video review
 
+This review describes the retained 7 November 2026 first export,
+`exports/galaxy-explained.mp4`. The revised 540p cut has its own
+[draft review](REVIEW-draft.md).
+
 The cut follows Envision's energy-to-computing strategy through Lei Zhang, Ulanqab and a worked DC-current example. It uses documentary photographs and a growing schematic on a warm light background. A founder biography would crowd the explanation; a cost-led comparison lacks accessible supporting detail.
 
 ## Picture and timing

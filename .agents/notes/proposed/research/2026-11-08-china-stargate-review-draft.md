@@ -11,3 +11,17 @@ Power comparisons require explicit boundaries. Household comparisons convert con
 Photo identity, rights, original URLs and any crop are recorded in the image manifest and credits. Brand marks identify the companies; no unrelated Galaxy business or Stargate entertainment logo belongs in this story.
 
 The existing approved 1080p export is documented in the implemented research note. Draft measurements and user validation belong to this proposed note and the draft review files.
+
+The portrait uses the 12 May 2025 Beijing meeting photograph by Ricardo Stuckert / Presidência da República, published by Lula Oficial under CC BY-SA 2.0. A right-half CSS crop preserves his full head and upper body. The Envision mark comes from its official site bundle; the OpenAI wordmark is sourced to its brand guidance. No standalone Stargate project mark was verified.
+
+The 800 MW plan is compared with about 650,000 US homes’ annual grid purchases (EIA 2022, continuous full-year consumption), 67 Allianz Arena electrical connections (12 MW available each), and eight illustrative 100 MW IT centres. The 120 MW phase is about 100,000 homes on the same annual basis; the 5 MW pilot is about 4% of that phase. Cooling and other site loads remain additional. Exact formulas and source boundaries live in `research/china-stargate/data/power-comparisons.json`.
+
+Revised narration is 203.32 seconds; the review timeline is 223 seconds, including 18 seconds of credits. All script figures match local ASR; approved spelling remains in captions. Reviewed ASR aliases cover proper names and unit abbreviations, while changed numbers still halt alignment.
+
+Source validation passes runtime, layout, motion, contrast, craft and audio with zero errors. Six chapter-density warnings remain. The China inset has its own white panel, dark country outline, amber regional highlight and larger legend. The turbine power line starts outside the rotor’s entire swept area.
+
+System `/tmp` returned a disk-quota error despite reported free space and closed Chrome during still capture. Project-local `TMPDIR` under the ignored `.hyperframes/tmp` resolves capture and audio preparation. `scripts/prepare-draft.py` copies the composition into an ignored 960 × 540, 15 fps project with a half-scale stage. It preserves the full-resolution source and first export.
+
+The review draft is verified at `research/china-stargate/video/film/exports/galaxy-review-draft-2026-11-08.mp4`: 960 × 540, 15 fps, 223 seconds, 7,722,640 bytes. One software screenshot worker rendered it in 138.8 seconds. All 36 scene midpoints and representative decoded frames were inspected. Audio measures −14.2 LUFS integrated and −1.0 dBTP; credits are silent. Transcription and measurements do not replace the user’s listening review.
+
+`verification-draft.json` and `REVIEW-draft.md` describe this review file. The first export’s hash is unchanged. User validation remains pending; no new delivery-quality render, push, publishing or outreach is part of this draft handoff. Keep this note proposed until that review is resolved.

@@ -1,16 +1,16 @@
 {
-  "status": "Initial video cut rendered locally and verified",
+  "status": "Low-resolution review draft rendered and verified; user validation pending",
   "created": "2026-11-07",
-  "research_as_of": "2026-11-07",
+  "research_as_of": "2026-11-08",
   "skill": "/home/gianpaj/github/gianpaj/skills/video-story-generator/SKILL.md",
   "input_mode": "mixed",
-  "image_count": 4,
+  "image_count": 5,
   "style_used": "Documentary photography and original explanatory graphics",
   "title": "Why a wind-turbine maker is building an AI campus",
   "duration_seconds": 216,
   "segment_duration_seconds": 6,
   "segment_count": 36,
-  "narration_word_count": 419,
+  "narration_word_count": 438,
   "analysis": {
     "subject": "Envision's documented Galaxy campus and Lei Zhang's energy-to-computing strategy. The recurring visual subject is the power path; do not invent personal appearance, site interiors or equipment. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
     "scene": "Real regional geography and explicitly illustrative rack and accelerator imagery connected through a simplified power schematic.",
@@ -31,11 +31,15 @@
       {
         "id": "server-racks",
         "role": "illustrative hardware; not Galaxy evidence"
+      },
+      {
+        "id": "lei-zhang-2025",
+        "role": "Documented founder photograph, right-half crop; CC BY-SA 2.0"
       }
     ]
   },
   "scope": {
-    "current_phase": "Initial video cut complete",
+    "current_phase": "540p review draft ready for user validation",
     "production_actions_performed": [
       "Prepared a separate Gemini TTS performance transcript",
       "Generated one continuous narration take",
@@ -62,8 +66,8 @@
     "conditions": "Use only a real recorded answer with agreed usage and verified transcript. Pick the excerpt after recording, not a predetermined quote. If unavailable, retain the complete narrator version."
   },
   "production_dependencies": [
-    "A human listening pass for pronunciation, vocal cues and music balance.",
-    "Permission before substituting campus photography, a founder portrait or interview footage.",
+    "User visual and listening validation of the 540p draft before another delivery render.",
+    "Permission before substituting campus photography or interview footage.",
     "A recorded and checked interview before using the optional interview replacement."
   ],
   "story_script": [
@@ -119,8 +123,10 @@
       "duration_seconds": 6,
       "beat": "founder_and_place",
       "narration": "Envision founder and CEO Lei Zhang started the company in 2007, making wind turbines.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Original name card: Lei Zhang, Founder and CEO, Envision. Carry the turbine symbol from the prior shot. Use a name card until a real portrait is cleared; no invented likeness. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
-      "asset_ids": [],
+      "visual_desc": "Documented Lei Zhang photograph at the May 2025 Beijing meeting, right-half crop beside his name, role and founding date. Preserve the photographer, publisher, date, license and crop credit.",
+      "asset_ids": [
+        "lei-zhang-2025"
+      ],
       "original_graphic_required": true,
       "source_ids": [
         "L1",
@@ -149,7 +155,7 @@
       "duration_seconds": 6,
       "beat": "founder_and_place",
       "narration": "Ulanqab sits about 300 kilometres northwest of Beijing, in China's Inner Mongolia.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Use the original sourced Ulanqab locator map. Establish Beijing, follow the approximate 300 km straight-line connector northwest to Ulanqab, then hold its label. Keep Hohhot secondary and the city-reference distance caption visible. No campus pin. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Original Ulanqab locator. Keep city-reference distances and no campus pin. Give the China inset a separate white panel, dark outline, amber Inner Mongolia highlight and labelled legend.",
       "asset_ids": [
         "ulanqab-locator-svg"
       ],
@@ -180,8 +186,11 @@
       "duration_seconds": 6,
       "beat": "founder_and_place",
       "narration": "OpenAI's Stargate is the American comparison. Galaxy is a separate Envision project.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Plain text identifies Galaxy / Envision / Ulanqab and Stargate / OpenAI partners / United States. This is an identity distinction, not a size comparison. End on Galaxy. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
-      "asset_ids": [],
+      "visual_desc": "Verified Envision and OpenAI company wordmarks above Galaxy and Stargate project names, respectively. Label Envision / China and OpenAI & partners / US. Company marks identify the organisations; no separate Stargate project logo has been verified.",
+      "asset_ids": [
+        "envision-company-mark",
+        "openai-company-wordmark"
+      ],
       "original_graphic_required": true,
       "source_ids": [
         "S1",
@@ -194,12 +203,13 @@
       "start_seconds": 48,
       "duration_seconds": 6,
       "beat": "scale",
-      "narration": "SemiAnalysis reports 120 megawatts delivered in August, within a year.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Original capacity graphic from capacity.csv. Reveal 120 MW IT and Reported delivered: August 2026. Hold both the number and status. Attribute to SemiAnalysis. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "narration": "SemiAnalysis reports 120 megawatts delivered in August 2026, within a year.",
+      "visual_desc": "Show reported delivered 120 MW within the outlined 800 MW IT plan. Date August 2026. A continuous full year at 120 MW is roughly 100,000 US homes’ annual grid electricity purchases, using EIA 2022 data. This is an energy equivalent, not measured Galaxy usage.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
-        "S1"
+        "S1",
+        "PC1"
       ],
       "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
     },
@@ -208,8 +218,8 @@
       "start_seconds": 54,
       "duration_seconds": 6,
       "beat": "scale",
-      "narration": "Here, IT capacity means power intended for servers and other computing equipment.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Use the same 120 MW label. Show a bracket around server, storage and network symbols; leave cooling outside that bracket. No household analogy. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "narration": "That's power for computing equipment. Megawatts measure the rate of electricity use, not AI performance.",
+      "visual_desc": "Retain 120 MW reported delivered and 800 MW planned. Explain MW as the rate of electricity use. IT capacity refers to computing equipment; cooling and other site loads are additional.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -222,12 +232,13 @@
       "start_seconds": 60,
       "duration_seconds": 6,
       "beat": "scale",
-      "narration": "The report puts the full campus plan at 800 megawatts of IT capacity.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Extend the capacity graphic to the full 800 MW plan. Give the planned portion an unfilled outline and a clear Planned label. Preserve the reported 120 MW phase within it. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "narration": "The full plan is 800 megawatts. Used continuously, that matches the annual grid electricity bought by about 650,000 US homes.",
+      "visual_desc": "Original home icon and large 650,000-home comparison beside planned 800 MW IT. Explicitly label continuous use for one year and EIA 2022 average residential purchases. Planned capacity does not establish actual use.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
-        "S1"
+        "S1",
+        "PC1"
       ],
       "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
     },
@@ -236,12 +247,13 @@
       "start_seconds": 66,
       "duration_seconds": 6,
       "beat": "scale",
-      "narration": "A delivered phase and a future plan are different milestones. That distinction matters.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Hold the status distinction, with only the delivered-phase segment filled. Leave Planned / SemiAnalysis visible. Do not animate the plan into a completed campus. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "narration": "Or about 67 stadiums like Munich's Allianz Arena, comparing their maximum available electrical power.",
+      "visual_desc": "Original stadium icon. Compare 800 MW planned IT with approximately 67 times Allianz Arena’s 12 MW available electrical connection. This compares available power, not match-day or annual stadium consumption.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
-        "S1"
+        "S1",
+        "PC2"
       ],
       "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
     },
@@ -250,13 +262,13 @@
       "start_seconds": 72,
       "duration_seconds": 6,
       "beat": "scale",
-      "narration": "Capacity alone cannot tell us how much useful AI computing is actually taking place.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Move from the capacity graphic into the rack symbol. Replace any performance counter with a question mark labelled Actual workload unverified. Avoid a simulated utilization reading. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "narration": "For AI, imagine eight centres using 100 megawatts for computing each. Cooling needs extra power. These are comparisons, not measured usage.",
+      "visual_desc": "Original rack/building symbols. Eight illustrative AI centres with 100 MW computing load each add to 800 MW IT. Explicitly label the chosen size assumption and extra cooling/site power; IEA provides scale context, not a universal centre size or a verified IT boundary.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
         "S1",
-        "S4"
+        "PC3"
       ],
       "continuity_out": "Carry the final documented image detail or schematic component into the next shot; retain place and evidence labels where applicable."
     },
@@ -298,7 +310,7 @@
       "duration_seconds": 6,
       "beat": "power_to_rack",
       "narration": "SemiAnalysis describes a five-megawatt pilot testing a different way of supplying the racks.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Return to Galaxy name and a separate 5 MW pilot inset, labelled Reported live pilot, September 2026. Show it as a subset, never added to total capacity. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "5 MW reported pilot as a subset of the 120 MW phase: about 4%. Do not add the pilot to the total. Preserve reported and date qualifiers.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -582,7 +594,7 @@
       "duration_seconds": 6,
       "beat": "payoff_and_credits",
       "narration": "",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Static credit card 2: accelerator and rack-photo creators and licenses. Confirm that only the images actually used are credited. Six-second reading hold. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Credit all photos actually used, including Ricardo Stuckert / Presidência da República, Lula Oficial, CC BY-SA 2.0 for the cropped Lei Zhang photograph. Identify original map geography and license URLs.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -596,7 +608,7 @@
       "duration_seconds": 6,
       "beat": "payoff_and_credits",
       "narration": "",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Static source card: SemiAnalysis public preview; Envision; NVIDIA; IEA; founder source register. Research as of 7 November 2026. Point to accompanying full credits and source list. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Production and access limits. Narration only, no music. Company marks are editorial identification. Research checked 8 November 2026. Full credits and source links accompany the video.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -611,10 +623,23 @@
   ],
   "tts_preparation": "../../../plans/2026-11-07-china-stargate-video.md#separate-tts-preparation",
   "production": {
-    "duration_seconds": 206,
+    "status": "Review draft verified; user validation pending",
+    "duration_seconds": 223,
     "timing_file": "film/audio/timing.json",
+    "output": "film/exports/galaxy-review-draft-2026-11-08.mp4",
+    "verification": "film/verification-draft.json",
+    "resolution": [
+      960,
+      540
+    ],
+    "fps": 15,
+    "timing_note": "Six-second shot timings are editorial references; measured revised narration sets the 223-second draft. User validation precedes another delivery render."
+  },
+  "first_export": {
+    "duration_seconds": 206,
+    "timing_file": "film/.hyperframes/checkpoints/first-export/audio/timing.json",
     "output": "film/exports/galaxy-explained.mp4",
     "verification": "film/verification.json",
-    "timing_note": "The six-second shot timings in story_script are editorial references; the rendered cut follows measured narration."
+    "timing_note": "Retained first-export files and verification describe the 7 November cut. The local checkpoint is ignored; its tracked source can also be recovered from the Git history."
   }
 }

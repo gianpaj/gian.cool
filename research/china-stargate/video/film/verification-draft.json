@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-08",
+  "status": "Review draft verified; user visual and listening validation pending",
+  "artifact": "exports/galaxy-review-draft-2026-11-08.mp4",
+  "bytes": 7722640,
+  "sha256": "d46a2acac0d627515fb065d3bd4be961747685d60adc67ecace706defe47a74d",
+  "duration_seconds": 223.0,
+  "width": 960,
+  "height": 540,
+  "fps": 15,
+  "video_frames": 3345,
+  "video_codec": "h264",
+  "pixel_format": "yuv420p",
+  "audio_codec": "aac",
+  "audio_sample_rate": 48000,
+  "audio_channels": 2,
+  "hyperframes_version": "0.9.20",
+  "render_quality": "draft",
+  "capture_path": "screenshot",
+  "gpu_mode": "software",
+  "workers": 1,
+  "render_wall_seconds": 138.8,
+  "source_dimensions": [
+    1920,
+    1080
+  ],
+  "draft_dimensions": [
+    960,
+    540
+  ],
+  "draft_preparation": "scripts/prepare-draft.py; half-scale stage in an ignored derivative project",
+  "browser_checks_skipped": false,
+  "checks": {
+    "lint": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 6
+    },
+    "runtime": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "layout": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "motion": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "contrast": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "craft": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "audio": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  },
+  "contrast_passed": 51,
+  "contrast_checked": 51,
+  "motion_samples": 300,
+  "craft_samples": 599,
+  "kept_warnings": "Six chapter-density warnings; coherent chapters contain four to seven shot clips.",
+  "scene_midpoints_inspected": 36,
+  "decoded_frame_times_seconds": [
+    0,
+    8.09,
+    19.49,
+    32.04,
+    44.59,
+    51.09,
+    67,
+    76,
+    85.09,
+    134.065,
+    214,
+    222.9
+  ],
+  "frame_similarity_ssim": {
+    "19.49": 0.966734,
+    "44.59": 0.985878,
+    "67": 0.97954,
+    "76": 0.981147
+  },
+  "audio_sources": [
+    "audio/narration.wav"
+  ],
+  "audio_loudness": {
+    "lufsIntegrated": -14.2,
+    "loudnessRangeLU": 3.6,
+    "truePeakDbTP": -1.0
+  },
+  "audio_review": "Transcript and signal measurements; not heard by the agent. Human listening validation is pending.",
+  "narration_seconds": 203.32,
+  "narration_word_count": 438,
+  "first_export": {
+    "artifact": "exports/galaxy-explained.mp4",
+    "sha256": "cb8c9b4f107e2571134d263bcd5519f5d4ccb5f5ef1970649d6f4986a5d6c3ac",
+    "unchanged": true
+  },
+  "research_as_of": "2026-11-08",
+  "full_credits": "CREDITS.md",
+  "review": "REVIEW-draft.md",
+  "reproduction_note": "Set TMPDIR to the project-local ignored .hyperframes/tmp directory; system /tmp returned a quota error."
+}
