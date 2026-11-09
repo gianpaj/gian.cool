@@ -1,5 +1,9 @@
-<template><link rel="stylesheet" href="assets/film.css"><style>#engineering{position:absolute;inset:0;font-family:Film,sans-serif;color:#242a26}</style>
-<div id="engineering" data-composition-id="engineering" data-width="1920" data-height="1080"><section id="s14" class="clip scene s14" data-start="0.000" data-duration="6.000" data-track-index="1">
+<template>
+<style>#root{position:absolute;inset:0;font-family:Film,sans-serif;color:#242a26}</style>
+<link rel="stylesheet" href="assets/film.css">
+<link rel="stylesheet" href="assets/motion.css">
+<div id="root" data-composition-id="engineering" data-width="1920" data-height="1080">
+<section id="s14" class="clip scene s14" data-start="0.000" data-duration="6.000" data-track-index="1">
       <div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
       <h1>Inside an AI data centre</h1><div class="content"><div class="photo-text"><div class="photo-copy"><p class="eyeline">ACCELERATORS</p><p class="photo-note">Memory + networking keep the chips supplied.</p></div><img class="photo" src="assets/images/h100.png" alt="ACCELERATORS" /></div></div><p class="source">Illustrative H100: Geekerwan / CC BY 3.0 • not confirmed Galaxy equipment • fitted; watermark retained</p>
     </section><section id="s15" class="clip scene s15" data-start="6.000" data-duration="5.000" data-track-index="1">
@@ -8,17 +12,80 @@
     </section><section id="s16" class="clip scene s16" data-start="11.000" data-duration="6.000" data-track-index="1" data-hold>
       <div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
       <h1>A small pilot inside a larger phase</h1><div class="content"><div class="word-stack"><div class="reveal smaller">5 MW pilot</div><div class="reveal smaller">About 4% of the reported 120 MW phase</div></div></div><p class="source">Sources: SemiAnalysis; Envision, 2 Nov 2026 • pilot is a subset, not extra capacity</p>
-    </section><section id="s17" class="clip scene s17" data-start="17.000" data-duration="6.810" data-track-index="1" data-hold>
-      <div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
-      <h1>From alternating to direct current</h1><div class="content"><svg viewBox="0 0 1720 530" aria-hidden="true"><path class="power-line" d="M75 265 H1625" fill="none" stroke="#b45a18" stroke-width="9" stroke-linecap="round" /><rect x="90" y="170" width="300" height="190" rx="8" fill="#f7f6ef" stroke="#242a26" stroke-width="4"/><text x="240.0" y="255.0" text-anchor="middle" fill="#242a26" font-size="36" font-weight="700" class="">10 kV AC</text><text x="240.0" y="310.0" text-anchor="middle" fill="#242a26" font-size="31" font-weight="400" class="">Incoming supply</text><rect x="540" y="170" width="380" height="190" rx="8" fill="#f7f6ef" stroke="#b45a18" stroke-width="4"/><text x="730.0" y="255.0" text-anchor="middle" fill="#b45a18" font-size="36" font-weight="700" class="">SOLID-STATE</text><text x="730.0" y="310.0" text-anchor="middle" fill="#242a26" font-size="31" font-weight="400" class="">Transformer</text><rect x="1080" y="170" width="300" height="190" rx="8" fill="#f7f6ef" stroke="#b45a18" stroke-width="4"/><text x="1230.0" y="255.0" text-anchor="middle" fill="#b45a18" font-size="36" font-weight="700" class="">800 V DC</text><text x="1230.0" y="310.0" text-anchor="middle" fill="#242a26" font-size="31" font-weight="400" class="">Distribution bus</text><text x="860" y="465" text-anchor="middle" fill="#242a26" font-size="34" font-weight="400" class="">Reported 5 MW pilot • one part of the first phase</text></svg></div><p class="source">Reported Galaxy pilot • sources: SemiAnalysis; Envision, 2 Nov 2026</p>
-    </section><section id="s18" class="clip scene s18" data-start="23.810" data-duration="5.000" data-track-index="1">
-      <div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
-      <h1>Higher voltage. Lower current.</h1><div class="content"><svg viewBox="0 0 1720 530" aria-hidden="true"><text x="860" y="75" text-anchor="middle" fill="#242a26" font-size="36" font-weight="700" class="">SAME DC POWER: 100 kW</text><text x="420" y="195" text-anchor="middle" fill="#242a26" font-size="83" font-weight="700" class="">400 V</text><text x="1290" y="195" text-anchor="middle" fill="#b45a18" font-size="83" font-weight="700" class="">800 V</text><text x="420" y="315" text-anchor="middle" fill="#242a26" font-size="108" font-weight="700" class="">250 A</text><text x="1290" y="315" text-anchor="middle" fill="#b45a18" font-size="108" font-weight="700" class="">125 A</text><path d="M650 280 H1060 M1020 250 L1060 280 L1020 310" fill="none" stroke="#242a26" stroke-width="6"/><text x="860" y="445" text-anchor="middle" fill="#242a26" font-size="44" font-weight="700" class="">Power = voltage × current</text><text x="860" y="505" text-anchor="middle" fill="#242a26" font-size="31" font-weight="400" class="">An illustrative calculation, not Galaxy measurements</text></svg></div><p class="source">Ideal DC example • fixed power and conductor resistance • not a total-site efficiency claim</p>
-    </section><section id="s19" class="clip scene s19" data-start="28.810" data-duration="7.190" data-track-index="1">
-      <div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
-      <h1>Less conductor heating</h1><div class="content"><svg viewBox="0 0 1720 530" aria-hidden="true"><text x="860" y="75" text-anchor="middle" fill="#242a26" font-size="36" font-weight="700" class="">SAME DC POWER: 100 kW</text><text x="420" y="195" text-anchor="middle" fill="#242a26" font-size="83" font-weight="700" class="">400 V</text><text x="1290" y="195" text-anchor="middle" fill="#b45a18" font-size="83" font-weight="700" class="">800 V</text><text x="420" y="315" text-anchor="middle" fill="#242a26" font-size="108" font-weight="700" class="">250 A</text><text x="1290" y="315" text-anchor="middle" fill="#b45a18" font-size="108" font-weight="700" class="">125 A</text><path d="M650 280 H1060 M1020 250 L1060 280 L1020 310" fill="none" stroke="#242a26" stroke-width="6"/><text x="860" y="420" text-anchor="middle" fill="#242a26" font-size="44" font-weight="700" class="">Conductor heating = I²R</text><text x="860" y="490" text-anchor="middle" fill="#242a26" font-size="31" font-weight="400" class="">Same resistance • Galaxy savings are not measured here</text></svg></div><p class="source">Ideal DC example • fixed power and conductor resistance • not a total-site efficiency claim</p>
-    </section><section id="s20" class="clip scene s20" data-start="36.000" data-duration="4.950" data-track-index="1">
-      <div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
-      <h1>One more step before the chips</h1><div class="content"><svg viewBox="0 0 1720 530" aria-hidden="true"><path class="power-line" d="M90 265 H1600" fill="none" stroke="#b45a18" stroke-width="9" stroke-linecap="round" /><rect x="70" y="170" width="340" height="190" rx="8" fill="#f7f6ef" stroke="#b45a18" stroke-width="4"/><text x="240.0" y="255.0" text-anchor="middle" fill="#b45a18" font-size="36" font-weight="700" class="">800 V DC</text><text x="240.0" y="310.0" text-anchor="middle" fill="#242a26" font-size="31" font-weight="400" class="">Distribution bus</text><rect x="630" y="170" width="380" height="190" rx="8" fill="#f7f6ef" stroke="#242a26" stroke-width="4"/><text x="820.0" y="255.0" text-anchor="middle" fill="#242a26" font-size="36" font-weight="700" class="">RACK DC / DC</text><text x="820.0" y="310.0" text-anchor="middle" fill="#242a26" font-size="31" font-weight="400" class="">Further conversion</text><rect x="1250" y="170" width="350" height="190" rx="8" fill="#f7f6ef" stroke="#242a26" stroke-width="4"/><text x="1425.0" y="255.0" text-anchor="middle" fill="#242a26" font-size="36" font-weight="700" class="">CHIPS</text><text x="1425.0" y="310.0" text-anchor="middle" fill="#242a26" font-size="31" font-weight="400" class="">Much lower voltage</text><text x="860" y="465" text-anchor="middle" fill="#242a26" font-size="34" font-weight="400" class="">800 volts is not applied directly to the silicon</text></svg></div><p class="source">General power-conversion explanation • sources: NVIDIA; SemiAnalysis</p>
-    </section></div>
-<script>const tl=gsap.timeline({paused:true});tl.fromTo("#s14 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},0.020);tl.fromTo("#s15 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},6.020);tl.fromTo("#s16 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},11.020);tl.fromTo("#s17 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},17.020);tl.fromTo("#s18 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},23.830);tl.fromTo("#s19 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},28.830);tl.fromTo("#s20 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},36.020);tl.set({},{},40.950);window.__timelines=window.__timelines||{};window.__timelines['engineering']=tl;</script></template>
+    </section>
+<section id="power-demo" class="clip scene" data-start="17.000" data-duration="23.950" data-track-index="1" data-beat>
+<div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
+<h1 id="power-title">Follow the power into the rack</h1>
+<div class="content motion-content">
+<svg viewBox="0 0 1720 530" aria-label="Reported power conversion and an illustrative equal-power current comparison">
+<g id="power-path">
+<path class="wire" d="M300 240 H1380"/>
+<g id="incoming"><rect class="device" x="10" y="120" width="310" height="240"/><text class="label" x="165" y="175">10 kV AC</text><path class="signal" d="M40 260 Q65 170 90 260 T140 260 T190 260 T240 260 T290 260"/></g>
+<g id="sst"><rect class="device accent-stroke" x="585" y="100" width="480" height="280"/><text class="label" x="825" y="165">SOLID-STATE</text><text class="quiet" x="825" y="215">Transformer</text><path class="signal" d="M620 295 Q640 235 660 295 T700 295 T740 295"/><path class="arrow" d="M770 285 H860 M840 270 L860 285 L840 300"/><path class="signal" d="M905 280 H1030"/></g>
+<g id="bus"><rect class="device accent-stroke" x="1320" y="120" width="370" height="240"/><text class="label" x="1505" y="185">800 V DC</text><path class="signal" d="M1370 265 H1640 M1370 290 H1640" stroke-dasharray="none"/><text class="quiet" x="1505" y="335">Distribution bus</text></g>
+<path id="conversion-trace" class="flow" d="M320 240 H585 M1065 240 H1320"/>
+<text class="quiet" x="860" y="475">Reported 5 MW pilot within the 120 MW phase</text>
+</g>
+<g id="current-demo">
+<text class="label" x="860" y="45">SAME COMPUTING POWER · 100 kW DC</text>
+<text class="quiet" x="400" y="105">Reference</text><text class="quiet" x="1270" y="105">Raise the voltage</text>
+<text class="value" x="400" y="185">400 V</text><text id="voltage-value" class="value accent-fill" x="1270" y="185">400 V</text>
+<rect class="bar-back" x="130" y="215" width="540" height="30"/><rect class="bar-back" x="1000" y="215" width="540" height="30"/>
+<rect class="ink-fill" x="130" y="215" width="270" height="30"/><rect id="voltage-bar" class="amber-fill" x="1000" y="215" width="270" height="30"/>
+<text class="value" x="400" y="345">250 A</text><text id="current-value" class="value accent-fill" x="1270" y="345">250 A</text>
+<rect class="bar-back" x="130" y="375" width="540" height="30"/><rect class="bar-back" x="1000" y="375" width="540" height="30"/>
+<rect class="ink-fill" x="130" y="375" width="540" height="30"/><rect id="current-bar" class="amber-fill" x="1000" y="375" width="540" height="30"/>
+<text id="power-equation" class="label" x="860" y="490">Power = voltage × current</text>
+<g id="site-measurement"><text class="quiet" x="835" y="290">Site savings?</text><text class="quiet accent-fill" x="835" y="335">Unverified</text></g><g id="heat-demo"><text class="quiet" x="860" y="445">Conductor heating = I²R · same resistance</text><text class="label" x="400" y="515">100% reference heat</text><text id="heat-result" class="label accent-fill" x="1270" y="515">25% conductor heat</text><path id="heat-left" d="M150 465 H650" stroke="#b45a18" stroke-width="12"/><path id="heat-right" d="M1020 465 H1520" stroke="#b45a18" stroke-width="12"/></g>
+</g>
+<g id="rack-path">
+<path class="wire" d="M350 245 H1390"/>
+<g id="rack-bus"><rect class="device accent-stroke" x="20" y="130" width="350" height="230"/><text class="label" x="195" y="220">800 V DC</text><text class="quiet" x="195" y="280">Distribution bus</text></g>
+<g id="rack-converter"><rect class="device" x="620" y="100" width="420" height="290"/><text class="label" x="830" y="190">RACK DC / DC</text><text class="quiet" x="830" y="250">Further conversion</text><path class="signal" d="M700 310 H970"/></g>
+<g id="chip"><rect class="device" x="1320" y="150" width="330" height="190"/><rect x="1410" y="170" width="150" height="150" fill="#242a26"/><path d="M1430 205 H1540 M1430 245 H1540 M1430 285 H1540" stroke="#f5f3ea" stroke-width="8"/><text class="label" x="1485" y="420">CHIPS</text></g>
+<path id="rack-trace" class="flow" d="M370 245 H620 M1040 245 H1320"/>
+<text class="quiet" x="860" y="500">Chip electronics use much lower voltages</text>
+</g>
+</svg>
+</div>
+<p class="source">Sources · SemiAnalysis; Envision; NVIDIA · 100 kW example holds power and resistance constant</p>
+</section>
+</div>
+<script>
+const tl = gsap.timeline({paused:true});
+tl.fromTo("#s14 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},0.020);tl.fromTo("#s15 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},6.020);tl.fromTo("#s16 .content",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},11.020);
+const marks = [0.0, 6.0, 11.0, 17.0, 23.81, 28.81, 36.0];
+const begin = marks[3];
+const voltageAt = marks[4];
+const heatAt = marks[5];
+const rackAt = marks[6];
+tl.fromTo('#incoming',{opacity:0,x:-40},{opacity:1,x:0,duration:0.6,ease:'expo.out'},begin+0.08);
+tl.fromTo('#sst',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:0.8,ease:'power4.out'},begin+0.7);
+tl.fromTo('#bus',{opacity:0,x:45},{opacity:1,x:0,duration:0.65,ease:'expo.out'},begin+2.1);
+tl.fromTo('#bus .label',{opacity:0},{opacity:1,duration:0.5},begin+3.8);
+tl.fromTo('#conversion-trace',{strokeDasharray:'24 18',strokeDashoffset:400},{strokeDashoffset:0,duration:5.4,ease:'none'},begin+0.9);
+tl.fromTo('#power-path',{opacity:1},{opacity:0,duration:0.3,ease:'power3.in'},voltageAt-0.3);
+tl.fromTo('#current-demo',{opacity:0},{opacity:1,duration:0.35,ease:'power2.out'},voltageAt);
+const electrical = {voltage:400};
+tl.fromTo(electrical,{voltage:400},{voltage:800,duration:2,ease:'power2.inOut',onUpdate:()=>{
+  const voltage=electrical.voltage;
+  document.getElementById('voltage-value').textContent=Math.round(voltage)+' V';
+  document.getElementById('current-value').textContent=Math.round(100000/voltage)+' A';
+  document.getElementById('voltage-bar').setAttribute('width',270*voltage/400);
+  document.getElementById('current-bar').setAttribute('width',540*400/voltage);
+}},voltageAt+0.65);
+tl.fromTo('#power-equation',{opacity:1},{opacity:0,duration:0.2},heatAt);
+tl.fromTo('#heat-demo',{opacity:0},{opacity:1,duration:0.35},heatAt+0.25);
+tl.fromTo('#heat-right',{attr:{d:'M1020 465 H1520'}},{attr:{d:'M1020 465 H1145'},duration:1.6,ease:'power2.inOut'},heatAt+0.6);
+tl.fromTo('#heat-result',{opacity:0},{opacity:1,duration:0.4},heatAt+2.1);
+tl.fromTo('#site-measurement',{opacity:0},{opacity:1,duration:0.5},heatAt+3.6);
+tl.fromTo('#current-demo',{opacity:1},{opacity:0,duration:0.3,ease:'power3.in',immediateRender:false},rackAt-0.3);
+tl.fromTo('#rack-path',{opacity:0},{opacity:1,duration:0.25},rackAt);
+tl.fromTo('#rack-converter',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:0.7,ease:'power4.out'},rackAt+0.6);
+tl.fromTo('#chip',{scale:0.65,opacity:0,svgOrigin:'1485 245'},{scale:1,opacity:1,duration:0.7,ease:'expo.out'},rackAt+2.1);
+tl.fromTo('#rack-trace',{strokeDasharray:'24 18',strokeDashoffset:280},{strokeDashoffset:0,duration:4.5,ease:'none'},rackAt+0.25);
+tl.set({}, {}, 40.950);
+window.__timelines=window.__timelines||{};
+window.__timelines.engineering=tl;
+</script>
+</template>

@@ -25,3 +25,13 @@ System `/tmp` returned a disk-quota error despite reported free space and closed
 The review draft is verified at `research/china-stargate/video/film/exports/galaxy-review-draft-2026-11-08.mp4`: 960 × 540, 15 fps, 223 seconds, 7,722,640 bytes. One software screenshot worker rendered it in 138.8 seconds. All 36 scene midpoints and representative decoded frames were inspected. Audio measures −14.2 LUFS integrated and −1.0 dBTP; credits are silent. Transcription and measurements do not replace the user’s listening review.
 
 `verification-draft.json` and `REVIEW-draft.md` describe this review file. The first export’s hash is unchanged. User validation remains pending; no new delivery-quality render, push, publishing or outreach is part of this draft handoff. Keep this note proposed until that review is resolved.
+
+## Motion revision, 9 November 2026
+
+The approved revision follows the fax project's picture-first motion approach. Custom `sequences/capacity.html`, `sequences/power.html` and `sequences/energy.html` replace the capacity, engineering and energy chapter templates. `scripts/motion_sequences.py` inserts measured speech anchors and the existing opening and ending material for those chapters. The generator retains the template sources so rebuilding preserves the motion.
+
+Power conversion reveals each stage in order. The constant 100 kW DC example animates voltage from 400 to 800 V and computes current as 100,000 W divided by voltage. At fixed resistance, the heating ratio is (125/250)² = 0.25. This refers to conductor heating in the illustrative example.
+
+The wind sequence uses a declared relative-generation profile and constant example load. Stored energy integrates generation minus load over the example interval. Charging, discharge direction and exhaustion follow that integral. The example assumes lossless storage, omits power limits and introduces no Galaxy capacity or reliability measurements. One timeline clock drives the state for deterministic seeking.
+
+The user's editor changes to opening-photo cropping and caption visibility are preserved in place and checkpointed under `.hyperframes/checkpoints/motion-review`. They are excluded from this revision's commits. The 203.32-second narration is reused, with staged actions placed at its existing sentence anchors. The 223-second duration stays within the approved 3–4 minute format.

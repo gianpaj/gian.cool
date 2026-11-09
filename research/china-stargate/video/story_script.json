@@ -1,5 +1,5 @@
 {
-  "status": "Low-resolution review draft rendered and verified; user validation pending",
+  "status": "Motion review draft rendering; user validation pending",
   "created": "2026-11-07",
   "research_as_of": "2026-11-08",
   "skill": "/home/gianpaj/github/gianpaj/skills/video-story-generator/SKILL.md",
@@ -39,7 +39,7 @@
     ]
   },
   "scope": {
-    "current_phase": "540p review draft ready for user validation",
+    "current_phase": "Custom explanatory motion revision",
     "production_actions_performed": [
       "Prepared a separate Gemini TTS performance transcript",
       "Generated one continuous narration take",
@@ -47,7 +47,7 @@
       "Built and checked an editable HyperFrames composition",
       "Rendered and inspected a 1080p H264/AAC MP4"
     ],
-    "skill_adaptation": "Preserve the approved documentary story and six-second editing units. Use licensed imagery and original diagrams. Prepare Gemini TTS separately, then fit measured speech to visual timing."
+    "skill_adaptation": "Use the HyperFrames core explainer and motion guidance for custom continuous diagrams, with hyperframes-cli for checks and rendering. Story shot units retain factual narration and source references."
   },
   "asset_manifest": "../images/manifest.json",
   "asset_credits": "../images/CREDITS.md",
@@ -204,7 +204,7 @@
       "duration_seconds": 6,
       "beat": "scale",
       "narration": "SemiAnalysis reports 120 megawatts delivered in August 2026, within a year.",
-      "visual_desc": "Show reported delivered 120 MW within the outlined 800 MW IT plan. Date August 2026. A continuous full year at 120 MW is roughly 100,000 US homes’ annual grid electricity purchases, using EIA 2022 data. This is an energy equivalent, not measured Galaxy usage.",
+      "visual_desc": "Animate the reported 120 MW delivered phase inside the outlined 800 MW IT plan. Reveal August 2026 with the narration. Retain the EIA full-year household comparison.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -219,7 +219,7 @@
       "duration_seconds": 6,
       "beat": "scale",
       "narration": "That's power for computing equipment. Megawatts measure the rate of electricity use, not AI performance.",
-      "visual_desc": "Retain 120 MW reported delivered and 800 MW planned. Explain MW as the rate of electricity use. IT capacity refers to computing equipment; cooling and other site loads are additional.",
+      "visual_desc": "Carry the power concept into a diagram linking an MW symbol to computing racks. Reveal the definition of MW as a rate of electricity use.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -233,7 +233,7 @@
       "duration_seconds": 6,
       "beat": "scale",
       "narration": "The full plan is 800 megawatts. Used continuously, that matches the annual grid electricity bought by about 650,000 US homes.",
-      "visual_desc": "Original home icon and large 650,000-home comparison beside planned 800 MW IT. Explicitly label continuous use for one year and EIA 2022 average residential purchases. Planned capacity does not establish actual use.",
+      "visual_desc": "Keep the planned 800 MW anchor while a neighbourhood builds and a counter lands at about 650,000 US homes. State continuous full-year use and EIA 2022 grid-purchase baseline.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -248,7 +248,7 @@
       "duration_seconds": 6,
       "beat": "scale",
       "narration": "Or about 67 stadiums like Munich's Allianz Arena, comparing their maximum available electrical power.",
-      "visual_desc": "Original stadium icon. Compare 800 MW planned IT with approximately 67 times Allianz Arena’s 12 MW available electrical connection. This compares available power, not match-day or annual stadium consumption.",
+      "visual_desc": "Grow a field of 67 stadium symbols beside the same planned capacity. State the Allianz Arena 12 MW available-power benchmark.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -263,7 +263,7 @@
       "duration_seconds": 6,
       "beat": "scale",
       "narration": "For AI, imagine eight centres using 100 megawatts for computing each. Cooling needs extra power. These are comparisons, not measured usage.",
-      "visual_desc": "Original rack/building symbols. Eight illustrative AI centres with 100 MW computing load each add to 800 MW IT. Explicitly label the chosen size assumption and extra cooling/site power; IEA provides scale context, not a universal centre size or a verified IT boundary.",
+      "visual_desc": "Build eight labelled 100 MW computing-centre symbols. Reveal the extra cooling/site power requirement and the unverified actual-use qualifier with narration.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -324,7 +324,7 @@
       "duration_seconds": 6,
       "beat": "power_to_rack",
       "narration": "Solid-state transformers convert incoming alternating current into an 800-volt direct-current bus.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Simplified schematic: 10 kV AC -> solid-state transformer -> 800 V DC bus. Reveal one stage every two seconds. Caption Simplified pilot architecture, not as-built. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Build the incoming AC, solid-state transformer, DC bus and connecting power flow in order. The pilot stays reported and scoped to 5 MW.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -339,7 +339,7 @@
       "duration_seconds": 6,
       "beat": "power_to_rack",
       "narration": "At the same power, doubling DC voltage halves the current in a conductor.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Original ideal-DC worked example: 100 kW at 400 V uses 250 A; 100 kW at 800 V uses 125 A. Reveal sequentially, label Equal power / Illustrative, then hold across the next shot. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "In one 100 kW DC example, animate voltage from 400 to 800 V and compute current as 100,000 divided by voltage, ending at 125 A against a 250 A reference.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -353,7 +353,7 @@
       "duration_seconds": 6,
       "beat": "power_to_rack",
       "narration": "At the same resistance, lower current reduces heating losses. Galaxy's actual savings need measuring.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Hold the equal-power example, shrinking the heat marker at lower current. Keep Constant resistance / DC illustration visible. No percentage efficiency claim for Galaxy. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "At fixed resistance, shrink the example conductor-heating bar to one quarter of the reference. Reveal that measured site savings remain unverified.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -367,7 +367,7 @@
       "duration_seconds": 6,
       "beat": "power_to_rack",
       "narration": "Rack electronics still reduce voltage further before that power reaches the chips.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Continue from the same 800 V bus into a rack DC/DC block and then an abstract chip. Never show 800 V applied directly to silicon. End on the power line entering the rack. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Return to the 800 V bus and reveal further rack-level conversion, then the lower-voltage chip electronics.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -383,7 +383,7 @@
       "duration_seconds": 6,
       "beat": "wind_and_storage",
       "narration": "Envision also makes turbines and batteries, extending its role beyond owning the building.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Zoom out along the schematic to show turbine, battery and rack together. Label as Envision supply roles, not a literal physical layout. Optional interview replacement begins here. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Establish the turbine-to-computing path as a continuous scene.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -398,7 +398,7 @@
       "duration_seconds": 6,
       "beat": "wind_and_storage",
       "narration": "The company can coordinate generation, storage and equipment supplying power inside the campus.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Emphasize the connections between those same components sequentially. Keep equipment positions fixed and the power direction consistent. Optional interview replacement ends here. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Grow the storage branch and conversion equipment onto the existing power path.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -413,7 +413,7 @@
       "duration_seconds": 6,
       "beat": "wind_and_storage",
       "narration": "But a wind farm's rated power is not its output at every moment.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Return to the regional wind photo, retaining its 2012 caption. Transition to an original variable-output line, explicitly labelled Illustrative, with no implied Galaxy measurements. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Reframe the same network to make room for a wind-output trace and constant illustrative load.",
       "asset_ids": [
         "ulanqab-wind-2012"
       ],
@@ -429,7 +429,7 @@
       "duration_seconds": 6,
       "beat": "wind_and_storage",
       "narration": "The wind rises and falls. Computing equipment needs reliable power through those changes.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Animate an illustrative chronological wind-output line under a constant example load for four seconds. Do not reuse the article's sorted-hours curve as a time series. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Move a cursor through changing wind generation against the example load.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -443,7 +443,7 @@
       "duration_seconds": 6,
       "beat": "wind_and_storage",
       "narration": "Batteries store some surplus electricity and supply it when generation falls below demand.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. On the same illustrative graph, move surplus energy into the battery symbol, then out during a short dip. Preserve the line geometry and load reference. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Replay the example while integrating generation minus load into stored energy. Show charge direction for surplus and delivery from the battery for shortfall.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -458,7 +458,7 @@
       "duration_seconds": 6,
       "beat": "wind_and_storage",
       "narration": "Their usefulness depends on power, stored energy, and how long the calm lasts.",
-      "visual_desc": "Documentary photography with restrained original explanatory graphics, 16:9, natural photo colour, dark text on a warm light ground, one amber accent for electrical flow. Extend the illustrative calm interval until the depicted battery is depleted. No invented Galaxy MW, MWh or autonomy values. Include a grid branch as a general reliability option. Schematic continuity only: the same three-bladed turbine, single left-to-right amber power line and rectangular five-slot rack. Real photos retain their documented subjects.",
+      "visual_desc": "Continue into the low-wind interval until the illustrative stored energy is exhausted. Label the need for another supply. The model is not Galaxy operating data.",
       "asset_ids": [],
       "original_graphic_required": true,
       "source_ids": [
@@ -623,17 +623,17 @@
   ],
   "tts_preparation": "../../../plans/2026-11-07-china-stargate-video.md#separate-tts-preparation",
   "production": {
-    "status": "Review draft verified; user validation pending",
+    "status": "Motion review rendering",
     "duration_seconds": 223,
     "timing_file": "film/audio/timing.json",
-    "output": "film/exports/galaxy-review-draft-2026-11-08.mp4",
-    "verification": "film/verification-draft.json",
+    "output": "film/exports/galaxy-motion-draft-2026-11-09.mp4",
+    "verification": "film/verification-motion.json",
     "resolution": [
       960,
       540
     ],
-    "fps": 15,
-    "timing_note": "Six-second shot timings are editorial references; measured revised narration sets the 223-second draft. User validation precedes another delivery render."
+    "fps": 30,
+    "timing_note": "Custom continuous scenes use measured sentence anchors within the 223-second timeline. The existing narration take is reused."
   },
   "first_export": {
     "duration_seconds": 206,
@@ -641,5 +641,18 @@
     "output": "film/exports/galaxy-explained.mp4",
     "verification": "film/verification.json",
     "timing_note": "Retained first-export files and verification describe the 7 November cut. The local checkpoint is ignored; its tracked source can also be recovered from the Git history."
-  }
+  },
+  "review_exports": [
+    {
+      "date": "2026-11-08",
+      "output": "film/exports/galaxy-review-draft-2026-11-08.mp4",
+      "verification": "film/verification-draft.json",
+      "resolution": [
+        960,
+        540
+      ],
+      "fps": 15,
+      "duration_seconds": 223
+    }
+  ]
 }

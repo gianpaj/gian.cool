@@ -5,6 +5,7 @@ import json
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from motion_sequences import build_sequence
 
 FILM = Path(__file__).resolve().parent.parent
 STORY = json.loads((FILM.parent / 'story_script.json').read_text())
@@ -359,7 +360,8 @@ for name,first,last in chapters:
     scene_doc=f'''<template><link rel="stylesheet" href="assets/film.css"><style>#{name}{{position:absolute;inset:0;font-family:Film,sans-serif;color:#242a26}}</style>
 <div id="{name}" data-composition-id="{name}" data-width="1920" data-height="1080">{''.join(local)}</div>
 <script>const tl=gsap.timeline({{paused:true}});{''.join(local_tweens)}tl.set({{}},{{}},{length:.3f});window.__timelines=window.__timelines||{{}};window.__timelines['{name}']=tl;</script></template>'''
-    (FILM/f'compositions/{name}.html').write_text(scene_doc)
+    sequence = build_sequence(name, FILM, starts, ends, local, local_tweens)
+    (FILM/f'compositions/{name}.html').write_text(sequence or scene_doc)
     hosts.append(f'<div id="{name}" class="clip" data-composition-id="{name}" data-composition-src="compositions/{name}.html" data-start="{base:.3f}" data-duration="{length:.3f}" data-width="1920" data-height="1080" data-track-index="1" data-track-kind="graphics"></div>')
 caption_duration=starts[33]
 if times:

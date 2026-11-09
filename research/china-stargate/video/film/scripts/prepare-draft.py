@@ -20,7 +20,7 @@ document = document.replace('#root{position:relative;width:1920px;height:1080px;
 document = document.replace('</style></head>', '.draft-stage{position:absolute;width:1920px;height:1080px;transform:scale(0.5);transform-origin:0 0}</style></head>')
 document, count = re.subn(
     r'(<div id="root"[^>]*data-width=")1920(" data-height=")1080(" data-fps=")30(">)',
-    r'\g<1>960\g<2>540\g<3>15\g<4><div class="draft-stage">', document,
+    r'\g<1>960\g<2>540\g<3>30\g<4><div class="draft-stage">', document,
 )
 if count != 1:
     raise SystemExit('Expected exactly one master root; draft was not accepted')
@@ -30,4 +30,4 @@ motion = json.loads((FILM/'index.motion.json').read_text())
 motion['duration'] = json.loads((FILM/'audio/timing.json').read_text())['duration_seconds']
 (draft/'index.motion.json').write_text(json.dumps(motion, indent=2)+'\n')
 (draft/'meta.json').write_text(json.dumps({'id':'galaxy-review-draft','name':'Galaxy review draft — 540p'}, indent=2)+'\n')
-print(f'Prepared {draft}: 960 × 540, 15 fps; narration only')
+print(f'Prepared {draft}: 960 × 540, 30 fps; narration only')

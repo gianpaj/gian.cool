@@ -1,0 +1,82 @@
+<template>
+<style>#root{position:absolute;inset:0;font-family:Film,sans-serif;color:#242a26}</style>
+<link rel="stylesheet" href="assets/film.css">
+<link rel="stylesheet" href="assets/motion.css">
+<div id="root" data-composition-id="engineering" data-width="1920" data-height="1080">
+__INTRO__
+<section id="power-demo" class="clip scene" data-start="__POWER_START__" data-duration="__POWER_DURATION__" data-track-index="1" data-beat>
+<div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
+<h1 id="power-title">Follow the power into the rack</h1>
+<div class="content motion-content">
+<svg viewBox="0 0 1720 530" aria-label="Reported power conversion and an illustrative equal-power current comparison">
+<g id="power-path">
+<path class="wire" d="M300 240 H1380"/>
+<g id="incoming"><rect class="device" x="10" y="120" width="310" height="240"/><text class="label" x="165" y="175">10 kV AC</text><path class="signal" d="M40 260 Q65 170 90 260 T140 260 T190 260 T240 260 T290 260"/></g>
+<g id="sst"><rect class="device accent-stroke" x="585" y="100" width="480" height="280"/><text class="label" x="825" y="165">SOLID-STATE</text><text class="quiet" x="825" y="215">Transformer</text><path class="signal" d="M620 295 Q640 235 660 295 T700 295 T740 295"/><path class="arrow" d="M770 285 H860 M840 270 L860 285 L840 300"/><path class="signal" d="M905 280 H1030"/></g>
+<g id="bus"><rect class="device accent-stroke" x="1320" y="120" width="370" height="240"/><text class="label" x="1505" y="185">800 V DC</text><path class="signal" d="M1370 265 H1640 M1370 290 H1640" stroke-dasharray="none"/><text class="quiet" x="1505" y="335">Distribution bus</text></g>
+<path id="conversion-trace" class="flow" d="M320 240 H585 M1065 240 H1320"/>
+<text class="quiet" x="860" y="475">Reported 5 MW pilot within the 120 MW phase</text>
+</g>
+<g id="current-demo">
+<text class="label" x="860" y="45">SAME COMPUTING POWER · 100 kW DC</text>
+<text class="quiet" x="400" y="105">Reference</text><text class="quiet" x="1270" y="105">Raise the voltage</text>
+<text class="value" x="400" y="185">400 V</text><text id="voltage-value" class="value accent-fill" x="1270" y="185">400 V</text>
+<rect class="bar-back" x="130" y="215" width="540" height="30"/><rect class="bar-back" x="1000" y="215" width="540" height="30"/>
+<rect class="ink-fill" x="130" y="215" width="270" height="30"/><rect id="voltage-bar" class="amber-fill" x="1000" y="215" width="270" height="30"/>
+<text class="value" x="400" y="345">250 A</text><text id="current-value" class="value accent-fill" x="1270" y="345">250 A</text>
+<rect class="bar-back" x="130" y="375" width="540" height="30"/><rect class="bar-back" x="1000" y="375" width="540" height="30"/>
+<rect class="ink-fill" x="130" y="375" width="540" height="30"/><rect id="current-bar" class="amber-fill" x="1000" y="375" width="540" height="30"/>
+<text id="power-equation" class="label" x="860" y="490">Power = voltage × current</text>
+<g id="site-measurement"><text class="quiet" x="835" y="290">Site savings?</text><text class="quiet accent-fill" x="835" y="335">Unverified</text></g><g id="heat-demo"><text class="quiet" x="860" y="445">Conductor heating = I²R · same resistance</text><text class="label" x="400" y="515">100% reference heat</text><text id="heat-result" class="label accent-fill" x="1270" y="515">25% conductor heat</text><path id="heat-left" d="M150 465 H650" stroke="#b45a18" stroke-width="12"/><path id="heat-right" d="M1020 465 H1520" stroke="#b45a18" stroke-width="12"/></g>
+</g>
+<g id="rack-path">
+<path class="wire" d="M350 245 H1390"/>
+<g id="rack-bus"><rect class="device accent-stroke" x="20" y="130" width="350" height="230"/><text class="label" x="195" y="220">800 V DC</text><text class="quiet" x="195" y="280">Distribution bus</text></g>
+<g id="rack-converter"><rect class="device" x="620" y="100" width="420" height="290"/><text class="label" x="830" y="190">RACK DC / DC</text><text class="quiet" x="830" y="250">Further conversion</text><path class="signal" d="M700 310 H970"/></g>
+<g id="chip"><rect class="device" x="1320" y="150" width="330" height="190"/><rect x="1410" y="170" width="150" height="150" fill="#242a26"/><path d="M1430 205 H1540 M1430 245 H1540 M1430 285 H1540" stroke="#f5f3ea" stroke-width="8"/><text class="label" x="1485" y="420">CHIPS</text></g>
+<path id="rack-trace" class="flow" d="M370 245 H620 M1040 245 H1320"/>
+<text class="quiet" x="860" y="500">Chip electronics use much lower voltages</text>
+</g>
+</svg>
+</div>
+<p class="source">Sources · SemiAnalysis; Envision; NVIDIA · 100 kW example holds power and resistance constant</p>
+</section>
+</div>
+<script>
+const tl = gsap.timeline({paused:true});
+__INTRO_TWEENS__
+const marks = __MARKS__;
+const begin = marks[3];
+const voltageAt = marks[4];
+const heatAt = marks[5];
+const rackAt = marks[6];
+tl.fromTo('#incoming',{opacity:0,x:-40},{opacity:1,x:0,duration:0.6,ease:'expo.out'},begin+0.08);
+tl.fromTo('#sst',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:0.8,ease:'power4.out'},begin+0.7);
+tl.fromTo('#bus',{opacity:0,x:45},{opacity:1,x:0,duration:0.65,ease:'expo.out'},begin+2.1);
+tl.fromTo('#bus .label',{opacity:0},{opacity:1,duration:0.5},begin+3.8);
+tl.fromTo('#conversion-trace',{strokeDasharray:'24 18',strokeDashoffset:400},{strokeDashoffset:0,duration:5.4,ease:'none'},begin+0.9);
+tl.fromTo('#power-path',{opacity:1},{opacity:0,duration:0.3,ease:'power3.in'},voltageAt-0.3);
+tl.fromTo('#current-demo',{opacity:0},{opacity:1,duration:0.35,ease:'power2.out'},voltageAt);
+const electrical = {voltage:400};
+tl.fromTo(electrical,{voltage:400},{voltage:800,duration:2,ease:'power2.inOut',onUpdate:()=>{
+  const voltage=electrical.voltage;
+  document.getElementById('voltage-value').textContent=Math.round(voltage)+' V';
+  document.getElementById('current-value').textContent=Math.round(100000/voltage)+' A';
+  document.getElementById('voltage-bar').setAttribute('width',270*voltage/400);
+  document.getElementById('current-bar').setAttribute('width',540*400/voltage);
+}},voltageAt+0.65);
+tl.fromTo('#power-equation',{opacity:1},{opacity:0,duration:0.2},heatAt);
+tl.fromTo('#heat-demo',{opacity:0},{opacity:1,duration:0.35},heatAt+0.25);
+tl.fromTo('#heat-right',{attr:{d:'M1020 465 H1520'}},{attr:{d:'M1020 465 H1145'},duration:1.6,ease:'power2.inOut'},heatAt+0.6);
+tl.fromTo('#heat-result',{opacity:0},{opacity:1,duration:0.4},heatAt+2.1);
+tl.fromTo('#site-measurement',{opacity:0},{opacity:1,duration:0.5},heatAt+3.6);
+tl.fromTo('#current-demo',{opacity:1},{opacity:0,duration:0.3,ease:'power3.in',immediateRender:false},rackAt-0.3);
+tl.fromTo('#rack-path',{opacity:0},{opacity:1,duration:0.25},rackAt);
+tl.fromTo('#rack-converter',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:0.7,ease:'power4.out'},rackAt+0.6);
+tl.fromTo('#chip',{scale:0.65,opacity:0,svgOrigin:'1485 245'},{scale:1,opacity:1,duration:0.7,ease:'expo.out'},rackAt+2.1);
+tl.fromTo('#rack-trace',{strokeDasharray:'24 18',strokeDashoffset:280},{strokeDashoffset:0,duration:4.5,ease:'none'},rackAt+0.25);
+tl.set({}, {}, __DURATION__);
+window.__timelines=window.__timelines||{};
+window.__timelines.engineering=tl;
+</script>
+</template>

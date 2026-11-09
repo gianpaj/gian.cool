@@ -1,0 +1,122 @@
+<template>
+<style>#root{position:absolute;inset:0;font-family:Film,sans-serif;color:#242a26}</style>
+<link rel="stylesheet" href="assets/film.css"><link rel="stylesheet" href="assets/motion.css">
+<div id="root" data-composition-id="energy" data-width="1920" data-height="1080">
+<section id="energy-demo" class="clip scene" data-start="0" data-duration="__BALANCE_END__" data-track-index="1" data-beat>
+<div class="eyebrow">ENERGY / AI</div><div class="date">7 NOV 2026</div>
+<h1>Keeping power available as the wind changes</h1>
+<div class="content motion-content"><svg viewBox="0 0 1720 530" aria-label="An illustrative wind supply and battery balance over time">
+<g id="balance-chart">
+<path d="M330 10 V205 H1430" fill="none" stroke="#8e958b" stroke-width="3"/>
+<text class="quiet" x="330" y="-15" style="text-anchor:start">Relative power</text>
+<path id="wind-profile" d="M350 60.5 L500 35 L650 90.25 L800 103 L950 171 L1100 188 L1250 179.5 L1400 188" fill="none" stroke="#b45a18" stroke-width="7"/>
+<path d="M350 120 H1400" stroke="#242a26" stroke-width="4" stroke-dasharray="12 10"/>
+<text class="quiet" x="1515" y="130">Example load</text>
+<text class="quiet accent-fill" x="1110" y="20">Wind generation</text>
+<path id="balance-cursor" d="M350 25 V205" stroke="#242a26" stroke-width="3"/>
+<circle id="generation-point" cx="350" cy="65" r="10" fill="#b45a18"/>
+<text class="quiet" x="1400" y="245">Time →</text>
+</g>
+<g id="energy-network">
+<path class="wire" d="M300 235 H1460"/>
+<path id="battery-delivery" d="M850 235 H1460" fill="none" stroke="#3e574e" stroke-width="10" stroke-dasharray="15 14"/>
+<path id="generation-flow" class="flow" d="M300 235 H1460" stroke-dasharray="22 18"/>
+<g transform="translate(160 190) scale(0.65)">
+<path d="M0 0 L-12 225 L12 225 Z" fill="#deded1" stroke="#242a26" stroke-width="4"/>
+<g id="balance-rotor" transform="rotate(0 0 0)"><path d="M0 0 L-12 -126 Q-7 -155 5 -147 L14 -10 Z" fill="#242a26"/><path d="M0 0 L-12 -126 Q-7 -155 5 -147 L14 -10 Z" fill="#242a26" transform="rotate(120)"/><path d="M0 0 L-12 -126 Q-7 -155 5 -147 L14 -10 Z" fill="#242a26" transform="rotate(240)"/></g><circle r="17" fill="#b45a18"/>
+</g>
+<text class="label" x="160" y="390">WIND</text>
+<g id="balance-storage">
+<path d="M850 210 V235" stroke="#242a26" stroke-width="5"/>
+<rect class="device" x="755" y="85" width="190" height="125" rx="8"/><rect x="815" y="73" width="70" height="12" fill="#242a26"/>
+<rect id="stored-energy" x="765" y="175" width="170" height="25" fill="#b45a18"/>
+<text class="quiet" x="850" y="65">BATTERY</text>
+<path id="battery-direction" d="M830 228 L850 214 L870 228" fill="none" stroke="#b45a18" stroke-width="6"/>
+</g>
+<g id="site-power"><rect class="device" x="1080" y="180" width="220" height="110"/><text class="quiet" x="1190" y="225">POWER</text><text class="quiet" x="1190" y="267">Conversion</text></g>
+<g id="steady-rack" transform="translate(1500 160)"><rect width="120" height="180" rx="5" fill="#242a26"/><path d="M15 30 H105 M15 65 H105 M15 100 H105 M15 135 H105" stroke="#f5f3ea" stroke-width="18"/><circle id="rack-light" cx="108" cy="15" r="6" fill="#b45a18"/></g>
+<text class="label" x="1560" y="390">COMPUTING</text>
+</g>
+<text id="energy-intro" class="label" x="850" y="520">Generation, storage and computing</text>
+<text id="balance-state" class="label" x="850" y="520">Surplus generation charges the battery</text>
+</svg></div>
+<p class="source">Original illustrative balance · wind, battery and load values are assumptions · no Galaxy operating data</p>
+</section>
+__ENDING__
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+const marks=__MARKS__;
+const chartAt=marks[2];
+const variationAt=marks[3];
+const storageAt=marks[4];
+const durationAt=marks[5];
+tl.fromTo('#generation-flow',{strokeDashoffset:250},{strokeDashoffset:0,duration:__BALANCE_END__,ease:'none'},0);
+tl.fromTo('#balance-storage',{opacity:0,y:-25},{opacity:1,y:0,duration:0.75,ease:'expo.out'},marks[1]+0.5);
+tl.fromTo('#site-power',{opacity:0,x:-30},{opacity:1,x:0,duration:0.7,ease:'expo.out'},marks[1]+1.6);
+tl.fromTo('#balance-rotor',{attr:{transform:'rotate(0 0 0)'}},{attr:{transform:'rotate(300 0 0)'},duration:__BALANCE_END__,ease:'none'},0);
+tl.fromTo('#energy-network',{y:0},{y:135,duration:0.9,ease:'power2.inOut'},chartAt);
+tl.fromTo('#balance-chart',{opacity:0},{opacity:1,duration:0.7},chartAt+0.5);
+tl.fromTo('#wind-profile',{strokeDasharray:1400,strokeDashoffset:1400},{strokeDashoffset:0,duration:1.2,ease:'power2.inOut'},chartAt+0.65);
+const profile=[0.85,1,0.675,0.6,0.2,0.1,0.15,0.1];
+const load=0.5;
+function generationAt(progress){
+ const position=Math.min(6.99999,progress*7);
+ const index=Math.floor(position);
+ return profile[index]+(profile[index+1]-profile[index])*(position-index);
+}
+function energyAt(progress){
+ let energy=0.12;
+ const steps=200;
+ for(let step=0;step<steps;step++){
+  const moment=progress*(step+0.5)/steps;
+  energy+=(generationAt(moment)-load)*progress/steps*4;
+ }
+ return Math.max(0,Math.min(1,energy));
+}
+function drawBalance(progress,includeStorage){
+ const generation=generationAt(progress);
+ const x=350+1050*progress;
+ const y=205-generation*170;
+ document.getElementById('balance-cursor').setAttribute('d','M'+x+' 25 V205');
+ document.getElementById('generation-point').setAttribute('cx',x);
+ document.getElementById('generation-point').setAttribute('cy',y);
+ if(includeStorage){
+  const energy=energyAt(progress);
+  document.getElementById('stored-energy').setAttribute('height',105*energy);
+  document.getElementById('stored-energy').setAttribute('y',200-105*energy);
+  const charging=generation>load;
+  document.getElementById('battery-delivery').style.opacity=(!charging && energy>0.005)?1:0;
+  document.getElementById('generation-flow').setAttribute('stroke-width',3+8*generation);
+  document.getElementById('rack-light').setAttribute('fill',energy<=0.005?'#c8c9be':'#b45a18');
+  document.getElementById('battery-direction').style.opacity=energy>0.005?1:0;
+  document.getElementById('battery-direction').setAttribute('d',charging?'M830 228 L850 214 L870 228':'M830 214 L850 228 L870 214');
+  document.getElementById('balance-state').textContent=energy<=0.005?'Example storage exhausted · other supply needed':charging?'Surplus generation charges the battery':'The battery supplies the shortfall';
+ }
+}
+const clock={seconds:0};
+tl.fromTo(clock,{seconds:0},{seconds:__BALANCE_END__,duration:__BALANCE_END__,ease:'none',onUpdate:()=>{
+ const withStorage=clock.seconds>=storageAt;
+ const start=withStorage?storageAt:variationAt;
+ const duration=withStorage?__BALANCE_END__-storageAt-0.5:storageAt-variationAt-0.3;
+ const progress=Math.max(0,Math.min(1,(clock.seconds-start)/duration));
+ drawBalance(progress,withStorage);
+ if(!withStorage){
+  document.getElementById('stored-energy').setAttribute('height',12.6);
+  document.getElementById('stored-energy').setAttribute('y',187.4);
+  document.getElementById('battery-delivery').style.opacity=0;
+  document.getElementById('battery-direction').style.opacity=0;
+  document.getElementById('generation-flow').setAttribute('stroke-width',3+8*generationAt(progress));
+  document.getElementById('rack-light').setAttribute('fill','#b45a18');
+ }
+}},0);
+
+tl.fromTo('#energy-intro',{opacity:1},{opacity:0,duration:0.2},chartAt);
+
+tl.fromTo('#balance-state',{opacity:0},{opacity:1,duration:0.3},storageAt);
+__ENDING_TWEENS__
+tl.set({}, {}, __DURATION__);
+window.__timelines=window.__timelines||{};
+window.__timelines.energy=tl;
+</script>
+</template>
