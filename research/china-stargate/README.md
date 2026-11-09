@@ -1,5 +1,9 @@
 # China's Stargate research collection
 
+The user has published the video on [YouTube](https://youtu.be/4ToOk46Owfg).
+The drafted title, description, chapters, sources and image credits are saved in
+[video/youtube.md](video/youtube.md).
+
 Research, imagery and a 3:43 educational news review cut. Research dates:
 7–8 November 2026. The revised
 [540p motion draft](video/film/exports/galaxy-motion-draft-2026-11-09.mp4) is for user
