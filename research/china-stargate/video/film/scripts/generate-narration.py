@@ -2,6 +2,7 @@
 """Gemini TTS skill performance workflow, using Google's documented 3.8 API."""
 import argparse
 import base64
+from datetime import datetime, timezone
 import hashlib
 import json
 import os
@@ -101,7 +102,8 @@ def main():
         str(FILM/'audio/narration.wav'),
     ], text=True)
     record = {
-        'model': body['model'], 'voice': 'Charon', 'generated_date': '2026-11-07',
+        'model': body['model'], 'voice': 'Charon',
+        'generated_date': datetime.now(timezone.utc).date().isoformat(),
         'audio_duration_seconds': float(probe.strip()),
         'request_sha256': hashlib.sha256(data).hexdigest(),
         'audio_sha256': hashlib.sha256((FILM/'audio/narration.wav').read_bytes()).hexdigest(),

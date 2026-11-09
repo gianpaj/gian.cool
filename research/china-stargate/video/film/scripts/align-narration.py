@@ -32,7 +32,15 @@ differences = []
 for tag, a, b, c, d in matcher.get_opcodes():
     if tag != 'equal':
         differences.append({'kind': tag, 'approved': [x[0] for x in spoken[a:b]], 'asr': [x[0] for x in asr_tokens[c:d]]})
-    allowed = [(['centre'], ['center']), (['kilometres'], ['kilometers']), (['ulanqab'], ['ulankarb']), (['semianalysis'], ['semi', 'analysis']), (["semianalysis's"], ['semi', "analysis's"]), (['five'], ['5'])]
+    # Reviewed ASR spellings and unit abbreviations; numeric changes still halt.
+    allowed = [
+        (['centre'], ['center']), (['kilometres'], ['kilometers']),
+        (['kilometres'], ['km']), (['ulanqab'], ['ulankarb']),
+        (['ulanqab'], ['oolangcab']), (['semianalysis'], ['semi', 'analysis']),
+        (["semianalysis's"], ['semi', "analysis's"]), (['five'], ['5']),
+        (['five', 'megawatt'], ['5', 'mw']), (['megawatts'], ['mw']),
+        (['allianz'], ['alianz']), (['zhang'], ['zang']),
+    ]
     if tag != 'equal' and ([x[0] for x in spoken[a:b]], [x[0] for x in asr_tokens[c:d]]) not in allowed:
         raise SystemExit(f'Unexpected transcript difference needs review: {differences[-1]}')
     if tag == 'equal':
@@ -71,7 +79,7 @@ for shot in story['story_script'][:33]:
             group = []
 for i, caption in enumerate(captions):
     next_start = captions[i+1]['start'] if i+1 < len(captions) else audio_duration
-    caption['end'] = min(next_start, caption['end']+0.08)
+    caption['end'] = min(audio_duration, next_start, caption['end']+0.08)
 
 timing = {
     'audio_duration_seconds': audio_duration, 'duration_seconds': credits_start+18,

@@ -18,7 +18,19 @@ svg{display:block;width:100%;height:100%;overflow:visible;font-family:Film,sans-
 .photo-copy .eyeline{font-size:29px;color:#a64d10;letter-spacing:3px;margin-bottom:35px}
 .photo-note{font-size:58px;line-height:1.25;font-weight:700;letter-spacing:-1px}
 .photo{width:100%;height:500px;object-fit:contain;background:#e8e6dc}
-.map-panel{position:absolute;left:0;top:-70px;width:1720px;height:605px}
+.founder{height:100%;display:grid;grid-template-columns:1fr 620px;gap:140px;align-items:center}
+.founder-name{font-size:106px;line-height:1.12;font-weight:700;letter-spacing:-3px;margin-bottom:30px}
+.founder-role{font-size:52px;line-height:1.2;color:#a64d10;font-weight:700;margin-bottom:28px}
+.founder-date{font-size:35px}
+.founder-photo{position:relative;width:620px;height:500px;overflow:hidden}
+.founder-photo img{position:absolute;width:200%;height:auto;left:-100%;top:-285px}
+.brand-comparison{height:100%;display:grid;grid-template-columns:1fr 1fr;gap:120px;text-align:center;align-items:center}
+.brand-comparison>div+div{border-left:3px solid #c9c9bd;padding-left:100px}
+.company-mark{height:140px;display:flex;align-items:center;justify-content:center;margin-bottom:42px}
+.company-mark img{width:370px;height:auto;max-height:110px;object-fit:contain}
+.project-name{font-size:81px;font-weight:700;letter-spacing:-2px;color:#a64d10;margin-bottom:28px}
+.project-owner{font-size:35px}
+.map-panel{position:absolute;left:0;top:-70px;width:1720px;height:590px}
 .map-panel svg{overflow:hidden}
 .credits{height:100%;display:flex;flex-direction:column;justify-content:center;gap:28px}
 .credits p{font-size:32px;line-height:1.35}

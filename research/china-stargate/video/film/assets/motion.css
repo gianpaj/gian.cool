@@ -1,0 +1,15 @@
+.motion-content{top:265px;height:530px}
+.motion-content svg{overflow:visible}
+.motion-content text{text-anchor:middle;fill:#242a26}
+.motion-content .label{font-size:38px;font-weight:700}
+.motion-content .quiet{font-size:32px}
+.motion-content .value{font-size:82px;font-weight:700}
+.motion-content .device{fill:#f7f6ef;stroke:#242a26;stroke-width:4}
+.motion-content .accent-stroke{stroke:#b45a18}
+.motion-content .wire{fill:none;stroke:#c8c9be;stroke-width:8}
+.motion-content .signal,.motion-content .arrow{fill:none;stroke:#242a26;stroke-width:5}
+.motion-content .flow{fill:none;stroke:#b45a18;stroke-width:8}
+.motion-content .accent-fill{fill:#a64d10}
+.motion-content .bar-back{fill:#e4e4d8}
+.motion-content .ink-fill{fill:#242a26}
+.motion-content .amber-fill{fill:#b45a18}

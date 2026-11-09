@@ -1,6 +1,18 @@
 # China's Stargate research collection
 
-Research, imagery and a rendered 3:26 educational news video. Research cut-off and source access date: 2026-11-07. The [1080p MP4](video/film/exports/galaxy-explained.mp4), [editable project](video/film/README.md), [used-material credits](video/film/CREDITS.md) and [review](video/film/REVIEW.md) are ready locally. Generated audio and exports are excluded from Git.
+The user has published the video on [YouTube](https://youtu.be/4ToOk46Owfg).
+The drafted title, description, chapters, sources and image credits are saved in
+[video/youtube.md](video/youtube.md).
+
+Research, imagery and a 3:43 educational news review cut. Research dates:
+7–8 November 2026. The revised
+[540p motion draft](video/film/exports/galaxy-motion-draft-2026-11-09.mp4) is for user
+validation: narration only, Lei Zhang photograph, corrected turbine, familiar
+power comparisons, company marks and a clearer map inset. The
+[editable project](video/film/README.md), [credits](video/film/CREDITS.md) and
+[motion review](video/film/REVIEW-motion.md) accompany it. It adds staged power conversion, changing voltage and current, and a wind/battery balance example at 30 fps. Generated audio and exports
+are excluded from Git. The [first 1080p export](video/film/exports/galaxy-explained.mp4)
+and [its review](video/film/REVIEW.md) are retained separately.
 
 The strongest angle is how Envision connects wind generation, storage and high-voltage DC power to AI computing at its Galaxy campus in Ulanqab. The narrative follows electricity to the rack, with one worked example. It takes the fax video's emphasis on explaining a physical mechanism and keeping numerical claims checkable.
 
@@ -9,8 +21,9 @@ The strongest angle is how Envision connects wind generation, storage and high-v
 | `sources/README.md` | Thirteen-source register, provenance and article access record |
 | `sources/lei-zhang.md` | Founder sources, public interviews and access limits |
 | `sources/article-metadata.json` | Verified article title, four authors, publication timestamp and access boundary |
-| `sources/license-*.json` | Original Commons rights metadata for the six licensed assets |
-| `images/open/` | Six downloaded, licensed images: Ulanqab turbines, racks, accelerator card, cooling pipes, Frontier supercomputer and regional relief map |
+| `sources/license-*.json` | Original Commons rights metadata for photographs, relief map and OpenAI wordmark |
+| `images/open/` | Seven downloaded, licensed images: Ulanqab turbines, racks, accelerator card, cooling pipes, Frontier supercomputer, regional relief map and Lei Zhang photograph |
+| `images/brand/` | Envision and OpenAI company marks; separate copyright and trademark status recorded |
 | `images/permission-needed/` | Three downloaded reference images: two Envision facility photos and one public-preview SemiAnalysis figure |
 | `images/maps/` | Original 4K locator PNG, editable SVG and map provenance; Ulanqab relative to Beijing and Hohhot |
 | `images/CREDITS.md`, `images/manifest.json` | Original pages, exact download URLs, creator, rights, credit, intended use, pixel dimensions and SHA-256 for every image |
@@ -24,6 +37,7 @@ The strongest angle is how Envision connects wind generation, storage and high-v
 | `video/story_script.json` | Approved 36-shot editorial script with narration, visual continuity, asset IDs and source IDs; measured production timing is in video/film/audio/timing.json |
 | `data/capacity.csv` | Source-labelled capacity values, dates, units and status for an original chart |
 | `data/diagram-inputs.json` | Inputs for original power, cooling, current and energy explanations |
+| `data/power-comparisons.json`, `sources/power-comparisons.md` | Household, stadium and illustrative AI-centre calculations with units, dates and limits |
 
 ## Article checked
 
@@ -38,4 +52,9 @@ The canonical newsletter page's public preview was read through an ordinary unau
 - Cooling equipment classification conflicts across sources. Detailed schematics, measured PUE, water use, actual renewable share and battery MW/MWh ratings were not obtained.
 - The article's one-fifth-US-cost comparison cannot be audited from the accessed material. Keep it out of an unqualified headline or narration.
 
-The six licensed alternatives are usable with their attribution and adaptation terms. They illustrate mechanisms and regional context; none shows Galaxy's installed hardware. Full original Commons downloads returned rate-limit responses; the saved 1920-pixel versions decoded successfully and were visually inspected. The film carries its own pinned animation library and local fonts. The blog app and fax project are unchanged.
+The seven licensed alternatives are usable with their attribution and adaptation
+terms. They show regional context, illustrative hardware and the founder; none
+establishes Galaxy's installed hardware. Most saved versions are 1920 pixels
+wide; the portrait is 1280 × 1857 pixels. All decode successfully and were visually
+inspected. The film carries its pinned animation library and local fonts. The
+blog app and fax project are unchanged.

@@ -2,6 +2,11 @@
 
 Access date for every entry is 2026-11-07. These are original summaries, not saved copies of articles. IDs are used in the notes and data. Search results identified sources; the substantive site claims below were checked against the canonical article and fetched primary announcements. No subscriber credentials or paywall bypass were used.
 
+[Power comparisons](power-comparisons.md) add primary sources PC1–PC3, checked
+8 November 2026: EIA household electricity purchases, Allianz Arena available
+power and IEA context for AI data-centre scale. Photo and company-mark rights
+are recorded separately in the [image credits](../images/CREDITS.md).
+
 | ID | Source and publication date | Evidence and limits |
 |---|---|---|
 | S1 | [SemiAnalysis, We Visited China's Stargate in Inner Mongolia](https://newsletter.semianalysis.com/p/we-visited-chinas-stargate-in-inner), 2026-11-07 | Firsthand September visit, public preview. By Everlyn Tan, Jeremie Eliahou Ontiveros, Xiaopeng Laoban and Dylan Patel. Publisher timestamp is 2026-11-07T19:01:39Z. Title/byline/date checked in visible page and JSON-LD. Field reporting mixed with proprietary model estimates and supplier information. |

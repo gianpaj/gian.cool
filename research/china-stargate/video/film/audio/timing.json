@@ -1,605 +1,614 @@
 {
-  "audio_duration_seconds": 186.44,
-  "duration_seconds": 206,
+  "audio_duration_seconds": 203.32,
+  "duration_seconds": 223,
   "shot_starts": [
     0,
-    4.55,
-    10.79,
-    15.9,
-    22.35,
-    28.67,
-    34.54,
-    40.75,
-    47.27,
-    52.3,
-    57.3,
-    62.07,
-    67.51,
-    72.99,
-    77.75,
-    82.84,
-    88.35,
-    94.79,
-    99.51,
-    105.98,
-    110.63,
-    116.3,
-    121.9,
-    126.59,
-    132.71,
-    139.23,
-    145.39,
-    150.86,
-    157.15,
-    162.91,
-    168.71,
-    176.19,
-    181.42,
-    188,
-    194,
-    200
+    5.08,
+    11.09,
+    16.08,
+    22.9,
+    28.98,
+    35.09,
+    41.09,
+    48.09,
+    54.09,
+    62.09,
+    71.9,
+    80.09,
+    90.09,
+    96.09,
+    101.09,
+    107.09,
+    113.9,
+    118.9,
+    126.09,
+    131.04,
+    137.09,
+    144.09,
+    148.09,
+    153.97,
+    160.09,
+    166.09,
+    171.08,
+    176.09,
+    182.09,
+    187.04,
+    194.09,
+    199.09,
+    205,
+    211,
+    217
   ],
   "captions": [
     {
       "text": "Why is a wind-turbine maker building",
-      "start": 0.29,
+      "start": 0.19,
       "end": 3.16,
       "shot": 1
     },
     {
       "text": "an AI data centre?",
       "start": 3.16,
-      "end": 4.42,
+      "end": 5.08,
       "shot": 1
     },
     {
       "text": "In Inner Mongolia, Envision is connecting",
-      "start": 4.65,
-      "end": 7.28,
+      "start": 5.18,
+      "end": 7.8,
       "shot": 2
     },
     {
       "text": "those businesses through an AI campus",
-      "start": 7.28,
-      "end": 9.040000000000001,
+      "start": 7.8,
+      "end": 9.8,
       "shot": 2
     },
     {
       "text": "called Galaxy.",
-      "start": 9.55,
-      "end": 10.68,
+      "start": 9.8,
+      "end": 11.08,
       "shot": 2
     },
     {
       "text": "Follow the electricity to understand why",
-      "start": 10.89,
-      "end": 13.31,
+      "start": 11.19,
+      "end": 13.7,
       "shot": 3
     },
     {
       "text": "an energy company wants to build",
-      "start": 13.31,
-      "end": 15.51,
+      "start": 13.7,
+      "end": 15.78,
       "shot": 3
     },
     {
       "text": "it.",
-      "start": 15.51,
-      "end": 15.88,
+      "start": 15.78,
+      "end": 16.08,
       "shot": 3
     },
     {
       "text": "Envision founder and CEO Lei Zhang",
-      "start": 16,
-      "end": 18.8,
+      "start": 16.18,
+      "end": 18.55,
       "shot": 4
     },
     {
       "text": "started the company in 2007, making",
-      "start": 18.8,
-      "end": 21.52,
+      "start": 18.55,
+      "end": 21.83,
       "shot": 4
     },
     {
       "text": "wind turbines.",
-      "start": 21.52,
-      "end": 22.45,
+      "start": 21.83,
+      "end": 23,
       "shot": 4
     },
     {
       "text": "It expanded into batteries and energy",
-      "start": 22.45,
-      "end": 24.889999999999997,
+      "start": 23,
+      "end": 25.26,
       "shot": 5
     },
     {
       "text": "systems.",
-      "start": 24.91,
-      "end": 25.799999999999997,
+      "start": 25.26,
+      "end": 26.08,
       "shot": 5
     },
     {
       "text": "Computing creates demand for that equipment.",
-      "start": 26.01,
-      "end": 28.77,
+      "start": 26.19,
+      "end": 29.08,
       "shot": 5
     },
     {
       "text": "Ulanqab sits about 300 kilometres northwest",
-      "start": 28.77,
-      "end": 31.82,
+      "start": 29.08,
+      "end": 32.04,
       "shot": 6
     },
     {
       "text": "of Beijing, in China's Inner Mongolia.",
-      "start": 31.82,
-      "end": 34.44,
+      "start": 32.04,
+      "end": 35.08,
       "shot": 6
     },
     {
       "text": "SemiAnalysis visited in September 2026.",
-      "start": 34.64,
-      "end": 37.64,
+      "start": 35.19,
+      "end": 39.02,
       "shot": 7
     },
     {
       "text": "Its report is the starting point",
-      "start": 37.64,
-      "end": 39.47,
+      "start": 39.02,
+      "end": 40.33,
       "shot": 7
     },
     {
       "text": "for this story.",
-      "start": 39.47,
-      "end": 40.629999999999995,
+      "start": 40.33,
+      "end": 41.08,
       "shot": 7
     },
     {
       "text": "OpenAI's Stargate is the American comparison.",
-      "start": 40.85,
-      "end": 44.36,
+      "start": 41.19,
+      "end": 45.01,
       "shot": 8
     },
     {
       "text": "Galaxy is a separate Envision project.",
-      "start": 44.57,
-      "end": 47.16,
+      "start": 45.01,
+      "end": 48.08,
       "shot": 8
     },
     {
       "text": "SemiAnalysis reports 120 megawatts delivered in",
-      "start": 47.37,
-      "end": 50.61,
+      "start": 48.19,
+      "end": 51.28,
       "shot": 9
     },
     {
-      "text": "August, within a year.",
-      "start": 50.61,
-      "end": 52.199999999999996,
+      "text": "August 2026, within a year.",
+      "start": 51.28,
+      "end": 54.08,
       "shot": 9
     },
     {
-      "text": "Here, IT capacity means power intended",
-      "start": 52.4,
-      "end": 54.57,
+      "text": "That's power for computing equipment.",
+      "start": 54.19,
+      "end": 57.08,
       "shot": 10
     },
     {
-      "text": "for servers and other computing equipment.",
-      "start": 54.59,
-      "end": 57.4,
+      "text": "Megawatts measure the rate of electricity",
+      "start": 57.19,
+      "end": 59.89,
       "shot": 10
     },
     {
-      "text": "The report puts the full campus",
-      "start": 57.4,
-      "end": 59.26,
+      "text": "use, not AI performance.",
+      "start": 59.99,
+      "end": 62.08,
+      "shot": 10
+    },
+    {
+      "text": "The full plan is 800 megawatts.",
+      "start": 62.19,
+      "end": 65.08,
       "shot": 11
     },
     {
-      "text": "plan at 800 megawatts of IT",
-      "start": 59.26,
-      "end": 61.26,
+      "text": "Used continuously, that matches the annual",
+      "start": 65.19,
+      "end": 67.55,
       "shot": 11
     },
     {
-      "text": "capacity.",
-      "start": 61.26,
-      "end": 62.17,
+      "text": "grid electricity bought by about 650,000",
+      "start": 67.55,
+      "end": 71.36,
       "shot": 11
     },
     {
-      "text": "A delivered phase and a future",
-      "start": 62.17,
-      "end": 63.79,
+      "text": "US homes.",
+      "start": 71.36,
+      "end": 72,
+      "shot": 11
+    },
+    {
+      "text": "Or about 67 stadiums like Munich's",
+      "start": 72,
+      "end": 74.89,
       "shot": 12
     },
     {
-      "text": "plan are different milestones.",
-      "start": 63.79,
-      "end": 65.7,
+      "text": "Allianz Arena, comparing their maximum available",
+      "start": 74.99,
+      "end": 78.53,
       "shot": 12
     },
     {
-      "text": "That distinction matters.",
-      "start": 65.7,
-      "end": 67.39999999999999,
+      "text": "electrical power.",
+      "start": 78.84,
+      "end": 80.08,
       "shot": 12
     },
     {
-      "text": "Capacity alone cannot tell us how",
-      "start": 67.61,
-      "end": 69.41,
+      "text": "For AI, imagine eight centres using",
+      "start": 80.19,
+      "end": 82.5,
       "shot": 13
     },
     {
-      "text": "much useful AI computing is actually",
-      "start": 69.41,
-      "end": 71.61,
+      "text": "100 megawatts for computing each.",
+      "start": 82.5,
+      "end": 85.08,
       "shot": 13
     },
     {
-      "text": "taking place.",
-      "start": 71.61,
-      "end": 72.84,
+      "text": "Cooling needs extra power.",
+      "start": 85.19,
+      "end": 87,
+      "shot": 13
+    },
+    {
+      "text": "These are comparisons, not measured usage.",
+      "start": 87,
+      "end": 90.08,
       "shot": 13
     },
     {
       "text": "Accelerators process data, with memory and",
-      "start": 73.09,
-      "end": 75.62,
+      "start": 90.19,
+      "end": 93.31,
       "shot": 14
     },
     {
       "text": "networks keeping them supplied.",
-      "start": 75.62,
-      "end": 77.64,
+      "start": 93.31,
+      "end": 96.08,
       "shot": 14
     },
     {
       "text": "Power must reach those racks reliably.",
-      "start": 77.85,
-      "end": 80.2,
+      "start": 96.19,
+      "end": 98,
       "shot": 15
     },
     {
       "text": "Their heat also has to leave",
-      "start": 80.41,
-      "end": 81.67,
+      "start": 98,
+      "end": 99.85,
       "shot": 15
     },
     {
       "text": "the building.",
-      "start": 81.67,
-      "end": 82.76,
+      "start": 99.85,
+      "end": 101.08,
       "shot": 15
     },
     {
       "text": "SemiAnalysis describes a five-megawatt pilot testing",
-      "start": 82.94,
-      "end": 85.75,
+      "start": 101.19,
+      "end": 104.16,
       "shot": 16
     },
     {
       "text": "a different way of supplying the",
-      "start": 85.75,
-      "end": 87.59,
+      "start": 104.16,
+      "end": 106.33,
       "shot": 16
     },
     {
       "text": "racks.",
-      "start": 87.59,
-      "end": 88.2,
+      "start": 106.33,
+      "end": 107.08,
       "shot": 16
     },
     {
       "text": "Solid-state transformers convert incoming alternating current",
-      "start": 88.45,
-      "end": 92,
+      "start": 107.19,
+      "end": 111.09,
       "shot": 17
     },
     {
       "text": "into an 800-volt direct-current bus.",
-      "start": 92,
-      "end": 94.89,
+      "start": 111.09,
+      "end": 114,
       "shot": 17
     },
     {
       "text": "At the same power, doubling DC",
-      "start": 94.89,
-      "end": 96.8,
+      "start": 114,
+      "end": 116,
       "shot": 18
     },
     {
       "text": "voltage halves the current in a",
-      "start": 96.8,
-      "end": 98.68,
+      "start": 116,
+      "end": 117.98,
       "shot": 18
     },
     {
       "text": "conductor.",
-      "start": 98.68,
-      "end": 99.61,
+      "start": 117.98,
+      "end": 119,
       "shot": 18
     },
     {
       "text": "At the same resistance, lower current",
-      "start": 99.61,
-      "end": 101.79,
+      "start": 119,
+      "end": 121.33,
       "shot": 19
     },
     {
       "text": "reduces heating losses.",
-      "start": 101.79,
-      "end": 103.41,
+      "start": 121.33,
+      "end": 123.06,
       "shot": 19
     },
     {
       "text": "Galaxy's actual savings need measuring.",
-      "start": 103.65,
-      "end": 106.08,
+      "start": 123.19,
+      "end": 126.08,
       "shot": 19
     },
     {
       "text": "Rack electronics still reduce voltage further",
-      "start": 106.08,
-      "end": 108.59,
+      "start": 126.19,
+      "end": 128.77,
       "shot": 20
     },
     {
       "text": "before that power reaches the chips.",
-      "start": 108.59,
-      "end": 110.73,
+      "start": 128.77,
+      "end": 131.08,
       "shot": 20
     },
     {
       "text": "Envision also makes turbines and batteries,",
-      "start": 110.73,
-      "end": 113.72,
+      "start": 131.14,
+      "end": 133.89000000000001,
       "shot": 21
     },
     {
       "text": "extending its role beyond owning the",
-      "start": 113.72,
-      "end": 115.68,
+      "start": 133.99,
+      "end": 136.19000000000003,
       "shot": 21
     },
     {
       "text": "building.",
-      "start": 115.68,
-      "end": 116.4,
+      "start": 136.33,
+      "end": 137.08,
       "shot": 21
     },
     {
       "text": "The company can coordinate generation, storage",
-      "start": 116.4,
-      "end": 119.12,
+      "start": 137.19,
+      "end": 140.38,
       "shot": 22
     },
     {
       "text": "and equipment supplying power inside the",
-      "start": 119.12,
-      "end": 121.37,
+      "start": 140.38,
+      "end": 143.2,
       "shot": 22
     },
     {
       "text": "campus.",
-      "start": 121.37,
-      "end": 122,
+      "start": 143.2,
+      "end": 144.08,
       "shot": 22
     },
     {
       "text": "But a wind farm's rated power",
-      "start": 122,
-      "end": 123.92,
+      "start": 144.19,
+      "end": 145.75,
       "shot": 23
     },
     {
       "text": "is not its output at every",
-      "start": 123.92,
-      "end": 125.59,
+      "start": 145.75,
+      "end": 147.28,
       "shot": 23
     },
     {
       "text": "moment.",
-      "start": 125.59,
-      "end": 126.39999999999999,
+      "start": 147.28,
+      "end": 148.06,
       "shot": 23
     },
     {
       "text": "The wind rises and falls.",
-      "start": 126.69,
-      "end": 128.85000000000002,
+      "start": 148.19,
+      "end": 150,
       "shot": 24
     },
     {
       "text": "Computing equipment needs reliable power through",
-      "start": 129.09,
-      "end": 131.77,
+      "start": 150,
+      "end": 152.93,
       "shot": 24
     },
     {
       "text": "those changes.",
-      "start": 131.77,
-      "end": 132.81,
+      "start": 152.93,
+      "end": 154.07,
       "shot": 24
     },
     {
       "text": "Batteries store some surplus electricity and",
-      "start": 132.81,
-      "end": 135.77,
+      "start": 154.07,
+      "end": 156.89000000000001,
       "shot": 25
     },
     {
       "text": "supply it when generation falls below",
-      "start": 135.77,
-      "end": 138.3,
+      "start": 156.99,
+      "end": 159.33,
       "shot": 25
     },
     {
       "text": "demand.",
-      "start": 138.3,
-      "end": 139.12,
+      "start": 159.33,
+      "end": 160.08,
       "shot": 25
     },
     {
       "text": "Their usefulness depends on power, stored",
-      "start": 139.33,
-      "end": 142.37,
+      "start": 160.19,
+      "end": 163.23,
       "shot": 26
     },
     {
       "text": "energy, and how long the calm",
-      "start": 142.37,
-      "end": 144.44,
+      "start": 163.23,
+      "end": 165.33,
       "shot": 26
     },
     {
       "text": "lasts.",
-      "start": 144.44,
-      "end": 145.28,
+      "start": 165.33,
+      "end": 166.08,
       "shot": 26
     },
     {
       "text": "'Wind-powered' does not establish that wind",
-      "start": 145.49,
-      "end": 147.98,
+      "start": 166.19,
+      "end": 168.44,
       "shot": 27
     },
     {
       "text": "supplies all the electricity, every hour.",
-      "start": 147.98,
-      "end": 150.96,
+      "start": 168.44,
+      "end": 171.08,
       "shot": 27
     },
     {
       "text": "How much of Galaxy is fitted",
-      "start": 150.96,
-      "end": 152.82,
+      "start": 171.18,
+      "end": 172.55,
       "shot": 28
     },
     {
       "text": "with hardware and actually running remains",
-      "start": 152.82,
-      "end": 155.36,
+      "start": 172.55,
+      "end": 175.04,
       "shot": 28
     },
     {
       "text": "unverified.",
-      "start": 155.87,
-      "end": 156.88000000000002,
+      "start": 175.04,
+      "end": 176.08,
       "shot": 28
     },
     {
       "text": "Reported delivered capacity is not a",
-      "start": 157.25,
-      "end": 159.43,
+      "start": 176.19,
+      "end": 178.55,
       "shot": 29
     },
     {
       "text": "measurement of load drawn by working",
-      "start": 159.43,
-      "end": 161.87,
+      "start": 178.55,
+      "end": 181.17000000000002,
       "shot": 29
     },
     {
       "text": "servers.",
-      "start": 161.87,
-      "end": 162.8,
+      "start": 181.33,
+      "end": 182.08,
       "shot": 29
     },
     {
       "text": "Buildings and megawatts cannot confirm installed",
-      "start": 163.01,
-      "end": 165.91,
+      "start": 182.19,
+      "end": 184.63,
       "shot": 30
     },
     {
       "text": "chips, or how much work they",
-      "start": 165.91,
-      "end": 167.85,
+      "start": 184.63,
+      "end": 186.2,
       "shot": 30
     },
     {
       "text": "produce.",
-      "start": 167.85,
-      "end": 168.64000000000001,
+      "start": 186.2,
+      "end": 187.08,
       "shot": 30
     },
     {
       "text": "Envision's larger capacity announcements also need",
-      "start": 168.81,
-      "end": 172.08,
+      "start": 187.14,
+      "end": 190.17,
       "shot": 31
     },
     {
       "text": "reconciling with SemiAnalysis's description of the",
-      "start": 172.08,
-      "end": 175.25,
+      "start": 190.17,
+      "end": 193.26,
       "shot": 31
     },
     {
       "text": "campus.",
-      "start": 175.27,
-      "end": 176.08,
+      "start": 193.26,
+      "end": 194.08,
       "shot": 31
     },
     {
       "text": "Those are questions for Zhang and",
-      "start": 176.29,
-      "end": 177.86,
+      "start": 194.19,
+      "end": 195.77,
       "shot": 32
     },
     {
       "text": "the site's engineers, alongside the wider",
-      "start": 177.86,
-      "end": 180.42000000000002,
+      "start": 195.77,
+      "end": 198.19,
       "shot": 32
     },
     {
       "text": "strategy.",
-      "start": 180.91,
-      "end": 181.52,
+      "start": 198.19,
+      "end": 199.08,
       "shot": 32
     },
     {
       "text": "The next test is how much",
-      "start": 181.52,
-      "end": 182.95000000000002,
+      "start": 199.19,
+      "end": 200.54,
       "shot": 33
     },
     {
       "text": "useful computing this energy system can",
-      "start": 183.04,
-      "end": 185.65,
+      "start": 200.54,
+      "end": 203.15,
       "shot": 33
     },
     {
       "text": "deliver.",
-      "start": 185.65,
-      "end": 186.32000000000002,
+      "start": 203.15,
+      "end": 203.32,
       "shot": 33
     }
   ],
   "alignment": "Approved text aligned by token position to whisper small.en word timings. ASR spelling does not replace script copy.",
-  "asr_token_similarity": 0.976581,
+  "asr_token_similarity": 0.964206,
   "asr_differences": [
-    {
-      "kind": "replace",
-      "approved": [
-        "centre"
-      ],
-      "asr": [
-        "center"
-      ]
-    },
     {
       "kind": "replace",
       "approved": [
         "ulanqab"
       ],
       "asr": [
-        "ulankarb"
+        "oolangcab"
       ]
     },
     {
@@ -608,7 +617,7 @@
         "kilometres"
       ],
       "asr": [
-        "kilometers"
+        "km"
       ]
     },
     {
@@ -634,6 +643,42 @@
     {
       "kind": "replace",
       "approved": [
+        "megawatts"
+      ],
+      "asr": [
+        "mw"
+      ]
+    },
+    {
+      "kind": "replace",
+      "approved": [
+        "megawatts"
+      ],
+      "asr": [
+        "mw"
+      ]
+    },
+    {
+      "kind": "replace",
+      "approved": [
+        "allianz"
+      ],
+      "asr": [
+        "alianz"
+      ]
+    },
+    {
+      "kind": "replace",
+      "approved": [
+        "megawatts"
+      ],
+      "asr": [
+        "mw"
+      ]
+    },
+    {
+      "kind": "replace",
+      "approved": [
         "semianalysis"
       ],
       "asr": [
@@ -644,10 +689,21 @@
     {
       "kind": "replace",
       "approved": [
-        "five"
+        "five",
+        "megawatt"
       ],
       "asr": [
-        "5"
+        "5",
+        "mw"
+      ]
+    },
+    {
+      "kind": "replace",
+      "approved": [
+        "megawatts"
+      ],
+      "asr": [
+        "mw"
       ]
     },
     {
@@ -658,6 +714,15 @@
       "asr": [
         "semi",
         "analysis's"
+      ]
+    },
+    {
+      "kind": "replace",
+      "approved": [
+        "zhang"
+      ],
+      "asr": [
+        "zang"
       ]
     }
   ]

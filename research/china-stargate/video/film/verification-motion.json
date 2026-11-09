@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-09",
+  "status": "Motion review draft verified; user validation pending",
+  "artifact": "exports/galaxy-motion-draft-2026-11-09.mp4",
+  "bytes": 8757707,
+  "sha256": "140685e4c62f0647dbcc81c4d4b626428636590bcfac9518de1db4b1eea4e2e8",
+  "duration_seconds": 223.0,
+  "width": 960,
+  "height": 540,
+  "fps": 30,
+  "video_frames": 6690,
+  "video_codec": "h264",
+  "pixel_format": "yuv420p",
+  "audio_codec": "aac",
+  "audio_sample_rate": 48000,
+  "audio_channels": 2,
+  "hyperframes_version": "0.9.20",
+  "render_quality": "draft",
+  "capture_path": "screenshot",
+  "gpu_mode": "software",
+  "workers": 1,
+  "render_wall_seconds": 275.3,
+  "checks": {
+    "lint": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 5
+    },
+    "runtime": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "layout": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "motion": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "contrast": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "craft": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 5
+    },
+    "audio": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  },
+  "browser_checks_skipped": false,
+  "contrast_checked": 45,
+  "contrast_passed": 45,
+  "retained_warnings": [
+    "Four chapter-density warnings in the retained chapters",
+    "One generic GSAP proxy baseline warning; the counters and model clocks use separate objects",
+    "Five still-reading intervals in the map, hardware inserts and reporting questions"
+  ],
+  "motion_review": "Staged frames across the capacity, conversion, current/heating and wind/storage sequences were inspected. Direct and backward seeking to 140 seconds produces identical pixels.",
+  "decoded_frame_times_seconds": [
+    0,
+    60,
+    70,
+    77,
+    88,
+    108,
+    112,
+    115.5,
+    117,
+    124,
+    128,
+    140,
+    155,
+    158,
+    161,
+    165.8,
+    171.2,
+    220
+  ],
+  "audio_sources": [
+    "audio/narration.wav"
+  ],
+  "audio_loudness": {
+    "lufsIntegrated": -14.2,
+    "loudnessRangeLU": 3.6,
+    "truePeakDbTP": -1.0
+  },
+  "audio_review": "Existing narration reused. Signal measurements performed; listening validation remains with the user.",
+  "caption_visibility": "Hidden in the preserved local Studio working copy",
+  "editor_changes_preserved": [
+    "index.html caption visibility",
+    "compositions/opening.html photo crop and stable editor IDs"
+  ],
+  "source_working_copy_sha256": {
+    "index.html": "886784728f5cfa63917cde55537e04411e2c51dc9b591a85d77b86975d774950",
+    "compositions/opening.html": "9854173581807c0db0a041716a3c08f0e0412c8bcf7b61744807017bb67f2126",
+    "compositions/capacity.html": "5af23d15114fb5c63a10cf976b8687a6722b07af1896373dbac71d72f4ffb5d4",
+    "compositions/engineering.html": "5c23d1c5691ef6efba007585d81df8f981fe916b56c1b97b5098a1b991f738d1",
+    "compositions/energy.html": "a246ad8a5b5b438dfb6a77f0b979b3ec23c71d9d583289c2652f4b6c9cbe1613"
+  },
+  "model_inputs": "../../data/diagram-inputs.json#motion_examples",
+  "review": "REVIEW-motion.md",
+  "credits": "CREDITS.md"
+}

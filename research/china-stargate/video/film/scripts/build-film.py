@@ -5,6 +5,7 @@ import json
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from motion_sequences import build_sequence
 
 FILM = Path(__file__).resolve().parent.parent
 STORY = json.loads((FILM.parent / 'story_script.json').read_text())
@@ -58,15 +59,15 @@ def line(x1, y1, x2, y2, dash=False):
 
 
 def energy(storage=False, supply=False):
-    out = turbine(190, 200, 0.9) + rack(1420, 175, 0.9)
-    out += line(245, 295, 1390, 295)
+    out = line(360, 295, 1390, 295)
+    out += turbine(190, 200, 0.9) + rack(1420, 175, 0.9)
     out += text(190, 470, 'WIND', 30, weight=700) + text(1497, 470, 'COMPUTING', 30, weight=700)
     if storage:
         out += '<path d="M660 295 V175" fill="none" stroke="#b45a18" stroke-width="7"/>'
         out += box(515, 50, 290, 125, 'STORAGE', 'Shifts energy')
     if supply:
         out += box(945, 210, 290, 170, 'POWER', 'Converts voltage')
-    out += '<circle class="electron" cx="260" cy="295" r="12" fill="#242a26"/>'
+    out += '<circle class="electron" cx="375" cy="295" r="12" fill="#242a26"/>'
     return svg(out)
 
 
@@ -92,8 +93,36 @@ def capacity(mode=0):
     out += '<rect x="35" y="230" width="1630" height="100" fill="#eeece0" stroke="#242a26" stroke-width="3" stroke-dasharray="14 10"/>'
     out += '<rect class="capacity-fill" x="35" y="230" width="244.5" height="100" fill="#b45a18"/>'
     out += text(35, 393, 'August 2026', 34, anchor='start') + text(1665, 393, 'Future build-out', 34, anchor='end')
-    labels = ['Different stages of development', 'IT capacity = power intended for computing equipment', 'A plan is not operating capacity', 'Delivered does not establish actual server load']
+    labels = ['120 MW continuously ≈ 100,000 US homes’ annual grid purchases', 'MW measures the rate of electricity use, not AI performance', 'A plan is not operating capacity', 'Delivered does not establish actual server load']
     out += text(850, 490, labels[mode], 36, weight=700)
+    return svg(out)
+
+
+def power_comparison(kind):
+    out = text(35, 160, '800 MW', 116, anchor='start', weight=700)
+    out += text(35, 220, 'GALAXY • PLANNED IT CAPACITY', 31, anchor='start')
+    out += '<path d="M650 210 H820 M790 180 L820 210 L790 240" fill="none" stroke="#b45a18" stroke-width="7"/>'
+    if kind == 'homes':
+        out += '<g transform="translate(1160 10)" fill="none" stroke="#242a26" stroke-width="7"><path d="M0 90 L85 20 L170 90 M25 75 V170 H145 V75 M70 170 V115 H105 V170"/></g>'
+        value, label = '≈650,000', 'US homes’ annual grid purchases'
+        detail = 'If 800 MW is used continuously for a year'
+        note = '2022 US average: 10,791 kWh per residential customer per year'
+    elif kind == 'stadiums':
+        out += '<g transform="translate(1110 35)" fill="none" stroke="#242a26" stroke-width="7"><ellipse cx="130" cy="55" rx="125" ry="45"/><path d="M5 55 V120 C5 180 255 180 255 120 V55"/><ellipse cx="130" cy="55" rx="70" ry="24"/></g>'
+        value, label = '≈67 stadiums', 'At Allianz Arena’s 12 MW connection'
+        detail = 'Maximum available power • not match-day consumption'
+        note = 'Munich’s Allianz Arena: 12 MW available from two substations'
+    else:
+        for y in [0,95]:
+            for x in [1060,1175,1290,1405]:
+                out += f'<g transform="translate({x} {y})" fill="none" stroke="#242a26" stroke-width="5"><rect width="90" height="80" rx="5"/><path d="M15 25 H75 M15 50 H75"/></g>'
+        value, label = '8 AI centres', '100 MW of computing power each'
+        detail = 'Illustrative size • cooling and other site loads add power'
+        note = 'AI centres vary widely; 100 MW is an example, not a standard'
+    out += text(1250, 300, value, 91, '#a64d10', weight=700)
+    out += text(1250, 365, label, 34)
+    out += text(860, 455, detail, 35, weight=700)
+    out += text(860, 520, note, 30)
     return svg(out)
 
 
@@ -141,8 +170,8 @@ titles = [
  'Why is a wind-turbine maker building an AI campus?', 'Meet Galaxy.', 'Follow the electricity.',
  'The person behind the strategy', 'An energy company moves into computing', 'Ulanqab, Inner Mongolia',
  'A reported visit. A testable story.', 'A comparison, not an OpenAI project',
- 'Start with what was delivered.', 'What does “IT capacity” mean?', 'Then separate the plan.',
- 'Two different milestones', 'Megawatts are only part of the story.',
+ 'Start with what was delivered.', 'What does a megawatt tell us?', 'How big is the 800 MW plan?',
+ 'Another comparison: stadiums', 'Or eight large AI centres',
  'Inside an AI data centre', 'Power in. Heat out.', 'A small pilot inside a larger phase',
  'From alternating to direct current', 'Higher voltage. Lower current.', 'Less conductor heating',
  'One more step before the chips', 'The energy-company connection', 'Coordinating the power system',
@@ -160,7 +189,7 @@ def scene(number):
         return photo('wind.jpg', 'ENERGY → COMPUTING', 'Galaxy • Envision • Inner Mongolia', 'Photo: Tianwangxing / CC BY-SA 3.0 • Ulanqab region, 2012 • cropped; not Galaxy wind farms')
     if number in [2, 3]: return energy(), 'Conceptual power path • not an as-built Galaxy layout'
     if number == 4:
-        return big_words(['Lei Zhang', 'Founder & CEO, Envision', 'Founded in 2007']), 'Sources: Envision; London School of Economics • no interview is presented'
+        return '<div class="founder"><div><p class="founder-name">Lei Zhang</p><p class="founder-role">Founder &amp; CEO<br>Envision</p><p class="founder-date">Founded in 2007</p></div><div class="founder-photo" data-layout-allow-overflow><img src="assets/images/lei-zhang.jpg" alt="Lei Zhang at the Beijing meeting documented by Brazil’s presidency" /></div></div>', 'Photo: Ricardo Stuckert / PR, Lula Oficial • CC BY-SA 2.0 • Beijing, 12 May 2025 • cropped'
     if number in [5, 21, 22, 33]: return energy(True, True), 'Conceptual power path • sources: Envision; SemiAnalysis'
     if number == 6:
         root = ET.parse(FILM.parents[1]/'images/maps/ulanqab-locator.svg').getroot()
@@ -178,20 +207,38 @@ def scene(number):
                         label=''.join(child.itertext())
                         sizes={'Ulanqab':67,'Beijing':63,'Hohhot':55,'≈300 km':60,'≈125 km':44}
                         child.set('font-size', str(sizes.get(label,max(37,float(child.attrib.get('font-size',37))))))
+        ns = '{http://www.w3.org/2000/svg}'
+        inset = next(el for el in root.iter() if el.get('id') == 'china-inset')
+        inset.set('transform', 'translate(0 70)')
+        inset.insert(0, ET.Element(ns+'rect', {'x':'1420','y':'110','width':'440','height':'400','rx':'12','fill':'#ffffff','stroke':'#3e574e','stroke-width':'3'}))
+        paths = inset.findall(ns+'path')
+        paths[0].set('fill', '#e6eae5')
+        paths[0].set('stroke', '#3e574e')
+        paths[0].set('stroke-width', '3')
+        paths[1].set('fill', '#b45a18')
+        pin = inset.find(ns+'circle')
+        pin.attrib.update({'r':'7','fill':'#16271c','stroke':'#ffffff','stroke-width':'2'})
+        label = inset.find(ns+'text')
+        label.attrib.update({'x':'1450','y':'155','text-anchor':'start','font-size':'37','fill':'#242a26'})
+        ET.SubElement(inset, ns+'rect', {'x':'1450','y':'450','width':'22','height':'22','fill':'#b45a18'})
+        legend=ET.SubElement(inset, ns+'text', {'x':'1488','y':'474','font-size':'38','fill':'#242a26'})
+        legend.text='Inner Mongolia'
         inner = ''.join(ET.tostring(child, encoding='unicode') for child in root)
         return '<div class="map-panel">'+svg(inner, '0 180 1920 760')+'</div>', 'Straight-line city-reference distances • Natural Earth; GeoNames; Wikipedia • no campus pin'
     if number == 7:
         return big_words(['SemiAnalysis', 'Site visit: September 2026', 'Article: 7 November 2026'], True), 'Public preview only • paid implementation sections were not accessed'
     if number == 8:
-        return big_words(['GALAXY → Envision / China', 'STARGATE → OpenAI & partners / US'], True), 'Sources: SemiAnalysis; OpenAI, 21 Jan 2025 • separate projects'
-    if number in [9,10,11,12,13,29]:
-        return capacity({9:0,10:1,11:2,12:0,13:3,29:3}[number]), 'Source: SemiAnalysis, 7 Nov 2026 • 120 MW reported delivered; 800 MW IT planned'
+        return '<div class="brand-comparison"><div><div class="company-mark"><img src="assets/images/envision-wordmark.png" alt="Envision company wordmark" /></div><p class="project-name">GALAXY</p><p class="project-owner">Envision • China</p></div><div><div class="company-mark"><img src="assets/images/openai-wordmark.svg" alt="OpenAI company wordmark" /></div><p class="project-name">STARGATE</p><p class="project-owner">OpenAI &amp; partners • US</p></div></div>', 'Company marks shown for identification • sources: Envision; OpenAI • separate projects'
+    if number in [9,10,29]:
+        return capacity({9:0,10:1,29:3}[number]), 'Sources: SemiAnalysis, 7 Nov 2026; EIA, 2022 US household purchases • full-year comparison only'
+    if number in [11,12,13]:
+        return power_comparison({11:'homes',12:'stadiums',13:'ai'}[number]), {11:'Calculation: 800 MW × 8,760 hours ÷ EIA 2022 average • planned capacity, not measured use',12:'Source: Allianz Arena, Electrical Data • 800 ÷ 12 MW ≈ 67 • capacity comparison only',13:'100 MW computing-load assumption; scale context: IEA, Energy and AI (2025) • not observed Galaxy use'}[number]
     if number == 14:
         return photo('h100.png','ACCELERATORS','Memory + networking keep the chips supplied.', 'Illustrative H100: Geekerwan / CC BY 3.0 • not confirmed Galaxy equipment • fitted; watermark retained')
     if number == 15:
         return photo('racks.jpg','RACKS + COOLING','Electricity becomes computation and heat.', 'Illustrative racks: Carl Lender / CC BY 2.0 • not Galaxy equipment • fitted')
     if number == 16:
-        return big_words(['5 MW pilot', 'Inside the reported 120 MW phase'], True), 'Sources: SemiAnalysis; Envision, 2 Nov 2026 • pilot is a subset, not extra capacity'
+        return big_words(['5 MW pilot', 'About 4% of the reported 120 MW phase'], True), 'Sources: SemiAnalysis; Envision, 2 Nov 2026 • pilot is a subset, not extra capacity'
     if number == 17: return conversion(), 'Reported Galaxy pilot • sources: SemiAnalysis; Envision, 2 Nov 2026'
     if number in [18,19]: return current(number==19), 'Ideal DC example • fixed power and conductor resistance • not a total-site efficiency claim'
     if number == 20: return conversion(True), 'General power-conversion explanation • sources: NVIDIA; SemiAnalysis'
@@ -208,10 +255,10 @@ def scene(number):
     if number == 32:
         return big_words(['What is running today?', 'How is power balanced each hour?', 'What can measured results show?'], True), 'Questions for Lei Zhang and site engineers • no interview or answer is fabricated'
     if number == 34:
-        return '<div class="credits"><p>SemiAnalysis • “We Visited China’s Stargate in Inner Mongolia”</p><p>Everlyn Tan · Jeremie Eliahou Ontiveros · Xiaopeng Laoban · Dylan Patel</p><p>Published 7 Nov 2026 • unauthenticated public preview</p><p>Cross-checks: Envision releases · Epoch AI · NVIDIA · OpenAI · LSE</p></div>', 'Full source links, access dates and claim checks accompany the video in the research folder'
+        return '<div class="credits"><p>SemiAnalysis • “We Visited China’s Stargate in Inner Mongolia”</p><p>Everlyn Tan · Jeremie Eliahou Ontiveros · Xiaopeng Laoban · Dylan Patel</p><p>Published 7 Nov 2026 • unauthenticated public preview</p><p>Cross-checks: Envision · Epoch AI · NVIDIA · OpenAI · LSE</p><p>Power comparisons: US EIA (2022 data) · Allianz Arena · IEA (2025)</p></div>', 'Full source links, access dates and calculation inputs accompany the video in the research folder'
     if number == 35:
-        return '<div class="credits"><p>Wind: 天王星 / Wikimedia Commons / CC BY-SA 3.0</p><p>Racks: Carl Lender / Wikimedia Commons / CC BY 2.0</p><p>H100: 极客湾Geekerwan / Wikimedia Commons / CC BY 3.0</p><p>Map: original graphic; Natural Earth public-domain geography</p><p>Photo crops, fitting and motion are identified in the accompanying credits.</p></div>', 'creativecommons.org/licenses/by-sa/3.0 • /by/2.0 • /by/3.0'
-    return '<div class="credits"><p>Research, script and explanatory graphics: gian.cool</p><p>AI narration: Gemini TTS • Charon</p><p>Music: “Cylinder Eight” / Chris Zabriskie / CC BY 4.0</p><p>Research checked 7 November 2026</p><p>No on-site recording or interview is presented.</p><p>Capacity, chip inventory and measured efficiency retain the stated limits.</p></div>', 'Music from Cylinders (2014) • chriszabriskie.com • creativecommons.org/licenses/by/4.0/'
+        return '<div class="credits"><p>Wind: 天王星 / Wikimedia Commons / CC BY-SA 3.0</p><p>Lei Zhang photo: Ricardo Stuckert / PR, Lula Oficial / CC BY-SA 2.0</p><p>Racks: Carl Lender / Wikimedia Commons / CC BY 2.0</p><p>H100: 极客湾Geekerwan / Wikimedia Commons / CC BY 3.0</p><p>Map: original graphic; Natural Earth public-domain geography</p><p>Photo crops, fitting and motion are identified in the accompanying credits.</p></div>', 'creativecommons.org/licenses/by-sa/2.0 • /by-sa/3.0 • /by/2.0 • /by/3.0'
+    return '<div class="credits"><p>Research, script and explanatory graphics: gian.cool</p><p>AI narration: Gemini TTS • Charon • narration only</p><p>Envision and OpenAI company marks: editorial identification</p><p>Research checked 8 November 2026</p><p>No on-site recording or interview is presented.</p><p>Capacity, chip inventory and measured efficiency retain the stated limits.</p></div>', 'Research, brand sources and license links accompany this educational video'
 
 
 css = '''
@@ -234,7 +281,19 @@ svg{display:block;width:100%;height:100%;overflow:visible;font-family:Film,sans-
 .photo-copy .eyeline{font-size:29px;color:#a64d10;letter-spacing:3px;margin-bottom:35px}
 .photo-note{font-size:58px;line-height:1.25;font-weight:700;letter-spacing:-1px}
 .photo{width:100%;height:500px;object-fit:contain;background:#e8e6dc}
-.map-panel{position:absolute;left:0;top:-70px;width:1720px;height:605px}
+.founder{height:100%;display:grid;grid-template-columns:1fr 620px;gap:140px;align-items:center}
+.founder-name{font-size:106px;line-height:1.12;font-weight:700;letter-spacing:-3px;margin-bottom:30px}
+.founder-role{font-size:52px;line-height:1.2;color:#a64d10;font-weight:700;margin-bottom:28px}
+.founder-date{font-size:35px}
+.founder-photo{position:relative;width:620px;height:500px;overflow:hidden}
+.founder-photo img{position:absolute;width:200%;height:auto;left:-100%;top:-285px}
+.brand-comparison{height:100%;display:grid;grid-template-columns:1fr 1fr;gap:120px;text-align:center;align-items:center}
+.brand-comparison>div+div{border-left:3px solid #c9c9bd;padding-left:100px}
+.company-mark{height:140px;display:flex;align-items:center;justify-content:center;margin-bottom:42px}
+.company-mark img{width:370px;height:auto;max-height:110px;object-fit:contain}
+.project-name{font-size:81px;font-weight:700;letter-spacing:-2px;color:#a64d10;margin-bottom:28px}
+.project-owner{font-size:35px}
+.map-panel{position:absolute;left:0;top:-70px;width:1720px;height:590px}
 .map-panel svg{overflow:hidden}
 .credits{height:100%;display:flex;flex-direction:column;justify-content:center;gap:28px}
 .credits p{font-size:32px;line-height:1.35}
@@ -252,7 +311,7 @@ for i,shot in enumerate(shots):
     length=end-start
     body,credit=scene(n)
     chapter = 'ENERGY / AI' if n<34 else 'SOURCES / CREDITS'
-    hold = ' data-hold' if n in [4,7,8,16,27,28,31,32,34,35,36] else ''
+    hold = ' data-hold' if n in [4,7,8,11,12,13,16,17,27,28,31,32,34,35,36] else ''
     sections.append(f'''<section id="s{n:02}" class="clip scene s{n:02}" data-start="{start:.3f}" data-duration="{length:.3f}" data-track-index="1"{hold}>
       <div class="eyebrow">{chapter}</div><div class="date">7 NOV 2026</div>
       <h1>{esc(titles[i])}</h1><div class="content">{body}</div><p class="source">{esc(credit)}</p>
@@ -262,7 +321,7 @@ for i,shot in enumerate(shots):
     if 'rotor' in body:
         animations.append(f'tl.fromTo("#s{n:02} .rotor",{{attr:{{transform:"rotate(0 0 0)"}}}},{{attr:{{transform:"rotate({length*19:.2f} 0 0)"}},duration:{length:.3f},ease:"none"}},{start:.3f});')
     if 'electron' in body:
-        animations.append(f'tl.fromTo("#s{n:02} .electron",{{x:0}},{{x:1100,duration:{max(1,length-0.4):.3f},ease:"none"}},{start+0.2:.3f});')
+        animations.append(f'tl.fromTo("#s{n:02} .electron",{{x:0}},{{x:990,duration:{max(1,length-0.4):.3f},ease:"none"}},{start+0.2:.3f});')
     if 'wind-curve' in body:
         animations.append(f'tl.fromTo("#s{n:02} .wind-curve",{{strokeDasharray:2500,strokeDashoffset:2500}},{{strokeDashoffset:0,duration:{max(1,length-1):.3f},ease:"none"}},{start+0.3:.3f});')
     if 'battery-level' in body:
@@ -270,7 +329,7 @@ for i,shot in enumerate(shots):
         discharge=max(0.6,(length-0.8)*0.6)
         animations.append(f'tl.fromTo("#s{n:02} .battery-level",{{scaleY:0.3,transformOrigin:"center bottom"}},{{scaleY:0.95,duration:{charge:.3f},ease:"power1.inOut"}},{start+0.3:.3f});')
         animations.append(f'tl.fromTo("#s{n:02} .battery-level",{{scaleY:0.95,transformOrigin:"center bottom"}},{{scaleY:0.2,duration:{discharge:.3f},ease:"power1.inOut",immediateRender:false}},{start+0.3+charge:.3f});')
-    if n in [9,11]:
+    if n == 9:
         animations.append(f'tl.fromTo("#s{n:02} .capacity-fill",{{scaleX:0,transformOrigin:"left center"}},{{scaleX:1,duration:1.2,ease:"power3.out"}},{start+0.4:.3f});')
     if n in [1]:
         animations.append(f'tl.fromTo("#s{n:02} .photo",{{scale:1}},{{scale:1.035,duration:{length:.3f},ease:"none"}},{start:.3f});')
@@ -281,8 +340,6 @@ audio = ''
 if (FILM/'audio/narration.wav').exists():
     audio_duration=times['audio_duration_seconds'] if times else 198
     audio=f'<audio id="narration" class="clip" src="audio/narration.wav" data-start="0" data-duration="{audio_duration:.3f}" data-track-index="2" data-volume="1"></audio>'
-if (FILM/'audio/music.wav').exists():
-    audio+=f'<audio id="music" class="clip" src="audio/music.wav" data-start="0" data-duration="{duration:.3f}" data-track-index="3" data-volume="0.16"></audio>'
 
 (FILM/'compositions').mkdir(exist_ok=True)
 (FILM/'assets/film.css').write_text(css)
@@ -303,7 +360,8 @@ for name,first,last in chapters:
     scene_doc=f'''<template><link rel="stylesheet" href="assets/film.css"><style>#{name}{{position:absolute;inset:0;font-family:Film,sans-serif;color:#242a26}}</style>
 <div id="{name}" data-composition-id="{name}" data-width="1920" data-height="1080">{''.join(local)}</div>
 <script>const tl=gsap.timeline({{paused:true}});{''.join(local_tweens)}tl.set({{}},{{}},{length:.3f});window.__timelines=window.__timelines||{{}};window.__timelines['{name}']=tl;</script></template>'''
-    (FILM/f'compositions/{name}.html').write_text(scene_doc)
+    sequence = build_sequence(name, FILM, starts, ends, local, local_tweens)
+    (FILM/f'compositions/{name}.html').write_text(sequence or scene_doc)
     hosts.append(f'<div id="{name}" class="clip" data-composition-id="{name}" data-composition-src="compositions/{name}.html" data-start="{base:.3f}" data-duration="{length:.3f}" data-width="1920" data-height="1080" data-track-index="1" data-track-kind="graphics"></div>')
 caption_duration=starts[33]
 if times:
@@ -318,5 +376,9 @@ document=f'''<!doctype html>
 <script>const tl=gsap.timeline({{paused:true}});
 tl.set({{}},{{}}, {duration:.3f});window.__timelines=window.__timelines||{{}};window.__timelines.galaxy=tl;</script></body></html>'''
 (FILM/'index.html').write_text(document)
+motion_path=FILM/'index.motion.json'
+motion=json.loads(motion_path.read_text())
+motion['duration']=duration
+motion_path.write_text(json.dumps(motion, indent=2)+'\n')
 assert all(ends[i]>starts[i] for i in range(len(starts)))
 print(f'Built {len(shots)} shots, {duration:.3f} seconds, audio={bool(audio)}')

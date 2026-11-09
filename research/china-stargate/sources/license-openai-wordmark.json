@@ -1,0 +1,94 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "159146102": {
+        "pageid": 159146102,
+        "ns": 6,
+        "title": "File:OpenAI logo 2025 (wordmark).svg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 1799,
+            "width": 512,
+            "height": 138,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/OpenAI_logo_2025_%28wordmark%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:OpenAI_logo_2025_(wordmark).svg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=159146102",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-02-05 04:31:50",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "OpenAI logo 2025 (wordmark)",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "With trademark|PD textlogo|SVG text logos|OpenAI logos",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "<a href=\"https://en.wikipedia.org/wiki/OpenAI\" class=\"extiw\" title=\"w:OpenAI\">OpenAI</a>'s primary wordmark, in use since February 2025. The official <a rel=\"nofollow\" class=\"external text\" href=\"https://openai.com/brand/\">Design Guidelines</a> state that it should not be used with the Blossom.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2025-02-05",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://openai.com/brand/\">https://openai.com/brand/</a>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "OpenAI",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "Public domain",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Public domain",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Copyrighted": {
+                "value": "False",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "trademarked",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "pd",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
