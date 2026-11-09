@@ -1,5 +1,5 @@
 {
-  "status": "Motion review draft rendering; user validation pending",
+  "status": "Motion review draft verified; user validation pending",
   "created": "2026-11-07",
   "research_as_of": "2026-11-08",
   "skill": "/home/gianpaj/github/gianpaj/skills/video-story-generator/SKILL.md",
@@ -39,7 +39,7 @@
     ]
   },
   "scope": {
-    "current_phase": "Custom explanatory motion revision",
+    "current_phase": "540p motion draft ready for review",
     "production_actions_performed": [
       "Prepared a separate Gemini TTS performance transcript",
       "Generated one continuous narration take",
@@ -623,7 +623,7 @@
   ],
   "tts_preparation": "../../../plans/2026-11-07-china-stargate-video.md#separate-tts-preparation",
   "production": {
-    "status": "Motion review rendering",
+    "status": "Motion review draft verified; user validation pending",
     "duration_seconds": 223,
     "timing_file": "film/audio/timing.json",
     "output": "film/exports/galaxy-motion-draft-2026-11-09.mp4",

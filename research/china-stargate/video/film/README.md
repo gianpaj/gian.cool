@@ -2,7 +2,7 @@
 
 A 3:43 review cut about Envision's Galaxy campus, with an editable 16:9 project.
 The script is in [story_script.json](../story_script.json). HyperFrames 0.9.20
-keeps a 1920 × 1080 source and creates a separate 960 × 540, 15 fps draft for
+keeps a 1920 × 1080 source and creates a separate 960 × 540, 30 fps motion draft for
 user validation. The retained first export is 3:26 at 1080p.
 
 The revised Gemini narration is 203.32 seconds. The review cut is 223 seconds,
@@ -21,11 +21,13 @@ measured speech; six-second script units remain editorial references.
 - `scripts/prepare-draft.py` makes the ignored half-resolution review project.
 - `exports/galaxy-review-draft-2026-11-08.mp4` is the revised draft, excluded from Git.
 - `REVIEW-draft.md` and `verification-draft.json` record checks for that draft.
+- `sequences/` contains the custom scale, power/current and wind/storage timelines. `scripts/motion_sequences.py` inserts narration anchors into these templates.
+- `exports/galaxy-motion-draft-2026-11-09.mp4` is the motion revision for user review. Its evidence is in `REVIEW-motion.md` and `verification-motion.json`.
 
 The retained [first export](exports/galaxy-explained.mp4) is 16.6 MiB.
 [Its verification](verification.json) describes that file. It does not describe
 the revised narration or current composition. The
-[review draft](exports/galaxy-review-draft-2026-11-08.mp4) awaits user validation
+[motion draft](exports/galaxy-motion-draft-2026-11-09.mp4) awaits user validation
 before another delivery render.
 
 ## Reproduce
@@ -38,19 +40,25 @@ python3 scripts/generate-narration.py --key-file /path/to/private/gemini-key
 npx --yes hyperframes@0.9.20 transcribe audio/narration.wav --engine whisper --model small.en --language en --json
 python3 scripts/align-narration.py
 python3 scripts/build-film.py
-mkdir -p .hyperframes/tmp
-export TMPDIR="$PWD/.hyperframes/tmp"
+mkdir -p ~/.cache/agent-work/galaxy-motion
+export TMPDIR=~/.cache/agent-work/galaxy-motion
 npx --yes hyperframes@0.9.20 check --json
 python3 scripts/prepare-draft.py
 npx --yes hyperframes@0.9.20 snapshot .hyperframes/draft-project --frames 12 --no-browser-gpu --json
-npx --yes hyperframes@0.9.20 render .hyperframes/draft-project --quality draft --fps 15 --workers 1 --low-memory-mode --no-browser-gpu -o exports/galaxy-review-draft-2026-11-08.mp4
+npx --yes hyperframes@0.9.20 render .hyperframes/draft-project --quality draft --fps 30 --workers 1 --low-memory-mode --no-browser-gpu -o exports/galaxy-motion-draft-2026-11-09.mp4
 ```
 
 Asset preparation restores the image copies. The composition contains only the
-narration audio track. Project-local temporary storage avoids the system `/tmp`
+narration audio track. Disk-backed task temporary storage avoids the system `/tmp`
 quota that can close Chrome or fail the audio mix. Gemini generation is
 nondeterministic; another take changes timing and hashes. Existing generated
 audio can be reused without another API request.
+
+The motion draft reuses the 203.32-second narration. Its custom sequences reveal
+conversion stages, compute current while voltage changes, and integrate an
+illustrative wind surplus and shortfall into battery state. Assumptions are in
+[diagram-inputs.json](../../data/diagram-inputs.json). The 8 November draft is
+retained at 15 fps. Remove the task scratch folder after rendering.
 
 The speech workflow follows `~/.agents/skills/gemini-tts/SKILL.md` and its companion Prompting Guide. The local adapter uses the documented Gemini 3.8 `interactions` request because the skill's bundled helper uses preview-model fields. Sustained direction is in `speech_metadata.style`; three breaths and seven short pauses are inline vocal events. Performance tags do not enter captions.
 

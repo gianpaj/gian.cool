@@ -35,3 +35,11 @@ Power conversion reveals each stage in order. The constant 100 kW DC example ani
 The wind sequence uses a declared relative-generation profile and constant example load. Stored energy integrates generation minus load over the example interval. Charging, discharge direction and exhaustion follow that integral. The example assumes lossless storage, omits power limits and introduces no Galaxy capacity or reliability measurements. One timeline clock drives the state for deterministic seeking.
 
 The user's editor changes to opening-photo cropping and caption visibility are preserved in place and checkpointed under `.hyperframes/checkpoints/motion-review`. They are excluded from this revision's commits. The 203.32-second narration is reused, with staged actions placed at its existing sentence anchors. The 223-second duration stays within the approved 3–4 minute format.
+
+The motion derivative uses 960 × 540 at 30 fps so review retains the source motion cadence. Disk-backed scratch lives under `~/.cache/agent-work/galaxy-motion` and is removed after verification. The prior 15 fps review export remains a separate file.
+
+Custom chapter roots use `id="root"` with inline root styles, matching the pinned compiler's scoping contract. A root class selector fails its lint gate. Shared descendant styles remain in `assets/motion.css`. The final gate passes runtime, layout, motion, contrast and audio. It retains four chapter-density warnings, one generic GSAP proxy baseline warning across separate model objects, and five reading holds in the map, hardware inserts and reporting-question cards.
+
+The energy clock resets generation-flow width and rack-light state before the storage explanation. Direct seeking to 140 seconds and seeking there backwards from 165.8 seconds produce identical pixels. The full motion draft is rendered after this check.
+
+The verified motion export is `exports/galaxy-motion-draft-2026-11-09.mp4`, 960 × 540, 30 fps and 223 seconds. It contains 6,690 frames and 8,757,707 bytes. Rendering took 275.3 seconds. Eighteen decoded frames cover the staged explanations and credits. Audio measures −14.2 LUFS and −1.0 dBTP. `verification-motion.json` and `REVIEW-motion.md` describe this file. User validation remains pending.

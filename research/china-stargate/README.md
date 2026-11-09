@@ -2,11 +2,11 @@
 
 Research, imagery and a 3:43 educational news review cut. Research dates:
 7–8 November 2026. The revised
-[540p draft](video/film/exports/galaxy-review-draft-2026-11-08.mp4) is for user
+[540p motion draft](video/film/exports/galaxy-motion-draft-2026-11-09.mp4) is for user
 validation: narration only, Lei Zhang photograph, corrected turbine, familiar
 power comparisons, company marks and a clearer map inset. The
 [editable project](video/film/README.md), [credits](video/film/CREDITS.md) and
-[draft review](video/film/REVIEW-draft.md) accompany it. Generated audio and exports
+[motion review](video/film/REVIEW-motion.md) accompany it. It adds staged power conversion, changing voltage and current, and a wind/battery balance example at 30 fps. Generated audio and exports
 are excluded from Git. The [first 1080p export](video/film/exports/galaxy-explained.mp4)
 and [its review](video/film/REVIEW.md) are retained separately.
 

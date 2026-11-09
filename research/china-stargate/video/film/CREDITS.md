@@ -1,6 +1,7 @@
 # Video credits
 
 These credits accompany `exports/galaxy-review-draft-2026-11-08.mp4`.
+They also accompany `exports/galaxy-motion-draft-2026-11-09.mp4`, which adds original animated scale, conversion, current and wind/storage explanations. Model assumptions and derived figures are recorded in [diagram inputs](../../data/diagram-inputs.json).
 Research dates: 7–8 November 2026. The music entry below applies only to the
 retained first export, `exports/galaxy-explained.mp4`.
 
