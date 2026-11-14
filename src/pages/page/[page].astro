@@ -1,0 +1,23 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { getCollection } from "astro:content";
+import BlogIndex from "../../components/BlogIndex.astro";
+import { BLOG_PAGE_SIZE, getPublishedPosts } from "../../utils/blog-posts";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = getPublishedPosts(await getCollection("blog"));
+  return paginate(posts, { pageSize: BLOG_PAGE_SIZE })
+    .filter(({ props }) => props.page.currentPage > 1);
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page } = Astro.props;
+---
+
+<BlogIndex
+  posts={page.data}
+  currentPage={page.currentPage}
+  lastPage={page.lastPage}
+  newerUrl={page.currentPage === 2 ? "/" : page.url.prev}
+  olderUrl={page.url.next}
+/>
