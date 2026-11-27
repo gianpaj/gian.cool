@@ -1,20 +1,20 @@
 # Product Marketing Context
 
-**Document version:** v2
-**Last updated:** 2026-11-02
+**Document version:** v3
+**Last updated:** 2026-11-27
 
 ## Product Overview
 
-**One-liner:** Gianfranco Palumbo (`gian.cool`) — personal engineering blog, AI benchmark analysis, and build logs on AI, Voice AI, coding agents, and robotics experiments from a software developer in Málaga, Spain.
-**What it does:** `gian.cool` is Gianfranco's digital home for short, straight-to-the-point write-ups on building software with coding agents (Claude Code, Codex, T3 Code), Voice AI, LLM coding benchmarks, hardware/robotics tinkering, and products/open-source tools he ships (including HolaBrisa, SexyVoice.ai, AgentCaller.io, WakeBridge, and 3dvibegame.com).
+**One-liner:** Gianfranco Palumbo (`gian.cool`) — personal engineering blog, AI benchmark analysis, and build logs on AI, Voice AI, coding agents, and robotics experiments from a software developer in Madrid, Spain.
+**What it does:** `gian.cool` is Gianfranco's digital home for short, straight-to-the-point write-ups on building software with coding agents (Claude Code, Codex, T3 Code), Voice AI, LLM coding benchmarks, hardware/robotics tinkering, and products/open-source tools he ships (including holaBrisa, SexyVoice.ai, AgentCaller.io, WakeBridge, and 3dvibegame.com). It also has an About page (`/about`) with his story: 14 years building products, ex-MongoDB, co-founder of holaBrisa, freelance for MoveFlux, now focused on making AI agents reliable inside real businesses.
 **Product category:** Personal developer brand / AI, Voice AI & builder blog
 **Product type:** Personal website, technical microblog, and launchpad for open-source tools & indie SaaS products
-**Business model:** Free, open technical content and open-source repos that connect Gianfranco with peers, help learners navigate fast-moving AI tools, and create organic awareness for his commercial projects (HolaBrisa, SexyVoice.ai, AgentCaller.io).
+**Business model:** Free, open technical content and open-source repos that connect Gianfranco with peers, help learners navigate fast-moving AI tools, and create organic awareness for his commercial projects (holaBrisa, SexyVoice.ai, AgentCaller.io).
 
 ## Target Audience
 
 **Target companies:** Builders, startups, indie hackers, students/learners, and engineering teams exploring AI agents, Voice AI, and robotics.
-**Decision-makers:** Software developers, Voice AI builders, robotics tinkerers, indie founders, and curious learners trying to keep up with fast-moving AI tooling.
+**Decision-makers:** Software developers, Voice AI builders, robotics tinkerers, indie founders, and curious learners trying to keep up with fast-moving AI tooling. Secondary audience: hiring managers and recruiters for Forward Deployed, Applied AI, and voice/conversational AI engineering roles, who land on the About page from LinkedIn or a CV.
 **Primary use case:** Learning practical, tested ways to build things with AI/Voice AI/hardware in plain English, without wading through long-winded fluff or vendor hype.
 **Jobs to be done:**
 
@@ -99,7 +99,7 @@
 | Concrete receipts              | Exact numbers, euro prices, wattages, model names, and benchmark percentages over adjectives                                   | Walls of academic prose without a clear takeaway                | "Paid €970 second hand in May 2026 on Wallapop in Seville."                                                                                        |
 | Helpful & inspiring builder    | Encourages learners ("students") and peers to try unfamiliar stacks (3D, Android, Go, robotics) and shares the scripts openly  | Preachy guru talk or fake motivational quotes                   | "I've never done a game and neither a 3d game or even a multi-player game... I thought I'd give it a go with the help of Codex and similar tools." |
 | Methodologically honest        | Combines vendor charts side-by-side and flags caveats (benchmark harnesses, unmeasured PSU losses); admits what he didn't know | Cynical or dismissive of AI progress                            | "When companies benchmark in isolation, you only see their angle. Putting the numbers side by side tells a different story."                       |
-| Light, friendly humor          | Occasional `:D` or `:)` and real-life details (walking the dog, Málaga heat)                                                   | Forced memes, emoji bullet lists, or long dramatic buildup      | "Except for when Codex on the RTX machine decided to install all the Android SDK tooling to build on Ubuntu :D"                                    |
+| Light, friendly humor          | Occasional `:D` or `:)` and real-life details (walking the dog, Madrid heat)                                                   | Forced memes, emoji bullet lists, or long dramatic buildup      | "Except for when Codex on the RTX machine decided to install all the Android SDK tooling to build on Ubuntu :D"                                    |
 
 **Tone by context:**
 
@@ -107,8 +107,8 @@
 - Teaching & career posts (`gian.cool` & social): Clear metaphors (e.g., supervising self-driving trucks), reassuring and practical for people learning in a fast-moving AI world.
 - Benchmark posts (`gian.cool`): Crisp, neutral, data-first; lead with the chart and table, followed by a plain-English "word of caution."
 - Social (X & LinkedIn): Straight to the point, simple words, happy to use proven hook/structure tactics when they help reach more learners and spark discussions with AI, Voice AI, and robotics peers. Zero em dashes or AI contrast reveals.
-- Product launches (HolaBrisa, SexyVoice.ai, AgentCaller.io): Plain problem framing, concrete everyday examples, honest about current stage.
-  **Terms we own:** `gian.cool`, WakeBridge, AgentCaller, SexyVoice.ai, HolaBrisa.
+- Product launches (holaBrisa, SexyVoice.ai, AgentCaller.io): Plain problem framing, concrete everyday examples, honest about current stage.
+  **Terms we own:** `gian.cool`, WakeBridge, AgentCaller, SexyVoice.ai, holaBrisa.
   **Never use (and why):**
 - Long-winded backstory before getting to the point (breaks Gianfranco's natural concise style).
 - Complex jargon where a simple word works (keeps posts welcoming for students/learners and fast to read for peers).
@@ -120,7 +120,7 @@
 
 **Metrics & shipped artifacts:**
 
-- Commercial startups & Voice AI / AI products: [HolaBrisa](https://holabrisa.com), [SexyVoice.ai](https://sexyvoice.ai) (realistic TTS & AI voice generator), [AgentCaller.io](https://agentcaller.io) (phone execution layer for AI agents).
+- Commercial startups & Voice AI / AI products: [holaBrisa](https://holabrisa.com), [SexyVoice.ai](https://sexyvoice.ai) (realistic TTS & AI voice generator), [AgentCaller.io](https://agentcaller.io) (phone execution layer for AI agents).
 - Open-source projects on [GitHub (`@gianpaj`)](https://github.com/gianpaj): WakeBridge, 3dvibegame, AudioSlim, Ubuntu `autosuspend` scripts, interactive Terminal-Bench comparison charts.
   **Value themes:**
   | Theme | Proof | |-------|-------|
@@ -134,7 +134,7 @@
 
 1. **Connect with peers:** Meet and talk with thoughtful people online building in **AI**, **Voice AI**, and **robotics** (where Gianfranco is actively playing and learning).
 2. **Teach & inspire learners:** Reach and help more "students" and builders make sense of fast-moving AI tools through clear, practical examples.
-3. **Portfolio halo:** Maintain organic developer awareness around `gian.cool`, open-source repos, and commercial projects (HolaBrisa, SexyVoice.ai, AgentCaller.io).
+3. **Portfolio halo:** Maintain organic developer awareness around `gian.cool`, open-source repos, and commercial projects (holaBrisa, SexyVoice.ai, AgentCaller.io).
    **Conversion action:** Reply/DM to discuss AI, Voice AI, or robotics; follow `@gianpaj` on X / LinkedIn; read `gian.cool` or clone/star a GitHub repo to try it themselves.
    **Current metrics:** Quality of replies/DMs and new peer connections, saves/bookmarks/DM-shares from learners, follower growth, and referral traffic to `gian.cool`.
 
@@ -151,5 +151,6 @@ _Decisions and tested lessons. Newest first. Keep it to about 20 active entries.
 
 _Newest first. One line per revision: what changed and why._
 
+- v3 (2026-11-27) — Location is Madrid; spelled holaBrisa; added the About page and hiring managers/recruiters for FDE and Applied AI roles as a secondary audience.
 - v2 (2026-11-02) — Updated Goals, Target Audience, and Brand Voice to emphasize connecting with AI/Voice AI/robotics peers, inspiring and helping learners, and keeping wording simple and straight to the point without long-winded stories.
 - v1 (2026-11-02) — Initial context auto-drafted from `gian.cool` codebase, `README.md`, and published blog posts, plus `.agents/voice/gianfranco.md`.

@@ -4,8 +4,9 @@ Read this alongside `.agents/product-marketing.md` and apply the `unslop` rules 
 
 ## Identity & Mission
 
-- Software Engineer living in Málaga, Spain.
-- Builds web, and Voice AI / agentic apps (HolaBrisa, SexyVoice.ai, AgentCaller.io) + open-source tools on GitHub (`@gianpaj`), and tinkers/learns around hardware & robotics.
+- Software Engineer living in Madrid, Spain.
+- 14 years building products. Started at MongoDB in Dublin, co-founded holaBrisa (voice, email and WhatsApp assistant for independent hotels), freelances for MoveFlux (a small digital agency). Most interested in making AI agents reliable inside real businesses, and looking for Forward Deployed or Applied AI roles. Canonical story: `src/pages/about.astro`.
+- Builds web, and Voice AI / agentic apps (holaBrisa, SexyVoice.ai, AgentCaller.io) + open-source tools on GitHub (`@gianpaj`), and tinkers/learns around hardware & robotics.
 - **Why he posts:** To connect with cool people in AI, Voice AI, and robotics to learn from each other, and to help/inspire learners and young engineers trying to navigate a fast-moving AI world.
 
 ## Core Writing Rule: Plain, Literal Prose (`unslop`)
@@ -24,7 +25,7 @@ Read this alongside `.agents/product-marketing.md` and apply the `unslop` rules 
 
 - First-person singular (`"I"`, `"my"`), friendly and peer-to-peer.
 - Natural contractions (`"I've"`, `"don't"`, `"it's"`).
-- Concrete numbers, specs, and local details (`€970`, `€7 a month`, `60W`, `5 seconds`, `Jetson Nano`, `Malaga`).
+- Concrete numbers, specs, and local details (`€970`, `€7 a month`, `60W`, `5 seconds`, `Jetson Nano`, `Madrid`).
 - Occasional `:D` on a funny build moment; no decorative emojis.
 
 ## Things Gianfranco Never Says
