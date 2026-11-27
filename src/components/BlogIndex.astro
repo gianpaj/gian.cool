@@ -15,7 +15,7 @@ interface Props {
 
 const { posts, currentPage, lastPage, newerUrl, olderUrl } = Astro.props;
 const title = currentPage === 1
-  ? "Gianfranco's Blog - gian.cool"
+  ? "Gianfranco Palumbo | Code, side projects and DJ mixes"
   : `Page ${currentPage} — Gianfranco's Blog - gian.cool`;
 const postsWithContent = await Promise.all(
   posts.map(async (post) => {
