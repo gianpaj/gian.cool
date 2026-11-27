@@ -45,13 +45,33 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     class="bg-cream text-ink dark:bg-dark-bg dark:text-dark-text font-sans antialiased transition-colors duration-300"
   >
     <div class="min-h-screen flex flex-col">
-      <main class="flex-1 w-full max-w-2xl mx-auto px-6 py-12 md:py-20">
+      <header class="w-full max-w-2xl mx-auto px-6 pt-12 md:pt-20">
+        <nav class="flex flex-wrap gap-x-5 gap-y-1 text-sm" aria-label="Site">
+          <a
+            href="/"
+            class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
+            >Blog</a
+          >
+          <a
+            href="/about"
+            class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
+            >About</a
+          >
+        </nav>
+      </header>
+
+      <main class="flex-1 w-full max-w-2xl mx-auto px-6 pt-8 pb-12 md:pb-20">
         <slot />
       </main>
 
       <footer class="w-full max-w-2xl mx-auto px-6 pb-10">
         <div class="border-t border-border dark:border-dark-border pt-6 space-y-4">
           <nav class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+            <a
+              href="/about"
+              class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
+              >About</a
+            >
             <a
               href="/dj-mixes"
               class="text-muted dark:text-dark-muted hover:text-ink dark:hover:text-dark-text transition-colors"
